@@ -88,6 +88,11 @@ export default function SearchScreen() {
             Filters{activeCount > 0 ? ` (${activeCount})` : ""}
           </Text>
         </Pressable>
+        {activeCount > 0 && (
+          <Pressable style={styles.clearButton} onPress={() => setFilters({})}>
+            <Text style={styles.clearButtonText}>Clear ✕</Text>
+          </Pressable>
+        )}
       </View>
 
       <View style={styles.sortRow}>
@@ -207,6 +212,17 @@ const styles = StyleSheet.create({
   },
   filterButtonText: {
     color: "#7fd1ff",
+    fontSize: 15,
+    fontWeight: "bold",
+  },
+  clearButton: {
+    backgroundColor: "#13314a",
+    borderRadius: 10,
+    paddingHorizontal: 14,
+    justifyContent: "center",
+  },
+  clearButtonText: {
+    color: "#ff8080",
     fontSize: 15,
     fontWeight: "bold",
   },
