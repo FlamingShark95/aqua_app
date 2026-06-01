@@ -11,6 +11,7 @@ import { Fish } from "./fishData";
 import { useTanks } from "./TankContext";
 import { useUnits } from "./UnitContext";
 import { FishDetailImage } from "./FishDetailImage";
+import { previewFishInTank } from "./rules";
 import {
   availabilityBadge,
   Badge,
@@ -124,35 +125,50 @@ export default function FishDetailScreen({
         <View style={styles.card}>
           {tanks.map((tank, i) => {
             const count = tank.stock.filter((f) => f.id === fish.id).length;
+            // Advisory only — this never gates the +/- counter below.
+            const issues = previewFishInTank(fish, tank, system);
             return (
               <View
                 key={tank.id}
                 style={[
-                  styles.tankRow,
+                  styles.tankEntry,
                   i < tanks.length - 1 && styles.factDivider,
                 ]}
               >
-                <View style={styles.tankRowText}>
-                  <Text style={styles.tankRowName}>{tank.name}</Text>
-                  <Text style={styles.tankRowMeta}>
-                    {count > 0 ? `${count} in this tank` : "none yet"}
-                  </Text>
+                <View style={styles.tankRow}>
+                  <View style={styles.tankRowText}>
+                    <Text style={styles.tankRowName}>{tank.name}</Text>
+                    <Text style={styles.tankRowMeta}>
+                      {count > 0 ? `${count} in this tank` : "none yet"}
+                    </Text>
+                  </View>
+                  <View style={styles.counter}>
+                    <Pressable
+                      style={styles.counterButton}
+                      onPress={() => removeFishFromTank(tank.id, fish)}
+                    >
+                      <Text style={styles.counterButtonText}>−</Text>
+                    </Pressable>
+                    <Text style={styles.countText}>{count}</Text>
+                    <Pressable
+                      style={styles.counterButton}
+                      onPress={() => addFishToTank(tank.id, fish)}
+                    >
+                      <Text style={styles.counterButtonText}>+</Text>
+                    </Pressable>
+                  </View>
                 </View>
-                <View style={styles.counter}>
-                  <Pressable
-                    style={styles.counterButton}
-                    onPress={() => removeFishFromTank(tank.id, fish)}
-                  >
-                    <Text style={styles.counterButtonText}>−</Text>
-                  </Pressable>
-                  <Text style={styles.countText}>{count}</Text>
-                  <Pressable
-                    style={styles.counterButton}
-                    onPress={() => addFishToTank(tank.id, fish)}
-                  >
-                    <Text style={styles.counterButtonText}>+</Text>
-                  </Pressable>
-                </View>
+                {issues.length === 0 ? (
+                  <Text style={styles.fitGood}>✓ Good fit for this tank</Text>
+                ) : (
+                  <View style={styles.fitBad}>
+                    {issues.map((issue, j) => (
+                      <Text key={j} style={styles.fitBadText}>
+                        ⚠ {issue}
+                      </Text>
+                    ))}
+                  </View>
+                )}
               </View>
             );
           })}
@@ -273,11 +289,30 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: "bold",
   },
+  tankEntry: {
+    paddingVertical: 12,
+  },
   tankRow: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    paddingVertical: 12,
+  },
+  fitGood: {
+    color: "#2a7",
+    fontSize: 13,
+    fontWeight: "600",
+    marginTop: 8,
+  },
+  fitBad: {
+    marginTop: 8,
+    backgroundColor: "#5a1a1a",
+    borderRadius: 8,
+    padding: 10,
+  },
+  fitBadText: {
+    color: "#ffb3b3",
+    fontSize: 13,
+    paddingVertical: 2,
   },
   tankRowText: {
     flex: 1,
