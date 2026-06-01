@@ -220,12 +220,12 @@ const styles = StyleSheet.create({
     marginTop: -2,
   },
   gallery: {
-    height: 190,
+    height: SLIDE_WIDTH,
     marginBottom: 16,
   },
   slide: {
     width: SLIDE_WIDTH,
-    height: 190,
+    height: SLIDE_WIDTH,
     borderRadius: 18,
   },
   dots: {
