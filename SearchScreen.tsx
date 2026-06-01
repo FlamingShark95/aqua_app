@@ -10,7 +10,7 @@ import {
 import { AVAILABLE_FISH, Fish } from "./fishData";
 import { FishThumbnail } from "./FishThumbnail";
 import { COLORS } from "./fishDisplay";
-import FishDetailScreen from "./FishDetailScreen";
+import { useNav } from "./NavContext";
 import { FilterSheet } from "./FilterSheet";
 import {
   countActiveFilters,
@@ -22,22 +22,12 @@ import { useUnits } from "./UnitContext";
 
 export default function SearchScreen() {
   const [query, setQuery] = useState("");
-  const [selectedFish, setSelectedFish] = useState<Fish | null>(null);
   const [filters, setFilters] = useState<SelectedFilters>({});
   const [showFilters, setShowFilters] = useState(false);
   const [sortId, setSortId] = useState<SortId>("name");
   const [sortDir, setSortDir] = useState<"asc" | "desc">("asc");
   const { system } = useUnits();
-
-  // Tapping a row opens the detail page; back returns to the list.
-  if (selectedFish) {
-    return (
-      <FishDetailScreen
-        fish={selectedFish}
-        onBack={() => setSelectedFish(null)}
-      />
-    );
-  }
+  const { openFish } = useNav();
 
   // Name prefix match AND every active filter category.
   const filteredFish = AVAILABLE_FISH.filter(
@@ -136,7 +126,7 @@ export default function SearchScreen() {
               <Pressable
                 key={fish.id}
                 style={styles.row}
-                onPress={() => setSelectedFish(fish)}
+                onPress={() => openFish(fish)}
               >
                 <FishThumbnail
                   source={fish.images?.[0]}

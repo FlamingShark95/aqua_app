@@ -6,6 +6,7 @@ import { useUnits } from "./UnitContext";
 import { checkTank, groupBySpecies } from "./rules";
 import { FishThumbnail } from "./FishThumbnail";
 import { COLORS } from "./fishDisplay";
+import { useNav } from "./NavContext";
 import {
   formatLength,
   formatTemp,
@@ -35,6 +36,7 @@ export function TankCard({ tank }: { tank: Tank }) {
     removeFishFromTank,
   } = useTanks();
   const { system } = useUnits();
+  const { openFish } = useNav();
   const labels = unitLabels(system);
 
   const isActive = tank.id === activeTankId;
@@ -175,16 +177,21 @@ export function TankCard({ tank }: { tank: Tank }) {
 
           {groups.map((g) => (
             <View key={g.fish.id} style={styles.stockRow}>
-              <FishThumbnail
-                source={g.fish.images?.[0]}
-                style={styles.stockThumb}
-              />
-              <View style={styles.stockInfo}>
-                <Text style={styles.stockName}>{g.fish.commonName}</Text>
-                <Text style={styles.stockMeta}>
-                  {formatLength(g.fish.adultSizeCm, system)}
-                </Text>
-              </View>
+              <Pressable
+                style={styles.stockTap}
+                onPress={() => openFish(g.fish)}
+              >
+                <FishThumbnail
+                  source={g.fish.images?.[0]}
+                  style={styles.stockThumb}
+                />
+                <View style={styles.stockInfo}>
+                  <Text style={styles.stockName}>{g.fish.commonName}</Text>
+                  <Text style={styles.stockMeta}>
+                    {formatLength(g.fish.adultSizeCm, system)}
+                  </Text>
+                </View>
+              </Pressable>
               <View style={styles.counter}>
                 <Pressable
                   style={styles.counterButton}
@@ -318,6 +325,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     paddingVertical: 6,
+  },
+  stockTap: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    // Dead gap before the +/- counter so aiming for "−" doesn't open details.
+    marginRight: 18,
   },
   stockThumb: {
     width: 44,
