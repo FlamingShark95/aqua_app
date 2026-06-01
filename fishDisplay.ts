@@ -12,20 +12,20 @@ export const COLORS = {
 
 export type Badge = { text: string; color: string };
 
-const careMap: Record<Fish["careLevel"], Badge> = {
+export const careMap: Record<Fish["careLevel"], Badge> = {
   beginner: { text: "Easy", color: COLORS.green },
   intermediate: { text: "Moderate", color: COLORS.yellow },
   advanced: { text: "Advanced", color: COLORS.orange },
 };
 
-const temperamentMap: Record<Fish["temperament"], Badge> = {
+export const temperamentMap: Record<Fish["temperament"], Badge> = {
   peaceful: { text: "Peaceful", color: COLORS.green },
   semi: { text: "Mostly Peaceful", color: COLORS.yellow },
   aggressive: { text: "Aggressive", color: COLORS.orange },
   predatory: { text: "Predatory", color: COLORS.red },
 };
 
-const dietMap: Record<Fish["diet"], Badge> = {
+export const dietMap: Record<Fish["diet"], Badge> = {
   herbivore: { text: "Herbivore", color: COLORS.green },
   omnivore: { text: "Omnivore", color: COLORS.yellow },
   carnivore: { text: "Carnivore", color: COLORS.orange },

@@ -11,10 +11,23 @@ import { AVAILABLE_FISH, Fish } from "./fishData";
 import { FishThumbnail } from "./FishThumbnail";
 import { COLORS } from "./fishDisplay";
 import FishDetailScreen from "./FishDetailScreen";
+import { FilterSheet } from "./FilterSheet";
+import {
+  countActiveFilters,
+  matchesFilters,
+  SelectedFilters,
+} from "./fishFilters";
+import { SORT_MODES, SortId } from "./fishSort";
+import { useUnits } from "./UnitContext";
 
 export default function SearchScreen() {
   const [query, setQuery] = useState("");
   const [selectedFish, setSelectedFish] = useState<Fish | null>(null);
+  const [filters, setFilters] = useState<SelectedFilters>({});
+  const [showFilters, setShowFilters] = useState(false);
+  const [sortId, setSortId] = useState<SortId>("name");
+  const [sortDir, setSortDir] = useState<"asc" | "desc">("asc");
+  const { system } = useUnits();
 
   // Tapping a row opens the detail page; back returns to the list.
   if (selectedFish) {
@@ -26,45 +39,94 @@ export default function SearchScreen() {
     );
   }
 
-  const filteredFish = AVAILABLE_FISH.filter((fish) =>
-    fish.commonName.toLowerCase().startsWith(query.trim().toLowerCase())
+  // Name prefix match AND every active filter category.
+  const filteredFish = AVAILABLE_FISH.filter(
+    (fish) =>
+      fish.commonName.toLowerCase().startsWith(query.trim().toLowerCase()) &&
+      matchesFilters(fish, filters)
   );
+  const activeCount = countActiveFilters(filters);
 
-  // Sort alphabetically, then group into sections by first letter. Because the
-  // list is sorted first, fish sharing a letter land next to each other, so we
-  // only ever need to look at the last section while grouping.
+  // Sort by the active mode, then group into sections by that mode's key.
+  // Because the list is sorted first, fish sharing a key land next to each
+  // other, so we only ever need to look at the last section while grouping.
+  const sortMode = SORT_MODES.find((m) => m.id === sortId) ?? SORT_MODES[0];
   const sections = [...filteredFish]
-    .sort((a, b) => a.commonName.localeCompare(b.commonName))
-    .reduce<{ letter: string; fish: Fish[] }[]>((acc, fish) => {
-      const letter = fish.commonName.charAt(0).toUpperCase();
+    .sort((a, b) =>
+      sortDir === "asc" ? sortMode.compare(a, b) : -sortMode.compare(a, b)
+    )
+    .reduce<{ key: string; fish: Fish[] }[]>((acc, fish) => {
+      const key = sortMode.sectionKey(fish);
       const last = acc[acc.length - 1];
-      if (last && last.letter === letter) last.fish.push(fish);
-      else acc.push({ letter, fish: [fish] });
+      if (last && last.key === key) last.fish.push(fish);
+      else acc.push({ key, fish: [fish] });
       return acc;
     }, []);
 
   return (
+    <>
     <ScrollView style={styles.screen} contentContainerStyle={styles.content}>
       <Text style={styles.title}>Fish</Text>
       <Text style={styles.banner}>
         Tap a fish for details, then add it to any of your tanks.
       </Text>
 
-      <TextInput
-        style={styles.search}
-        placeholder="Search fish..."
-        placeholderTextColor="#88a"
-        value={query}
-        onChangeText={setQuery}
-        autoCorrect={false}
-      />
+      <View style={styles.searchRow}>
+        <TextInput
+          style={styles.search}
+          placeholder="Search fish..."
+          placeholderTextColor="#88a"
+          value={query}
+          onChangeText={setQuery}
+          autoCorrect={false}
+        />
+        <Pressable
+          style={styles.filterButton}
+          onPress={() => setShowFilters(true)}
+        >
+          <Text style={styles.filterButtonText}>
+            Filters{activeCount > 0 ? ` (${activeCount})` : ""}
+          </Text>
+        </Pressable>
+      </View>
+
+      <View style={styles.sortRow}>
+        <Text style={styles.sortLabel}>Sort</Text>
+        {SORT_MODES.map((mode) => {
+          const active = mode.id === sortId;
+          return (
+            <Pressable
+              key={mode.id}
+              style={[styles.sortChip, active && styles.sortChipActive]}
+              onPress={() => {
+                if (active) {
+                  setSortDir((d) => (d === "asc" ? "desc" : "asc"));
+                } else {
+                  setSortId(mode.id);
+                  setSortDir("asc");
+                }
+              }}
+            >
+              <Text
+                style={[
+                  styles.sortChipText,
+                  active && styles.sortChipTextActive,
+                ]}
+              >
+                {mode.label}
+                {active ? (sortDir === "asc" ? " ↑" : " ↓") : ""}
+              </Text>
+            </Pressable>
+          );
+        })}
+      </View>
 
       {filteredFish.length === 0 ? (
         <Text style={styles.noResults}>No fish found</Text>
       ) : (
         sections.map((section) => (
-          <View key={section.letter}>
-            <Text style={styles.sectionHeader}>{section.letter}</Text>
+          <View key={section.key}>
+            <Text style={styles.sectionHeader}>{section.key}</Text>
             {section.fish.map((fish) => (
               <Pressable
                 key={fish.id}
@@ -86,6 +148,15 @@ export default function SearchScreen() {
         ))
       )}
     </ScrollView>
+    <FilterSheet
+      visible={showFilters}
+      filters={filters}
+      onChange={setFilters}
+      onClose={() => setShowFilters(false)}
+      resultCount={filteredFish.length}
+      system={system}
+    />
+    </>
   );
 }
 
@@ -114,14 +185,62 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold",
   },
+  searchRow: {
+    flexDirection: "row",
+    gap: 8,
+    marginBottom: 8,
+  },
   search: {
+    flex: 1,
     backgroundColor: "#13314a",
     color: "white",
     fontSize: 16,
     paddingVertical: 12,
     paddingHorizontal: 14,
     borderRadius: 10,
+  },
+  filterButton: {
+    backgroundColor: "#13314a",
+    borderRadius: 10,
+    paddingHorizontal: 16,
+    justifyContent: "center",
+  },
+  filterButtonText: {
+    color: "#7fd1ff",
+    fontSize: 15,
+    fontWeight: "bold",
+  },
+  sortRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    flexWrap: "wrap",
+    gap: 8,
     marginBottom: 8,
+  },
+  sortLabel: {
+    color: COLORS.muted,
+    fontSize: 13,
+    fontWeight: "bold",
+    marginRight: 2,
+  },
+  sortChip: {
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: "#2c4a63",
+  },
+  sortChipActive: {
+    backgroundColor: "#2a7",
+    borderColor: "#2a7",
+  },
+  sortChipText: {
+    color: COLORS.muted,
+    fontSize: 13,
+    fontWeight: "600",
+  },
+  sortChipTextActive: {
+    color: "white",
   },
   noResults: {
     color: "#88a",

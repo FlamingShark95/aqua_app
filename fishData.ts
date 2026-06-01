@@ -96,7 +96,7 @@ export const AVAILABLE_FISH: Fish[] = [
     tempMaxC: 28,
     phMin: 6.8,
     phMax: 7.0,
-    origin: "Native to the Amazon River basin in South America.",
+    origin: "Amazon",
     careLevel: "beginner",
     rarity: "common",
     priceRange: "$$",
