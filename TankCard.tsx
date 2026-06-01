@@ -4,6 +4,8 @@ import { Tank } from "./fishData";
 import { useTanks } from "./TankContext";
 import { useUnits } from "./UnitContext";
 import { checkTank, groupBySpecies } from "./rules";
+import { FishThumbnail } from "./FishThumbnail";
+import { COLORS } from "./fishDisplay";
 import {
   formatLength,
   formatTemp,
@@ -24,13 +26,25 @@ const num = (s: string) => {
 };
 
 export function TankCard({ tank }: { tank: Tank }) {
-  const { activeTankId, setActiveTankId, updateTank, deleteTank } = useTanks();
+  const {
+    activeTankId,
+    setActiveTankId,
+    updateTank,
+    deleteTank,
+    addFishToTank,
+    removeFishFromTank,
+  } = useTanks();
   const { system } = useUnits();
   const labels = unitLabels(system);
 
   const isActive = tank.id === activeTankId;
   const groups = groupBySpecies(tank.stock);
   const warnings = checkTank(tank, system);
+
+  // Bioload: rough "1 cm of adult fish per litre" rule (matches checkTank).
+  const totalAdultCm = tank.stock.reduce((s, f) => s + f.adultSizeCm, 0);
+  const pct = tank.volumeL > 0 ? Math.round((totalAdultCm / tank.volumeL) * 100) : 0;
+  const meterColor = pct > 100 ? COLORS.red : pct > 85 ? COLORS.yellow : COLORS.green;
 
   const [editing, setEditing] = useState(false);
   // Edit fields are strings in the active unit system.
@@ -145,12 +159,50 @@ export function TankCard({ tank }: { tank: Tank }) {
       {groups.length === 0 ? (
         <Text style={styles.emptyStock}>No fish yet</Text>
       ) : (
-        groups.map((g) => (
-          <Text key={g.fish.id} style={styles.stockLine}>
-            {g.fish.commonName} ×{g.count} (
-            {formatLength(g.fish.adultSizeCm, system)})
+        <>
+          <Text style={styles.summary}>
+            {tank.stock.length} fish · {groups.length} species
           </Text>
-        ))
+          <View style={styles.meterTrack}>
+            <View
+              style={[
+                styles.meterFill,
+                { width: `${Math.min(100, pct)}%`, backgroundColor: meterColor },
+              ]}
+            />
+          </View>
+          <Text style={styles.meterLabel}>{pct}% stocked</Text>
+
+          {groups.map((g) => (
+            <View key={g.fish.id} style={styles.stockRow}>
+              <FishThumbnail
+                source={g.fish.images?.[0]}
+                style={styles.stockThumb}
+              />
+              <View style={styles.stockInfo}>
+                <Text style={styles.stockName}>{g.fish.commonName}</Text>
+                <Text style={styles.stockMeta}>
+                  {formatLength(g.fish.adultSizeCm, system)}
+                </Text>
+              </View>
+              <View style={styles.counter}>
+                <Pressable
+                  style={styles.counterButton}
+                  onPress={() => removeFishFromTank(tank.id, g.fish)}
+                >
+                  <Text style={styles.counterButtonText}>−</Text>
+                </Pressable>
+                <Text style={styles.countText}>{g.count}</Text>
+                <Pressable
+                  style={styles.counterButton}
+                  onPress={() => addFishToTank(tank.id, g.fish)}
+                >
+                  <Text style={styles.counterButtonText}>+</Text>
+                </Pressable>
+              </View>
+            </View>
+          ))}
+        </>
       )}
 
       {warnings.length > 0 && (
@@ -234,15 +286,81 @@ const styles = StyleSheet.create({
   inputHalf: {
     flex: 1,
   },
-  stockLine: {
-    color: "#cce",
-    fontSize: 15,
-    paddingVertical: 2,
-  },
   emptyStock: {
     color: "#88a",
     fontSize: 14,
     fontStyle: "italic",
+  },
+  summary: {
+    color: "#9bc",
+    fontSize: 13,
+    fontWeight: "600",
+    marginTop: 4,
+    marginBottom: 6,
+  },
+  meterTrack: {
+    height: 8,
+    backgroundColor: "#0f2638",
+    borderRadius: 4,
+    overflow: "hidden",
+  },
+  meterFill: {
+    height: "100%",
+    borderRadius: 4,
+  },
+  meterLabel: {
+    color: COLORS.muted,
+    fontSize: 12,
+    marginTop: 4,
+    marginBottom: 8,
+  },
+  stockRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingVertical: 6,
+  },
+  stockThumb: {
+    width: 44,
+    height: 44,
+    marginRight: 10,
+  },
+  stockInfo: {
+    flex: 1,
+  },
+  stockName: {
+    color: "white",
+    fontSize: 15,
+    fontWeight: "600",
+  },
+  stockMeta: {
+    color: COLORS.muted,
+    fontSize: 13,
+    marginTop: 2,
+  },
+  counter: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  counterButton: {
+    backgroundColor: "#2a7",
+    width: 30,
+    height: 30,
+    borderRadius: 8,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  counterButtonText: {
+    color: "white",
+    fontSize: 18,
+    fontWeight: "bold",
+    lineHeight: 20,
+  },
+  countText: {
+    color: "white",
+    fontSize: 16,
+    fontWeight: "bold",
+    minWidth: 28,
+    textAlign: "center",
   },
   warningBox: {
     marginTop: 10,
