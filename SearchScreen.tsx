@@ -8,7 +8,7 @@ import {
   View,
 } from "react-native";
 import { AVAILABLE_FISH, Fish } from "./fishData";
-import { FishImage } from "./FishImage";
+import { FishThumbnail } from "./FishThumbnail";
 import { COLORS } from "./fishDisplay";
 import FishDetailScreen from "./FishDetailScreen";
 
@@ -71,9 +71,8 @@ export default function SearchScreen() {
                 style={styles.row}
                 onPress={() => setSelectedFish(fish)}
               >
-                <FishImage
+                <FishThumbnail
                   source={fish.images?.[0]}
-                  iconSize={24}
                   style={styles.thumb}
                 />
                 <View style={styles.rowText}>
@@ -148,8 +147,6 @@ const styles = StyleSheet.create({
     borderBottomColor: "#13314a",
   },
   thumb: {
-    width: 52,
-    height: 52,
     marginRight: 12,
   },
   rowText: {

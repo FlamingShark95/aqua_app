@@ -10,7 +10,7 @@ import {
 import { Fish } from "./fishData";
 import { useTanks } from "./TankContext";
 import { useUnits } from "./UnitContext";
-import { FishImage } from "./FishImage";
+import { FishDetailImage } from "./FishDetailImage";
 import {
   availabilityBadge,
   Badge,
@@ -83,13 +83,7 @@ export default function FishDetailScreen({
           }
         >
           {slides.map((picture, i) => (
-            <FishImage
-              key={i}
-              source={picture}
-              iconSize={80}
-              resizeMode="contain"
-              style={styles.slide}
-            />
+            <FishDetailImage key={i} source={picture} style={styles.slide} />
           ))}
         </ScrollView>
         {slides.length > 1 && (
@@ -226,12 +220,12 @@ const styles = StyleSheet.create({
     marginTop: -2,
   },
   gallery: {
-    height: 220,
+    height: 190,
     marginBottom: 16,
   },
   slide: {
     width: SLIDE_WIDTH,
-    height: 220,
+    height: 190,
     borderRadius: 18,
   },
   dots: {

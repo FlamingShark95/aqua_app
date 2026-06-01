@@ -174,6 +174,7 @@ export const AVAILABLE_FISH: Fish[] = [
   },
   {
     id: "cardinal-tetra",
+    images: [require("./assets/fish/CardinalTetra.webp")],
     waterType: "freshwater",
     tankRegion: "middle",
     lifeExpectancyYears: 5,
@@ -264,6 +265,7 @@ export const AVAILABLE_FISH: Fish[] = [
   },
   {
     id: "german-blue-ram",
+    images: [require("./assets/fish/GermanBlueRam.webp")],
     waterType: "freshwater",
     tankRegion: "bottom",
     lifeExpectancyYears: 3,
@@ -804,6 +806,7 @@ export const AVAILABLE_FISH: Fish[] = [
   },
   {
     id: "zebra-danio",
+    images: [require("./assets/fish/ZebraDanio.webp")],
     waterType: "freshwater",
     tankRegion: "top",
     lifeExpectancyYears: 4,
