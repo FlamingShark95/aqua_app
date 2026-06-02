@@ -19,6 +19,8 @@ import {
 } from "./fishFilters";
 import { SORT_MODES, SortId } from "./fishSort";
 import { useUnits } from "./UnitContext";
+import { useTanks } from "./TankContext";
+import { previewFishInTank } from "./rules";
 
 export default function SearchScreen() {
   const [query, setQuery] = useState("");
@@ -28,6 +30,14 @@ export default function SearchScreen() {
   const [sortDir, setSortDir] = useState<"asc" | "desc">("asc");
   const { system } = useUnits();
   const { openFish } = useNav();
+  const {
+    tanks,
+    activeTank,
+    activeTankId,
+    setActiveTankId,
+    addFishToTank,
+    removeFishFromTank,
+  } = useTanks();
 
   // Name prefix match AND every active filter category.
   const filteredFish = AVAILABLE_FISH.filter(
@@ -57,9 +67,34 @@ export default function SearchScreen() {
     <>
     <ScrollView style={styles.screen} contentContainerStyle={styles.content}>
       <Text style={styles.title}>Fish</Text>
-      <Text style={styles.banner}>
-        Tap a fish for details, then add it to any of your tanks.
-      </Text>
+      {tanks.length === 0 ? (
+        <Text style={styles.banner}>
+          Create a tank on the Tanks tab to see what fits here.
+        </Text>
+      ) : (
+        <View style={styles.tankPickerRow}>
+          <Text style={styles.tankPickerLabel}>For tank</Text>
+          {tanks.map((t) => {
+            const sel = t.id === activeTankId;
+            return (
+              <Pressable
+                key={t.id}
+                style={[styles.tankChip, sel && styles.tankChipActive]}
+                onPress={() => setActiveTankId(t.id)}
+              >
+                <Text
+                  style={[
+                    styles.tankChipText,
+                    sel && styles.tankChipTextActive,
+                  ]}
+                >
+                  {t.name}
+                </Text>
+              </Pressable>
+            );
+          })}
+        </View>
+      )}
 
       <View style={styles.searchRow}>
         <TextInput
@@ -122,23 +157,62 @@ export default function SearchScreen() {
         sections.map((section) => (
           <View key={section.key}>
             <Text style={styles.sectionHeader}>{section.key}</Text>
-            {section.fish.map((fish) => (
-              <Pressable
-                key={fish.id}
-                style={styles.row}
-                onPress={() => openFish(fish)}
-              >
-                <FishThumbnail
-                  source={fish.images?.[0]}
-                  style={styles.thumb}
-                />
-                <View style={styles.rowText}>
-                  <Text style={styles.fishName}>{fish.commonName}</Text>
-                  <Text style={styles.fishSci}>{fish.scientificName}</Text>
-                </View>
-                <Text style={styles.chevron}>›</Text>
-              </Pressable>
-            ))}
+            {section.fish.map((fish) => {
+              const issues = activeTank
+                ? previewFishInTank(fish, activeTank, system)
+                : null;
+              const inTank = activeTank
+                ? activeTank.stock.filter((f) => f.id === fish.id).length
+                : 0;
+              return (
+                <Pressable
+                  key={fish.id}
+                  style={styles.row}
+                  onPress={() => openFish(fish)}
+                >
+                  <FishThumbnail
+                    source={fish.images?.[0]}
+                    style={styles.thumb}
+                  />
+                  <View style={styles.rowText}>
+                    <Text style={styles.fishName}>{fish.commonName}</Text>
+                    <Text style={styles.fishSci}>{fish.scientificName}</Text>
+                    {issues && (
+                      <Text
+                        style={[
+                          styles.fitBadge,
+                          { color: issues.length === 0 ? COLORS.green : COLORS.red },
+                        ]}
+                      >
+                        {issues.length === 0
+                          ? "✓ Fits this tank"
+                          : `⚠ ${issues.length} issue${
+                              issues.length > 1 ? "s" : ""
+                            }`}
+                      </Text>
+                    )}
+                  </View>
+                  {activeTank && (
+                    <View style={styles.addCluster}>
+                      <Pressable
+                        style={styles.countButton}
+                        onPress={() => removeFishFromTank(activeTank.id, fish)}
+                      >
+                        <Text style={styles.countButtonText}>−</Text>
+                      </Pressable>
+                      <Text style={styles.inTankCount}>{inTank}</Text>
+                      <Pressable
+                        style={styles.countButton}
+                        onPress={() => addFishToTank(activeTank.id, fish)}
+                      >
+                        <Text style={styles.countButtonText}>+</Text>
+                      </Pressable>
+                    </View>
+                  )}
+                  <Text style={styles.chevron}>›</Text>
+                </Pressable>
+              );
+            })}
           </View>
         ))
       )}
@@ -176,9 +250,37 @@ const styles = StyleSheet.create({
     fontSize: 15,
     marginBottom: 16,
   },
-  bannerName: {
-    color: "white",
+  tankPickerRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    flexWrap: "wrap",
+    gap: 8,
+    marginBottom: 14,
+  },
+  tankPickerLabel: {
+    color: COLORS.muted,
+    fontSize: 13,
     fontWeight: "bold",
+    marginRight: 2,
+  },
+  tankChip: {
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: "#2c4a63",
+  },
+  tankChipActive: {
+    backgroundColor: "#2a7",
+    borderColor: "#2a7",
+  },
+  tankChipText: {
+    color: COLORS.muted,
+    fontSize: 13,
+    fontWeight: "600",
+  },
+  tankChipTextActive: {
+    color: "white",
   },
   searchRow: {
     flexDirection: "row",
@@ -286,6 +388,38 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontStyle: "italic",
     marginTop: 2,
+  },
+  fitBadge: {
+    fontSize: 13,
+    fontWeight: "600",
+    marginTop: 3,
+  },
+  addCluster: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginLeft: 8,
+  },
+  inTankCount: {
+    color: "white",
+    fontSize: 15,
+    fontWeight: "bold",
+    marginHorizontal: 6,
+    minWidth: 18,
+    textAlign: "center",
+  },
+  countButton: {
+    backgroundColor: "#2a7",
+    width: 30,
+    height: 30,
+    borderRadius: 8,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  countButtonText: {
+    color: "white",
+    fontSize: 19,
+    fontWeight: "bold",
+    lineHeight: 21,
   },
   chevron: {
     color: COLORS.muted,
