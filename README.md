@@ -6,4 +6,4 @@ List of things to work on:
 5. Have a better calculation for Bioload
 6. Maybe add products like tanks and heaters.
 7. Be more specific with the type of food.
-8. 
+8. When in Fish add mode make something where you can make it show only fish that are compatible with that tank
