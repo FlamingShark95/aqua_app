@@ -13,6 +13,7 @@ export type Fish = {
 
   // size and space (rule inputs)
   adultSizeCm: number;
+  adultSizeMinCm?: number;    // smaller sex / natural min; display only
   minTankVolumeL: number;
   minFootprintCm: { length: number; width: number };
 
@@ -20,6 +21,7 @@ export type Fish = {
   temperament: "peaceful" | "semi" | "aggressive" | "predatory";
   diet: "herbivore" | "omnivore" | "carnivore";
   minGroupSize: number;
+  maxGroupSize?: number;      // recommended upper end; display only
 
   // water chemistry (rule inputs)
   tempMinC: number;
@@ -41,6 +43,7 @@ export type Fish = {
   waterType?: "freshwater" | "saltwater";
   tankRegion?: "top" | "middle" | "bottom";
   lifeExpectancyYears?: number;
+  lifeExpectancyMaxYears?: number;  // upper end of lifespan range; display only
   behavior?: string;
   reproduction?: string;
   dimorphism?: string;
@@ -57,6 +60,7 @@ export const AVAILABLE_FISH: Fish[] = [
     waterType: "freshwater",
     tankRegion: "bottom",
     lifeExpectancyYears: 15,
+    lifeExpectancyMaxYears: 20,
     behavior:
       "A slow, mostly nocturnal ambush hunter that cruises the bottom and gulps air at the surface. Can be territorial toward its own kind.",
     reproduction:
@@ -66,6 +70,7 @@ export const AVAILABLE_FISH: Fish[] = [
     commonName: "Delhezi bichir",
     scientificName: "Polypterus delhezi",
     adultSizeCm: 35,
+    adultSizeMinCm: 30,
     minTankVolumeL: 280,
     minFootprintCm: { length: 120, width: 45 },
     temperament: "predatory",
@@ -87,6 +92,7 @@ export const AVAILABLE_FISH: Fish[] = [
     commonName: "Angelfish",
     scientificName: "Pterophyllum scalare",
     adultSizeCm: 15.2,
+    adultSizeMinCm: 12,
     minTankVolumeL: 110,
     minFootprintCm: { length: 80, width: 40 },
     temperament: "semi",
@@ -104,7 +110,8 @@ export const AVAILABLE_FISH: Fish[] = [
       "Angelfish are iconic aquarium inhabitants known for their tall, triangular bodies and graceful swimming patterns. They prefer tall aquariums with gentle water flow, decorated with broadleaf plants and vertical structures like driftwood to simulate their natural habitat. Generally peaceful, but they will eat fish small enough to fit in their mouths and can turn territorial while breeding.",
     waterType: "freshwater",
     tankRegion: "middle",
-    lifeExpectancyYears: 10,
+    lifeExpectancyYears: 8,
+    lifeExpectancyMaxYears: 12,
     behavior:
       "An active mid-water swimmer that appreciates tall, planted tanks and calm, steady flow.",
     reproduction:
@@ -116,7 +123,8 @@ export const AVAILABLE_FISH: Fish[] = [
     id: "corydoras-bronze",
     waterType: "freshwater",
     tankRegion: "bottom",
-    lifeExpectancyYears: 8,
+    lifeExpectancyYears: 5,
+    lifeExpectancyMaxYears: 10,
     behavior:
       "A peaceful, social bottom-dweller that constantly forages the substrate and darts up for a gulp of air. Happiest in groups of six or more.",
     reproduction:
@@ -131,6 +139,7 @@ export const AVAILABLE_FISH: Fish[] = [
     temperament: "peaceful",
     diet: "omnivore",
     minGroupSize: 6,
+    maxGroupSize: 15,
     tempMinC: 22,
     tempMaxC: 26,
     phMin: 6.0,
@@ -161,6 +170,7 @@ export const AVAILABLE_FISH: Fish[] = [
     temperament: "peaceful",
     diet: "omnivore",
     minGroupSize: 6,
+    maxGroupSize: 20,
     tempMinC: 20,
     tempMaxC: 26,
     phMin: 5.0,
@@ -192,6 +202,7 @@ export const AVAILABLE_FISH: Fish[] = [
     temperament: "peaceful",
     diet: "omnivore",
     minGroupSize: 6,
+    maxGroupSize: 20,
     tempMinC: 23,
     tempMaxC: 27,
     phMin: 5.0,
@@ -222,6 +233,7 @@ export const AVAILABLE_FISH: Fish[] = [
     temperament: "peaceful",
     diet: "omnivore",
     minGroupSize: 8,
+    maxGroupSize: 20,
     tempMinC: 23,
     tempMaxC: 29,
     phMin: 5.5,
@@ -278,6 +290,7 @@ export const AVAILABLE_FISH: Fish[] = [
     commonName: "German blue ram",
     scientificName: "Mikrogeophagus ramirezi",
     adultSizeCm: 7,
+    adultSizeMinCm: 5,
     minTankVolumeL: 60,
     minFootprintCm: { length: 60, width: 30 },
     temperament: "peaceful",
@@ -313,6 +326,7 @@ export const AVAILABLE_FISH: Fish[] = [
     temperament: "peaceful",
     diet: "omnivore",
     minGroupSize: 8,
+    maxGroupSize: 15,
     tempMinC: 22,
     tempMaxC: 27,
     phMin: 6.0,
@@ -388,7 +402,8 @@ export const AVAILABLE_FISH: Fish[] = [
     id: "kuhli-loach",
     waterType: "freshwater",
     tankRegion: "bottom",
-    lifeExpectancyYears: 10,
+    lifeExpectancyYears: 8,
+    lifeExpectancyMaxYears: 12,
     behavior:
       "A shy, nocturnal, eel-like loach that burrows and hides by day and forages along the bottom at night. Much calmer in a group.",
     reproduction:
@@ -403,6 +418,7 @@ export const AVAILABLE_FISH: Fish[] = [
     temperament: "peaceful",
     diet: "omnivore",
     minGroupSize: 5,
+    maxGroupSize: 10,
     tempMinC: 24,
     tempMaxC: 30,
     phMin: 5.5,
@@ -433,6 +449,7 @@ export const AVAILABLE_FISH: Fish[] = [
     temperament: "peaceful",
     diet: "omnivore",
     minGroupSize: 6,
+    maxGroupSize: 15,
     tempMinC: 23,
     tempMaxC: 28,
     phMin: 5.5,
@@ -478,7 +495,8 @@ export const AVAILABLE_FISH: Fish[] = [
     id: "oscar",
     waterType: "freshwater",
     tankRegion: "bottom",
-    lifeExpectancyYears: 12,
+    lifeExpectancyYears: 10,
+    lifeExpectancyMaxYears: 15,
     behavior:
       "An intelligent, interactive cichlid that rearranges decor, recognizes its keeper, and eats anything it can swallow.",
     reproduction:
@@ -488,6 +506,7 @@ export const AVAILABLE_FISH: Fish[] = [
     commonName: "Oscar",
     scientificName: "Astronotus ocellatus",
     adultSizeCm: 35,
+    adultSizeMinCm: 28,
     minTankVolumeL: 280,
     minFootprintCm: { length: 120, width: 50 },
     temperament: "predatory",
@@ -583,6 +602,7 @@ export const AVAILABLE_FISH: Fish[] = [
     temperament: "peaceful",
     diet: "omnivore",
     minGroupSize: 8,
+    maxGroupSize: 15,
     tempMinC: 24,
     tempMaxC: 27,
     phMin: 5.5,
@@ -643,6 +663,7 @@ export const AVAILABLE_FISH: Fish[] = [
     temperament: "semi",
     diet: "omnivore",
     minGroupSize: 6,
+    maxGroupSize: 12,
     tempMinC: 22,
     tempMaxC: 27,
     phMin: 6.0,
@@ -673,6 +694,7 @@ export const AVAILABLE_FISH: Fish[] = [
     temperament: "peaceful",
     diet: "omnivore",
     minGroupSize: 4,
+    maxGroupSize: 8,
     tempMinC: 22,
     tempMaxC: 28,
     phMin: 6.0,
@@ -778,7 +800,8 @@ export const AVAILABLE_FISH: Fish[] = [
     id: "yoyo-loach",
     waterType: "freshwater",
     tankRegion: "bottom",
-    lifeExpectancyYears: 10,
+    lifeExpectancyYears: 8,
+    lifeExpectancyMaxYears: 12,
     behavior:
       "A busy, social bottom loach that hunts snails, plays dead, and can click audibly; keep it in a small group.",
     reproduction:
@@ -793,6 +816,7 @@ export const AVAILABLE_FISH: Fish[] = [
     temperament: "semi",
     diet: "omnivore",
     minGroupSize: 4,
+    maxGroupSize: 8,
     tempMinC: 24,
     tempMaxC: 30,
     phMin: 6.5,
@@ -824,6 +848,7 @@ export const AVAILABLE_FISH: Fish[] = [
     temperament: "peaceful",
     diet: "omnivore",
     minGroupSize: 6,
+    maxGroupSize: 12,
     tempMinC: 18,
     tempMaxC: 24,
     phMin: 6.5,
@@ -841,6 +866,7 @@ export const AVAILABLE_FISH: Fish[] = [
     waterType: "freshwater",
     tankRegion: "top",
     lifeExpectancyYears: 2,
+    lifeExpectancyMaxYears: 3,
     behavior:
       "An active, peaceful livebearer that swims and displays near the surface and top of the water column. Hardy and endlessly busy, it does best in hard, mineral-rich water.",
     reproduction:
@@ -850,11 +876,13 @@ export const AVAILABLE_FISH: Fish[] = [
     commonName: "Guppy",
     scientificName: "Poecilia reticulata",
     adultSizeCm: 6,
+    adultSizeMinCm: 3,
     minTankVolumeL: 40,
     minFootprintCm: { length: 45, width: 25 },
     temperament: "peaceful",
     diet: "omnivore",
     minGroupSize: 3,
+    maxGroupSize: 10,
     tempMinC: 22,
     tempMaxC: 28,
     phMin: 7.0,
@@ -872,6 +900,7 @@ export const AVAILABLE_FISH: Fish[] = [
     waterType: "freshwater",
     tankRegion: "middle",
     lifeExpectancyYears: 3,
+    lifeExpectancyMaxYears: 5,
     behavior:
       "A peaceful, constantly active livebearer that grazes algae and accepts almost any food. Sociable and undemanding, it suits a mixed community of similar hard-water fish.",
     reproduction:
@@ -881,11 +910,13 @@ export const AVAILABLE_FISH: Fish[] = [
     commonName: "Platy",
     scientificName: "Xiphophorus maculatus",
     adultSizeCm: 7,
+    adultSizeMinCm: 5,
     minTankVolumeL: 60,
     minFootprintCm: { length: 60, width: 30 },
     temperament: "peaceful",
     diet: "omnivore",
     minGroupSize: 3,
+    maxGroupSize: 10,
     tempMinC: 21,
     tempMaxC: 28,
     phMin: 7.0,
@@ -912,11 +943,13 @@ export const AVAILABLE_FISH: Fish[] = [
     commonName: "Endler's livebearer",
     scientificName: "Poecilia wingei",
     adultSizeCm: 4,
+    adultSizeMinCm: 2,
     minTankVolumeL: 40,
     minFootprintCm: { length: 45, width: 25 },
     temperament: "peaceful",
     diet: "omnivore",
     minGroupSize: 3,
+    maxGroupSize: 10,
     tempMinC: 22,
     tempMaxC: 28,
     phMin: 7.0,
@@ -948,6 +981,7 @@ export const AVAILABLE_FISH: Fish[] = [
     temperament: "peaceful",
     diet: "omnivore",
     minGroupSize: 6,
+    maxGroupSize: 12,
     tempMinC: 23,
     tempMaxC: 27,
     phMin: 6.0,
@@ -974,11 +1008,13 @@ export const AVAILABLE_FISH: Fish[] = [
     commonName: "Rosy barb",
     scientificName: "Pethia conchonius",
     adultSizeCm: 14,
+    adultSizeMinCm: 10,
     minTankVolumeL: 110,
     minFootprintCm: { length: 80, width: 35 },
     temperament: "semi",
     diet: "omnivore",
     minGroupSize: 6,
+    maxGroupSize: 12,
     tempMinC: 18,
     tempMaxC: 24,
     phMin: 6.0,
@@ -995,7 +1031,8 @@ export const AVAILABLE_FISH: Fish[] = [
     id: "denison-barb",
     waterType: "freshwater",
     tankRegion: "middle",
-    lifeExpectancyYears: 8,
+    lifeExpectancyYears: 5,
+    lifeExpectancyMaxYears: 8,
     behavior:
       "A fast, torpedo-shaped schooling 'shark' barb from fast-flowing rivers; it needs strong flow, well-oxygenated water, and length to cruise. Peaceful but boisterous, and unhappy in small numbers.",
     reproduction:
@@ -1005,11 +1042,13 @@ export const AVAILABLE_FISH: Fish[] = [
     commonName: "Denison barb",
     scientificName: "Sahyadria denisonii",
     adultSizeCm: 15,
+    adultSizeMinCm: 13,
     minTankVolumeL: 200,
     minFootprintCm: { length: 120, width: 40 },
     temperament: "peaceful",
     diet: "omnivore",
     minGroupSize: 6,
+    maxGroupSize: 10,
     tempMinC: 20,
     tempMaxC: 26,
     phMin: 6.5,
@@ -1041,6 +1080,7 @@ export const AVAILABLE_FISH: Fish[] = [
     temperament: "peaceful",
     diet: "omnivore",
     minGroupSize: 8,
+    maxGroupSize: 15,
     tempMinC: 20,
     tempMaxC: 25,
     phMin: 6.5,
@@ -1072,6 +1112,7 @@ export const AVAILABLE_FISH: Fish[] = [
     temperament: "peaceful",
     diet: "omnivore",
     minGroupSize: 8,
+    maxGroupSize: 20,
     tempMinC: 23,
     tempMaxC: 28,
     phMin: 6.0,
@@ -1103,6 +1144,7 @@ export const AVAILABLE_FISH: Fish[] = [
     temperament: "semi",
     diet: "omnivore",
     minGroupSize: 6,
+    maxGroupSize: 12,
     tempMinC: 21,
     tempMaxC: 27,
     phMin: 6.0,
@@ -1134,6 +1176,7 @@ export const AVAILABLE_FISH: Fish[] = [
     temperament: "semi",
     diet: "omnivore",
     minGroupSize: 6,
+    maxGroupSize: 12,
     tempMinC: 22,
     tempMaxC: 28,
     phMin: 6.0,
@@ -1165,6 +1208,7 @@ export const AVAILABLE_FISH: Fish[] = [
     temperament: "peaceful",
     diet: "omnivore",
     minGroupSize: 6,
+    maxGroupSize: 15,
     tempMinC: 24,
     tempMaxC: 28,
     phMin: 6.0,
@@ -1191,11 +1235,13 @@ export const AVAILABLE_FISH: Fish[] = [
     commonName: "Congo tetra",
     scientificName: "Phenacogrammus interruptus",
     adultSizeCm: 8.5,
+    adultSizeMinCm: 6,
     minTankVolumeL: 110,
     minFootprintCm: { length: 90, width: 40 },
     temperament: "peaceful",
     diet: "omnivore",
     minGroupSize: 6,
+    maxGroupSize: 12,
     tempMinC: 24,
     tempMaxC: 27,
     phMin: 6.0,
@@ -1212,7 +1258,8 @@ export const AVAILABLE_FISH: Fish[] = [
     id: "dwarf-gourami",
     waterType: "freshwater",
     tankRegion: "middle",
-    lifeExpectancyYears: 4,
+    lifeExpectancyYears: 3,
+    lifeExpectancyMaxYears: 5,
     behavior:
       "A colourful labyrinth fish that breathes air at the surface and uses thread-like feeler fins to explore. Usually calm, but individuals can be unpredictably territorial, so give it cover and gentle flow.",
     reproduction:
@@ -1222,6 +1269,7 @@ export const AVAILABLE_FISH: Fish[] = [
     commonName: "Dwarf gourami",
     scientificName: "Trichogaster lalius",
     adultSizeCm: 8.5,
+    adultSizeMinCm: 6,
     minTankVolumeL: 60,
     minFootprintCm: { length: 60, width: 30 },
     temperament: "semi",
@@ -1275,6 +1323,7 @@ export const AVAILABLE_FISH: Fish[] = [
     waterType: "freshwater",
     tankRegion: "top",
     lifeExpectancyYears: 3,
+    lifeExpectancyMaxYears: 5,
     behavior:
       "An air-breathing labyrinth fish with huge, flowing fins. Males are highly territorial and flare at rivals — keep only one male per tank, with no fin-nipping or long-finned tankmates, in warm, gently filtered water.",
     reproduction:
@@ -1284,6 +1333,7 @@ export const AVAILABLE_FISH: Fish[] = [
     commonName: "Betta",
     scientificName: "Betta splendens",
     adultSizeCm: 6.5,
+    adultSizeMinCm: 5,
     minTankVolumeL: 20,
     minFootprintCm: { length: 40, width: 20 },
     temperament: "aggressive",
@@ -1315,6 +1365,7 @@ export const AVAILABLE_FISH: Fish[] = [
     commonName: "Convict cichlid",
     scientificName: "Amatitlania nigrofasciata",
     adultSizeCm: 13,
+    adultSizeMinCm: 8,
     minTankVolumeL: 110,
     minFootprintCm: { length: 90, width: 40 },
     temperament: "aggressive",
@@ -1346,6 +1397,7 @@ export const AVAILABLE_FISH: Fish[] = [
     commonName: "Kribensis",
     scientificName: "Pelvicachromis pulcher",
     adultSizeCm: 10,
+    adultSizeMinCm: 7,
     minTankVolumeL: 60,
     minFootprintCm: { length: 60, width: 30 },
     temperament: "semi",
@@ -1367,7 +1419,8 @@ export const AVAILABLE_FISH: Fish[] = [
     id: "bolivian-ram",
     waterType: "freshwater",
     tankRegion: "bottom",
-    lifeExpectancyYears: 5,
+    lifeExpectancyYears: 4,
+    lifeExpectancyMaxYears: 6,
     behavior:
       "A peaceful, hardy 'butterfly' dwarf cichlid that sifts sand for food and defends only a small territory. Easygoing enough for a calm community, unlike its touchier German blue ram cousin.",
     reproduction:
@@ -1377,6 +1430,7 @@ export const AVAILABLE_FISH: Fish[] = [
     commonName: "Bolivian ram",
     scientificName: "Mikrogeophagus altispinosus",
     adultSizeCm: 8,
+    adultSizeMinCm: 6,
     minTankVolumeL: 75,
     minFootprintCm: { length: 80, width: 30 },
     temperament: "peaceful",
@@ -1408,6 +1462,7 @@ export const AVAILABLE_FISH: Fish[] = [
     commonName: "Cockatoo dwarf cichlid",
     scientificName: "Apistogramma cacatuoides",
     adultSizeCm: 8,
+    adultSizeMinCm: 5,
     minTankVolumeL: 60,
     minFootprintCm: { length: 60, width: 30 },
     temperament: "semi",
@@ -1429,7 +1484,8 @@ export const AVAILABLE_FISH: Fish[] = [
     id: "discus",
     waterType: "freshwater",
     tankRegion: "middle",
-    lifeExpectancyYears: 10,
+    lifeExpectancyYears: 8,
+    lifeExpectancyMaxYears: 15,
     behavior:
       "The tall, disc-shaped 'king of the aquarium' — a social cichlid kept in groups that needs warm, pristine, soft water. Shy and sensitive to stress and poor water quality, with a pecking order that settles best in a group of five or more.",
     reproduction:
@@ -1439,6 +1495,7 @@ export const AVAILABLE_FISH: Fish[] = [
     commonName: "Discus",
     scientificName: "Symphysodon aequifasciatus",
     adultSizeCm: 20,
+    adultSizeMinCm: 15,
     minTankVolumeL: 280,
     minFootprintCm: { length: 120, width: 50 },
     temperament: "peaceful",
@@ -1460,7 +1517,8 @@ export const AVAILABLE_FISH: Fish[] = [
     id: "bristlenose-pleco",
     waterType: "freshwater",
     tankRegion: "bottom",
-    lifeExpectancyYears: 8,
+    lifeExpectancyYears: 7,
+    lifeExpectancyMaxYears: 12,
     behavior:
       "A peaceful, mostly nocturnal suckermouth catfish that rasps algae and biofilm off surfaces and driftwood. A great cleanup fish, though mature males get territorial over their favourite caves.",
     reproduction:
@@ -1506,6 +1564,7 @@ export const AVAILABLE_FISH: Fish[] = [
     temperament: "peaceful",
     diet: "herbivore",
     minGroupSize: 6,
+    maxGroupSize: 12,
     tempMinC: 21,
     tempMaxC: 26,
     phMin: 6.5,
@@ -1523,6 +1582,7 @@ export const AVAILABLE_FISH: Fish[] = [
     waterType: "freshwater",
     tankRegion: "bottom",
     lifeExpectancyYears: 10,
+    lifeExpectancyMaxYears: 20,
     behavior:
       "A peaceful, social bottom-dweller that forages the substrate in a busy group and dashes to the surface for gulps of air. It tolerates warmer water than most corys, making it a classic discus tankmate.",
     reproduction:
@@ -1537,6 +1597,7 @@ export const AVAILABLE_FISH: Fish[] = [
     temperament: "peaceful",
     diet: "omnivore",
     minGroupSize: 6,
+    maxGroupSize: 12,
     tempMinC: 24,
     tempMaxC: 28,
     phMin: 6.0,
@@ -1554,6 +1615,7 @@ export const AVAILABLE_FISH: Fish[] = [
     waterType: "freshwater",
     tankRegion: "bottom",
     lifeExpectancyYears: 20,
+    lifeExpectancyMaxYears: 40,
     behavior:
       "A social, playful bottom loach that clicks audibly, 'plays dead', and hunts snails. Often sold tiny, it grows very large and lives for decades, so it needs a big tank, a group of five or more, smooth sand, and plenty of caves.",
     reproduction:
@@ -1563,11 +1625,13 @@ export const AVAILABLE_FISH: Fish[] = [
     commonName: "Clown loach",
     scientificName: "Chromobotia macracanthus",
     adultSizeCm: 30,
+    adultSizeMinCm: 20,
     minTankVolumeL: 450,
     minFootprintCm: { length: 150, width: 60 },
     temperament: "peaceful",
     diet: "omnivore",
     minGroupSize: 5,
+    maxGroupSize: 10,
     tempMinC: 25,
     tempMaxC: 30,
     phMin: 6.0,
@@ -1585,6 +1649,7 @@ export const AVAILABLE_FISH: Fish[] = [
     waterType: "freshwater",
     tankRegion: "middle",
     lifeExpectancyYears: 5,
+    lifeExpectancyMaxYears: 8,
     behavior:
       "An active, peaceful schooling rainbowfish with a striking split blue-and-orange body. Males colour up and display constantly to one another, so it needs swimming length, hard alkaline water, and a good-sized group to look its best.",
     reproduction:
@@ -1594,11 +1659,13 @@ export const AVAILABLE_FISH: Fish[] = [
     commonName: "Boeseman's rainbowfish",
     scientificName: "Melanotaenia boesemani",
     adultSizeCm: 10,
+    adultSizeMinCm: 8,
     minTankVolumeL: 110,
     minFootprintCm: { length: 120, width: 30 },
     temperament: "peaceful",
     diet: "omnivore",
     minGroupSize: 6,
+    maxGroupSize: 10,
     tempMinC: 24,
     tempMaxC: 28,
     phMin: 7.0,
@@ -1609,6 +1676,1466 @@ export const AVAILABLE_FISH: Fish[] = [
     priceRange: "$$",
     description:
       "A hardy, dazzling rainbowfish whose front half glows blue-purple and rear half blazes orange. Active and peaceful — give it a long tank, hard alkaline water, and a school to bring out the colour.",
+  },
+
+  // ── Polypteridae (bichirs & ropefish) ────────────────────────────────────
+
+  // Sources: seriouslyfish.com/species/polypterus-senegalus, fishbase.org/summary/Polypterus-senegalus.html, aquariumsource.com/senegal-bichir
+  {
+    id: "senegal-bichir",
+    waterType: "freshwater",
+    tankRegion: "bottom",
+    lifeExpectancyYears: 10,
+    lifeExpectancyMaxYears: 15,
+    behavior:
+      "The most beginner-friendly bichir — hardy, curious, and slower to outgrow a tank than most relatives. Nocturnal ambush hunter that gulps air from the surface. Peaceful with fish too large to swallow; anything smaller disappears.",
+    reproduction:
+      "Egg scatterer; males wrap their anal and caudal fins around the female to fertilize eggs. Rarely achieved in home aquaria.",
+    dimorphism:
+      "Males have a broader, bushier anal fin. Otherwise difficult to sex until mature.",
+    commonName: "Senegal bichir",
+    scientificName: "Polypterus senegalus",
+    adultSizeCm: 40,
+    adultSizeMinCm: 30,
+    minTankVolumeL: 200,
+    minFootprintCm: { length: 120, width: 45 },
+    temperament: "predatory",
+    diet: "carnivore",
+    minGroupSize: 1,
+    tempMinC: 24,
+    tempMaxC: 30,
+    phMin: 6.5,
+    phMax: 7.8,
+    origin: "West Africa",
+    careLevel: "beginner",
+    rarity: "common",
+    priceRange: "$",
+    description:
+      "The entry-level bichir — grey-green, eel-like, and surprisingly personable. It breathes air, can survive short trips out of water, and accepts most meaty foods. Keep the tank tightly covered; it will escape any gap.",
+  },
+  // Sources: seriouslyfish.com/species/polypterus-ornatipinnis, fishbase.org/summary/Polypterus-ornatipinnis.html, practicalfishkeeping.co.uk/features/polypterus-ornatipinnis
+  {
+    id: "ornate-bichir",
+    waterType: "freshwater",
+    tankRegion: "bottom",
+    lifeExpectancyYears: 10,
+    lifeExpectancyMaxYears: 15,
+    behavior:
+      "A striking, reticulated bichir and one of the most popular in the trade. Bolder and more active than many relatives. Predatory — will consume fish small enough to fit in its mouth. Generally tolerant of conspecifics in a large tank.",
+    reproduction:
+      "Egg scatterer; spawning infrequently reported in captivity. Conditioning with live or frozen foods and a slight temperature rise can trigger breeding.",
+    dimorphism:
+      "Males develop a noticeably wider, paddle-like anal fin at maturity.",
+    commonName: "Ornate bichir",
+    scientificName: "Polypterus ornatipinnis",
+    adultSizeCm: 60,
+    adultSizeMinCm: 45,
+    minTankVolumeL: 450,
+    minFootprintCm: { length: 150, width: 60 },
+    temperament: "predatory",
+    diet: "carnivore",
+    minGroupSize: 1,
+    tempMinC: 26,
+    tempMaxC: 30,
+    phMin: 6.5,
+    phMax: 7.5,
+    origin: "Central Africa (Congo)",
+    careLevel: "intermediate",
+    rarity: "uncommon",
+    priceRange: "$$",
+    description:
+      "One of the most beautiful bichirs — a deep black-and-yellow reticulated pattern covers the whole body. Needs a spacious, tightly lidded tank with meaty foods. A showpiece predator for large community setups.",
+  },
+  // Sources: seriouslyfish.com/species/polypterus-endlicheri-endlicheri, fishbase.org/summary/Polypterus-endlicheri.html, tfhmagazine.com/details/articles/the-genus-polypterus
+  {
+    id: "endlicheri-bichir",
+    waterType: "freshwater",
+    tankRegion: "bottom",
+    lifeExpectancyYears: 10,
+    lifeExpectancyMaxYears: 20,
+    behavior:
+      "A large, thick-bodied bichir with a distinctive saddled pattern. Sluggish by day, active at dusk. Can be aggressive toward smaller bichirs but generally peaceable with similar-sized tank mates it cannot eat.",
+    reproduction:
+      "Egg scatterer; rarely bred in captivity. Conditioning with high-protein live foods increases spawning likelihood.",
+    dimorphism:
+      "Males possess a distinctly wider, more paddle-shaped anal fin.",
+    commonName: "Endlicheri bichir",
+    scientificName: "Polypterus endlicheri",
+    adultSizeCm: 75,
+    adultSizeMinCm: 60,
+    minTankVolumeL: 600,
+    minFootprintCm: { length: 180, width: 60 },
+    temperament: "predatory",
+    diet: "carnivore",
+    minGroupSize: 1,
+    tempMinC: 26,
+    tempMaxC: 30,
+    phMin: 6.5,
+    phMax: 7.8,
+    origin: "West Africa",
+    careLevel: "intermediate",
+    rarity: "uncommon",
+    priceRange: "$$",
+    description:
+      "A large, powerfully built bichir with a dark-banded saddled pattern. Requires a very spacious, well-covered tank and a diet of meaty foods. Long-lived and rewarding for dedicated keepers.",
+  },
+  // Sources: seriouslyfish.com/species/polypterus-lapradei, fishbase.org/summary/Polypterus-lapradei.html, aquaticcommunity.com/polypterus/lapradei.php
+  {
+    id: "lapradei-bichir",
+    waterType: "freshwater",
+    tankRegion: "bottom",
+    lifeExpectancyYears: 10,
+    lifeExpectancyMaxYears: 20,
+    behavior:
+      "One of the largest bichirs in the trade; a slow-moving, bottom-dwelling predator. Generally tolerant of other large fish but will eat anything that fits in its substantial mouth.",
+    reproduction:
+      "Egg scatterer. Captive breeding is rare; conditioning with varied live and frozen prey is the best approach.",
+    dimorphism:
+      "Males have a broader anal fin; otherwise sexing is difficult outside breeding condition.",
+    commonName: "Lapradei bichir",
+    scientificName: "Polypterus lapradei",
+    adultSizeCm: 90,
+    adultSizeMinCm: 70,
+    minTankVolumeL: 800,
+    minFootprintCm: { length: 200, width: 60 },
+    temperament: "predatory",
+    diet: "carnivore",
+    minGroupSize: 1,
+    tempMinC: 26,
+    tempMaxC: 30,
+    phMin: 6.5,
+    phMax: 7.8,
+    origin: "West Africa",
+    careLevel: "intermediate",
+    rarity: "uncommon",
+    priceRange: "$$",
+    description:
+      "A giant among bichirs — needs a very large tank, a tight-fitting lid, and meaty whole-prey foods. Impressive and long-lived, but only suitable for dedicated fishkeepers with the space for a species of this size.",
+  },
+  // Sources: seriouslyfish.com/species/polypterus-polli, fishbase.org/summary/Polypterus-polli.html, aquariumglaser.de
+  {
+    id: "polli-bichir",
+    waterType: "freshwater",
+    tankRegion: "bottom",
+    lifeExpectancyYears: 10,
+    lifeExpectancyMaxYears: 15,
+    behavior:
+      "A smaller, more slender bichir than most. Active at twilight and night; spends days sheltering under wood or rocks. Can coexist with same-size tankmates it cannot eat, but remains predatory by nature.",
+    reproduction:
+      "Egg scatterer; rarely bred in home aquaria.",
+    dimorphism:
+      "Males have a broader anal fin. Females are slightly fuller-bodied when gravid.",
+    commonName: "Polli bichir",
+    scientificName: "Polypterus polli",
+    adultSizeCm: 35,
+    adultSizeMinCm: 28,
+    minTankVolumeL: 200,
+    minFootprintCm: { length: 120, width: 45 },
+    temperament: "predatory",
+    diet: "carnivore",
+    minGroupSize: 1,
+    tempMinC: 24,
+    tempMaxC: 28,
+    phMin: 6.0,
+    phMax: 7.5,
+    origin: "Central Africa (Congo)",
+    careLevel: "intermediate",
+    rarity: "uncommon",
+    priceRange: "$$",
+    description:
+      "A modestly sized, slender bichir from the Congo basin. Less commonly available than Senegal or Ornate bichirs but manageable in a 200 L setup. Needs a tight lid, meaty foods, and peaceful tankmates it cannot swallow.",
+  },
+  // Sources: seriouslyfish.com/species/polypterus-palmas-palmas, fishbase.org/summary/Polypterus-palmas.html, theaquariumwiki.com/wiki/Polypterus_palmas
+  {
+    id: "palmas-bichir",
+    waterType: "freshwater",
+    tankRegion: "bottom",
+    lifeExpectancyYears: 8,
+    lifeExpectancyMaxYears: 12,
+    behavior:
+      "One of the smaller and more manageable bichirs. Active and inquisitive compared to its larger relatives. Tolerates a wider range of water chemistry than most polypterids. Still predatory — small fish will be eaten.",
+    reproduction:
+      "Egg scatterer. Captive spawning occasionally reported with conditioning and a slight temperature increase.",
+    dimorphism:
+      "Males develop a wider anal fin at maturity.",
+    commonName: "Palmas bichir",
+    scientificName: "Polypterus palmas",
+    adultSizeCm: 30,
+    adultSizeMinCm: 23,
+    minTankVolumeL: 150,
+    minFootprintCm: { length: 100, width: 40 },
+    temperament: "predatory",
+    diet: "carnivore",
+    minGroupSize: 1,
+    tempMinC: 24,
+    tempMaxC: 30,
+    phMin: 6.0,
+    phMax: 8.0,
+    origin: "West Africa",
+    careLevel: "beginner",
+    rarity: "uncommon",
+    priceRange: "$",
+    description:
+      "One of the more forgiving bichirs for new keepers — smaller, tolerant of a broad pH range, and comfortable in a 150 L tank. Several subspecies exist with slightly different patterning. Cover the tank: it escapes any opening.",
+  },
+  // Sources: seriouslyfish.com/species/polypterus-weeksii, fishbase.org/summary/Polypterus-weeksii.html, practicalfishkeeping.co.uk
+  {
+    id: "weeksii-bichir",
+    waterType: "freshwater",
+    tankRegion: "bottom",
+    lifeExpectancyYears: 12,
+    lifeExpectancyMaxYears: 20,
+    behavior:
+      "A large, robust bichir with a distinctive deeply-lobed dorsal fin ray pattern. Slow, deliberate mover by day; active hunter at night. Predatory toward anything swallowable; otherwise tolerant of tank mates of similar size.",
+    reproduction:
+      "Egg scatterer. Rarely bred in captivity; requires very large conditioning tanks.",
+    dimorphism:
+      "Males have a characteristically wider anal fin.",
+    commonName: "Weeksii bichir",
+    scientificName: "Polypterus weeksii",
+    adultSizeCm: 90,
+    adultSizeMinCm: 75,
+    minTankVolumeL: 750,
+    minFootprintCm: { length: 200, width: 60 },
+    temperament: "predatory",
+    diet: "carnivore",
+    minGroupSize: 1,
+    tempMinC: 26,
+    tempMaxC: 30,
+    phMin: 6.5,
+    phMax: 7.5,
+    origin: "Central Africa (Congo)",
+    careLevel: "advanced",
+    rarity: "rare",
+    priceRange: "$$$",
+    description:
+      "A massive, impressive bichir for specialist keepers only. Its deeply-notched dorsal finlets are distinctive among the family. Requires an enormous, tightly lidded tank and regular large meaty meals. Not a fish for an average setup.",
+  },
+  // Sources: seriouslyfish.com/species/polypterus-retropinnis, fishbase.org/summary/Polypterus-retropinnis.html, aquariumglaser.de
+  {
+    id: "retropinnis-bichir",
+    waterType: "freshwater",
+    tankRegion: "bottom",
+    lifeExpectancyYears: 8,
+    lifeExpectancyMaxYears: 15,
+    behavior:
+      "A slender, medium-sized bichir with the dorsal finlets set unusually far back — giving it a different silhouette from most relatives. Nocturnal and predatory; calm by day in suitable hiding spots.",
+    reproduction:
+      "Egg scatterer; captive breeding uncommonly reported.",
+    dimorphism:
+      "Males have a broader anal fin.",
+    commonName: "Retropinnis bichir",
+    scientificName: "Polypterus retropinnis",
+    adultSizeCm: 35,
+    adultSizeMinCm: 28,
+    minTankVolumeL: 200,
+    minFootprintCm: { length: 120, width: 45 },
+    temperament: "predatory",
+    diet: "carnivore",
+    minGroupSize: 1,
+    tempMinC: 24,
+    tempMaxC: 28,
+    phMin: 6.0,
+    phMax: 7.5,
+    origin: "Central Africa (Congo)",
+    careLevel: "intermediate",
+    rarity: "rare",
+    priceRange: "$$",
+    description:
+      "An unusual bichir whose dorsal finlets start very close to the tail, giving it a distinctively sleek profile. Less commonly available than most bichirs. Care is the same as its relatives — meaty food, tight lid, adequate space.",
+  },
+  // Sources: seriouslyfish.com/species/polypterus-ansorgii, fishbase.org/summary/Polypterus-ansorgii.html, aquariumglaser.de
+  {
+    id: "ansorgii-bichir",
+    waterType: "freshwater",
+    tankRegion: "bottom",
+    lifeExpectancyYears: 10,
+    lifeExpectancyMaxYears: 18,
+    behavior:
+      "A mid-sized bichir that tends to be more active than the very large species. Predatory and nocturnal; will eat small fish. Less frequently offered in shops than senegalus or ornatipinnis, making it a collector's fish.",
+    reproduction:
+      "Egg scatterer; rarely bred in captivity.",
+    dimorphism:
+      "Males have a noticeably wider anal fin.",
+    commonName: "Ansorgii bichir",
+    scientificName: "Polypterus ansorgii",
+    adultSizeCm: 55,
+    adultSizeMinCm: 42,
+    minTankVolumeL: 400,
+    minFootprintCm: { length: 150, width: 55 },
+    temperament: "predatory",
+    diet: "carnivore",
+    minGroupSize: 1,
+    tempMinC: 26,
+    tempMaxC: 30,
+    phMin: 6.5,
+    phMax: 7.5,
+    origin: "West Africa",
+    careLevel: "intermediate",
+    rarity: "rare",
+    priceRange: "$$$",
+    description:
+      "A seldom-seen bichir that commands a premium in the hobby. Care mirrors other polypterids — a large, covered tank with meaty foods and good filtration. Appeals to collectors who want something different from the standard senegalus.",
+  },
+  // Sources: seriouslyfish.com/species/polypterus-bichir, fishbase.org/summary/Polypterus-bichir.html, aquaticsource.net
+  {
+    id: "nile-bichir",
+    waterType: "freshwater",
+    tankRegion: "bottom",
+    lifeExpectancyYears: 10,
+    lifeExpectancyMaxYears: 20,
+    behavior:
+      "The type species of the genus and one of the largest. Powerful, slow, nocturnal predator. Tolerates conspecifics in large tanks but any fish small enough to swallow will be eaten.",
+    reproduction:
+      "Egg scatterer; captive breeding very rarely reported. Requires very large tanks and conditioning with live prey.",
+    dimorphism:
+      "Males have a wider, paddle-like anal fin.",
+    commonName: "Nile bichir",
+    scientificName: "Polypterus bichir",
+    adultSizeCm: 72,
+    adultSizeMinCm: 60,
+    minTankVolumeL: 600,
+    minFootprintCm: { length: 180, width: 60 },
+    temperament: "predatory",
+    diet: "carnivore",
+    minGroupSize: 1,
+    tempMinC: 26,
+    tempMaxC: 30,
+    phMin: 6.5,
+    phMax: 8.0,
+    origin: "East Africa",
+    careLevel: "intermediate",
+    rarity: "uncommon",
+    priceRange: "$$",
+    description:
+      "The original bichir — large, long-lived, and historically fascinating as one of the most primitive ray-finned fish. Needs a very spacious, tightly covered tank. Feed meaty foods like earthworms, whole fish, and shrimp.",
+  },
+  // Sources: seriouslyfish.com/species/erpetoichthys-calabaricus, fishbase.org/summary/Erpetoichthys-calabaricus.html, fishkeepingworld.com/rope-fish
+  {
+    id: "ropefish",
+    waterType: "freshwater",
+    tankRegion: "bottom",
+    lifeExpectancyYears: 10,
+    lifeExpectancyMaxYears: 15,
+    behavior:
+      "A serpentine, snake-like polypterid that is more active than true bichirs. Social and best kept in a group; lone individuals tend to hide constantly. Strongly nocturnal. Will eat small fish and shrimp. Famous escape artist — any gap is a door.",
+    reproduction:
+      "Reportedly egg scatters in dense vegetation; captive breeding is extremely rare.",
+    dimorphism:
+      "Males have more dorsal finlets (9–14) than females (7–9).",
+    commonName: "Ropefish",
+    scientificName: "Erpetoichthys calabaricus",
+    adultSizeCm: 37,
+    minTankVolumeL: 150,
+    minFootprintCm: { length: 100, width: 40 },
+    temperament: "semi",
+    diet: "carnivore",
+    minGroupSize: 2,
+    maxGroupSize: 6,
+    tempMinC: 22,
+    tempMaxC: 28,
+    phMin: 6.0,
+    phMax: 7.5,
+    origin: "West Africa",
+    careLevel: "intermediate",
+    rarity: "common",
+    priceRange: "$",
+    description:
+      "A living rope with fins — long, olive-green, and endlessly curious. Not a true bichir but in the same family. Peaceful with fish too large to swallow, and surprisingly social with others of its kind. Cover every millimetre of the tank lid.",
+  },
+
+  // ── Killifish ────────────────────────────────────────────────────────────
+
+  // Sources: seriouslyfish.com/species/aphyosemion-australe, fishbase.org/summary/Aphyosemion-australe.html, killifish.org/species/australe
+  {
+    id: "lyretail-killifish",
+    waterType: "freshwater",
+    tankRegion: "top",
+    lifeExpectancyYears: 3,
+    lifeExpectancyMaxYears: 5,
+    behavior:
+      "A peaceful, colourful surface-dweller that pairs well with small community fish. Males display and occasionally spar but rarely cause injury. Best kept as a pair or trio (one male, two females) in a planted, tightly covered tank.",
+    reproduction:
+      "A non-annual plant spawner; deposits adhesive eggs on fine-leaved plants or spawning mops over weeks. Eggs can be pulled and hatched separately. Fry are tiny and need infusoria or micro-worms initially.",
+    dimorphism:
+      "Males are brilliantly coloured with elongated lyrate caudal fin extensions; females are plain brown with a rounded tail.",
+    commonName: "Lyretail killifish",
+    scientificName: "Aphyosemion australe",
+    adultSizeCm: 6,
+    adultSizeMinCm: 4,
+    minTankVolumeL: 40,
+    minFootprintCm: { length: 45, width: 30 },
+    temperament: "peaceful",
+    diet: "carnivore",
+    minGroupSize: 2,
+    tempMinC: 20,
+    tempMaxC: 26,
+    phMin: 6.0,
+    phMax: 7.5,
+    origin: "West Africa",
+    careLevel: "beginner",
+    rarity: "common",
+    priceRange: "$",
+    description:
+      "One of the most beginner-friendly killifish — stunning red-spotted orange-brown colouring on the male, a manageable size, and forgiving water requirements. Does best in a soft, slightly acidic, heavily planted nano tank with a tight lid.",
+  },
+  // Sources: seriouslyfish.com/species/fundulopanchax-gardneri, fishbase.org/summary/Fundulopanchax-gardneri.html, thekillifish.net
+  {
+    id: "steel-blue-killifish",
+    waterType: "freshwater",
+    tankRegion: "top",
+    lifeExpectancyYears: 3,
+    lifeExpectancyMaxYears: 4,
+    behavior:
+      "Hardy and slightly more robust than many killifish; tolerates a range of water conditions. Males are active and will display to each other but rarely cause serious injury. Can be kept in a community with similarly-sized peaceful fish.",
+    reproduction:
+      "Plant spawner; deposits eggs on spawning mops or fine plants. Eggs hatch in 14–21 days at 24 °C. Multiple females reduce male pressure.",
+    dimorphism:
+      "Males are vivid blue-green with red spots; females are plain olive-brown.",
+    commonName: "Steel-blue killifish",
+    scientificName: "Fundulopanchax gardneri",
+    adultSizeCm: 6,
+    adultSizeMinCm: 4.5,
+    minTankVolumeL: 40,
+    minFootprintCm: { length: 45, width: 30 },
+    temperament: "peaceful",
+    diet: "carnivore",
+    minGroupSize: 2,
+    tempMinC: 22,
+    tempMaxC: 26,
+    phMin: 6.0,
+    phMax: 7.5,
+    origin: "West Africa",
+    careLevel: "beginner",
+    rarity: "common",
+    priceRange: "$",
+    description:
+      "One of the most widely kept and easiest killifish — the electric-blue male with red spotting is striking, and it tolerates harder water than many relatives. Good starting point for anyone curious about the killifish hobby.",
+  },
+  // Sources: seriouslyfish.com/species/epiplatys-annulatus, fishbase.org/summary/Epiplatys-annulatus.html, killiesource.com
+  {
+    id: "clown-killifish",
+    waterType: "freshwater",
+    tankRegion: "top",
+    lifeExpectancyYears: 3,
+    behavior:
+      "A tiny, surface-hugging killifish. Males display their striking banded-and-fan-tail pattern to females and rivals. Best in a species tank or nano community with equally small fish; larger tank mates will outcompete it for food.",
+    reproduction:
+      "Plant spawner; lays single eggs on floating plants or under surface vegetation. Fry are very small — first food is infusoria or commercial micro fry food.",
+    dimorphism:
+      "Males have a vivid fan-shaped caudal fin in blue, orange and red; females have a plain rounded tail.",
+    commonName: "Clown killifish",
+    scientificName: "Pseudepiplatys annulatus",
+    adultSizeCm: 3.5,
+    adultSizeMinCm: 2.5,
+    minTankVolumeL: 20,
+    minFootprintCm: { length: 30, width: 25 },
+    temperament: "peaceful",
+    diet: "carnivore",
+    minGroupSize: 4,
+    maxGroupSize: 10,
+    tempMinC: 22,
+    tempMaxC: 28,
+    phMin: 5.5,
+    phMax: 7.5,
+    origin: "West Africa",
+    careLevel: "intermediate",
+    rarity: "uncommon",
+    priceRange: "$",
+    description:
+      "A jewel-box fish for nano tanks — horizontal black bands on the body and a spectacular fan tail on the male make it one of the most striking small fish available. Peaceful and ideal for a heavily planted micro-community.",
+  },
+  // Sources: seriouslyfish.com/species/aplocheilus-lineatus, fishbase.org/summary/Aplocheilus-lineatus.html, aquariumsource.com/striped-panchax
+  {
+    id: "striped-panchax",
+    waterType: "freshwater",
+    tankRegion: "top",
+    lifeExpectancyYears: 3,
+    lifeExpectancyMaxYears: 5,
+    behavior:
+      "A larger, more predatory killifish — will eat anything that fits in its mouth, including guppy fry and small neon tetras. Surface-oriented and bold; makes an active display fish but must be kept with fish of similar or larger size.",
+    reproduction:
+      "Plant spawner; deposits adhesive eggs in floating plants or mops over several weeks. Eggs hatch in 12–14 days.",
+    dimorphism:
+      "Males are more colourful with yellow-green iridescent scaling and a lyre-shaped caudal fin; females are plainer and fuller-bodied.",
+    commonName: "Striped panchax",
+    scientificName: "Aplocheilus lineatus",
+    adultSizeCm: 10,
+    adultSizeMinCm: 7,
+    minTankVolumeL: 80,
+    minFootprintCm: { length: 60, width: 30 },
+    temperament: "semi",
+    diet: "carnivore",
+    minGroupSize: 1,
+    tempMinC: 22,
+    tempMaxC: 28,
+    phMin: 6.0,
+    phMax: 7.5,
+    origin: "South Asia",
+    careLevel: "intermediate",
+    rarity: "common",
+    priceRange: "$",
+    description:
+      "A classic Asian killifish with strong surface presence and a golden body with iridescent rows of scales. Hardy and undemanding, but predatory toward small fish. Works well as a surface-layer species in a medium community.",
+  },
+
+  // ── Freshwater puffers ────────────────────────────────────────────────────
+
+  // Sources: seriouslyfish.com/species/carinotetraodon-travancoricus, fishbase.org/summary/Carinotetraodon-travancoricus.html, aquariumcoop.com/blogs/aquarium/pea-puffer-fish
+  {
+    id: "pea-puffer",
+    waterType: "freshwater",
+    tankRegion: "middle",
+    lifeExpectancyYears: 3,
+    lifeExpectancyMaxYears: 5,
+    behavior:
+      "Tiny but feisty — the world's smallest pufferfish, with a huge personality. Males are territorial and will nip fins of slow-moving tank mates. Best in a densely planted species tank or with fast-swimming, short-finned companions. Eats snails, which keeps populations in check.",
+    reproduction:
+      "Egg depositor; male guards eggs laid on plants or substrate. Breeding in captivity has been achieved with careful conditioning.",
+    dimorphism:
+      "Males show a distinct dark ventral stripe and iridescent eye rings; females are rounder, plainer, and often spotted on the belly.",
+    commonName: "Pea puffer",
+    scientificName: "Carinotetraodon travancoricus",
+    adultSizeCm: 2.5,
+    minTankVolumeL: 40,
+    minFootprintCm: { length: 40, width: 30 },
+    temperament: "semi",
+    diet: "carnivore",
+    minGroupSize: 1,
+    tempMinC: 22,
+    tempMaxC: 28,
+    phMin: 6.5,
+    phMax: 8.0,
+    origin: "South Asia",
+    careLevel: "intermediate",
+    rarity: "common",
+    priceRange: "$",
+    description:
+      "The world's smallest puffer — barely 2.5 cm but packed with attitude. An entertaining, intelligent fish that recognises its keeper and actively hunts snails. Keep heavily planted to break sight lines and reduce aggression.",
+  },
+  // Sources: seriouslyfish.com/species/colomesus-asellus, fishbase.org/summary/Colomesus-asellus.html, aquariumsource.com/amazon-puffer
+  {
+    id: "south-american-puffer",
+    waterType: "freshwater",
+    tankRegion: "middle",
+    lifeExpectancyYears: 5,
+    lifeExpectancyMaxYears: 10,
+    behavior:
+      "Unusually for a puffer, this species is schooling — it should be kept in groups and is substantially more peaceful than most relatives. Active, constantly swimming. Still needs hard food (snails, shellfish) to wear down ever-growing teeth.",
+    reproduction:
+      "Rarely bred in captivity; little documented in the hobby.",
+    dimorphism:
+      "Not reliably distinguishable externally.",
+    commonName: "South American puffer",
+    scientificName: "Colomesus asellus",
+    adultSizeCm: 8,
+    minTankVolumeL: 80,
+    minFootprintCm: { length: 80, width: 35 },
+    temperament: "peaceful",
+    diet: "omnivore",
+    minGroupSize: 3,
+    maxGroupSize: 8,
+    tempMinC: 23,
+    tempMaxC: 28,
+    phMin: 6.0,
+    phMax: 7.5,
+    origin: "South America",
+    careLevel: "intermediate",
+    rarity: "uncommon",
+    priceRange: "$$",
+    description:
+      "The friendliest puffer in the hobby — schools like a tetra, ignores tank mates, and is far less belligerent than its relatives. Needs snails or shellfish regularly to prevent overgrown teeth. A surprisingly community-compatible puffer.",
+  },
+  // Sources: seriouslyfish.com/species/tetraodon-miurus, fishbase.org/summary/Tetraodon-miurus.html, aquaticquotient.com
+  {
+    id: "congo-puffer",
+    waterType: "freshwater",
+    tankRegion: "bottom",
+    lifeExpectancyYears: 10,
+    behavior:
+      "An ambush predator that buries itself in substrate until only its upturned eyes are visible, then lunges at passing fish. Aggressive and highly predatory — best as a species-only or single-specimen fish. Not a community fish under any circumstances.",
+    reproduction:
+      "Rarely documented in captivity.",
+    dimorphism:
+      "Not reliably distinguishable externally; females may be slightly fuller-bodied.",
+    commonName: "Congo puffer",
+    scientificName: "Tetraodon miurus",
+    adultSizeCm: 15,
+    minTankVolumeL: 120,
+    minFootprintCm: { length: 80, width: 40 },
+    temperament: "predatory",
+    diet: "carnivore",
+    minGroupSize: 1,
+    tempMinC: 24,
+    tempMaxC: 28,
+    phMin: 6.5,
+    phMax: 7.5,
+    origin: "Central Africa (Congo)",
+    careLevel: "intermediate",
+    rarity: "uncommon",
+    priceRange: "$$",
+    description:
+      "A bizarre ambush specialist that buries in sand and waits for prey to swim overhead. Changes colour to match substrate. Fascinating to observe but exclusively a solitary predator — it will eat any fish it can fit in its mouth.",
+  },
+  // Sources: seriouslyfish.com/species/tetraodon-mbu, fishbase.org/summary/Tetraodon-mbu.html, fishkeepingworld.com/mbu-puffer-fish
+  {
+    id: "mbu-puffer",
+    waterType: "freshwater",
+    tankRegion: "middle",
+    lifeExpectancyYears: 10,
+    lifeExpectancyMaxYears: 20,
+    behavior:
+      "The largest strictly freshwater puffer — intelligent, interactive, and highly aggressive toward fish and decorations alike. Best kept as a solitary specimen. Recognises its keeper and can become hand-tame, but will bite hard if provoked.",
+    reproduction:
+      "Not documented in the hobby.",
+    dimorphism:
+      "Not reliably distinguishable.",
+    commonName: "MBU puffer",
+    scientificName: "Tetraodon mbu",
+    adultSizeCm: 67,
+    adultSizeMinCm: 50,
+    minTankVolumeL: 1000,
+    minFootprintCm: { length: 240, width: 80 },
+    temperament: "predatory",
+    diet: "carnivore",
+    minGroupSize: 1,
+    tempMinC: 24,
+    tempMaxC: 28,
+    phMin: 7.0,
+    phMax: 8.0,
+    origin: "Central Africa (Congo)",
+    careLevel: "advanced",
+    rarity: "uncommon",
+    priceRange: "$$$",
+    description:
+      "The giant of freshwater puffers — interactive, intelligent, and grows to 67 cm. Requires a truly enormous tank and a powerful filter. Eats hard-shelled prey to keep ever-growing teeth trimmed. A long-term commitment for serious fishkeepers only.",
+  },
+
+  // ── Gobies & gudgeons ─────────────────────────────────────────────────────
+
+  // Sources: seriouslyfish.com/species/tateurndina-ocellicauda, fishbase.org/summary/Tateurndina-ocellicauda.html, aquariumcoop.com/blogs/aquarium/peacock-gudgeon
+  {
+    id: "peacock-gudgeon",
+    waterType: "freshwater",
+    tankRegion: "middle",
+    lifeExpectancyYears: 4,
+    lifeExpectancyMaxYears: 5,
+    behavior:
+      "A gem of a small fish — peaceful, colourful, and easy to breed. Males establish small territories around cave-like hiding spots and display to females constantly. Best in a nano tank with similar-sized peaceful companions.",
+    reproduction:
+      "Caves spawner; male guards egg clusters in a cave or PVC tube. Fry are free-swimming after a few days and accept micro foods immediately.",
+    dimorphism:
+      "Males have a distinct nuchal hump on the forehead and more vivid colouration; females are smaller and plumper when gravid.",
+    commonName: "Peacock gudgeon",
+    scientificName: "Tateurndina ocellicauda",
+    adultSizeCm: 7,
+    adultSizeMinCm: 5,
+    minTankVolumeL: 40,
+    minFootprintCm: { length: 45, width: 30 },
+    temperament: "peaceful",
+    diet: "carnivore",
+    minGroupSize: 2,
+    maxGroupSize: 8,
+    tempMinC: 22,
+    tempMaxC: 28,
+    phMin: 6.5,
+    phMax: 7.5,
+    origin: "New Guinea",
+    careLevel: "beginner",
+    rarity: "common",
+    priceRange: "$",
+    description:
+      "A jewel from Papua New Guinea — pink-and-blue iridescent scales, a bold ocellus on the tail, and an easy-going temperament. Readily bred in captivity, tolerant of a range of water chemistry, and perfect for a planted nano tank.",
+  },
+  // Sources: seriouslyfish.com/species/brachygobius-xanthomelas, fishbase.org/summary/Brachygobius-xanthomelas.html, aquaticarts.com/bumblebee-goby
+  {
+    id: "bumblebee-goby",
+    waterType: "freshwater",
+    tankRegion: "bottom",
+    lifeExpectancyYears: 3,
+    lifeExpectancyMaxYears: 4,
+    behavior:
+      "A tiny, bold goby that perches on the substrate and hops between surfaces. Can be kept in freshwater but does better with a slight salt addition (brackish-tolerant). Males are territorial toward each other; fine in groups with sufficient hiding spots. Fussy eater — usually refuses dry food.",
+    reproduction:
+      "Cave spawner; male guards eggs under a flat stone or in a cave. Fry are tiny and need live micro foods.",
+    dimorphism:
+      "Males are slimmer and more intensely banded; females are rounder when gravid.",
+    commonName: "Bumblebee goby",
+    scientificName: "Brachygobius xanthomelas",
+    adultSizeCm: 4,
+    minTankVolumeL: 40,
+    minFootprintCm: { length: 40, width: 25 },
+    temperament: "semi",
+    diet: "carnivore",
+    minGroupSize: 4,
+    maxGroupSize: 10,
+    tempMinC: 24,
+    tempMaxC: 28,
+    phMin: 7.0,
+    phMax: 8.5,
+    origin: "Southeast Asia",
+    careLevel: "intermediate",
+    rarity: "common",
+    priceRange: "$",
+    description:
+      "A bold, yellow-and-black striped miniature goby. Fascinating to watch as it perches and hops about the substrate. Needs live or frozen foods and appreciates a small salt addition. Best in a brackish nano species tank.",
+  },
+
+  // ── Spiny eels ───────────────────────────────────────────────────────────
+
+  // Sources: seriouslyfish.com/species/mastacembelus-erythrotaenia, fishbase.org/summary/Mastacembelus-erythrotaenia.html, fishkeepingworld.com/fire-eel
+  {
+    id: "fire-eel",
+    waterType: "freshwater",
+    tankRegion: "bottom",
+    lifeExpectancyYears: 10,
+    lifeExpectancyMaxYears: 20,
+    behavior:
+      "A spectacular spiny eel with vivid red-orange lateral stripe and spots. Nocturnal and secretive during the day, but becomes bolder over time. Peaceful toward fish too large to swallow; will eat small fish and invertebrates. Escapes through any gap.",
+    reproduction:
+      "Not documented in the hobby.",
+    dimorphism:
+      "Females are typically larger and fuller-bodied.",
+    commonName: "Fire eel",
+    scientificName: "Mastacembelus erythrotaenia",
+    adultSizeCm: 100,
+    adultSizeMinCm: 75,
+    minTankVolumeL: 450,
+    minFootprintCm: { length: 150, width: 60 },
+    temperament: "semi",
+    diet: "carnivore",
+    minGroupSize: 1,
+    tempMinC: 24,
+    tempMaxC: 28,
+    phMin: 6.5,
+    phMax: 7.5,
+    origin: "Southeast Asia",
+    careLevel: "intermediate",
+    rarity: "uncommon",
+    priceRange: "$$",
+    description:
+      "One of the most visually striking freshwater fish available — a long, serpentine body traced with vivid red and orange lines. Needs a deep sand substrate to burrow in, a very secure lid, and a large tank. Worth every bit of the effort.",
+  },
+  // Sources: seriouslyfish.com/species/macrognathus-siamensis, fishbase.org/summary/Macrognathus-siamensis.html, theaquariumwiki.com/wiki/Macrognathus_siamensis
+  {
+    id: "peacock-spiny-eel",
+    waterType: "freshwater",
+    tankRegion: "bottom",
+    lifeExpectancyYears: 8,
+    lifeExpectancyMaxYears: 12,
+    behavior:
+      "A smaller, more manageable spiny eel. Peaceful toward fish that are too large to eat; will consume small shrimp and tiny fish. Likes to burrow in soft substrate and wedge into crevices. Nocturnal but can be trained to feed during the day.",
+    reproduction:
+      "Rarely bred in captivity; eggs have been reported scattered among plants.",
+    dimorphism:
+      "Females are generally larger and more robust.",
+    commonName: "Peacock spiny eel",
+    scientificName: "Macrognathus siamensis",
+    adultSizeCm: 30,
+    adultSizeMinCm: 20,
+    minTankVolumeL: 110,
+    minFootprintCm: { length: 90, width: 40 },
+    temperament: "peaceful",
+    diet: "carnivore",
+    minGroupSize: 1,
+    tempMinC: 22,
+    tempMaxC: 28,
+    phMin: 6.5,
+    phMax: 7.5,
+    origin: "Southeast Asia",
+    careLevel: "intermediate",
+    rarity: "common",
+    priceRange: "$",
+    description:
+      "A popular and more beginner-accessible spiny eel with distinctive eye-spots along its dorsal edge. Adapts to captivity better than larger relatives and fits in a 90 cm tank. Needs a soft sand substrate for burrowing and a tight lid.",
+  },
+  // Sources: seriouslyfish.com/species/mastacembelus-armatus, fishbase.org/summary/Mastacembelus-armatus.html, aquariumsource.com/tire-track-eel
+  {
+    id: "tire-track-eel",
+    waterType: "freshwater",
+    tankRegion: "bottom",
+    lifeExpectancyYears: 10,
+    lifeExpectancyMaxYears: 18,
+    behavior:
+      "A large, patterned spiny eel named for the Y-shaped markings along its body. Nocturnal and secretive; spends much of the day buried in substrate. Peaceful toward fish it cannot eat, but small fish and shrimp will disappear. Escape-prone.",
+    reproduction:
+      "Rarely if ever bred in captivity.",
+    dimorphism:
+      "Females tend to be larger and heavier-bodied at maturity.",
+    commonName: "Tire track eel",
+    scientificName: "Mastacembelus armatus",
+    adultSizeCm: 90,
+    adultSizeMinCm: 60,
+    minTankVolumeL: 400,
+    minFootprintCm: { length: 150, width: 55 },
+    temperament: "semi",
+    diet: "carnivore",
+    minGroupSize: 1,
+    tempMinC: 24,
+    tempMaxC: 28,
+    phMin: 6.5,
+    phMax: 7.5,
+    origin: "Southeast Asia",
+    careLevel: "intermediate",
+    rarity: "uncommon",
+    priceRange: "$$",
+    description:
+      "A large, beautifully patterned spiny eel for a spacious, sandy-floored tank. Feeds on worms, shrimp, and small fish; best with tankmates large enough not to be eaten. Secure every lid gap — they escape with ease.",
+  },
+
+  // ── Hatchetfish ──────────────────────────────────────────────────────────
+
+  // Sources: seriouslyfish.com/species/carnegiella-strigata, fishbase.org/summary/Carnegiella-strigata.html, aquariumcoop.com/blogs/aquarium/marble-hatchetfish
+  {
+    id: "marbled-hatchetfish",
+    waterType: "freshwater",
+    tankRegion: "top",
+    lifeExpectancyYears: 3,
+    lifeExpectancyMaxYears: 5,
+    behavior:
+      "A true surface fish — hatchetfish never swim down to mid-water. They school tightly just under the surface and will jump when startled. The marbled pattern provides camouflage against rippled surface light. Keep in groups of 6+ with a very tight lid.",
+    reproduction:
+      "Rarely bred in captivity; eggs scattered among floating plants.",
+    dimorphism:
+      "Females are slightly fuller-bodied when viewed from above.",
+    commonName: "Marbled hatchetfish",
+    scientificName: "Carnegiella strigata",
+    adultSizeCm: 3.5,
+    minTankVolumeL: 50,
+    minFootprintCm: { length: 60, width: 30 },
+    temperament: "peaceful",
+    diet: "carnivore",
+    minGroupSize: 6,
+    maxGroupSize: 20,
+    tempMinC: 23,
+    tempMaxC: 28,
+    phMin: 5.5,
+    phMax: 7.0,
+    origin: "South America",
+    careLevel: "intermediate",
+    rarity: "common",
+    priceRange: "$",
+    description:
+      "A tiny, deep-keeled fish that lives its entire life right at the surface, where it hunts insects. Soft, acidic water and a very tight lid are essential — they can clear the water surface with a powerful leap. Excellent for filling the top layer of an Amazonian biotope.",
+  },
+  // Sources: seriouslyfish.com/species/gasteropelecus-sternicla, fishbase.org/summary/Gasteropelecus-sternicla.html, aquariumsource.com/silver-hatchetfish
+  {
+    id: "silver-hatchetfish",
+    waterType: "freshwater",
+    tankRegion: "top",
+    lifeExpectancyYears: 3,
+    lifeExpectancyMaxYears: 5,
+    behavior:
+      "The larger of the two commonly kept hatchetfish. Schools at the surface; will jump if startled or if water quality is poor. Peaceful with all tank mates. Needs floating plants to feel secure. Sensitive to ammonia — best with a mature filter.",
+    reproduction:
+      "Rarely bred in captivity.",
+    dimorphism:
+      "Females are slightly deeper-bodied.",
+    commonName: "Silver hatchetfish",
+    scientificName: "Gasteropelecus sternicla",
+    adultSizeCm: 6,
+    minTankVolumeL: 80,
+    minFootprintCm: { length: 80, width: 35 },
+    temperament: "peaceful",
+    diet: "carnivore",
+    minGroupSize: 6,
+    maxGroupSize: 20,
+    tempMinC: 23,
+    tempMaxC: 28,
+    phMin: 5.5,
+    phMax: 7.5,
+    origin: "South America",
+    careLevel: "intermediate",
+    rarity: "common",
+    priceRange: "$",
+    description:
+      "A classic surface schooler with a chrome-silver body and sharp keel. Fills the surface layer of a South American community beautifully. Tight lid mandatory. Keep ammonia at zero — they show water quality problems quickly.",
+  },
+
+  // ── Pencilfish ────────────────────────────────────────────────────────────
+
+  // Sources: seriouslyfish.com/species/nannostomus-beckfordi, fishbase.org/summary/Nannostomus-beckfordi.html, aquariumglaser.de/en/fish-archives/nannostomus-beckfordi
+  {
+    id: "beckfords-pencilfish",
+    waterType: "freshwater",
+    tankRegion: "middle",
+    lifeExpectancyYears: 3,
+    lifeExpectancyMaxYears: 5,
+    behavior:
+      "The most robust and beginner-friendly pencilfish. Schools loosely in mid-water; males display to each other with spread fins but rarely cause injury. Compatible with small peaceful community fish. Will nip very long fins on slow fish.",
+    reproduction:
+      "Egg scatterer; spawns among fine-leaved plants. Parents may eat eggs — remove adults or use a spawning mesh.",
+    dimorphism:
+      "Males are more intensely coloured and slimmer; females fuller-bodied and paler.",
+    commonName: "Beckford's pencilfish",
+    scientificName: "Nannostomus beckfordi",
+    adultSizeCm: 6,
+    adultSizeMinCm: 4,
+    minTankVolumeL: 50,
+    minFootprintCm: { length: 60, width: 30 },
+    temperament: "peaceful",
+    diet: "omnivore",
+    minGroupSize: 6,
+    maxGroupSize: 15,
+    tempMinC: 23,
+    tempMaxC: 28,
+    phMin: 5.5,
+    phMax: 7.5,
+    origin: "South America",
+    careLevel: "beginner",
+    rarity: "common",
+    priceRange: "$",
+    description:
+      "The gateway pencilfish — tolerant, colourful, and easy to find. A gold lateral stripe with red accents makes males eye-catching in a planted tank. One of the few pencilfish that works well in a mixed community.",
+  },
+  // Sources: seriouslyfish.com/species/nannostomus-marginatus, fishbase.org/summary/Nannostomus-marginatus.html, fishbase.org
+  {
+    id: "dwarf-pencilfish",
+    waterType: "freshwater",
+    tankRegion: "middle",
+    lifeExpectancyYears: 3,
+    behavior:
+      "A tiny, exquisitely marked pencilfish for a nano or species tank. Holds its body at a characteristic head-up angle at rest. Best with very small, peaceful companions — easily outcompeted for food in a larger community. Very sensitive to water quality.",
+    reproduction:
+      "Egg scatterer among fine plants. Eggs and fry are minute; microworms or infusoria needed for first foods.",
+    dimorphism:
+      "Males have a red lower body stripe and slimmer build; females are plainer and more rounded.",
+    commonName: "Dwarf pencilfish",
+    scientificName: "Nannostomus marginatus",
+    adultSizeCm: 3.5,
+    adultSizeMinCm: 2.5,
+    minTankVolumeL: 30,
+    minFootprintCm: { length: 40, width: 25 },
+    temperament: "peaceful",
+    diet: "omnivore",
+    minGroupSize: 6,
+    maxGroupSize: 15,
+    tempMinC: 23,
+    tempMaxC: 28,
+    phMin: 5.0,
+    phMax: 7.0,
+    origin: "South America",
+    careLevel: "intermediate",
+    rarity: "uncommon",
+    priceRange: "$",
+    description:
+      "One of the smallest pencilfish and one of the most charming nano fish in the hobby. Three bold horizontal stripes in red, black and white. Needs pristine, soft, acidic water and very small tank mates that won't outcompete it for food.",
+  },
+  // Sources: seriouslyfish.com/species/nannostomus-trifasciatus, fishbase.org/summary/Nannostomus-trifasciatus.html, aquariumsource.com/three-line-pencilfish
+  {
+    id: "three-lined-pencilfish",
+    waterType: "freshwater",
+    tankRegion: "middle",
+    lifeExpectancyYears: 3,
+    lifeExpectancyMaxYears: 5,
+    behavior:
+      "A slightly larger pencilfish with three bold horizontal stripes. More colourful and easier to find than many relatives. Schools in mid-water; males display intensely but combat is limited to fin-spreading. Best in a planted soft-water community.",
+    reproduction:
+      "Egg scatterer; eggs deposited among fine-leaved plants. Adults will eat eggs if not removed.",
+    dimorphism:
+      "Males show more intense red colouring in the belly stripe; females are plumper and slightly paler.",
+    commonName: "Three-lined pencilfish",
+    scientificName: "Nannostomus trifasciatus",
+    adultSizeCm: 6,
+    adultSizeMinCm: 5,
+    minTankVolumeL: 60,
+    minFootprintCm: { length: 60, width: 30 },
+    temperament: "peaceful",
+    diet: "omnivore",
+    minGroupSize: 6,
+    maxGroupSize: 15,
+    tempMinC: 23,
+    tempMaxC: 28,
+    phMin: 5.5,
+    phMax: 7.0,
+    origin: "South America",
+    careLevel: "intermediate",
+    rarity: "uncommon",
+    priceRange: "$",
+    description:
+      "A boldly striped pencilfish with a distinctive nocturnal colour change — the dark stripes fade to a mottled oblique pattern at night. Needs soft, slightly acidic water and a heavily planted tank to really thrive and colour up.",
+  },
+
+  // ── African cichlids — Lake Malawi ───────────────────────────────────────
+
+  // Sources: seriouslyfish.com/species/labidochromis-caeruleus, fishbase.org/summary/Labidochromis-caeruleus.html, cichlid-forum.com/articles/labidochromis_caeruleus.php
+  {
+    id: "yellow-lab",
+    waterType: "freshwater",
+    tankRegion: "middle",
+    lifeExpectancyYears: 6,
+    lifeExpectancyMaxYears: 10,
+    behavior:
+      "The most beginner-friendly mbuna — electric lemon-yellow with black dorsal fin trim, and substantially less aggressive than most Lake Malawi cichlids. Peaceful enough to mix with other calmer mbuna. Still needs hard, alkaline water and a rocky tank.",
+    reproduction:
+      "Maternal mouthbrooder; female incubates 10–20 eggs in her mouth for ~3 weeks. Fry are released free-swimming and surprisingly large.",
+    dimorphism:
+      "Males have a more defined black edge on the dorsal and anal fins; females are identical in colour but slightly smaller.",
+    commonName: "Yellow lab",
+    scientificName: "Labidochromis caeruleus",
+    adultSizeCm: 10,
+    adultSizeMinCm: 8,
+    minTankVolumeL: 110,
+    minFootprintCm: { length: 100, width: 40 },
+    temperament: "semi",
+    diet: "omnivore",
+    minGroupSize: 4,
+    maxGroupSize: 10,
+    tempMinC: 24,
+    tempMaxC: 28,
+    phMin: 7.5,
+    phMax: 8.5,
+    origin: "East Africa",
+    careLevel: "beginner",
+    rarity: "common",
+    priceRange: "$",
+    description:
+      "The entry-level mbuna — uniform lemon yellow with a neat black dorsal stripe. Hardy, relatively peaceful, and works in a mixed Malawi community. Needs hard alkaline water, rockwork, and a well-maintained filter. A great first African cichlid.",
+  },
+  // Sources: seriouslyfish.com/species/chindongo-demasoni, fishbase.org/summary/Pseudotropheus-demasoni.html, cichlid-forum.com/articles/demasoni.php
+  {
+    id: "demasoni-cichlid",
+    waterType: "freshwater",
+    tankRegion: "middle",
+    lifeExpectancyYears: 8,
+    lifeExpectancyMaxYears: 12,
+    behavior:
+      "A small but intensely aggressive mbuna. Must be kept in large groups (10+) to distribute aggression — small groups lead to targeted killing. A single dominant male will harass subordinates to death unless the tank is densely stocked with many individuals and thoroughly rockscaped.",
+    reproduction:
+      "Maternal mouthbrooder; female holds 5–15 eggs for ~3 weeks. Fry are tiny and vulnerable.",
+    dimorphism:
+      "Males and females are nearly identical (blue-and-black striped); dominant males may show slight intensification of colour.",
+    commonName: "Demasoni cichlid",
+    scientificName: "Pseudotropheus demasoni",
+    adultSizeCm: 9,
+    minTankVolumeL: 200,
+    minFootprintCm: { length: 120, width: 45 },
+    temperament: "aggressive",
+    diet: "herbivore",
+    minGroupSize: 10,
+    tempMinC: 24,
+    tempMaxC: 28,
+    phMin: 7.5,
+    phMax: 8.5,
+    origin: "East Africa",
+    careLevel: "intermediate",
+    rarity: "common",
+    priceRange: "$",
+    description:
+      "A strikingly beautiful but punishingly aggressive mbuna. The only safe way to keep them is in a large, overstock of 10+ fish in a heavily rocky tank, which disperses the aggression across many targets. Worth the challenge for the bold electric-blue-and-black pattern.",
+  },
+  // Sources: seriouslyfish.com/species/aulonocara-jacobfreibergi, fishbase.org/summary/Aulonocara-jacobfreibergi.html, cichlid-forum.com/articles/aulonocara.php
+  {
+    id: "peacock-cichlid",
+    waterType: "freshwater",
+    tankRegion: "middle",
+    lifeExpectancyYears: 6,
+    lifeExpectancyMaxYears: 10,
+    behavior:
+      "One of the most peaceful Malawi cichlids — males are spectacular in colour but direct aggression mainly toward other male Aulonocara. Swims in open water more than mbuna. Works well in a peaceful Malawi community with other Aulonocara species and Utaka.",
+    reproduction:
+      "Maternal mouthbrooder; female holds 20–30 eggs for ~3 weeks before releasing free-swimming fry.",
+    dimorphism:
+      "Males are brilliantly coloured (blue, yellow, or orange depending on variety); females are plain silver-brown.",
+    commonName: "Peacock cichlid",
+    scientificName: "Aulonocara jacobfreibergi",
+    adultSizeCm: 15,
+    adultSizeMinCm: 10,
+    minTankVolumeL: 200,
+    minFootprintCm: { length: 120, width: 45 },
+    temperament: "semi",
+    diet: "carnivore",
+    minGroupSize: 4,
+    maxGroupSize: 8,
+    tempMinC: 24,
+    tempMaxC: 28,
+    phMin: 7.5,
+    phMax: 8.5,
+    origin: "East Africa",
+    careLevel: "intermediate",
+    rarity: "common",
+    priceRange: "$$",
+    description:
+      "One of the most dazzling freshwater fish available — males in full colour are electric blue, orange or yellow depending on population. Calmer than mbuna and open-water oriented. Needs hard alkaline water and at least a 120 cm tank.",
+  },
+
+  // ── African cichlids — Lake Tanganyika ────────────────────────────────────
+
+  // Sources: seriouslyfish.com/species/cyphotilapia-frontosa, fishbase.org/summary/Cyphotilapia-frontosa.html, cichlid-forum.com/articles/frontosa.php
+  {
+    id: "frontosa",
+    waterType: "freshwater",
+    tankRegion: "middle",
+    lifeExpectancyYears: 15,
+    lifeExpectancyMaxYears: 25,
+    behavior:
+      "A slow, majestic deep-water cichlid. Peaceful in a species colony but predatory toward small fish — it hunts sleeping fish in the wild at dawn. Best in a large, species-dedicated tank with other frontosa. Males develop a pronounced nuchal hump with age.",
+    reproduction:
+      "Maternal mouthbrooder; female holds 20–50 large eggs for 4–5 weeks. Fry are large when released.",
+    dimorphism:
+      "Males develop a large nuchal hump and are substantially bigger than females.",
+    commonName: "Frontosa",
+    scientificName: "Cyphotilapia frontosa",
+    adultSizeCm: 35,
+    adultSizeMinCm: 25,
+    minTankVolumeL: 500,
+    minFootprintCm: { length: 180, width: 60 },
+    temperament: "semi",
+    diet: "carnivore",
+    minGroupSize: 6,
+    maxGroupSize: 12,
+    tempMinC: 24,
+    tempMaxC: 27,
+    phMin: 7.8,
+    phMax: 9.0,
+    origin: "East Africa",
+    careLevel: "intermediate",
+    rarity: "uncommon",
+    priceRange: "$$$",
+    description:
+      "A regal Tanganyika cichlid with bold blue-and-white banding and a growing nuchal hump in males. Long-lived (25+ years possible), slow-growing, and colony-oriented. Requires very hard, alkaline water and a very large tank. A fish for patient keepers.",
+  },
+  // Sources: seriouslyfish.com/species/neolamprologus-brichardi, fishbase.org/summary/Neolamprologus-brichardi.html, cichlid-forum.com/articles/brichardi.php
+  {
+    id: "fairy-cichlid",
+    waterType: "freshwater",
+    tankRegion: "middle",
+    lifeExpectancyYears: 8,
+    lifeExpectancyMaxYears: 10,
+    behavior:
+      "A unique cichlid that forms cooperative family groups — older offspring help guard younger siblings. Graceful and relatively peaceful outside of breeding, but will defend a cave area aggressively when spawning. Best in a species or Tanganyika community tank.",
+    reproduction:
+      "Cave spawner; both parents and older offspring guard the clutch. Multiple generations can coexist peacefully in the same tank.",
+    dimorphism:
+      "Males are slightly larger; otherwise sexing is difficult without direct behaviour observation.",
+    commonName: "Fairy cichlid",
+    scientificName: "Neolamprologus brichardi",
+    adultSizeCm: 9,
+    adultSizeMinCm: 7,
+    minTankVolumeL: 80,
+    minFootprintCm: { length: 80, width: 35 },
+    temperament: "semi",
+    diet: "carnivore",
+    minGroupSize: 4,
+    maxGroupSize: 10,
+    tempMinC: 24,
+    tempMaxC: 27,
+    phMin: 7.8,
+    phMax: 9.0,
+    origin: "East Africa",
+    careLevel: "beginner",
+    rarity: "common",
+    priceRange: "$",
+    description:
+      "An elegant, lyre-tailed Tanganyika cichlid that lives in extended family colonies and cooperatively raises its young — a fascinating cichlid behaviour to observe. Relatively easy to keep and breed in hard, alkaline water.",
+  },
+  // Sources: seriouslyfish.com/species/neolamprologus-leleupi, fishbase.org/summary/Neolamprologus-leleupi.html, cichlid-forum.com
+  {
+    id: "lemon-cichlid",
+    waterType: "freshwater",
+    tankRegion: "middle",
+    lifeExpectancyYears: 8,
+    lifeExpectancyMaxYears: 12,
+    behavior:
+      "A vibrant orange-yellow Tanganyika cichlid. Territorial and will defend a cave area, but manageable in a Tanganyika community with adequate space and rockwork. Males can be aggressive toward females outside breeding — keep in pairs with plenty of cover.",
+    reproduction:
+      "Cave spawner; both parents guard the eggs and fry. Fry are relatively easy to raise.",
+    dimorphism:
+      "Males are slightly larger and more intensely coloured; otherwise difficult to sex.",
+    commonName: "Lemon cichlid",
+    scientificName: "Neolamprologus leleupi",
+    adultSizeCm: 10,
+    adultSizeMinCm: 7,
+    minTankVolumeL: 80,
+    minFootprintCm: { length: 80, width: 35 },
+    temperament: "semi",
+    diet: "carnivore",
+    minGroupSize: 2,
+    tempMinC: 24,
+    tempMaxC: 27,
+    phMin: 7.8,
+    phMax: 9.0,
+    origin: "East Africa",
+    careLevel: "intermediate",
+    rarity: "common",
+    priceRange: "$",
+    description:
+      "A vivid, entirely orange-yellow Tanganyika cichlid that glows in a well-lit rock cave setup. Territorial but manageable with good aquascaping. Needs very hard, alkaline water like all Tanganyika species.",
+  },
+
+  // ── Other African cichlids ─────────────────────────────────────────────────
+
+  // Sources: seriouslyfish.com/species/hemichromis-bimaculatus, fishbase.org/summary/Hemichromis-bimaculatus.html, cichlid-forum.com
+  {
+    id: "jewel-cichlid",
+    waterType: "freshwater",
+    tankRegion: "middle",
+    lifeExpectancyYears: 5,
+    lifeExpectancyMaxYears: 10,
+    behavior:
+      "A spectacularly coloured West African cichlid — blood-red with iridescent blue-green spots. Highly aggressive, particularly during breeding. Should be kept as a bonded pair in their own tank or a very large community only with robust tank mates. Will destroy plants and rearrange substrate.",
+    reproduction:
+      "Open spawner; pair bonds tightly and both parents aggressively defend eggs and fry. One of the most dedicated cichlid parents in the hobby.",
+    dimorphism:
+      "Males are slightly larger and often more intensely red; females may show a dark spot on the dorsal fin.",
+    commonName: "Jewel cichlid",
+    scientificName: "Hemichromis bimaculatus",
+    adultSizeCm: 15,
+    adultSizeMinCm: 12,
+    minTankVolumeL: 110,
+    minFootprintCm: { length: 100, width: 40 },
+    temperament: "aggressive",
+    diet: "carnivore",
+    minGroupSize: 2,
+    tempMinC: 22,
+    tempMaxC: 26,
+    phMin: 6.5,
+    phMax: 7.5,
+    origin: "West Africa",
+    careLevel: "intermediate",
+    rarity: "common",
+    priceRange: "$",
+    description:
+      "One of the most beautiful fish in freshwater — a blazing red body studded with iridescent turquoise spots. Ferociously aggressive when breeding; best kept as a pair in a species tank. Easy to spawn and rear but demands respect for its territorial nature.",
+  },
+  // Sources: seriouslyfish.com/species/tropheus-moorii, fishbase.org/summary/Tropheus-moorii.html, cichlid-forum.com/articles/tropheus.php
+  {
+    id: "tropheus",
+    waterType: "freshwater",
+    tankRegion: "middle",
+    lifeExpectancyYears: 10,
+    lifeExpectancyMaxYears: 15,
+    behavior:
+      "One of the most challenging cichlids to keep — extremely aggressive toward conspecifics, requiring a large overstock of 15–20 fish to disperse aggression. Highly sensitive to diet: needs a high-fibre, low-protein vegetable diet; high-protein foods cause fatal Malawi bloat rapidly.",
+    reproduction:
+      "Maternal mouthbrooder; female holds 5–15 large eggs for 4–5 weeks. Fry are surprisingly large when released.",
+    dimorphism:
+      "Males and females are similar in most colour morphs; males tend to be slightly larger.",
+    commonName: "Tropheus",
+    scientificName: "Tropheus moorii",
+    adultSizeCm: 14,
+    adultSizeMinCm: 10,
+    minTankVolumeL: 350,
+    minFootprintCm: { length: 150, width: 55 },
+    temperament: "aggressive",
+    diet: "herbivore",
+    minGroupSize: 15,
+    tempMinC: 24,
+    tempMaxC: 28,
+    phMin: 7.8,
+    phMax: 9.0,
+    origin: "East Africa",
+    careLevel: "advanced",
+    rarity: "uncommon",
+    priceRange: "$$$",
+    description:
+      "Dozens of stunning colour morphs, an extraordinary diversity of patterns — and one of the most demanding fish in the hobby. Requires a strict vegetable diet, very hard alkaline water, high-density stocking, and meticulous observation to spot early signs of illness. For experienced Tanganyika keepers only.",
+  },
+
+  // ── Rainbowfish ──────────────────────────────────────────────────────────
+
+  // Sources: seriouslyfish.com/species/melanotaenia-praecox, fishbase.org/summary/Melanotaenia-praecox.html, aquariumcoop.com/blogs/aquarium/neon-rainbowfish
+  {
+    id: "neon-dwarf-rainbowfish",
+    waterType: "freshwater",
+    tankRegion: "middle",
+    lifeExpectancyYears: 3,
+    lifeExpectancyMaxYears: 5,
+    behavior:
+      "A small, peaceful rainbowfish that stays active in mid-water and schools loosely. Males colour up intensely and display to each other with raised fins — no real combat. Compatible with most peaceful community fish. Does best with a long tank for swimming.",
+    reproduction:
+      "Continuous egg scatterer; deposits adhesive eggs on plants or spawning mops daily. Eggs hatch in 5–7 days. Best removed and hatched separately.",
+    dimorphism:
+      "Males are vivid neon blue with bright red fins; females are silver-green with clear fins.",
+    commonName: "Neon dwarf rainbowfish",
+    scientificName: "Melanotaenia praecox",
+    adultSizeCm: 6,
+    adultSizeMinCm: 4,
+    minTankVolumeL: 60,
+    minFootprintCm: { length: 60, width: 30 },
+    temperament: "peaceful",
+    diet: "omnivore",
+    minGroupSize: 6,
+    maxGroupSize: 15,
+    tempMinC: 22,
+    tempMaxC: 28,
+    phMin: 6.5,
+    phMax: 8.0,
+    origin: "New Guinea",
+    careLevel: "beginner",
+    rarity: "common",
+    priceRange: "$",
+    description:
+      "The most popular dwarf rainbowfish — neon-blue body with vivid red fins on the male, manageable at 6 cm, and peaceful enough for most communities. Tolerates a broad pH range, is easy to breed, and rewards good feeding with spectacular colour.",
+  },
+  // Sources: seriouslyfish.com/species/iriatherina-werneri, fishbase.org/summary/Iriatherina-werneri.html, aquariumglaser.de
+  {
+    id: "threadfin-rainbowfish",
+    waterType: "freshwater",
+    tankRegion: "top",
+    lifeExpectancyYears: 3,
+    behavior:
+      "A delicate, slow-moving nano rainbowfish with spectacular trailing fins on the male. Peaceful but easily outcompeted for food by faster tank mates. Best in a nano or species tank, or with tiny companions like chili rasboras or small killifish. Sensitive to water quality.",
+    reproduction:
+      "Egg scatterer; spawns among fine plants. Fry require micro foods.",
+    dimorphism:
+      "Males have extraordinarily long, filamentous dorsal and anal fins with coloured tips; females have normal fin length.",
+    commonName: "Threadfin rainbowfish",
+    scientificName: "Iriatherina werneri",
+    adultSizeCm: 5,
+    adultSizeMinCm: 3,
+    minTankVolumeL: 40,
+    minFootprintCm: { length: 40, width: 25 },
+    temperament: "peaceful",
+    diet: "omnivore",
+    minGroupSize: 6,
+    maxGroupSize: 15,
+    tempMinC: 24,
+    tempMaxC: 28,
+    phMin: 6.0,
+    phMax: 8.0,
+    origin: "New Guinea",
+    careLevel: "intermediate",
+    rarity: "uncommon",
+    priceRange: "$",
+    description:
+      "One of the most ornate small fish in the hobby — the male's fin extensions trail like silk ribbons. Peaceful and fragile; needs calm water, micro foods, and tank mates small enough not to nip those spectacular fins.",
+  },
+  // Sources: seriouslyfish.com/species/melanotaenia-lacustris, fishbase.org/summary/Melanotaenia-lacustris.html, fishkeepingworld.com/lake-kutubu-rainbowfish
+  {
+    id: "lake-kutubu-rainbowfish",
+    waterType: "freshwater",
+    tankRegion: "middle",
+    lifeExpectancyYears: 5,
+    lifeExpectancyMaxYears: 8,
+    behavior:
+      "An active, fast-swimming schooling rainbowfish. Males display and compete with raised fins but rarely cause injury. More tolerant of softer, slightly acidic water than Boeseman's rainbowfish. Peaceful and well-suited to a large planted community.",
+    reproduction:
+      "Continuous egg scatterer; deposits sticky eggs on plants over several days. Eggs hatch in 6–8 days.",
+    dimorphism:
+      "Males are vivid turquoise to deep blue; females are silver-green with a less intense blue sheen.",
+    commonName: "Lake Kutubu rainbowfish",
+    scientificName: "Melanotaenia lacustris",
+    adultSizeCm: 12,
+    adultSizeMinCm: 9,
+    minTankVolumeL: 150,
+    minFootprintCm: { length: 120, width: 40 },
+    temperament: "peaceful",
+    diet: "omnivore",
+    minGroupSize: 6,
+    maxGroupSize: 15,
+    tempMinC: 22,
+    tempMaxC: 27,
+    phMin: 7.0,
+    phMax: 8.0,
+    origin: "New Guinea",
+    careLevel: "beginner",
+    rarity: "common",
+    priceRange: "$",
+    description:
+      "A stunning deep-blue rainbowfish from Lake Kutubu in Papua New Guinea. Males at peak colour are almost entirely turquoise-blue — rare among freshwater fish. Easy to keep, peaceful, and a spectacular centrepiece for a large planted community.",
+  },
+  // Sources: seriouslyfish.com/species/pseudomugil-furcatus, fishbase.org/summary/Pseudomugil-furcatus.html, aquariumglaser.de
+  {
+    id: "forktail-blue-eye",
+    waterType: "freshwater",
+    tankRegion: "top",
+    lifeExpectancyYears: 3,
+    lifeExpectancyMaxYears: 4,
+    behavior:
+      "A tiny, peaceful rainbowfish relative that lives near the surface and displays vivid yellow fins and glittering eyes. Males court females in a continuous spinning display. Sensitive to water quality; best in a mature, densely planted nano tank.",
+    reproduction:
+      "Egg scatterer; deposits small eggs on plant leaves or spawning mops daily. Fry need micro foods.",
+    dimorphism:
+      "Males have bright yellow fins with dark edges; females have plainer, smaller fins and are more slender.",
+    commonName: "Forktail blue-eye",
+    scientificName: "Pseudomugil furcatus",
+    adultSizeCm: 6,
+    adultSizeMinCm: 4,
+    minTankVolumeL: 40,
+    minFootprintCm: { length: 50, width: 30 },
+    temperament: "peaceful",
+    diet: "omnivore",
+    minGroupSize: 6,
+    maxGroupSize: 15,
+    tempMinC: 24,
+    tempMaxC: 28,
+    phMin: 6.5,
+    phMax: 8.0,
+    origin: "New Guinea",
+    careLevel: "intermediate",
+    rarity: "uncommon",
+    priceRange: "$",
+    description:
+      "A jewel-like surface fish — the yellow fins and glittering blue eyes of the male catch any light in the tank. Peaceful and perfect for a planted nano community. Needs clean, warm water and small foods; will fade and waste in poor conditions.",
+  },
+
+  // ── Bonus gap species ─────────────────────────────────────────────────────
+
+  // Sources: seriouslyfish.com/species/pantodon-buchholzi, fishbase.org/summary/Pantodon-buchholzi.html, fishkeepingworld.com/african-butterfly-fish
+  {
+    id: "african-butterfly-fish",
+    waterType: "freshwater",
+    tankRegion: "top",
+    lifeExpectancyYears: 5,
+    lifeExpectancyMaxYears: 10,
+    behavior:
+      "A prehistoric-looking surface ambush predator. Floats motionless just under the surface film, waiting for insects or fish to come within range. Entirely surface-oriented — does not swim down. Peaceful toward fish too large to eat, but will take anything fitting in its substantial upturned mouth.",
+    reproduction:
+      "Egg floater; eggs are released among surface vegetation and float until hatching. Rarely bred in captivity.",
+    dimorphism:
+      "Males have a notched anal fin; females have a straight anal fin edge.",
+    commonName: "African butterfly fish",
+    scientificName: "Pantodon buchholzi",
+    adultSizeCm: 10,
+    minTankVolumeL: 80,
+    minFootprintCm: { length: 80, width: 40 },
+    temperament: "semi",
+    diet: "carnivore",
+    minGroupSize: 1,
+    tempMinC: 23,
+    tempMaxC: 30,
+    phMin: 6.0,
+    phMax: 7.5,
+    origin: "West Africa",
+    careLevel: "intermediate",
+    rarity: "uncommon",
+    priceRange: "$$",
+    description:
+      "One of the most ancient-looking freshwater fish — wide pectoral fins like wings, an upturned mouth, and a body that never leaves the surface. An exceptional surface predator that co-exists peacefully with mid- and bottom-dwellers. A very tight lid is essential; it can glide short distances.",
+  },
+  // Sources: seriouslyfish.com/species/gnathonemus-petersii, fishbase.org/summary/Gnathonemus-petersii.html, fishkeepingworld.com/elephantnose-fish
+  {
+    id: "elephantnose-fish",
+    waterType: "freshwater",
+    tankRegion: "bottom",
+    lifeExpectancyYears: 6,
+    lifeExpectancyMaxYears: 10,
+    behavior:
+      "A weakly electric fish that navigates and communicates via self-generated electrical pulses. Highly intelligent — among the largest brain-to-body ratio of any fish. Shy and nocturnal; needs caves and dim lighting. Sensitive to other electric fish and should not be kept with other mormyrids or knife fish. Peaceful but can be nippy with its elongated chin probe.",
+    reproduction:
+      "Not documented in captivity.",
+    dimorphism:
+      "Males have a slight indentation on the anal fin; otherwise sexing is extremely difficult.",
+    commonName: "Elephantnose fish",
+    scientificName: "Gnathonemus petersii",
+    adultSizeCm: 25,
+    adultSizeMinCm: 18,
+    minTankVolumeL: 200,
+    minFootprintCm: { length: 120, width: 45 },
+    temperament: "peaceful",
+    diet: "carnivore",
+    minGroupSize: 1,
+    tempMinC: 22,
+    tempMaxC: 28,
+    phMin: 6.0,
+    phMax: 7.5,
+    origin: "West Africa",
+    careLevel: "advanced",
+    rarity: "common",
+    priceRange: "$$",
+    description:
+      "A remarkable, trunk-nosed fish with one of the highest brain-to-body ratios in the animal kingdom. Uses a weak electric field to hunt worms buried in soft substrate. Needs live or frozen worms, dim lighting, caves, and pristine water quality. Not beginner-friendly, but endlessly fascinating.",
   },
 ];
 

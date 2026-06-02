@@ -39,6 +39,10 @@ export function formatLength(cm: number, system: UnitSystem): string {
   return `${lengthValue(cm, system)} ${lengthUnit(system)}`;
 }
 
+export function formatLengthRange(minCm: number, maxCm: number, system: UnitSystem): string {
+  return `${lengthValue(minCm, system)}–${lengthValue(maxCm, system)} ${lengthUnit(system)}`;
+}
+
 export function formatTemp(celsius: number, system: UnitSystem): string {
   if (system === "imperial") return `${round((celsius * 9) / 5 + 32, 0)}°F`;
   return `${round(celsius, 1)}°C`;

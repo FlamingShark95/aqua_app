@@ -22,7 +22,7 @@ import {
   temperamentBadge,
   waterTypeLabel,
 } from "./fishDisplay";
-import { formatLength, formatTempRange, formatVolume } from "./units";
+import { formatLength, formatLengthRange, formatTempRange, formatVolume } from "./units";
 
 const SLIDE_WIDTH = Dimensions.get("window").width - 40; // screen minus padding
 
@@ -49,7 +49,12 @@ export default function FishDetailScreen({
 
   // Quick facts — only the rows we actually have a value for (no "?" clutter).
   const facts: { label: string; value: string }[] = [
-    { label: "Size", value: formatLength(fish.adultSizeCm, system) },
+    {
+      label: "Size",
+      value: fish.adultSizeMinCm
+        ? formatLengthRange(fish.adultSizeMinCm, fish.adultSizeCm, system)
+        : formatLength(fish.adultSizeCm, system),
+    },
     { label: "Minimum tank", value: formatVolume(fish.minTankVolumeL, system) },
     {
       label: "Temperature",
@@ -61,10 +66,20 @@ export default function FishDetailScreen({
       ? [{ label: "Tank region", value: tankRegionLabel(fish) }]
       : []),
     ...(fish.minGroupSize > 1
-      ? [{ label: "Minimum group", value: `${fish.minGroupSize} fish` }]
+      ? [{
+          label: fish.maxGroupSize ? "Group size" : "Minimum group",
+          value: fish.maxGroupSize
+            ? `${fish.minGroupSize}–${fish.maxGroupSize} fish`
+            : `${fish.minGroupSize} fish`,
+        }]
       : []),
     ...(fish.lifeExpectancyYears
-      ? [{ label: "Life expectancy", value: `${fish.lifeExpectancyYears} years` }]
+      ? [{
+          label: "Life expectancy",
+          value: fish.lifeExpectancyMaxYears
+            ? `${fish.lifeExpectancyYears}–${fish.lifeExpectancyMaxYears} years`
+            : `${fish.lifeExpectancyYears} years`,
+        }]
       : []),
   ];
 
