@@ -4,6 +4,7 @@ import { TankProvider } from "./TankContext";
 import { UnitProvider } from "./UnitContext";
 import { NavProvider } from "./NavContext";
 import { Fish } from "./fishData";
+import { COLORS } from "./fishDisplay";
 import TanksScreen from "./TanksScreen";
 import SearchScreen from "./SearchScreen";
 import FishDetailScreen from "./FishDetailScreen";
@@ -71,7 +72,7 @@ export default function App() {
 const styles = StyleSheet.create({
   app: {
     flex: 1,
-    backgroundColor: "#0b1d2a",
+    backgroundColor: COLORS.bg,
   },
   body: {
     flex: 1,
@@ -79,8 +80,8 @@ const styles = StyleSheet.create({
   tabBar: {
     flexDirection: "row",
     borderTopWidth: 1,
-    borderTopColor: "#13314a",
-    backgroundColor: "#0a1622",
+    borderTopColor: COLORS.surface,
+    backgroundColor: COLORS.bgDeep,
     paddingTop: 10,
     paddingBottom: 28,
   },
@@ -89,7 +90,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   tabText: {
-    color: "#7792a8",
+    color: COLORS.muted,
     fontSize: 14,
     fontWeight: "bold",
   },

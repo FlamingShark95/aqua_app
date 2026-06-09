@@ -8,18 +8,22 @@ import {
   ViewStyle,
 } from "react-native";
 import { FishPicture } from "./fishData";
+import { COLORS } from "./fishDisplay";
 
-// Large hero image for the fish detail page. Shows the WHOLE image (contain),
-// never cropped — the dark frame provides clean padding around it. The frame is
-// sized by the caller (the gallery slide). Owns its own look — independent from
-// FishThumbnail. Accepts a bundled image (require(...)), a remote URL string,
-// or nothing (placeholder).
-export function FishDetailImage({
+// Framed fish picture, used both as the small list thumbnail and the large
+// detail-page hero. Shows the WHOLE image (contain), which fills the frame
+// cleanly for square photos and letterboxes non-square ones in the dark frame
+// rather than cropping them. The caller's style sets the frame's size and
+// corner radius. Accepts a bundled image (require(...)), a remote URL string,
+// or nothing (placeholder fish icon, sized via iconSize).
+export function FishImage({
   source,
   style,
+  iconSize = 24,
 }: {
   source?: FishPicture | null;
   style?: StyleProp<ViewStyle>;
+  iconSize?: number;
 }) {
   const resolved: ImageSourcePropType | undefined =
     typeof source === "string" ? { uri: source } : source ?? undefined;
@@ -29,7 +33,7 @@ export function FishDetailImage({
       {resolved ? (
         <Image source={resolved} style={styles.image} resizeMode="contain" />
       ) : (
-        <Text style={styles.icon}>🐟</Text>
+        <Text style={[styles.icon, { fontSize: iconSize }]}>🐟</Text>
       )}
     </View>
   );
@@ -37,8 +41,7 @@ export function FishDetailImage({
 
 const styles = StyleSheet.create({
   frame: {
-    backgroundColor: "#0a1622",
-    borderRadius: 18,
+    backgroundColor: COLORS.bgDeep,
     alignItems: "center",
     justifyContent: "center",
     overflow: "hidden",
@@ -48,7 +51,6 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   icon: {
-    fontSize: 80,
     opacity: 0.65,
   },
 });

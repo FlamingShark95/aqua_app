@@ -1,14 +1,15 @@
-import { useState } from "react";
+import { memo, useMemo, useState } from "react";
 import {
   Pressable,
-  ScrollView,
+  SectionList,
   StyleSheet,
   Text,
   TextInput,
   View,
 } from "react-native";
-import { AVAILABLE_FISH, Fish } from "./fishData";
-import { FishThumbnail } from "./FishThumbnail";
+import { AVAILABLE_FISH, Fish, FISH_BY_ID, Tank } from "./fishData";
+import { Counter } from "./Counter";
+import { FishImage } from "./FishImage";
 import { COLORS } from "./fishDisplay";
 import { useNav } from "./NavContext";
 import { FilterSheet } from "./FilterSheet";
@@ -18,9 +19,70 @@ import {
   SelectedFilters,
 } from "./fishFilters";
 import { SORT_MODES, SortId } from "./fishSort";
+import { UnitSystem } from "./units";
 import { useUnits } from "./UnitContext";
 import { useTanks } from "./TankContext";
 import { previewFishInTank } from "./rules";
+
+// One fish row. Memoized so typing in the search box (which re-renders the
+// screen) doesn't re-render rows whose props haven't changed; the compat
+// preview only re-runs when the active tank or unit system changes.
+const FishRow = memo(function FishRow({
+  fish,
+  count,
+  activeTank,
+  system,
+  onOpen,
+  onAdd,
+  onRemove,
+}: {
+  fish: Fish;
+  count: number;
+  activeTank: Tank | null;
+  system: UnitSystem;
+  onOpen: (fish: Fish) => void;
+  onAdd: (tankId: string, fish: Fish) => void;
+  onRemove: (tankId: string, fish: Fish) => void;
+}) {
+  const issues = useMemo(
+    () =>
+      activeTank
+        ? previewFishInTank(fish, activeTank, system, FISH_BY_ID)
+        : null,
+    [fish, activeTank, system]
+  );
+
+  return (
+    <Pressable style={styles.row} onPress={() => onOpen(fish)}>
+      <FishImage source={fish.images?.[0]} style={styles.thumb} />
+      <View style={styles.rowText}>
+        <Text style={styles.fishName}>{fish.commonName}</Text>
+        <Text style={styles.fishSci}>{fish.scientificName}</Text>
+        {issues && (
+          <Text
+            style={[
+              styles.fitBadge,
+              { color: issues.length === 0 ? COLORS.green : COLORS.red },
+            ]}
+          >
+            {issues.length === 0
+              ? "✓ Fits this tank"
+              : `⚠ ${issues.length} issue${issues.length > 1 ? "s" : ""}`}
+          </Text>
+        )}
+      </View>
+      {activeTank && (
+        <Counter
+          style={styles.addCluster}
+          count={count}
+          onAdd={() => onAdd(activeTank.id, fish)}
+          onRemove={() => onRemove(activeTank.id, fish)}
+        />
+      )}
+      <Text style={styles.chevron}>›</Text>
+    </Pressable>
+  );
+});
 
 export default function SearchScreen() {
   const [query, setQuery] = useState("");
@@ -40,32 +102,43 @@ export default function SearchScreen() {
   } = useTanks();
 
   // Name prefix match AND every active filter category.
-  const filteredFish = AVAILABLE_FISH.filter(
-    (fish) =>
-      fish.commonName.toLowerCase().startsWith(query.trim().toLowerCase()) &&
-      matchesFilters(fish, filters)
-  );
+  const filteredFish = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return AVAILABLE_FISH.filter(
+      (fish) =>
+        fish.commonName.toLowerCase().startsWith(q) &&
+        matchesFilters(fish, filters)
+    );
+  }, [query, filters]);
   const activeCount = countActiveFilters(filters);
 
   // Sort by the active mode, then group into sections by that mode's key.
   // Because the list is sorted first, fish sharing a key land next to each
   // other, so we only ever need to look at the last section while grouping.
-  const sortMode = SORT_MODES.find((m) => m.id === sortId) ?? SORT_MODES[0];
-  const sections = [...filteredFish]
-    .sort((a, b) =>
-      sortDir === "asc" ? sortMode.compare(a, b) : -sortMode.compare(a, b)
-    )
-    .reduce<{ key: string; fish: Fish[] }[]>((acc, fish) => {
-      const key = sortMode.sectionKey(fish);
-      const last = acc[acc.length - 1];
-      if (last && last.key === key) last.fish.push(fish);
-      else acc.push({ key, fish: [fish] });
-      return acc;
-    }, []);
+  const sections = useMemo(() => {
+    const sortMode = SORT_MODES.find((m) => m.id === sortId) ?? SORT_MODES[0];
+    return [...filteredFish]
+      .sort((a, b) =>
+        sortDir === "asc" ? sortMode.compare(a, b) : -sortMode.compare(a, b)
+      )
+      .reduce<{ key: string; data: Fish[] }[]>((acc, fish) => {
+        const key = sortMode.sectionKey(fish);
+        const last = acc[acc.length - 1];
+        if (last && last.key === key) last.data.push(fish);
+        else acc.push({ key, data: [fish] });
+        return acc;
+      }, []);
+  }, [filteredFish, sortId, sortDir]);
 
-  return (
+  // Per-species count in the active tank, so rows don't scan the stock list.
+  const countBySpeciesId = useMemo(
+    () =>
+      new Map(activeTank?.stock.map((e) => [e.speciesId, e.count]) ?? []),
+    [activeTank]
+  );
+
+  const header = (
     <>
-    <ScrollView style={styles.screen} contentContainerStyle={styles.content}>
       <Text style={styles.title}>Fish</Text>
       {tanks.length === 0 ? (
         <Text style={styles.banner}>
@@ -100,7 +173,7 @@ export default function SearchScreen() {
         <TextInput
           style={styles.search}
           placeholder="Search fish..."
-          placeholderTextColor="#88a"
+          placeholderTextColor={COLORS.placeholder}
           value={query}
           onChangeText={setQuery}
           autoCorrect={false}
@@ -150,73 +223,35 @@ export default function SearchScreen() {
           );
         })}
       </View>
+    </>
+  );
 
-      {filteredFish.length === 0 ? (
-        <Text style={styles.noResults}>No fish found</Text>
-      ) : (
-        sections.map((section) => (
-          <View key={section.key}>
-            <Text style={styles.sectionHeader}>{section.key}</Text>
-            {section.fish.map((fish) => {
-              const issues = activeTank
-                ? previewFishInTank(fish, activeTank, system)
-                : null;
-              const inTank = activeTank
-                ? activeTank.stock.filter((f) => f.id === fish.id).length
-                : 0;
-              return (
-                <Pressable
-                  key={fish.id}
-                  style={styles.row}
-                  onPress={() => openFish(fish)}
-                >
-                  <FishThumbnail
-                    source={fish.images?.[0]}
-                    style={styles.thumb}
-                  />
-                  <View style={styles.rowText}>
-                    <Text style={styles.fishName}>{fish.commonName}</Text>
-                    <Text style={styles.fishSci}>{fish.scientificName}</Text>
-                    {issues && (
-                      <Text
-                        style={[
-                          styles.fitBadge,
-                          { color: issues.length === 0 ? COLORS.green : COLORS.red },
-                        ]}
-                      >
-                        {issues.length === 0
-                          ? "✓ Fits this tank"
-                          : `⚠ ${issues.length} issue${
-                              issues.length > 1 ? "s" : ""
-                            }`}
-                      </Text>
-                    )}
-                  </View>
-                  {activeTank && (
-                    <View style={styles.addCluster}>
-                      <Pressable
-                        style={styles.countButton}
-                        onPress={() => removeFishFromTank(activeTank.id, fish)}
-                      >
-                        <Text style={styles.countButtonText}>−</Text>
-                      </Pressable>
-                      <Text style={styles.inTankCount}>{inTank}</Text>
-                      <Pressable
-                        style={styles.countButton}
-                        onPress={() => addFishToTank(activeTank.id, fish)}
-                      >
-                        <Text style={styles.countButtonText}>+</Text>
-                      </Pressable>
-                    </View>
-                  )}
-                  <Text style={styles.chevron}>›</Text>
-                </Pressable>
-              );
-            })}
-          </View>
-        ))
+  return (
+    <>
+    <SectionList
+      style={styles.screen}
+      contentContainerStyle={styles.content}
+      sections={sections}
+      keyExtractor={(fish) => fish.id}
+      stickySectionHeadersEnabled={false}
+      keyboardShouldPersistTaps="handled"
+      ListHeaderComponent={header}
+      ListEmptyComponent={<Text style={styles.noResults}>No fish found</Text>}
+      renderSectionHeader={({ section }) => (
+        <Text style={styles.sectionHeader}>{section.key}</Text>
       )}
-    </ScrollView>
+      renderItem={({ item }) => (
+        <FishRow
+          fish={item}
+          count={countBySpeciesId.get(item.id) ?? 0}
+          activeTank={activeTank}
+          system={system}
+          onOpen={openFish}
+          onAdd={addFishToTank}
+          onRemove={removeFishFromTank}
+        />
+      )}
+    />
     <FilterSheet
       visible={showFilters}
       filters={filters}
@@ -232,7 +267,7 @@ export default function SearchScreen() {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: "#0b1d2a",
+    backgroundColor: COLORS.bg,
   },
   content: {
     paddingTop: 70,
@@ -246,7 +281,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   banner: {
-    color: "#9bc",
+    color: COLORS.soft,
     fontSize: 15,
     marginBottom: 16,
   },
@@ -268,11 +303,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     borderRadius: 999,
     borderWidth: 1,
-    borderColor: "#2c4a63",
+    borderColor: COLORS.chipBorder,
   },
   tankChipActive: {
-    backgroundColor: "#2a7",
-    borderColor: "#2a7",
+    backgroundColor: COLORS.accent,
+    borderColor: COLORS.accent,
   },
   tankChipText: {
     color: COLORS.muted,
@@ -289,7 +324,7 @@ const styles = StyleSheet.create({
   },
   search: {
     flex: 1,
-    backgroundColor: "#13314a",
+    backgroundColor: COLORS.surface,
     color: "white",
     fontSize: 16,
     paddingVertical: 12,
@@ -297,24 +332,24 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   filterButton: {
-    backgroundColor: "#13314a",
+    backgroundColor: COLORS.surface,
     borderRadius: 10,
     paddingHorizontal: 16,
     justifyContent: "center",
   },
   filterButtonText: {
-    color: "#7fd1ff",
+    color: COLORS.link,
     fontSize: 15,
     fontWeight: "bold",
   },
   clearButton: {
-    backgroundColor: "#13314a",
+    backgroundColor: COLORS.surface,
     borderRadius: 10,
     paddingHorizontal: 14,
     justifyContent: "center",
   },
   clearButtonText: {
-    color: "#ff8080",
+    color: COLORS.danger,
     fontSize: 15,
     fontWeight: "bold",
   },
@@ -336,11 +371,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     borderRadius: 999,
     borderWidth: 1,
-    borderColor: "#2c4a63",
+    borderColor: COLORS.chipBorder,
   },
   sortChipActive: {
-    backgroundColor: "#2a7",
-    borderColor: "#2a7",
+    backgroundColor: COLORS.accent,
+    borderColor: COLORS.accent,
   },
   sortChipText: {
     color: COLORS.muted,
@@ -351,29 +386,32 @@ const styles = StyleSheet.create({
     color: "white",
   },
   noResults: {
-    color: "#88a",
+    color: COLORS.placeholder,
     fontSize: 15,
     fontStyle: "italic",
     paddingVertical: 12,
   },
   sectionHeader: {
-    color: "#2a7",
+    color: COLORS.accent,
     fontSize: 14,
     fontWeight: "bold",
     marginTop: 18,
     marginBottom: 2,
     paddingBottom: 4,
     borderBottomWidth: 1,
-    borderBottomColor: "#13314a",
+    borderBottomColor: COLORS.surface,
   },
   row: {
     flexDirection: "row",
     alignItems: "center",
     paddingVertical: 10,
     borderBottomWidth: 1,
-    borderBottomColor: "#13314a",
+    borderBottomColor: COLORS.surface,
   },
   thumb: {
+    width: 52,
+    height: 52,
+    borderRadius: 10,
     marginRight: 12,
   },
   rowText: {
@@ -395,31 +433,7 @@ const styles = StyleSheet.create({
     marginTop: 3,
   },
   addCluster: {
-    flexDirection: "row",
-    alignItems: "center",
     marginLeft: 8,
-  },
-  inTankCount: {
-    color: "white",
-    fontSize: 15,
-    fontWeight: "bold",
-    marginHorizontal: 6,
-    minWidth: 18,
-    textAlign: "center",
-  },
-  countButton: {
-    backgroundColor: "#2a7",
-    width: 30,
-    height: 30,
-    borderRadius: 8,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  countButtonText: {
-    color: "white",
-    fontSize: 19,
-    fontWeight: "bold",
-    lineHeight: 21,
   },
   chevron: {
     color: COLORS.muted,

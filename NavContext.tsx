@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext } from "react";
+import { createContext, ReactNode, useContext, useMemo } from "react";
 import { Fish } from "./fishData";
 
 // Lightweight navigation context so any screen (e.g. a tank card) can open a
@@ -17,9 +17,8 @@ export function NavProvider({
   openFish: (fish: Fish) => void;
   children: ReactNode;
 }) {
-  return (
-    <NavContext.Provider value={{ openFish }}>{children}</NavContext.Provider>
-  );
+  const value = useMemo(() => ({ openFish }), [openFish]);
+  return <NavContext.Provider value={value}>{children}</NavContext.Provider>;
 }
 
 export function useNav(): NavValue {

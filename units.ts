@@ -72,6 +72,12 @@ export function tempValue(celsius: number, system: UnitSystem): string {
 
 // --- Parsing user input (localized value in, canonical metric out) ---
 
+// TextInput gives us strings; bad/empty input parses to 0.
+export function parseNum(s: string): number {
+  const n = parseFloat(s);
+  return Number.isFinite(n) ? n : 0;
+}
+
 export function volumeToLitres(value: number, system: UnitSystem): number {
   return system === "imperial" ? value * L_PER_GAL : value;
 }

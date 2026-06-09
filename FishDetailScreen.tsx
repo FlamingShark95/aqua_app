@@ -1,16 +1,17 @@
 import { useState } from "react";
 import {
-  Dimensions,
   Pressable,
   ScrollView,
   StyleSheet,
   Text,
+  useWindowDimensions,
   View,
 } from "react-native";
-import { Fish } from "./fishData";
+import { Fish, FISH_BY_ID } from "./fishData";
 import { useTanks } from "./TankContext";
 import { useUnits } from "./UnitContext";
-import { FishDetailImage } from "./FishDetailImage";
+import { Counter } from "./Counter";
+import { FishImage } from "./FishImage";
 import { previewFishInTank } from "./rules";
 import {
   availabilityBadge,
@@ -24,8 +25,6 @@ import {
 } from "./fishDisplay";
 import { formatLength, formatLengthRange, formatTempRange, formatVolume } from "./units";
 
-const SLIDE_WIDTH = Dimensions.get("window").width - 40; // screen minus padding
-
 export default function FishDetailScreen({
   fish,
   onBack,
@@ -36,6 +35,9 @@ export default function FishDetailScreen({
   const { system } = useUnits();
   const { tanks, addFishToTank, removeFishFromTank } = useTanks();
   const [page, setPage] = useState(0);
+  // Gallery slides are square, screen width minus the content padding. Comes
+  // from the hook (not a module constant) so rotation re-sizes the gallery.
+  const slideWidth = useWindowDimensions().width - 40;
 
   const tags: Badge[] = [
     careBadge(fish),
@@ -89,17 +91,22 @@ export default function FishDetailScreen({
         <Text style={styles.backChevron}>‹</Text>
       </Pressable>
 
-      <View style={styles.gallery}>
+      <View style={[styles.gallery, { height: slideWidth }]}>
         <ScrollView
           horizontal
           pagingEnabled
           showsHorizontalScrollIndicator={false}
           onMomentumScrollEnd={(e) =>
-            setPage(Math.round(e.nativeEvent.contentOffset.x / SLIDE_WIDTH))
+            setPage(Math.round(e.nativeEvent.contentOffset.x / slideWidth))
           }
         >
           {slides.map((picture, i) => (
-            <FishDetailImage key={i} source={picture} style={styles.slide} />
+            <FishImage
+              key={i}
+              source={picture}
+              iconSize={80}
+              style={[styles.slide, { width: slideWidth, height: slideWidth }]}
+            />
           ))}
         </ScrollView>
         {slides.length > 1 && (
@@ -139,9 +146,10 @@ export default function FishDetailScreen({
       ) : (
         <View style={styles.card}>
           {tanks.map((tank, i) => {
-            const count = tank.stock.filter((f) => f.id === fish.id).length;
+            const count =
+              tank.stock.find((e) => e.speciesId === fish.id)?.count ?? 0;
             // Advisory only — this never gates the +/- counter below.
-            const issues = previewFishInTank(fish, tank, system);
+            const issues = previewFishInTank(fish, tank, system, FISH_BY_ID);
             return (
               <View
                 key={tank.id}
@@ -157,21 +165,12 @@ export default function FishDetailScreen({
                       {count > 0 ? `${count} in this tank` : "none yet"}
                     </Text>
                   </View>
-                  <View style={styles.counter}>
-                    <Pressable
-                      style={styles.counterButton}
-                      onPress={() => removeFishFromTank(tank.id, fish)}
-                    >
-                      <Text style={styles.counterButtonText}>−</Text>
-                    </Pressable>
-                    <Text style={styles.countText}>{count}</Text>
-                    <Pressable
-                      style={styles.counterButton}
-                      onPress={() => addFishToTank(tank.id, fish)}
-                    >
-                      <Text style={styles.counterButtonText}>+</Text>
-                    </Pressable>
-                  </View>
+                  <Counter
+                    size={34}
+                    count={count}
+                    onAdd={() => addFishToTank(tank.id, fish)}
+                    onRemove={() => removeFishFromTank(tank.id, fish)}
+                  />
                 </View>
                 {issues.length === 0 ? (
                   <Text style={styles.fitGood}>✓ Good fit for this tank</Text>
@@ -228,7 +227,7 @@ function Prose({ title, text }: { title: string; text: string }) {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: "#0b1d2a",
+    backgroundColor: COLORS.bg,
   },
   content: {
     paddingTop: 56,
@@ -239,7 +238,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: "#13314a",
+    backgroundColor: COLORS.surface,
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 14,
@@ -251,12 +250,9 @@ const styles = StyleSheet.create({
     marginTop: -2,
   },
   gallery: {
-    height: SLIDE_WIDTH,
     marginBottom: 16,
   },
   slide: {
-    width: SLIDE_WIDTH,
-    height: SLIDE_WIDTH,
     borderRadius: 18,
   },
   dots: {
@@ -313,19 +309,19 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   fitGood: {
-    color: "#2a7",
+    color: COLORS.accent,
     fontSize: 13,
     fontWeight: "600",
     marginTop: 8,
   },
   fitBad: {
     marginTop: 8,
-    backgroundColor: "#5a1a1a",
+    backgroundColor: COLORS.dangerBg,
     borderRadius: 8,
     padding: 10,
   },
   fitBadText: {
-    color: "#ffb3b3",
+    color: COLORS.dangerText,
     fontSize: 13,
     paddingVertical: 2,
   },
@@ -349,31 +345,6 @@ const styles = StyleSheet.create({
     fontStyle: "italic",
     marginBottom: 22,
   },
-  counter: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  counterButton: {
-    backgroundColor: "#2a7",
-    width: 34,
-    height: 34,
-    borderRadius: 8,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  counterButtonText: {
-    color: "white",
-    fontSize: 20,
-    fontWeight: "bold",
-    lineHeight: 22,
-  },
-  countText: {
-    color: "white",
-    fontSize: 17,
-    fontWeight: "bold",
-    minWidth: 32,
-    textAlign: "center",
-  },
   sectionTitle: {
     color: COLORS.muted,
     fontSize: 13,
@@ -383,7 +354,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   card: {
-    backgroundColor: "#0f2638",
+    backgroundColor: COLORS.surfaceDeep,
     borderRadius: 14,
     paddingHorizontal: 14,
     marginBottom: 22,
@@ -396,7 +367,7 @@ const styles = StyleSheet.create({
   },
   factDivider: {
     borderBottomWidth: 1,
-    borderBottomColor: "#16344c",
+    borderBottomColor: COLORS.divider,
   },
   factLabel: {
     color: COLORS.muted,

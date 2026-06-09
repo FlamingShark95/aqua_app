@@ -10,8 +10,10 @@ import {
 import { useTanks } from "./TankContext";
 import { useUnits } from "./UnitContext";
 import { TankCard } from "./TankCard";
+import { COLORS } from "./fishDisplay";
 import {
   lengthToCm,
+  parseNum as num,
   tempToCelsius,
   unitLabels,
   volumeToLitres,
@@ -30,11 +32,6 @@ export default function TanksScreen() {
   const [widthCm, setWidthCm] = useState("");
   const [tempC, setTempC] = useState("");
   const [ph, setPh] = useState("");
-
-  const num = (s: string) => {
-    const n = parseFloat(s);
-    return Number.isFinite(n) ? n : 0;
-  };
 
   function handleCreate() {
     if (name.trim() === "") return;
@@ -107,7 +104,7 @@ export default function TanksScreen() {
       <TextInput
         style={styles.input}
         placeholder="Name (e.g. Living room 75 L)"
-        placeholderTextColor="#88a"
+        placeholderTextColor={COLORS.placeholder}
         value={name}
         onChangeText={setName}
       />
@@ -115,7 +112,7 @@ export default function TanksScreen() {
         <TextInput
           style={[styles.input, styles.inputHalf]}
           placeholder={`Volume (${labels.volume})`}
-          placeholderTextColor="#88a"
+          placeholderTextColor={COLORS.placeholder}
           keyboardType="numeric"
           value={volumeL}
           onChangeText={setVolumeL}
@@ -123,7 +120,7 @@ export default function TanksScreen() {
         <TextInput
           style={[styles.input, styles.inputHalf]}
           placeholder="pH"
-          placeholderTextColor="#88a"
+          placeholderTextColor={COLORS.placeholder}
           keyboardType="numeric"
           value={ph}
           onChangeText={setPh}
@@ -133,7 +130,7 @@ export default function TanksScreen() {
         <TextInput
           style={[styles.input, styles.inputHalf]}
           placeholder={`Length (${labels.length})`}
-          placeholderTextColor="#88a"
+          placeholderTextColor={COLORS.placeholder}
           keyboardType="numeric"
           value={lengthCm}
           onChangeText={setLengthCm}
@@ -141,7 +138,7 @@ export default function TanksScreen() {
         <TextInput
           style={[styles.input, styles.inputHalf]}
           placeholder={`Width (${labels.length})`}
-          placeholderTextColor="#88a"
+          placeholderTextColor={COLORS.placeholder}
           keyboardType="numeric"
           value={widthCm}
           onChangeText={setWidthCm}
@@ -150,7 +147,7 @@ export default function TanksScreen() {
       <TextInput
         style={styles.input}
         placeholder={`Temperature (${labels.temp})`}
-        placeholderTextColor="#88a"
+        placeholderTextColor={COLORS.placeholder}
         keyboardType="numeric"
         value={tempC}
         onChangeText={setTempC}
@@ -165,7 +162,7 @@ export default function TanksScreen() {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: "#0b1d2a",
+    backgroundColor: COLORS.bg,
   },
   content: {
     paddingTop: 70,
@@ -187,7 +184,7 @@ const styles = StyleSheet.create({
   },
   unitToggle: {
     flexDirection: "row",
-    backgroundColor: "#13314a",
+    backgroundColor: COLORS.surface,
     borderRadius: 10,
     padding: 4,
     marginBottom: 16,
@@ -199,10 +196,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   unitOptionActive: {
-    backgroundColor: "#2a7",
+    backgroundColor: COLORS.accent,
   },
   unitOptionText: {
-    color: "#9bc",
+    color: COLORS.soft,
     fontSize: 14,
     fontWeight: "bold",
   },
@@ -210,13 +207,13 @@ const styles = StyleSheet.create({
     color: "white",
   },
   empty: {
-    color: "#88a",
+    color: COLORS.placeholder,
     fontSize: 15,
     fontStyle: "italic",
     marginBottom: 8,
   },
   input: {
-    backgroundColor: "#13314a",
+    backgroundColor: COLORS.surface,
     color: "white",
     fontSize: 16,
     paddingVertical: 12,
@@ -233,7 +230,7 @@ const styles = StyleSheet.create({
   },
   createButton: {
     marginTop: 8,
-    backgroundColor: "#2a7",
+    backgroundColor: COLORS.accent,
     paddingVertical: 14,
     borderRadius: 10,
     alignItems: "center",

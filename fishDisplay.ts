@@ -1,6 +1,9 @@
 import { Fish } from "./fishData";
 
-// Shared palette for the catalog/detail screens.
+// Shared palette for the whole app. Components reference these instead of
+// hard-coding hex values, so re-theming is a one-file change. All values are
+// 6-digit hex: badge/accent colors get alpha suffixes appended ("22"/"33"),
+// which silently breaks on 3-digit shorthand.
 export const COLORS = {
   green: "#5fd38d",
   yellow: "#e6c84d",
@@ -8,6 +11,20 @@ export const COLORS = {
   red: "#e57373",
   text: "#e8eef5",
   muted: "#7792a8",
+
+  bg: "#0b1d2a", // screen background
+  bgDeep: "#0a1622", // tab bar, image frames
+  surface: "#13314a", // cards, inputs, hairline borders
+  surfaceDeep: "#0f2638", // inputs/cards sitting on a surface
+  divider: "#16344c", // row dividers inside detail cards
+  chipBorder: "#2c4a63",
+  accent: "#22aa77", // = the old "#2a7" shorthand, expanded
+  link: "#7fd1ff",
+  danger: "#ff8080",
+  dangerBg: "#5a1a1a",
+  dangerText: "#ffb3b3",
+  placeholder: "#8888aa", // = the old "#88a"
+  soft: "#99bbcc", // = the old "#9bc"
 };
 
 export type Badge = { text: string; color: string };
@@ -51,10 +68,3 @@ export const tankRegionLabel = (fish: Fish): string =>
 
 export const waterTypeLabel = (fish: Fish): string =>
   fish.waterType === "saltwater" ? "Salt Water" : "Fresh Water";
-
-export const lifeExpectancyLabel = (fish: Fish): string =>
-  fish.lifeExpectancyYears ? `${fish.lifeExpectancyYears} years` : "?";
-
-// For optional free-text fields: show the value, or a "?" placeholder.
-export const textOrUnknown = (value: string | undefined): string =>
-  value && value.trim() !== "" ? value : "?";

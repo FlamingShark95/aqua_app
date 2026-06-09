@@ -1,13 +1,15 @@
 import {
   createContext,
   ReactNode,
+  useCallback,
   useContext,
   useEffect,
+  useMemo,
   useRef,
   useState,
 } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { Fish, Tank } from "./fishData";
+import { Fish, StockEntry, Tank } from "./fishData";
 
 const STORAGE_KEY = "aqua_app.tanks";
 
@@ -49,6 +51,28 @@ function nextIdFrom(tanks: Tank[]): number {
   return maxN + 1;
 }
 
+// Saved data used to store each stocked fish as a full copy of its catalog
+// entry (one object per individual). Collapse that old shape into the current
+// {speciesId, count} form; entries already in the new shape pass through.
+// The next save then persists the new format, so this runs at most once.
+function migrateStock(stock: unknown): StockEntry[] {
+  if (!Array.isArray(stock)) return [];
+  const entries: StockEntry[] = [];
+  for (const item of stock) {
+    if (!item || typeof item !== "object") continue;
+    if ("speciesId" in item && "count" in item) {
+      entries.push(item as StockEntry);
+    } else if ("id" in item && typeof (item as { id: unknown }).id === "string") {
+      // Old format: one full Fish copy per individual.
+      const id = (item as { id: string }).id;
+      const existing = entries.find((e) => e.speciesId === id);
+      if (existing) existing.count += 1;
+      else entries.push({ speciesId: id, count: 1 });
+    }
+  }
+  return entries;
+}
+
 export function TankProvider({ children }: { children: ReactNode }) {
   const [tanks, setTanks] = useState<Tank[]>(INITIAL_TANKS);
   const [activeTankId, setActiveTankId] = useState<string | null>(
@@ -66,9 +90,13 @@ export function TankProvider({ children }: { children: ReactNode }) {
         if (raw) {
           const saved = JSON.parse(raw) as Tank[];
           if (Array.isArray(saved)) {
-            setTanks(saved);
-            setActiveTankId(saved[0]?.id ?? null);
-            nextId.current = nextIdFrom(saved);
+            const migrated = saved.map((t) => ({
+              ...t,
+              stock: migrateStock(t.stock),
+            }));
+            setTanks(migrated);
+            setActiveTankId(migrated[0]?.id ?? null);
+            nextId.current = nextIdFrom(migrated);
           }
         }
       })
@@ -78,72 +106,101 @@ export function TankProvider({ children }: { children: ReactNode }) {
       .finally(() => setLoaded(true));
   }, []);
 
-  // Persist whenever tanks change (after the initial load).
+  // Persist whenever tanks change (after the initial load). Debounced so a
+  // burst of changes — every keystroke in the tank edit form goes through
+  // updateTank — coalesces into one write.
   useEffect(() => {
     if (!loaded) return;
-    AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(tanks)).catch(() => {
-      // Ignore write errors; in-memory state still works this session.
-    });
+    const timer = setTimeout(() => {
+      AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(tanks)).catch(() => {
+        // Ignore write errors; in-memory state still works this session.
+      });
+    }, 400);
+    return () => clearTimeout(timer);
   }, [tanks, loaded]);
 
-  function createTank(props: Omit<Tank, "id" | "stock">) {
+  const createTank = useCallback((props: Omit<Tank, "id" | "stock">) => {
     const id = `tank-${nextId.current++}`;
     const tank: Tank = { ...props, id, stock: [] };
     setTanks((prev) => [...prev, tank]);
     setActiveTankId(id);
-  }
+  }, []);
 
-  function updateTank(id: string, patch: Partial<Omit<Tank, "id" | "stock">>) {
-    setTanks((prev) =>
-      prev.map((t) => (t.id === id ? { ...t, ...patch } : t))
-    );
-  }
+  const updateTank = useCallback(
+    (id: string, patch: Partial<Omit<Tank, "id" | "stock">>) => {
+      setTanks((prev) =>
+        prev.map((t) => (t.id === id ? { ...t, ...patch } : t))
+      );
+    },
+    []
+  );
 
-  function deleteTank(id: string) {
+  const deleteTank = useCallback((id: string) => {
     setTanks((prev) => prev.filter((t) => t.id !== id));
     setActiveTankId((curr) => (curr === id ? null : curr));
-  }
+  }, []);
 
-  function addFishToTank(tankId: string, fish: Fish) {
-    setTanks((prev) =>
-      prev.map((t) =>
-        // Push a copy so each stocked fish is its own object, not a shared
-        // reference to the catalog entry.
-        t.id === tankId ? { ...t, stock: [...t.stock, { ...fish }] } : t
-      )
-    );
-  }
-
-  function removeFishFromTank(tankId: string, fish: Fish) {
+  const addFishToTank = useCallback((tankId: string, fish: Fish) => {
     setTanks((prev) =>
       prev.map((t) => {
         if (t.id !== tankId) return t;
-        // Remove one individual of this species (matched by species id).
-        const index = t.stock.findIndex((f) => f.id === fish.id);
-        if (index === -1) return t;
-        return { ...t, stock: t.stock.filter((_, i) => i !== index) };
+        const existing = t.stock.find((e) => e.speciesId === fish.id);
+        const stock = existing
+          ? t.stock.map((e) =>
+              e.speciesId === fish.id ? { ...e, count: e.count + 1 } : e
+            )
+          : [...t.stock, { speciesId: fish.id, count: 1 }];
+        return { ...t, stock };
       })
     );
-  }
+  }, []);
+
+  const removeFishFromTank = useCallback((tankId: string, fish: Fish) => {
+    setTanks((prev) =>
+      prev.map((t) => {
+        if (t.id !== tankId) return t;
+        const existing = t.stock.find((e) => e.speciesId === fish.id);
+        if (!existing) return t;
+        // Remove one individual; drop the species entry when it hits zero.
+        const stock =
+          existing.count > 1
+            ? t.stock.map((e) =>
+                e.speciesId === fish.id ? { ...e, count: e.count - 1 } : e
+              )
+            : t.stock.filter((e) => e.speciesId !== fish.id);
+        return { ...t, stock };
+      })
+    );
+  }, []);
 
   const activeTank = tanks.find((t) => t.id === activeTankId) ?? null;
 
+  const value = useMemo(
+    () => ({
+      tanks,
+      activeTankId,
+      activeTank,
+      setActiveTankId,
+      createTank,
+      updateTank,
+      deleteTank,
+      addFishToTank,
+      removeFishFromTank,
+    }),
+    [
+      tanks,
+      activeTankId,
+      activeTank,
+      createTank,
+      updateTank,
+      deleteTank,
+      addFishToTank,
+      removeFishFromTank,
+    ]
+  );
+
   return (
-    <TankContext.Provider
-      value={{
-        tanks,
-        activeTankId,
-        activeTank,
-        setActiveTankId,
-        createTank,
-        updateTank,
-        deleteTank,
-        addFishToTank,
-        removeFishFromTank,
-      }}
-    >
-      {children}
-    </TankContext.Provider>
+    <TankContext.Provider value={value}>{children}</TankContext.Provider>
   );
 }
 

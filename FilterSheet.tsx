@@ -16,7 +16,7 @@ import { COLORS } from "./fishDisplay";
 import { UnitSystem } from "./units";
 
 // Accent used for chips whose option has no badge color (size, pH, temp, etc.).
-const ACCENT = "#2a7";
+const ACCENT = COLORS.accent;
 
 // Full-screen popup of stackable filter chips. Selections apply live (the
 // caller re-filters the list), so the footer button just closes the sheet.
@@ -109,7 +109,7 @@ export function FilterSheet({
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: "#0b1d2a",
+    backgroundColor: COLORS.bg,
     paddingTop: 56,
   },
   header: {
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
     borderRadius: 999,
     borderWidth: 1,
-    borderColor: "#2c4a63",
+    borderColor: COLORS.chipBorder,
   },
   chipText: {
     fontSize: 14,
@@ -167,10 +167,10 @@ const styles = StyleSheet.create({
     paddingTop: 12,
     paddingBottom: 28,
     borderTopWidth: 1,
-    borderTopColor: "#13314a",
+    borderTopColor: COLORS.surface,
   },
   clear: {
-    color: "#7fd1ff",
+    color: COLORS.link,
     fontSize: 15,
     fontWeight: "bold",
   },
@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
     opacity: 0.6,
   },
   showButton: {
-    backgroundColor: "#2a7",
+    backgroundColor: COLORS.accent,
     paddingVertical: 12,
     paddingHorizontal: 22,
     borderRadius: 10,

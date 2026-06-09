@@ -1,0 +1,16 @@
+{
+  // Standalone (not extending tsconfig.json: the Expo base pins bundler-style
+  // resolution, which can't emit the CommonJS that `node --test` needs).
+  // Compiles rules.ts + its imports to .test-dist/ for rules.test.mjs.
+  "compilerOptions": {
+    "strict": true,
+    "target": "es2020",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "outDir": ".test-dist"
+  },
+  "include": ["rules.ts"]
+}

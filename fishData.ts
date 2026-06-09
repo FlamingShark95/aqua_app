@@ -54,6 +54,14 @@ export type Fish = {
   images?: FishPicture[];
 };
 
+// One stocked species in a tank. Only the species id and a head count are
+// stored; the full Fish data is looked up in the catalog (FISH_BY_ID), so
+// catalog fixes immediately apply to already-stocked tanks.
+export type StockEntry = {
+  speciesId: string; // Fish.id in the catalog
+  count: number;
+};
+
 export type Tank = {
   // identity
   id: string;
@@ -69,7 +77,7 @@ export type Tank = {
   ph: number; // the tank's measured pH
 
   // the contents
-  stock: Fish[]; // the fish currently in it
+  stock: StockEntry[]; // the fish currently in it, one entry per species
 };
 
 // The catalog data lives in fish.json (pure data — no TypeScript, no comments).
@@ -90,4 +98,9 @@ export const AVAILABLE_FISH: Fish[] = (fishData as unknown as Fish[]).map((fish)
   BUNDLED_FISH_IMAGES[fish.id]
     ? { ...fish, images: BUNDLED_FISH_IMAGES[fish.id] }
     : fish,
+);
+
+// Catalog lookup by species id, for resolving StockEntry refs.
+export const FISH_BY_ID: Map<string, Fish> = new Map(
+  AVAILABLE_FISH.map((fish) => [fish.id, fish])
 );

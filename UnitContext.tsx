@@ -1,8 +1,10 @@
 import {
   createContext,
   ReactNode,
+  useCallback,
   useContext,
   useEffect,
+  useMemo,
   useState,
 } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -35,17 +37,17 @@ export function UnitProvider({ children }: { children: ReactNode }) {
   }, []);
 
   // Update state and persist the choice for next launch.
-  function setSystem(next: UnitSystem) {
+  const setSystem = useCallback((next: UnitSystem) => {
     setSystemState(next);
     AsyncStorage.setItem(STORAGE_KEY, next).catch(() => {
       // Ignore write errors; the in-memory choice still applies this session.
     });
-  }
+  }, []);
+
+  const value = useMemo(() => ({ system, setSystem }), [system, setSystem]);
 
   return (
-    <UnitContext.Provider value={{ system, setSystem }}>
-      {children}
-    </UnitContext.Provider>
+    <UnitContext.Provider value={value}>{children}</UnitContext.Provider>
   );
 }
 

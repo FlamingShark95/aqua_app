@@ -1,4 +1,7 @@
-import { Fish, Tank } from "./fishData";
+// Type-only import keeps this module loadable outside React Native (the tests
+// run it under plain Node) — fishData's runtime side pulls in bundled assets.
+// Callers pass the catalog (normally FISH_BY_ID) explicitly.
+import type { Fish, StockEntry, Tank } from "./fishData";
 import {
   formatLength,
   formatTemp,
@@ -11,14 +14,19 @@ import {
 
 export const PREDATION_RATIO = 3;
 
-// Collapse a stock list into one entry per species, with a count.
-export function groupBySpecies(stock: Fish[]): { fish: Fish; count: number }[] {
-  return stock.reduce<{ fish: Fish; count: number }[]>((acc, fish) => {
-    const existing = acc.find((g) => g.fish.id === fish.id);
-    if (existing) existing.count += 1;
-    else acc.push({ fish, count: 1 });
-    return acc;
-  }, []);
+// Resolve stock entries against the catalog. Entries whose species id is no
+// longer in the catalog are skipped silently (the tank keeps the entry, the
+// UI and checks just can't say anything about it).
+export function resolveStock(
+  stock: StockEntry[],
+  catalog: ReadonlyMap<string, Fish>
+): { fish: Fish; count: number }[] {
+  const resolved: { fish: Fish; count: number }[] = [];
+  for (const entry of stock) {
+    const fish = catalog.get(entry.speciesId);
+    if (fish) resolved.push({ fish, count: entry.count });
+  }
+  return resolved;
 }
 
 // Can `predator` swallow `prey`? Predatory and at least PREDATION_RATIO× its
@@ -94,9 +102,13 @@ export function fishEnvironmentWarnings(
 // checked against the tank's own size/space/chemistry, plus group size and a
 // bioload guess. Comparisons stay in canonical metric; `system` only controls
 // the unit text.
-export function checkTank(tank: Tank, system: UnitSystem): string[] {
+export function checkTank(
+  tank: Tank,
+  system: UnitSystem,
+  catalog: ReadonlyMap<string, Fish>
+): string[] {
   const warnings: string[] = [];
-  const groups = groupBySpecies(tank.stock);
+  const groups = resolveStock(tank.stock, catalog);
 
   // Predation: a predatory species big enough to swallow a tankmate.
   for (const { fish: predator } of groups) {
@@ -123,7 +135,10 @@ export function checkTank(tank: Tank, system: UnitSystem): string[] {
   }
 
   // Bioload: a rough "1 cm of adult fish per litre" rule of thumb.
-  const totalAdultCm = tank.stock.reduce((sum, f) => sum + f.adultSizeCm, 0);
+  const totalAdultCm = groups.reduce(
+    (sum, g) => sum + g.fish.adultSizeCm * g.count,
+    0
+  );
   if (totalAdultCm > tank.volumeL) {
     warnings.push(
       `Possibly overstocked: ${formatLength(
@@ -144,10 +159,11 @@ export function checkTank(tank: Tank, system: UnitSystem): string[] {
 export function previewFishInTank(
   fish: Fish,
   tank: Tank,
-  system: UnitSystem
+  system: UnitSystem,
+  catalog: ReadonlyMap<string, Fish>
 ): string[] {
   const warnings = fishEnvironmentWarnings(fish, tank, system);
-  for (const { fish: other } of groupBySpecies(tank.stock)) {
+  for (const { fish: other } of resolveStock(tank.stock, catalog)) {
     if (other.id === fish.id) continue;
     if (canEat(fish, other)) {
       warnings.push(`${fish.commonName} may eat the ${other.commonName}`);

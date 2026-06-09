@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
-import { Tank } from "./fishData";
+import { FISH_BY_ID, Tank } from "./fishData";
 import { useTanks } from "./TankContext";
 import { useUnits } from "./UnitContext";
-import { checkTank, groupBySpecies } from "./rules";
-import { FishThumbnail } from "./FishThumbnail";
+import { checkTank, resolveStock } from "./rules";
+import { Counter } from "./Counter";
+import { FishImage } from "./FishImage";
 import { COLORS } from "./fishDisplay";
 import { useNav } from "./NavContext";
 import {
@@ -14,17 +15,13 @@ import {
   lengthToCm,
   lengthUnit,
   lengthValue,
+  parseNum as num,
   tempToCelsius,
   tempValue,
   unitLabels,
   volumeToLitres,
   volumeValue,
 } from "./units";
-
-const num = (s: string) => {
-  const n = parseFloat(s);
-  return Number.isFinite(n) ? n : 0;
-};
 
 export function TankCard({ tank }: { tank: Tank }) {
   const {
@@ -40,11 +37,21 @@ export function TankCard({ tank }: { tank: Tank }) {
   const labels = unitLabels(system);
 
   const isActive = tank.id === activeTankId;
-  const groups = groupBySpecies(tank.stock);
-  const warnings = checkTank(tank, system);
+  const groups = useMemo(
+    () => resolveStock(tank.stock, FISH_BY_ID),
+    [tank.stock]
+  );
+  const warnings = useMemo(
+    () => checkTank(tank, system, FISH_BY_ID),
+    [tank, system]
+  );
+  const totalFish = groups.reduce((s, g) => s + g.count, 0);
 
   // Bioload: rough "1 cm of adult fish per litre" rule (matches checkTank).
-  const totalAdultCm = tank.stock.reduce((s, f) => s + f.adultSizeCm, 0);
+  const totalAdultCm = groups.reduce(
+    (s, g) => s + g.fish.adultSizeCm * g.count,
+    0
+  );
   const pct = tank.volumeL > 0 ? Math.round((totalAdultCm / tank.volumeL) * 100) : 0;
   const meterColor = pct > 100 ? COLORS.red : pct > 85 ? COLORS.yellow : COLORS.green;
 
@@ -82,7 +89,7 @@ export function TankCard({ tank }: { tank: Tank }) {
           <TextInput
             style={styles.input}
             placeholder="Name"
-            placeholderTextColor="#88a"
+            placeholderTextColor={COLORS.placeholder}
             value={name}
             onChangeText={(t) => {
               setName(t);
@@ -93,7 +100,7 @@ export function TankCard({ tank }: { tank: Tank }) {
             <TextInput
               style={[styles.input, styles.inputHalf]}
               placeholder={`Volume (${labels.volume})`}
-              placeholderTextColor="#88a"
+              placeholderTextColor={COLORS.placeholder}
               keyboardType="numeric"
               value={volume}
               onChangeText={(t) => {
@@ -104,7 +111,7 @@ export function TankCard({ tank }: { tank: Tank }) {
             <TextInput
               style={[styles.input, styles.inputHalf]}
               placeholder="pH"
-              placeholderTextColor="#88a"
+              placeholderTextColor={COLORS.placeholder}
               keyboardType="numeric"
               value={ph}
               onChangeText={(t) => {
@@ -117,7 +124,7 @@ export function TankCard({ tank }: { tank: Tank }) {
             <TextInput
               style={[styles.input, styles.inputHalf]}
               placeholder={`Length (${labels.length})`}
-              placeholderTextColor="#88a"
+              placeholderTextColor={COLORS.placeholder}
               keyboardType="numeric"
               value={length}
               onChangeText={(t) => {
@@ -128,7 +135,7 @@ export function TankCard({ tank }: { tank: Tank }) {
             <TextInput
               style={[styles.input, styles.inputHalf]}
               placeholder={`Width (${labels.length})`}
-              placeholderTextColor="#88a"
+              placeholderTextColor={COLORS.placeholder}
               keyboardType="numeric"
               value={width}
               onChangeText={(t) => {
@@ -140,7 +147,7 @@ export function TankCard({ tank }: { tank: Tank }) {
           <TextInput
             style={styles.input}
             placeholder={`Temperature (${labels.temp})`}
-            placeholderTextColor="#88a"
+            placeholderTextColor={COLORS.placeholder}
             keyboardType="numeric"
             value={temp}
             onChangeText={(t) => {
@@ -163,7 +170,7 @@ export function TankCard({ tank }: { tank: Tank }) {
       ) : (
         <>
           <Text style={styles.summary}>
-            {tank.stock.length} fish · {groups.length} species
+            {totalFish} fish · {groups.length} species
           </Text>
           <View style={styles.meterTrack}>
             <View
@@ -181,7 +188,7 @@ export function TankCard({ tank }: { tank: Tank }) {
                 style={styles.stockTap}
                 onPress={() => openFish(g.fish)}
               >
-                <FishThumbnail
+                <FishImage
                   source={g.fish.images?.[0]}
                   style={styles.stockThumb}
                 />
@@ -192,21 +199,11 @@ export function TankCard({ tank }: { tank: Tank }) {
                   </Text>
                 </View>
               </Pressable>
-              <View style={styles.counter}>
-                <Pressable
-                  style={styles.counterButton}
-                  onPress={() => removeFishFromTank(tank.id, g.fish)}
-                >
-                  <Text style={styles.counterButtonText}>−</Text>
-                </Pressable>
-                <Text style={styles.countText}>{g.count}</Text>
-                <Pressable
-                  style={styles.counterButton}
-                  onPress={() => addFishToTank(tank.id, g.fish)}
-                >
-                  <Text style={styles.counterButtonText}>+</Text>
-                </Pressable>
-              </View>
+              <Counter
+                count={g.count}
+                onAdd={() => addFishToTank(tank.id, g.fish)}
+                onRemove={() => removeFishFromTank(tank.id, g.fish)}
+              />
             </View>
           ))}
         </>
@@ -242,7 +239,7 @@ export function TankCard({ tank }: { tank: Tank }) {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: "#13314a",
+    backgroundColor: COLORS.surface,
     borderRadius: 12,
     padding: 14,
     marginBottom: 12,
@@ -250,7 +247,7 @@ const styles = StyleSheet.create({
     borderColor: "transparent",
   },
   cardActive: {
-    borderColor: "#2a7",
+    borderColor: COLORS.accent,
   },
   cardHeader: {
     flexDirection: "row",
@@ -263,12 +260,12 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   activeBadge: {
-    color: "#2a7",
+    color: COLORS.accent,
     fontSize: 12,
     fontWeight: "bold",
   },
   props: {
-    color: "#9bc",
+    color: COLORS.soft,
     fontSize: 13,
     marginTop: 4,
     marginBottom: 8,
@@ -278,7 +275,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   input: {
-    backgroundColor: "#0f2638",
+    backgroundColor: COLORS.surfaceDeep,
     color: "white",
     fontSize: 15,
     paddingVertical: 10,
@@ -294,12 +291,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   emptyStock: {
-    color: "#88a",
+    color: COLORS.placeholder,
     fontSize: 14,
     fontStyle: "italic",
   },
   summary: {
-    color: "#9bc",
+    color: COLORS.soft,
     fontSize: 13,
     fontWeight: "600",
     marginTop: 4,
@@ -307,7 +304,7 @@ const styles = StyleSheet.create({
   },
   meterTrack: {
     height: 8,
-    backgroundColor: "#0f2638",
+    backgroundColor: COLORS.surfaceDeep,
     borderRadius: 4,
     overflow: "hidden",
   },
@@ -336,6 +333,7 @@ const styles = StyleSheet.create({
   stockThumb: {
     width: 44,
     height: 44,
+    borderRadius: 10,
     marginRight: 10,
   },
   stockInfo: {
@@ -351,39 +349,14 @@ const styles = StyleSheet.create({
     fontSize: 13,
     marginTop: 2,
   },
-  counter: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  counterButton: {
-    backgroundColor: "#2a7",
-    width: 30,
-    height: 30,
-    borderRadius: 8,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  counterButtonText: {
-    color: "white",
-    fontSize: 18,
-    fontWeight: "bold",
-    lineHeight: 20,
-  },
-  countText: {
-    color: "white",
-    fontSize: 16,
-    fontWeight: "bold",
-    minWidth: 28,
-    textAlign: "center",
-  },
   warningBox: {
     marginTop: 10,
-    backgroundColor: "#5a1a1a",
+    backgroundColor: COLORS.dangerBg,
     borderRadius: 8,
     padding: 10,
   },
   warningText: {
-    color: "#ffb3b3",
+    color: COLORS.dangerText,
     fontSize: 14,
     paddingVertical: 2,
   },
@@ -393,17 +366,17 @@ const styles = StyleSheet.create({
     marginTop: 14,
   },
   editText: {
-    color: "#7fd1ff",
+    color: COLORS.link,
     fontSize: 13,
     fontWeight: "bold",
   },
   doneText: {
-    color: "#2a7",
+    color: COLORS.accent,
     fontSize: 13,
     fontWeight: "bold",
   },
   deleteText: {
-    color: "#ff8080",
+    color: COLORS.danger,
     fontSize: 13,
     fontWeight: "bold",
   },
