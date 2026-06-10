@@ -1,7 +1,15 @@
-// Type-only import keeps this module loadable outside React Native (the tests
-// run it under plain Node) — fishData's runtime side pulls in bundled assets.
-// Callers pass the catalog (normally FISH_BY_ID) explicitly.
-import type { Fish, StockEntry, Tank } from "./fishData";
+// Type-only imports keep this module loadable outside React Native (the tests
+// run it under plain Node) — the data modules' runtime side pulls in bundled
+// assets. Callers pass the catalogs (normally FISH_BY_ID / PLANTS_BY_ID)
+// explicitly.
+import type {
+  Fish,
+  LightLevel,
+  PlantEntry,
+  StockEntry,
+  Tank,
+} from "./fishData";
+import type { Plant } from "./plantData";
 import {
   formatTemp,
   formatTempRange,
@@ -124,6 +132,98 @@ export function tankBioloadL(groups: { fish: Fish; count: number }[]): number {
   return groups.reduce((sum, g) => sum + fishBioloadL(g.fish) * g.count, 0);
 }
 
+// --- Plants ----------------------------------------------------------------
+
+// Resolve plant entries against the catalog; unknown ids skipped, like
+// resolveStock.
+export function resolvePlants(
+  entries: PlantEntry[],
+  catalog: ReadonlyMap<string, Plant>
+): { plant: Plant; count: number }[] {
+  const resolved: { plant: Plant; count: number }[] = [];
+  for (const entry of entries) {
+    const plant = catalog.get(entry.plantId);
+    if (plant) resolved.push({ plant, count: entry.count });
+  }
+  return resolved;
+}
+
+// Plants absorb nitrogen waste, earning a bioload credit: bigger and
+// faster-growing plants absorb more. Credit is capped at a fraction of the
+// tank volume — plants help, they don't replace filtration.
+const GROWTH_FACTOR: Record<Plant["growthRate"], number> = {
+  slow: 0.5,
+  medium: 1,
+  fast: 2,
+};
+export const PLANT_CREDIT_CAP = 0.25; // of tank volume
+
+export function plantCreditL(plant: Plant): number {
+  return (plant.heightCm / 10) * GROWTH_FACTOR[plant.growthRate];
+}
+
+export function tankPlantCreditL(
+  plantGroups: { plant: Plant; count: number }[],
+  volumeL: number
+): number {
+  const total = plantGroups.reduce(
+    (sum, g) => sum + plantCreditL(g.plant) * g.count,
+    0
+  );
+  return Math.min(total, PLANT_CREDIT_CAP * volumeL);
+}
+
+// Fish bioload minus the (capped) plant credit, floored at zero.
+export function netBioloadL(
+  fishGroups: { fish: Fish; count: number }[],
+  plantGroups: { plant: Plant; count: number }[],
+  volumeL: number
+): number {
+  return Math.max(
+    0,
+    tankBioloadL(fishGroups) - tankPlantCreditL(plantGroups, volumeL)
+  );
+}
+
+// One plant vs the tank: lighting, temperature and pH. Same structured-core /
+// string-formatter split as the fish environment checks.
+const LIGHT_RANK: Record<LightLevel, number> = { low: 0, medium: 1, high: 2 };
+
+export type PlantIssueCode = "light" | "temp" | "ph";
+
+export function plantIssues(plant: Plant, tank: Tank): PlantIssueCode[] {
+  const issues: PlantIssueCode[] = [];
+  if (LIGHT_RANK[plant.light] > LIGHT_RANK[tank.lightLevel]) {
+    issues.push("light");
+  }
+  if (tank.tempC < plant.tempMinC || tank.tempC > plant.tempMaxC) {
+    issues.push("temp");
+  }
+  if (tank.ph < plant.phMin || tank.ph > plant.phMax) issues.push("ph");
+  return issues;
+}
+
+export function plantWarnings(
+  plant: Plant,
+  tank: Tank,
+  system: UnitSystem
+): string[] {
+  return plantIssues(plant, tank).map((issue) => {
+    switch (issue) {
+      case "light":
+        return `${plant.commonName} needs ${plant.light} light (tank is ${tank.lightLevel})`;
+      case "temp":
+        return `${plant.commonName} prefers ${formatTempRange(
+          plant.tempMinC,
+          plant.tempMaxC,
+          system
+        )} (tank is ${formatTemp(tank.tempC, system)})`;
+      case "ph":
+        return `${plant.commonName} prefers pH ${plant.phMin}–${plant.phMax} (tank is pH ${tank.ph})`;
+    }
+  });
+}
+
 // All warnings for a tank: predation between species, plus each species
 // checked against the tank's own size/space/chemistry, plus group size and a
 // bioload guess. Comparisons stay in canonical metric; `system` only controls
@@ -131,10 +231,12 @@ export function tankBioloadL(groups: { fish: Fish; count: number }[]): number {
 export function checkTank(
   tank: Tank,
   system: UnitSystem,
-  catalog: ReadonlyMap<string, Fish>
+  catalog: ReadonlyMap<string, Fish>,
+  plantCatalog: ReadonlyMap<string, Plant>
 ): string[] {
   const warnings: string[] = [];
   const groups = resolveStock(tank.stock, catalog);
+  const plantGroups = resolvePlants(tank.plants, plantCatalog);
 
   // Predation: a predatory species big enough to swallow a tankmate.
   for (const { fish: predator } of groups) {
@@ -160,8 +262,13 @@ export function checkTank(
     }
   }
 
-  // Bioload: effective litres used vs litres available.
-  const bioload = tankBioloadL(groups);
+  // Each plant vs the tank's light and water.
+  for (const { plant } of plantGroups) {
+    warnings.push(...plantWarnings(plant, tank, system));
+  }
+
+  // Bioload: effective litres used (less the plant credit) vs available.
+  const bioload = netBioloadL(groups, plantGroups, tank.volumeL);
   if (bioload > tank.volumeL) {
     warnings.push(
       `Possibly overstocked: bioload is about ${formatVolume(

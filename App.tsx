@@ -4,44 +4,82 @@ import { TankProvider } from "./TankContext";
 import { UnitProvider } from "./UnitContext";
 import { NavProvider, Suggestion } from "./NavContext";
 import { Fish } from "./fishData";
+import { Plant } from "./plantData";
 import { COLORS } from "./fishDisplay";
 import TanksScreen from "./TanksScreen";
 import SearchScreen from "./SearchScreen";
+import PlantsScreen from "./PlantsScreen";
+import SettingsScreen from "./SettingsScreen";
 import FishDetailScreen from "./FishDetailScreen";
+import PlantDetailScreen from "./PlantDetailScreen";
 
-type Tab = "tanks" | "search";
+type Tab = "tanks" | "fish" | "plants" | "settings";
+
+const TABS: { id: Tab; label: string }[] = [
+  { id: "tanks", label: "Tanks" },
+  { id: "fish", label: "Fish" },
+  { id: "plants", label: "Plants" },
+  { id: "settings", label: "Settings" },
+];
 
 export default function App() {
   const [tab, setTab] = useState<Tab>("tanks");
-  // The open fish detail, if any. Owned here (not inside a tab) so it can be
-  // opened from anywhere and shown as an overlay over the current tab.
+  // The open fish/plant detail, if any. Owned here (not inside a tab) so it
+  // can be opened from anywhere and shown as an overlay over the current tab.
+  // At most one is open at a time.
   const [selectedFish, setSelectedFish] = useState<Fish | null>(null);
+  const [selectedPlant, setSelectedPlant] = useState<Plant | null>(null);
   // Pending "suggest fish for tank X" request, consumed by SearchScreen.
   const [suggestion, setSuggestion] = useState<Suggestion | null>(null);
 
+  const closeDetails = () => {
+    setSelectedFish(null);
+    setSelectedPlant(null);
+  };
+
   // Switching tabs also dismisses an open detail.
   const goTab = (next: Tab) => {
-    setSelectedFish(null);
+    closeDetails();
     setTab(next);
   };
 
+  const openFish = useCallback((fish: Fish | null) => {
+    setSelectedPlant(null);
+    setSelectedFish(fish);
+  }, []);
+
+  const openPlant = useCallback((plant: Plant | null) => {
+    setSelectedFish(null);
+    setSelectedPlant(plant);
+  }, []);
+
   const suggestFishForTank = useCallback((tankId: string) => {
     setSelectedFish(null);
+    setSelectedPlant(null);
     setSuggestion((prev) => ({ tankId, key: (prev?.key ?? 0) + 1 }));
-    setTab("search");
+    setTab("fish");
   }, []);
 
   return (
     <UnitProvider>
       <TankProvider>
         <NavProvider
-          openFish={setSelectedFish}
+          openFish={openFish}
+          openPlant={openPlant}
           suggestFishForTank={suggestFishForTank}
           suggestion={suggestion}
         >
           <View style={styles.app}>
             <View style={styles.body}>
-              {tab === "tanks" ? <TanksScreen /> : <SearchScreen />}
+              {tab === "tanks" ? (
+                <TanksScreen />
+              ) : tab === "fish" ? (
+                <SearchScreen />
+              ) : tab === "plants" ? (
+                <PlantsScreen />
+              ) : (
+                <SettingsScreen />
+              )}
               {selectedFish && (
                 <View style={StyleSheet.absoluteFill}>
                   <FishDetailScreen
@@ -50,29 +88,33 @@ export default function App() {
                   />
                 </View>
               )}
+              {selectedPlant && (
+                <View style={StyleSheet.absoluteFill}>
+                  <PlantDetailScreen
+                    plant={selectedPlant}
+                    onBack={() => setSelectedPlant(null)}
+                  />
+                </View>
+              )}
             </View>
 
             <View style={styles.tabBar}>
-              <Pressable style={styles.tab} onPress={() => goTab("tanks")}>
-                <Text
-                  style={[
-                    styles.tabText,
-                    tab === "tanks" && styles.tabTextActive,
-                  ]}
+              {TABS.map((t) => (
+                <Pressable
+                  key={t.id}
+                  style={styles.tab}
+                  onPress={() => goTab(t.id)}
                 >
-                  Tanks
-                </Text>
-              </Pressable>
-              <Pressable style={styles.tab} onPress={() => goTab("search")}>
-                <Text
-                  style={[
-                    styles.tabText,
-                    tab === "search" && styles.tabTextActive,
-                  ]}
-                >
-                  Add fish
-                </Text>
-              </Pressable>
+                  <Text
+                    style={[
+                      styles.tabText,
+                      tab === t.id && styles.tabTextActive,
+                    ]}
+                  >
+                    {t.label}
+                  </Text>
+                </Pressable>
+              ))}
             </View>
           </View>
         </NavProvider>

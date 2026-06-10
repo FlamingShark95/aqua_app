@@ -62,6 +62,15 @@ export type StockEntry = {
   count: number;
 };
 
+// One planted species in a tank, mirroring StockEntry (catalog: PLANTS_BY_ID
+// in plantData.ts).
+export type PlantEntry = {
+  plantId: string; // Plant.id in the catalog
+  count: number;
+};
+
+export type LightLevel = "low" | "medium" | "high";
+
 export type Tank = {
   // identity
   id: string;
@@ -72,12 +81,14 @@ export type Tank = {
   lengthCm: number; // powers footprint check, key for the bichirs
   widthCm: number;
 
-  // water chemistry (rule inputs)
+  // water chemistry + lighting (rule inputs)
   tempC: number; // the tank's set temperature
   ph: number; // the tank's measured pH
+  lightLevel: LightLevel; // checked against each plant's light need
 
   // the contents
   stock: StockEntry[]; // the fish currently in it, one entry per species
+  plants: PlantEntry[]; // the plants in it, one entry per species
 };
 
 // The catalog data lives in fish.json (pure data — no TypeScript, no comments).

@@ -20,10 +20,12 @@ export function FishImage({
   source,
   style,
   iconSize = 24,
+  icon = "🐟",
 }: {
   source?: FishPicture | null;
   style?: StyleProp<ViewStyle>;
   iconSize?: number;
+  icon?: string; // placeholder glyph; plants pass "🌿"
 }) {
   const resolved: ImageSourcePropType | undefined =
     typeof source === "string" ? { uri: source } : source ?? undefined;
@@ -33,7 +35,7 @@ export function FishImage({
       {resolved ? (
         <Image source={resolved} style={styles.image} resizeMode="contain" />
       ) : (
-        <Text style={[styles.icon, { fontSize: iconSize }]}>🐟</Text>
+        <Text style={[styles.icon, { fontSize: iconSize }]}>{icon}</Text>
       )}
     </View>
   );

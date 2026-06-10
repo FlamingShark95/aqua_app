@@ -7,6 +7,7 @@ import {
   TextInput,
   View,
 } from "react-native";
+import { LightLevel } from "./fishData";
 import { useTanks } from "./TankContext";
 import { useUnits } from "./UnitContext";
 import { TankCard } from "./TankCard";
@@ -21,7 +22,7 @@ import {
 
 export default function TanksScreen() {
   const { tanks, createTank } = useTanks();
-  const { system, setSystem } = useUnits();
+  const { system } = useUnits();
   const labels = unitLabels(system);
 
   // Local form state for the "New tank" form. Kept as strings because that's
@@ -32,6 +33,7 @@ export default function TanksScreen() {
   const [widthCm, setWidthCm] = useState("");
   const [tempC, setTempC] = useState("");
   const [ph, setPh] = useState("");
+  const [lightLevel, setLightLevel] = useState<LightLevel>("medium");
 
   function handleCreate() {
     if (name.trim() === "") return;
@@ -44,6 +46,7 @@ export default function TanksScreen() {
       widthCm: lengthToCm(num(widthCm), system),
       tempC: tempToCelsius(num(tempC), system),
       ph: num(ph),
+      lightLevel,
     });
     setName("");
     setVolumeL("");
@@ -51,46 +54,12 @@ export default function TanksScreen() {
     setWidthCm("");
     setTempC("");
     setPh("");
+    setLightLevel("medium");
   }
 
   return (
     <ScrollView style={styles.screen} contentContainerStyle={styles.content}>
       <Text style={styles.title}>My tanks</Text>
-
-      <View style={styles.unitToggle}>
-        <Pressable
-          style={[
-            styles.unitOption,
-            system === "metric" && styles.unitOptionActive,
-          ]}
-          onPress={() => setSystem("metric")}
-        >
-          <Text
-            style={[
-              styles.unitOptionText,
-              system === "metric" && styles.unitOptionTextActive,
-            ]}
-          >
-            Metric
-          </Text>
-        </Pressable>
-        <Pressable
-          style={[
-            styles.unitOption,
-            system === "imperial" && styles.unitOptionActive,
-          ]}
-          onPress={() => setSystem("imperial")}
-        >
-          <Text
-            style={[
-              styles.unitOptionText,
-              system === "imperial" && styles.unitOptionTextActive,
-            ]}
-          >
-            Imperial
-          </Text>
-        </Pressable>
-      </View>
 
       {tanks.length === 0 && (
         <Text style={styles.empty}>No tanks yet — create one below.</Text>
@@ -152,6 +121,28 @@ export default function TanksScreen() {
         value={tempC}
         onChangeText={setTempC}
       />
+      <View style={styles.lightRow}>
+        <Text style={styles.lightLabel}>Light</Text>
+        {(["low", "medium", "high"] as LightLevel[]).map((level) => {
+          const sel = lightLevel === level;
+          return (
+            <Pressable
+              key={level}
+              style={[styles.lightChip, sel && styles.lightChipActive]}
+              onPress={() => setLightLevel(level)}
+            >
+              <Text
+                style={[
+                  styles.lightChipText,
+                  sel && styles.lightChipTextActive,
+                ]}
+              >
+                {level}
+              </Text>
+            </Pressable>
+          );
+        })}
+      </View>
       <Pressable style={styles.createButton} onPress={handleCreate}>
         <Text style={styles.createButtonText}>Create tank</Text>
       </Pressable>
@@ -182,28 +173,35 @@ const styles = StyleSheet.create({
     marginTop: 24,
     marginBottom: 8,
   },
-  unitToggle: {
+  lightRow: {
     flexDirection: "row",
-    backgroundColor: COLORS.surface,
-    borderRadius: 10,
-    padding: 4,
-    marginBottom: 16,
-  },
-  unitOption: {
-    flex: 1,
-    paddingVertical: 8,
-    borderRadius: 8,
     alignItems: "center",
+    gap: 8,
+    marginBottom: 8,
   },
-  unitOptionActive: {
-    backgroundColor: COLORS.accent,
-  },
-  unitOptionText: {
-    color: COLORS.soft,
-    fontSize: 14,
+  lightLabel: {
+    color: COLORS.muted,
+    fontSize: 13,
     fontWeight: "bold",
+    marginRight: 2,
   },
-  unitOptionTextActive: {
+  lightChip: {
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: COLORS.chipBorder,
+  },
+  lightChipActive: {
+    backgroundColor: COLORS.accent,
+    borderColor: COLORS.accent,
+  },
+  lightChipText: {
+    color: COLORS.muted,
+    fontSize: 13,
+    fontWeight: "600",
+  },
+  lightChipTextActive: {
     color: "white",
   },
   empty: {

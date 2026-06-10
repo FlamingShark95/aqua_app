@@ -1,5 +1,6 @@
 import { createContext, ReactNode, useContext, useMemo } from "react";
 import { Fish } from "./fishData";
+import { Plant } from "./plantData";
 
 // Lightweight navigation context so any screen (e.g. a tank card) can open a
 // fish's detail page, which App renders as an overlay. Keeps the detail out of
@@ -11,7 +12,8 @@ export type Suggestion = { tankId: string; key: number };
 
 type NavValue = {
   openFish: (fish: Fish) => void;
-  // Jump to the Add-fish tab set up to recommend fish for this tank.
+  openPlant: (plant: Plant) => void;
+  // Jump to the Fish tab set up to recommend fish for this tank.
   suggestFishForTank: (tankId: string) => void;
   suggestion: Suggestion | null;
 };
@@ -20,18 +22,20 @@ const NavContext = createContext<NavValue | null>(null);
 
 export function NavProvider({
   openFish,
+  openPlant,
   suggestFishForTank,
   suggestion,
   children,
 }: {
   openFish: (fish: Fish) => void;
+  openPlant: (plant: Plant) => void;
   suggestFishForTank: (tankId: string) => void;
   suggestion: Suggestion | null;
   children: ReactNode;
 }) {
   const value = useMemo(
-    () => ({ openFish, suggestFishForTank, suggestion }),
-    [openFish, suggestFishForTank, suggestion]
+    () => ({ openFish, openPlant, suggestFishForTank, suggestion }),
+    [openFish, openPlant, suggestFishForTank, suggestion]
   );
   return <NavContext.Provider value={value}>{children}</NavContext.Provider>;
 }

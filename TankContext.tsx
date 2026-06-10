@@ -9,7 +9,8 @@ import {
   useState,
 } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { Fish, StockEntry, Tank } from "./fishData";
+import { Fish, PlantEntry, StockEntry, Tank } from "./fishData";
+import { Plant } from "./plantData";
 
 const STORAGE_KEY = "aqua_app.tanks";
 
@@ -18,11 +19,16 @@ type TankContextValue = {
   activeTankId: string | null;
   activeTank: Tank | null;
   setActiveTankId: (id: string) => void;
-  createTank: (props: Omit<Tank, "id" | "stock">) => void;
-  updateTank: (id: string, patch: Partial<Omit<Tank, "id" | "stock">>) => void;
+  createTank: (props: Omit<Tank, "id" | "stock" | "plants">) => void;
+  updateTank: (
+    id: string,
+    patch: Partial<Omit<Tank, "id" | "stock" | "plants">>
+  ) => void;
   deleteTank: (id: string) => void;
   addFishToTank: (tankId: string, fish: Fish) => void;
   removeFishFromTank: (tankId: string, fish: Fish) => void;
+  addPlantToTank: (tankId: string, plant: Plant) => void;
+  removePlantFromTank: (tankId: string, plant: Plant) => void;
 };
 
 const TankContext = createContext<TankContextValue | null>(null);
@@ -37,7 +43,9 @@ const INITIAL_TANKS: Tank[] = [
     widthCm: 35,
     tempC: 25,
     ph: 7.0,
+    lightLevel: "medium",
     stock: [],
+    plants: [],
   },
 ];
 
@@ -90,9 +98,12 @@ export function TankProvider({ children }: { children: ReactNode }) {
         if (raw) {
           const saved = JSON.parse(raw) as Tank[];
           if (Array.isArray(saved)) {
+            // Older saves predate plants/lighting; default them in.
             const migrated = saved.map((t) => ({
               ...t,
               stock: migrateStock(t.stock),
+              plants: Array.isArray(t.plants) ? t.plants : [],
+              lightLevel: t.lightLevel ?? "medium",
             }));
             setTanks(migrated);
             setActiveTankId(migrated[0]?.id ?? null);
@@ -119,15 +130,18 @@ export function TankProvider({ children }: { children: ReactNode }) {
     return () => clearTimeout(timer);
   }, [tanks, loaded]);
 
-  const createTank = useCallback((props: Omit<Tank, "id" | "stock">) => {
-    const id = `tank-${nextId.current++}`;
-    const tank: Tank = { ...props, id, stock: [] };
-    setTanks((prev) => [...prev, tank]);
-    setActiveTankId(id);
-  }, []);
+  const createTank = useCallback(
+    (props: Omit<Tank, "id" | "stock" | "plants">) => {
+      const id = `tank-${nextId.current++}`;
+      const tank: Tank = { ...props, id, stock: [], plants: [] };
+      setTanks((prev) => [...prev, tank]);
+      setActiveTankId(id);
+    },
+    []
+  );
 
   const updateTank = useCallback(
-    (id: string, patch: Partial<Omit<Tank, "id" | "stock">>) => {
+    (id: string, patch: Partial<Omit<Tank, "id" | "stock" | "plants">>) => {
       setTanks((prev) =>
         prev.map((t) => (t.id === id ? { ...t, ...patch } : t))
       );
@@ -173,6 +187,38 @@ export function TankProvider({ children }: { children: ReactNode }) {
     );
   }, []);
 
+  const addPlantToTank = useCallback((tankId: string, plant: Plant) => {
+    setTanks((prev) =>
+      prev.map((t) => {
+        if (t.id !== tankId) return t;
+        const existing = t.plants.find((e) => e.plantId === plant.id);
+        const plants = existing
+          ? t.plants.map((e) =>
+              e.plantId === plant.id ? { ...e, count: e.count + 1 } : e
+            )
+          : [...t.plants, { plantId: plant.id, count: 1 }];
+        return { ...t, plants };
+      })
+    );
+  }, []);
+
+  const removePlantFromTank = useCallback((tankId: string, plant: Plant) => {
+    setTanks((prev) =>
+      prev.map((t) => {
+        if (t.id !== tankId) return t;
+        const existing = t.plants.find((e) => e.plantId === plant.id);
+        if (!existing) return t;
+        const plants =
+          existing.count > 1
+            ? t.plants.map((e) =>
+                e.plantId === plant.id ? { ...e, count: e.count - 1 } : e
+              )
+            : t.plants.filter((e) => e.plantId !== plant.id);
+        return { ...t, plants };
+      })
+    );
+  }, []);
+
   const activeTank = tanks.find((t) => t.id === activeTankId) ?? null;
 
   const value = useMemo(
@@ -186,6 +232,8 @@ export function TankProvider({ children }: { children: ReactNode }) {
       deleteTank,
       addFishToTank,
       removeFishFromTank,
+      addPlantToTank,
+      removePlantFromTank,
     }),
     [
       tanks,
@@ -196,6 +244,8 @@ export function TankProvider({ children }: { children: ReactNode }) {
       deleteTank,
       addFishToTank,
       removeFishFromTank,
+      addPlantToTank,
+      removePlantFromTank,
     ]
   );
 

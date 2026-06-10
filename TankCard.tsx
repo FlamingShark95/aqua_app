@@ -1,9 +1,16 @@
 import { useMemo, useState } from "react";
 import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
-import { FISH_BY_ID, Tank } from "./fishData";
+import { FISH_BY_ID, LightLevel, Tank } from "./fishData";
+import { PLANTS_BY_ID } from "./plantData";
 import { useTanks } from "./TankContext";
 import { useUnits } from "./UnitContext";
-import { checkTank, resolveStock, tankBioloadL } from "./rules";
+import {
+  checkTank,
+  netBioloadL,
+  resolvePlants,
+  resolveStock,
+  tankPlantCreditL,
+} from "./rules";
 import { Counter } from "./Counter";
 import { FishImage } from "./FishImage";
 import { COLORS } from "./fishDisplay";
@@ -31,9 +38,11 @@ export function TankCard({ tank }: { tank: Tank }) {
     deleteTank,
     addFishToTank,
     removeFishFromTank,
+    addPlantToTank,
+    removePlantFromTank,
   } = useTanks();
   const { system } = useUnits();
-  const { openFish, suggestFishForTank } = useNav();
+  const { openFish, openPlant, suggestFishForTank } = useNav();
   const labels = unitLabels(system);
 
   const isActive = tank.id === activeTankId;
@@ -41,17 +50,24 @@ export function TankCard({ tank }: { tank: Tank }) {
     () => resolveStock(tank.stock, FISH_BY_ID),
     [tank.stock]
   );
+  const plantGroups = useMemo(
+    () => resolvePlants(tank.plants, PLANTS_BY_ID),
+    [tank.plants]
+  );
   const warnings = useMemo(
-    () => checkTank(tank, system, FISH_BY_ID),
+    () => checkTank(tank, system, FISH_BY_ID, PLANTS_BY_ID),
     [tank, system]
   );
   const totalFish = groups.reduce((s, g) => s + g.count, 0);
 
-  // Bioload meter: effective litres used vs litres available (same model as
-  // checkTank's overstock warning, so the meter and warning always agree).
+  // Bioload meter: effective litres used (less plant credit) vs available —
+  // same model as checkTank's overstock warning, so they always agree.
+  const plantCredit = tankPlantCreditL(plantGroups, tank.volumeL);
   const pct =
     tank.volumeL > 0
-      ? Math.round((tankBioloadL(groups) / tank.volumeL) * 100)
+      ? Math.round(
+          (netBioloadL(groups, plantGroups, tank.volumeL) / tank.volumeL) * 100
+        )
       : 0;
   const meterColor = pct > 100 ? COLORS.red : pct > 85 ? COLORS.yellow : COLORS.green;
 
@@ -155,22 +171,50 @@ export function TankCard({ tank }: { tank: Tank }) {
               updateTank(tank.id, { tempC: tempToCelsius(num(t), system) });
             }}
           />
+          <View style={styles.lightRow}>
+            <Text style={styles.lightLabel}>Light</Text>
+            {(["low", "medium", "high"] as LightLevel[]).map((level) => {
+              const sel = tank.lightLevel === level;
+              return (
+                <Pressable
+                  key={level}
+                  style={[styles.lightChip, sel && styles.lightChipActive]}
+                  onPress={() => updateTank(tank.id, { lightLevel: level })}
+                >
+                  <Text
+                    style={[
+                      styles.lightChipText,
+                      sel && styles.lightChipTextActive,
+                    ]}
+                  >
+                    {level}
+                  </Text>
+                </Pressable>
+              );
+            })}
+          </View>
         </View>
       ) : (
         <Text style={styles.props}>
           {formatVolume(tank.volumeL, system)} ·{" "}
           {lengthValue(tank.lengthCm, system)}×
           {lengthValue(tank.widthCm, system)} {lengthUnit(system)} ·{" "}
-          {formatTemp(tank.tempC, system)} · pH {tank.ph}
+          {formatTemp(tank.tempC, system)} · pH {tank.ph} ·{" "}
+          {tank.lightLevel} light
         </Text>
       )}
 
-      {groups.length === 0 ? (
+      {groups.length === 0 && plantGroups.length === 0 ? (
         <Text style={styles.emptyStock}>No fish yet</Text>
       ) : (
         <>
           <Text style={styles.summary}>
             {totalFish} fish · {groups.length} species
+            {plantGroups.length > 0
+              ? ` · ${plantGroups.length} plant${
+                  plantGroups.length > 1 ? "s" : ""
+                }`
+              : ""}
           </Text>
           <View style={styles.meterTrack}>
             <View
@@ -180,7 +224,12 @@ export function TankCard({ tank }: { tank: Tank }) {
               ]}
             />
           </View>
-          <Text style={styles.meterLabel}>{pct}% stocked</Text>
+          <Text style={styles.meterLabel}>
+            {pct}% stocked
+            {plantCredit > 0
+              ? ` · plants −${formatVolume(plantCredit, system)}`
+              : ""}
+          </Text>
 
           {groups.map((g) => (
             <View key={g.fish.id} style={styles.stockRow}>
@@ -203,6 +252,30 @@ export function TankCard({ tank }: { tank: Tank }) {
                 count={g.count}
                 onAdd={() => addFishToTank(tank.id, g.fish)}
                 onRemove={() => removeFishFromTank(tank.id, g.fish)}
+              />
+            </View>
+          ))}
+
+          {plantGroups.map((g) => (
+            <View key={g.plant.id} style={styles.stockRow}>
+              <Pressable
+                style={styles.stockTap}
+                onPress={() => openPlant(g.plant)}
+              >
+                <FishImage
+                  source={g.plant.images?.[0]}
+                  icon="🌿"
+                  style={styles.stockThumb}
+                />
+                <View style={styles.stockInfo}>
+                  <Text style={styles.stockName}>{g.plant.commonName}</Text>
+                  <Text style={styles.stockMeta}>{g.plant.placement}</Text>
+                </View>
+              </Pressable>
+              <Counter
+                count={g.count}
+                onAdd={() => addPlantToTank(tank.id, g.plant)}
+                onRemove={() => removePlantFromTank(tank.id, g.plant)}
               />
             </View>
           ))}
@@ -292,6 +365,37 @@ const styles = StyleSheet.create({
   },
   inputHalf: {
     flex: 1,
+  },
+  lightRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+    marginBottom: 8,
+  },
+  lightLabel: {
+    color: COLORS.muted,
+    fontSize: 13,
+    fontWeight: "bold",
+    marginRight: 2,
+  },
+  lightChip: {
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: COLORS.chipBorder,
+  },
+  lightChipActive: {
+    backgroundColor: COLORS.accent,
+    borderColor: COLORS.accent,
+  },
+  lightChipText: {
+    color: COLORS.muted,
+    fontSize: 13,
+    fontWeight: "600",
+  },
+  lightChipTextActive: {
+    color: "white",
   },
   emptyStock: {
     color: COLORS.placeholder,

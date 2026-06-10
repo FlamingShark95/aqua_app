@@ -19,6 +19,12 @@ const {
   checkTank,
   previewFishInTank,
   scoreFishForTank,
+  resolvePlants,
+  plantCreditL,
+  tankPlantCreditL,
+  netBioloadL,
+  plantIssues,
+  PLANT_CREDIT_CAP,
 } = require("./.test-dist/rules.js");
 
 // --- fixtures ----------------------------------------------------------
@@ -53,11 +59,34 @@ const makeTank = (overrides = {}) => ({
   widthCm: 35,
   tempC: 25,
   ph: 7,
+  lightLevel: "medium",
   stock: [],
+  plants: [],
+  ...overrides,
+});
+
+const makePlant = (overrides = {}) => ({
+  id: "test-plant",
+  commonName: "Test plant",
+  scientificName: "Planta testa",
+  type: "stem",
+  placement: "background",
+  heightCm: 20,
+  growthRate: "medium",
+  light: "medium",
+  co2: "none",
+  tempMinC: 20,
+  tempMaxC: 28,
+  phMin: 6,
+  phMax: 8,
+  careLevel: "beginner",
+  priceRange: "$",
+  description: "test plant",
   ...overrides,
 });
 
 const catalogOf = (...fish) => new Map(fish.map((f) => [f.id, f]));
+const plantCatalogOf = (...plants) => new Map(plants.map((p) => [p.id, p]));
 
 // --- canEat ------------------------------------------------------------
 
@@ -144,7 +173,7 @@ test("environment: pH warning outside range", () => {
 // --- checkTank ---------------------------------------------------------
 
 test("checkTank: empty tank has no warnings", () => {
-  assert.deepEqual(checkTank(makeTank(), "metric", catalogOf()), []);
+  assert.deepEqual(checkTank(makeTank(), "metric", catalogOf(), plantCatalogOf()), []);
 });
 
 test("checkTank: group-size warning below minGroupSize, none at it", () => {
@@ -154,7 +183,8 @@ test("checkTank: group-size warning below minGroupSize, none at it", () => {
   const under = checkTank(
     makeTank({ stock: [{ speciesId: "schooler", count: 3 }] }),
     "metric",
-    catalog
+    catalog,
+    plantCatalogOf()
   );
   assert.equal(under.length, 1);
   assert.match(under[0], /groups of 6\+ \(you have 3\)/);
@@ -162,7 +192,8 @@ test("checkTank: group-size warning below minGroupSize, none at it", () => {
   const at = checkTank(
     makeTank({ stock: [{ speciesId: "schooler", count: 6 }] }),
     "metric",
-    catalog
+    catalog,
+    plantCatalogOf()
   );
   assert.deepEqual(at, []);
 });
@@ -175,9 +206,9 @@ test("checkTank: bioload counts every individual (effective litres vs volume)", 
     makeTank({ volumeL: 80, stock: [{ speciesId: "tetra", count }] });
 
   // 15 × ~5 L = ~75 L in 80 L: fine.
-  assert.deepEqual(checkTank(tank(15), "metric", catalog), []);
+  assert.deepEqual(checkTank(tank(15), "metric", catalog, plantCatalogOf()), []);
   // 17 × ~5 L = ~85 L in 80 L: overstocked.
-  const warnings = checkTank(tank(17), "metric", catalog);
+  const warnings = checkTank(tank(17), "metric", catalog, plantCatalogOf());
   assert.equal(warnings.length, 1);
   assert.match(warnings[0], /overstocked/);
 });
@@ -218,7 +249,7 @@ test("checkTank: one big carnivore overstocks a 100 L tank", () => {
     volumeL: 100,
     stock: [{ speciesId: "oscar", count: 1 }],
   });
-  const warnings = checkTank(tank, "metric", catalog);
+  const warnings = checkTank(tank, "metric", catalog, plantCatalogOf());
   assert.equal(warnings.filter((w) => /overstocked/.test(w)).length, 1);
 });
 
@@ -294,6 +325,90 @@ test("score: an owned, incomplete school outranks an equivalent newcomer", () =>
   assert.ok(a.score > b.score, `expected ${a.score} > ${b.score}`);
 });
 
+// --- plants ----------------------------------------------------------------
+
+test("plantCreditL: height × growth factor", () => {
+  // 40 cm medium grower → 4 L; 60 cm fast → 12 L; 20 cm slow → 1 L.
+  assert.equal(plantCreditL(makePlant({ heightCm: 40, growthRate: "medium" })), 4);
+  assert.equal(plantCreditL(makePlant({ heightCm: 60, growthRate: "fast" })), 12);
+  assert.equal(plantCreditL(makePlant({ heightCm: 20, growthRate: "slow" })), 1);
+});
+
+test("tankPlantCreditL: total credit caps at 25% of tank volume", () => {
+  const big = makePlant({ heightCm: 60, growthRate: "fast" }); // 12 L each
+  const groups = [{ plant: big, count: 10 }]; // 120 L raw credit
+  assert.equal(tankPlantCreditL(groups, 100), PLANT_CREDIT_CAP * 100);
+  // Under the cap, the raw sum applies.
+  assert.equal(tankPlantCreditL([{ plant: big, count: 2 }], 100), 24);
+});
+
+test("netBioloadL: plants reduce fish load, floored at zero", () => {
+  const fish = makeFish({ adultSizeCm: 5, diet: "omnivore" }); // ~5 L each
+  const plant = makePlant({ heightCm: 60, growthRate: "fast" }); // 12 L credit
+  const fishGroups = [{ fish, count: 4 }]; // ~20 L
+  // 20 − 12 = ~8 L.
+  const net = netBioloadL(fishGroups, [{ plant, count: 1 }], 100);
+  assert.ok(Math.abs(net - 8) < 1e-9, `expected ~8, got ${net}`);
+  // Credit larger than the load floors at 0 (cap: 25 L on a 100 L tank).
+  assert.equal(netBioloadL(fishGroups, [{ plant, count: 3 }], 100), 0);
+});
+
+test("resolvePlants: resolves counts, skips unknown ids", () => {
+  const plant = makePlant({ id: "anubias" });
+  const resolved = resolvePlants(
+    [
+      { plantId: "anubias", count: 3 },
+      { plantId: "gone", count: 1 },
+    ],
+    plantCatalogOf(plant)
+  );
+  assert.equal(resolved.length, 1);
+  assert.equal(resolved[0].count, 3);
+});
+
+test("plantIssues: light issue only when the plant needs more than the tank", () => {
+  const lowTank = makeTank({ lightLevel: "low" });
+  const highTank = makeTank({ lightLevel: "high" });
+  assert.deepEqual(plantIssues(makePlant({ light: "high" }), lowTank), ["light"]);
+  assert.deepEqual(plantIssues(makePlant({ light: "low" }), highTank), []);
+  assert.deepEqual(plantIssues(makePlant({ light: "medium" }), makeTank()), []);
+});
+
+test("plantIssues: temp and pH ranges", () => {
+  const coldTank = makeTank({ tempC: 15 });
+  assert.deepEqual(plantIssues(makePlant({ tempMinC: 20 }), coldTank), ["temp"]);
+  const acidTank = makeTank({ ph: 5 });
+  assert.deepEqual(plantIssues(makePlant({ phMin: 6 }), acidTank), ["ph"]);
+});
+
+test("checkTank: plant warnings and plant-adjusted bioload", () => {
+  const fish = makeFish({ id: "tetra", adultSizeCm: 5, diet: "omnivore" });
+  const demanding = makePlant({ id: "carpet", light: "high", heightCm: 60, growthRate: "fast" });
+  const catalog = catalogOf(fish);
+  const plantCatalog = plantCatalogOf(demanding);
+
+  // 17 tetras in 80 L overstocks bare (≈85 L)…
+  const bare = makeTank({
+    volumeL: 80,
+    stock: [{ speciesId: "tetra", count: 17 }],
+  });
+  assert.match(
+    checkTank(bare, "metric", catalog, plantCatalogOf())[0],
+    /overstocked/
+  );
+
+  // …but one fast 60 cm plant credits 12 L → ~73 L, under the limit. The
+  // high-light plant in a medium-light tank warns instead.
+  const planted = makeTank({
+    volumeL: 80,
+    stock: [{ speciesId: "tetra", count: 17 }],
+    plants: [{ plantId: "carpet", count: 1 }],
+  });
+  const warnings = checkTank(planted, "metric", catalog, plantCatalog);
+  assert.equal(warnings.filter((w) => /overstocked/.test(w)).length, 0);
+  assert.equal(warnings.filter((w) => /needs high light/.test(w)).length, 1);
+});
+
 test("score: region complement applies only when the tank has stock", () => {
   const bottom = makeFish({ id: "cory", tankRegion: "bottom" });
   const mid = makeFish({ id: "mid", tankRegion: "middle" });
@@ -335,7 +450,8 @@ test("checkTank: predation warning between species, not within one", () => {
       ],
     }),
     "metric",
-    catalog
+    catalog,
+    plantCatalogOf()
   );
   assert.equal(mixed.filter((w) => /may eat the/.test(w)).length, 1);
   assert.match(mixed[0], /Big pike may eat the Tetra/);
@@ -344,7 +460,8 @@ test("checkTank: predation warning between species, not within one", () => {
   const alone = checkTank(
     makeTank({ stock: [{ speciesId: "pred", count: 2 }] }),
     "metric",
-    catalog
+    catalog,
+    plantCatalogOf()
   );
   assert.deepEqual(alone.filter((w) => /may eat/.test(w)), []);
 });
@@ -374,7 +491,8 @@ test("preview: predation reported in both directions", () => {
     hunter,
     makeTank({ stock: [{ speciesId: "small", count: 5 }] }),
     "metric",
-    catalog
+    catalog,
+    plantCatalogOf()
   );
   assert.match(addingHunter[0], /Hunter may eat the Small fry/);
 
@@ -383,7 +501,8 @@ test("preview: predation reported in both directions", () => {
     small,
     makeTank({ stock: [{ speciesId: "hunter", count: 1 }] }),
     "metric",
-    catalog
+    catalog,
+    plantCatalogOf()
   );
   assert.match(addingSmall[0], /Hunter may eat the Small fry/);
 });
