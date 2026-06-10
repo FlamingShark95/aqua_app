@@ -5,8 +5,18 @@ import { careMap } from "./fishDisplay";
 // supplies an ascending `compare` plus a `sectionKey` used for the list's
 // section headers (the list is sorted by the same key first, so same-key fish
 // stay contiguous and the existing grouping logic still works).
+//
+// "fit" is not in SORT_MODES: it needs the active tank for context, so
+// SearchScreen special-cases it using scoreFishForTank from rules.ts. Only the
+// id and the tier section labels live here.
 
-export type SortId = "name" | "size" | "price" | "care";
+export type SortId = "name" | "size" | "price" | "care" | "fit";
+
+export const FIT_TIER_LABELS = {
+  great: "Great fit",
+  workable: "Workable",
+  poor: "Poor fit",
+} as const;
 
 export type SortMode = {
   id: SortId;

@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { TankProvider } from "./TankContext";
 import { UnitProvider } from "./UnitContext";
-import { NavProvider } from "./NavContext";
+import { NavProvider, Suggestion } from "./NavContext";
 import { Fish } from "./fishData";
 import { COLORS } from "./fishDisplay";
 import TanksScreen from "./TanksScreen";
@@ -16,6 +16,8 @@ export default function App() {
   // The open fish detail, if any. Owned here (not inside a tab) so it can be
   // opened from anywhere and shown as an overlay over the current tab.
   const [selectedFish, setSelectedFish] = useState<Fish | null>(null);
+  // Pending "suggest fish for tank X" request, consumed by SearchScreen.
+  const [suggestion, setSuggestion] = useState<Suggestion | null>(null);
 
   // Switching tabs also dismisses an open detail.
   const goTab = (next: Tab) => {
@@ -23,10 +25,20 @@ export default function App() {
     setTab(next);
   };
 
+  const suggestFishForTank = useCallback((tankId: string) => {
+    setSelectedFish(null);
+    setSuggestion((prev) => ({ tankId, key: (prev?.key ?? 0) + 1 }));
+    setTab("search");
+  }, []);
+
   return (
     <UnitProvider>
       <TankProvider>
-        <NavProvider openFish={setSelectedFish}>
+        <NavProvider
+          openFish={setSelectedFish}
+          suggestFishForTank={suggestFishForTank}
+          suggestion={suggestion}
+        >
           <View style={styles.app}>
             <View style={styles.body}>
               {tab === "tanks" ? <TanksScreen /> : <SearchScreen />}

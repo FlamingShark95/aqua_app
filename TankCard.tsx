@@ -3,7 +3,7 @@ import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 import { FISH_BY_ID, Tank } from "./fishData";
 import { useTanks } from "./TankContext";
 import { useUnits } from "./UnitContext";
-import { checkTank, resolveStock } from "./rules";
+import { checkTank, resolveStock, tankBioloadL } from "./rules";
 import { Counter } from "./Counter";
 import { FishImage } from "./FishImage";
 import { COLORS } from "./fishDisplay";
@@ -33,7 +33,7 @@ export function TankCard({ tank }: { tank: Tank }) {
     removeFishFromTank,
   } = useTanks();
   const { system } = useUnits();
-  const { openFish } = useNav();
+  const { openFish, suggestFishForTank } = useNav();
   const labels = unitLabels(system);
 
   const isActive = tank.id === activeTankId;
@@ -47,12 +47,12 @@ export function TankCard({ tank }: { tank: Tank }) {
   );
   const totalFish = groups.reduce((s, g) => s + g.count, 0);
 
-  // Bioload: rough "1 cm of adult fish per litre" rule (matches checkTank).
-  const totalAdultCm = groups.reduce(
-    (s, g) => s + g.fish.adultSizeCm * g.count,
-    0
-  );
-  const pct = tank.volumeL > 0 ? Math.round((totalAdultCm / tank.volumeL) * 100) : 0;
+  // Bioload meter: effective litres used vs litres available (same model as
+  // checkTank's overstock warning, so the meter and warning always agree).
+  const pct =
+    tank.volumeL > 0
+      ? Math.round((tankBioloadL(groups) / tank.volumeL) * 100)
+      : 0;
   const meterColor = pct > 100 ? COLORS.red : pct > 85 ? COLORS.yellow : COLORS.green;
 
   const [editing, setEditing] = useState(false);
@@ -229,6 +229,9 @@ export function TankCard({ tank }: { tank: Tank }) {
             <Text style={styles.editText}>Edit properties</Text>
           </Pressable>
         )}
+        <Pressable onPress={() => suggestFishForTank(tank.id)} hitSlop={8}>
+          <Text style={styles.suggestText}>Suggest fish</Text>
+        </Pressable>
         <Pressable onPress={() => deleteTank(tank.id)} hitSlop={8}>
           <Text style={styles.deleteText}>Delete tank</Text>
         </Pressable>
@@ -367,6 +370,11 @@ const styles = StyleSheet.create({
   },
   editText: {
     color: COLORS.link,
+    fontSize: 13,
+    fontWeight: "bold",
+  },
+  suggestText: {
+    color: COLORS.accent,
     fontSize: 13,
     fontWeight: "bold",
   },

@@ -12,9 +12,13 @@ const {
   PREDATION_RATIO,
   canEat,
   resolveStock,
+  environmentIssues,
   fishEnvironmentWarnings,
+  fishBioloadL,
+  tankBioloadL,
   checkTank,
   previewFishInTank,
+  scoreFishForTank,
 } = require("./.test-dist/rules.js");
 
 // --- fixtures ----------------------------------------------------------
@@ -163,18 +167,154 @@ test("checkTank: group-size warning below minGroupSize, none at it", () => {
   assert.deepEqual(at, []);
 });
 
-test("checkTank: bioload counts every individual (cm × count vs litres)", () => {
-  const fish = makeFish({ id: "tetra", adultSizeCm: 5 });
+test("checkTank: bioload counts every individual (effective litres vs volume)", () => {
+  // A 5 cm omnivore is calibrated to ~5 L, matching the old 1 cm/L rule.
+  const fish = makeFish({ id: "tetra", adultSizeCm: 5, diet: "omnivore" });
   const catalog = catalogOf(fish);
   const tank = (count) =>
     makeTank({ volumeL: 80, stock: [{ speciesId: "tetra", count }] });
 
-  // 16 × 5 cm = 80 cm in 80 L: at the limit, no warning.
-  assert.deepEqual(checkTank(tank(16), "metric", catalog), []);
-  // 17 × 5 cm = 85 cm in 80 L: overstocked.
+  // 15 × ~5 L = ~75 L in 80 L: fine.
+  assert.deepEqual(checkTank(tank(15), "metric", catalog), []);
+  // 17 × ~5 L = ~85 L in 80 L: overstocked.
   const warnings = checkTank(tank(17), "metric", catalog);
   assert.equal(warnings.length, 1);
   assert.match(warnings[0], /overstocked/);
+});
+
+// --- bioload model -------------------------------------------------------
+
+test("bioload: a 5 cm omnivore is calibrated to ~5 L", () => {
+  const small = fishBioloadL(makeFish({ adultSizeCm: 5, diet: "omnivore" }));
+  assert.ok(Math.abs(small - 5) < 1e-9, `expected ~5, got ${small}`);
+});
+
+test("bioload: grows superlinearly with length", () => {
+  const small = fishBioloadL(makeFish({ adultSizeCm: 5 }));
+  const big = fishBioloadL(makeFish({ adultSizeCm: 30 }));
+  // 6× the length must cost far more than 6× the load (it's ~25×).
+  assert.ok(big > 6 * small, `expected ${big} >> 6 × ${small}`);
+});
+
+test("bioload: diet modifier orders carnivore > herbivore > omnivore", () => {
+  const carn = fishBioloadL(makeFish({ diet: "carnivore" }));
+  const herb = fishBioloadL(makeFish({ diet: "herbivore" }));
+  const omni = fishBioloadL(makeFish({ diet: "omnivore" }));
+  assert.ok(carn > herb && herb > omni);
+});
+
+test("checkTank: one big carnivore overstocks a 100 L tank", () => {
+  const oscar = makeFish({
+    id: "oscar",
+    commonName: "Oscar",
+    adultSizeCm: 30,
+    diet: "carnivore",
+    minTankVolumeL: 100,
+    tempMinC: 22,
+    tempMaxC: 28,
+  });
+  const catalog = catalogOf(oscar);
+  const tank = makeTank({
+    volumeL: 100,
+    stock: [{ speciesId: "oscar", count: 1 }],
+  });
+  const warnings = checkTank(tank, "metric", catalog);
+  assert.equal(warnings.filter((w) => /overstocked/.test(w)).length, 1);
+});
+
+// --- environmentIssues ---------------------------------------------------
+
+test("environmentIssues: a code per failing check, empty when all pass", () => {
+  const misfit = makeFish({
+    minTankVolumeL: 200,
+    minFootprintCm: { length: 200, width: 25 },
+    tempMinC: 26,
+    tempMaxC: 30,
+    phMin: 8,
+    phMax: 9,
+  });
+  const tank = makeTank({ volumeL: 100, lengthCm: 80, tempC: 24, ph: 7 });
+  assert.deepEqual(environmentIssues(misfit, tank), [
+    "volume",
+    "footprint",
+    "temp",
+    "ph",
+  ]);
+  assert.deepEqual(environmentIssues(makeFish(), makeTank()), []);
+});
+
+// --- scoreFishForTank ----------------------------------------------------
+
+test("score: tier comes from the number of hard problems", () => {
+  const tank = makeTank({ volumeL: 100 });
+  assert.equal(scoreFishForTank(makeFish(), tank, catalogOf()).tier, "great");
+  assert.equal(
+    scoreFishForTank(makeFish({ minTankVolumeL: 200 }), tank, catalogOf())
+      .tier,
+    "workable"
+  );
+  assert.equal(
+    scoreFishForTank(
+      makeFish({ minTankVolumeL: 200, phMin: 8, phMax: 9 }),
+      tank,
+      catalogOf()
+    ).tier,
+    "poor"
+  );
+});
+
+test("score: predation conflicts count as problems", () => {
+  const prey = makeFish({ id: "prey", adultSizeCm: 4 });
+  const hunter = makeFish({
+    id: "hunter",
+    temperament: "predatory",
+    adultSizeCm: 30,
+    minTankVolumeL: 40,
+  });
+  const tank = makeTank({
+    volumeL: 400,
+    stock: [{ speciesId: "prey", count: 5 }],
+  });
+  const { tier } = scoreFishForTank(hunter, tank, catalogOf(prey, hunter));
+  assert.notEqual(tier, "great");
+});
+
+test("score: an owned, incomplete school outranks an equivalent newcomer", () => {
+  const schooler = makeFish({ id: "schooler", minGroupSize: 6 });
+  const newcomer = makeFish({ id: "newcomer", commonName: "Newcomer" });
+  const catalog = catalogOf(schooler, newcomer);
+  const tank = makeTank({
+    volumeL: 200,
+    stock: [{ speciesId: "schooler", count: 3 }],
+  });
+  const a = scoreFishForTank(schooler, tank, catalog);
+  const b = scoreFishForTank(newcomer, tank, catalog);
+  assert.equal(a.tier, "great");
+  assert.equal(b.tier, "great");
+  assert.ok(a.score > b.score, `expected ${a.score} > ${b.score}`);
+});
+
+test("score: region complement applies only when the tank has stock", () => {
+  const bottom = makeFish({ id: "cory", tankRegion: "bottom" });
+  const mid = makeFish({ id: "mid", tankRegion: "middle" });
+  const catalog = catalogOf(bottom, mid);
+
+  // Stocked tank with the middle occupied: the bottom-dweller candidate gets
+  // the +15 region bonus over another middle fish, all else equal.
+  const stocked = makeTank({
+    volumeL: 200,
+    stock: [{ speciesId: "mid", count: 6 }],
+  });
+  const bottomScore = scoreFishForTank(bottom, stocked, catalog).score;
+  const midScore = scoreFishForTank(mid, stocked, catalog).score;
+  assert.equal(bottomScore - midScore, 15);
+
+  // Empty tank: no bonus, the two score identically.
+  const empty = makeTank({ volumeL: 200 });
+  assert.equal(
+    scoreFishForTank(bottom, empty, catalog).score,
+    scoreFishForTank(mid, empty, catalog).score
+  );
 });
 
 test("checkTank: predation warning between species, not within one", () => {

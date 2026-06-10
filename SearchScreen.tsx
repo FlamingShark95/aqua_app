@@ -1,4 +1,4 @@
-import { memo, useMemo, useState } from "react";
+import { memo, useEffect, useMemo, useRef, useState } from "react";
 import {
   Pressable,
   SectionList,
@@ -18,40 +18,32 @@ import {
   matchesFilters,
   SelectedFilters,
 } from "./fishFilters";
-import { SORT_MODES, SortId } from "./fishSort";
-import { UnitSystem } from "./units";
+import { FIT_TIER_LABELS, SORT_MODES, SortId } from "./fishSort";
 import { useUnits } from "./UnitContext";
 import { useTanks } from "./TankContext";
-import { previewFishInTank } from "./rules";
+import { previewFishInTank, scoreFishForTank } from "./rules";
 
 // One fish row. Memoized so typing in the search box (which re-renders the
-// screen) doesn't re-render rows whose props haven't changed; the compat
-// preview only re-runs when the active tank or unit system changes.
+// screen) doesn't re-render rows whose props haven't changed. `issues` comes
+// from the screen-level fit map, which only rebuilds when the active tank or
+// unit system changes, so the array identity is stable between keystrokes.
 const FishRow = memo(function FishRow({
   fish,
   count,
+  issues,
   activeTank,
-  system,
   onOpen,
   onAdd,
   onRemove,
 }: {
   fish: Fish;
   count: number;
+  issues: string[] | null;
   activeTank: Tank | null;
-  system: UnitSystem;
   onOpen: (fish: Fish) => void;
   onAdd: (tankId: string, fish: Fish) => void;
   onRemove: (tankId: string, fish: Fish) => void;
 }) {
-  const issues = useMemo(
-    () =>
-      activeTank
-        ? previewFishInTank(fish, activeTank, system, FISH_BY_ID)
-        : null,
-    [fish, activeTank, system]
-  );
-
   return (
     <Pressable style={styles.row} onPress={() => onOpen(fish)}>
       <FishImage source={fish.images?.[0]} style={styles.thumb} />
@@ -84,14 +76,32 @@ const FishRow = memo(function FishRow({
   );
 });
 
+// Group a pre-sorted list into sections; same-key fish are contiguous, so we
+// only ever need to look at the last section while grouping.
+function groupSections(
+  fish: Fish[],
+  keyOf: (fish: Fish) => string
+): { key: string; data: Fish[] }[] {
+  return fish.reduce<{ key: string; data: Fish[] }[]>((acc, f) => {
+    const key = keyOf(f);
+    const last = acc[acc.length - 1];
+    if (last && last.key === key) last.data.push(f);
+    else acc.push({ key, data: [f] });
+    return acc;
+  }, []);
+}
+
+const TIER_ORDER = { great: 0, workable: 1, poor: 2 } as const;
+
 export default function SearchScreen() {
   const [query, setQuery] = useState("");
   const [filters, setFilters] = useState<SelectedFilters>({});
   const [showFilters, setShowFilters] = useState(false);
   const [sortId, setSortId] = useState<SortId>("name");
   const [sortDir, setSortDir] = useState<"asc" | "desc">("asc");
+  const [fitsOnly, setFitsOnly] = useState(false);
   const { system } = useUnits();
-  const { openFish } = useNav();
+  const { openFish, suggestion } = useNav();
   const {
     tanks,
     activeTank,
@@ -101,34 +111,85 @@ export default function SearchScreen() {
     removeFishFromTank,
   } = useTanks();
 
-  // Name prefix match AND every active filter category.
+  // A "Suggest fish" tap on a tank card lands here: select that tank and show
+  // its best fits. The key marks each request so it's applied exactly once.
+  const consumedSuggestionKey = useRef(0);
+  useEffect(() => {
+    if (suggestion && suggestion.key !== consumedSuggestionKey.current) {
+      consumedSuggestionKey.current = suggestion.key;
+      setActiveTankId(suggestion.tankId);
+      setSortId("fit");
+      setSortDir("asc");
+      setFitsOnly(true);
+    }
+  }, [suggestion, setActiveTankId]);
+
+  // Fit-sorting and the fits-only chip need a tank; fall back when it's gone.
+  const effectiveSortId: SortId =
+    sortId === "fit" && !activeTank ? "name" : sortId;
+
+  // Compatibility of every catalog fish with the active tank. Rebuilt only
+  // when the tank or unit system changes; rows, the fits-only filter and the
+  // detail badge all share it.
+  const issuesById = useMemo(() => {
+    if (!activeTank) return null;
+    return new Map(
+      AVAILABLE_FISH.map((f) => [
+        f.id,
+        previewFishInTank(f, activeTank, system, FISH_BY_ID),
+      ])
+    );
+  }, [activeTank, system]);
+
+  // Substring match on either name, AND every active filter category, AND
+  // (when the fits-only chip is on) zero compatibility issues.
   const filteredFish = useMemo(() => {
     const q = query.trim().toLowerCase();
     return AVAILABLE_FISH.filter(
       (fish) =>
-        fish.commonName.toLowerCase().startsWith(q) &&
-        matchesFilters(fish, filters)
+        (fish.commonName.toLowerCase().includes(q) ||
+          fish.scientificName.toLowerCase().includes(q)) &&
+        matchesFilters(fish, filters) &&
+        (!fitsOnly || !issuesById || issuesById.get(fish.id)?.length === 0)
     );
-  }, [query, filters]);
+  }, [query, filters, fitsOnly, issuesById]);
   const activeCount = countActiveFilters(filters);
 
+  // Best-fit scores for the whole catalog, only while fit-sorting.
+  const fitScores = useMemo(() => {
+    if (effectiveSortId !== "fit" || !activeTank) return null;
+    return new Map(
+      AVAILABLE_FISH.map((f) => [
+        f.id,
+        scoreFishForTank(f, activeTank, FISH_BY_ID),
+      ])
+    );
+  }, [effectiveSortId, activeTank]);
+
   // Sort by the active mode, then group into sections by that mode's key.
-  // Because the list is sorted first, fish sharing a key land next to each
-  // other, so we only ever need to look at the last section while grouping.
   const sections = useMemo(() => {
-    const sortMode = SORT_MODES.find((m) => m.id === sortId) ?? SORT_MODES[0];
-    return [...filteredFish]
-      .sort((a, b) =>
-        sortDir === "asc" ? sortMode.compare(a, b) : -sortMode.compare(a, b)
-      )
-      .reduce<{ key: string; data: Fish[] }[]>((acc, fish) => {
-        const key = sortMode.sectionKey(fish);
-        const last = acc[acc.length - 1];
-        if (last && last.key === key) last.data.push(fish);
-        else acc.push({ key, data: [fish] });
-        return acc;
-      }, []);
-  }, [filteredFish, sortId, sortDir]);
+    if (fitScores) {
+      const sorted = [...filteredFish].sort((a, b) => {
+        const fa = fitScores.get(a.id)!;
+        const fb = fitScores.get(b.id)!;
+        const d =
+          TIER_ORDER[fa.tier] - TIER_ORDER[fb.tier] ||
+          fb.score - fa.score ||
+          a.commonName.localeCompare(b.commonName);
+        return sortDir === "asc" ? d : -d;
+      });
+      return groupSections(
+        sorted,
+        (f) => FIT_TIER_LABELS[fitScores.get(f.id)!.tier]
+      );
+    }
+    const sortMode =
+      SORT_MODES.find((m) => m.id === effectiveSortId) ?? SORT_MODES[0];
+    const sorted = [...filteredFish].sort((a, b) =>
+      sortDir === "asc" ? sortMode.compare(a, b) : -sortMode.compare(a, b)
+    );
+    return groupSections(sorted, sortMode.sectionKey);
+  }, [filteredFish, effectiveSortId, sortDir, fitScores]);
 
   // Per-species count in the active tank, so rows don't scan the stock list.
   const countBySpeciesId = useMemo(
@@ -196,7 +257,7 @@ export default function SearchScreen() {
       <View style={styles.sortRow}>
         <Text style={styles.sortLabel}>Sort</Text>
         {SORT_MODES.map((mode) => {
-          const active = mode.id === sortId;
+          const active = mode.id === effectiveSortId;
           return (
             <Pressable
               key={mode.id}
@@ -222,6 +283,51 @@ export default function SearchScreen() {
             </Pressable>
           );
         })}
+        {activeTank && (
+          <Pressable
+            style={[
+              styles.sortChip,
+              effectiveSortId === "fit" && styles.sortChipActive,
+            ]}
+            onPress={() => {
+              if (effectiveSortId === "fit") {
+                setSortDir((d) => (d === "asc" ? "desc" : "asc"));
+              } else {
+                setSortId("fit");
+                setSortDir("asc");
+              }
+            }}
+          >
+            <Text
+              style={[
+                styles.sortChipText,
+                effectiveSortId === "fit" && styles.sortChipTextActive,
+              ]}
+            >
+              Best fit
+              {effectiveSortId === "fit"
+                ? sortDir === "asc"
+                  ? " ↑"
+                  : " ↓"
+                : ""}
+            </Text>
+          </Pressable>
+        )}
+        {activeTank && (
+          <Pressable
+            style={[styles.sortChip, fitsOnly && styles.sortChipActive]}
+            onPress={() => setFitsOnly((v) => !v)}
+          >
+            <Text
+              style={[
+                styles.sortChipText,
+                fitsOnly && styles.sortChipTextActive,
+              ]}
+            >
+              ✓ Fits my tank
+            </Text>
+          </Pressable>
+        )}
       </View>
     </>
   );
@@ -244,8 +350,8 @@ export default function SearchScreen() {
         <FishRow
           fish={item}
           count={countBySpeciesId.get(item.id) ?? 0}
+          issues={issuesById?.get(item.id) ?? null}
           activeTank={activeTank}
-          system={system}
           onOpen={openFish}
           onAdd={addFishToTank}
           onRemove={removeFishFromTank}
