@@ -8,7 +8,6 @@ List of things to work on:
 7. Maybe add products like tanks and heaters.
 8. Be more specific with the type of food.
 9. ~~When in Fish add mode, make something where you can make it show only fish that are compatible with that tank~~ DONE — "✓ Fits my tank" chip
-10. Much later, but consider an affiliate for earning money. Could be for fish or plants or even like tanks.
 11. Add login system to save tanks better
 12. Have a community forum. Would require an actual backend and hosting, though.
 13. Show off tank feature fist that you can like and comment instead of full community at first. Have it generate a nice summary card that you could share.
