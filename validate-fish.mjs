@@ -83,6 +83,31 @@ fish.forEach((f, i) => {
     }
   }
 
+  // Cross-field invariants for the optional ranges (only when both ends are
+  // valid numbers — the per-field checks above already flag bad types). These
+  // guard the backfill mode, which fills these fields across the catalog.
+  if (
+    typeof f.adultSizeMinCm === "number" &&
+    typeof f.adultSizeCm === "number" &&
+    f.adultSizeMinCm > f.adultSizeCm
+  ) {
+    errors.push(`${where}: "adultSizeMinCm" (${f.adultSizeMinCm}) must be <= "adultSizeCm" (${f.adultSizeCm})`);
+  }
+  if (
+    typeof f.lifeExpectancyYears === "number" &&
+    typeof f.lifeExpectancyMaxYears === "number" &&
+    f.lifeExpectancyMaxYears < f.lifeExpectancyYears
+  ) {
+    errors.push(`${where}: "lifeExpectancyMaxYears" (${f.lifeExpectancyMaxYears}) must be >= "lifeExpectancyYears" (${f.lifeExpectancyYears})`);
+  }
+  if (
+    typeof f.maxGroupSize === "number" &&
+    typeof f.minGroupSize === "number" &&
+    f.maxGroupSize < f.minGroupSize
+  ) {
+    errors.push(`${where}: "maxGroupSize" (${f.maxGroupSize}) must be >= "minGroupSize" (${f.minGroupSize})`);
+  }
+
   const fp = f.minFootprintCm;
   if (!fp || typeof fp !== "object" || typeof fp.length !== "number" || typeof fp.width !== "number") {
     errors.push(`${where}: "minFootprintCm" must be { length: number, width: number }`);
