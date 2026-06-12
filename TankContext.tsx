@@ -44,6 +44,7 @@ const INITIAL_TANKS: Tank[] = [
     tempC: 25,
     ph: 7.0,
     lightLevel: "medium",
+    co2: false,
     stock: [],
     plants: [],
   },
@@ -98,12 +99,13 @@ export function TankProvider({ children }: { children: ReactNode }) {
         if (raw) {
           const saved = JSON.parse(raw) as Tank[];
           if (Array.isArray(saved)) {
-            // Older saves predate plants/lighting; default them in.
+            // Older saves predate plants/lighting/CO₂; default them in.
             const migrated = saved.map((t) => ({
               ...t,
               stock: migrateStock(t.stock),
               plants: Array.isArray(t.plants) ? t.plants : [],
               lightLevel: t.lightLevel ?? "medium",
+              co2: t.co2 ?? false,
             }));
             setTanks(migrated);
             setActiveTankId(migrated[0]?.id ?? null);

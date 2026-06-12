@@ -383,11 +383,18 @@ test("plantIssues: temp and pH ranges", () => {
   assert.deepEqual(plantIssues(makePlant({ phMin: 6 }), acidTank), ["ph"]);
 });
 
-test("plantIssues: CO₂-required plants are always flagged; none/optional never", () => {
+test("plantIssues: CO₂-required plants flag without tank CO₂; none/optional never", () => {
   const tank = makeTank();
   assert.deepEqual(plantIssues(makePlant({ co2: "required" }), tank), ["co2"]);
   assert.deepEqual(plantIssues(makePlant({ co2: "optional" }), tank), []);
   assert.deepEqual(plantIssues(makePlant({ co2: "none" }), tank), []);
+});
+
+test("plantIssues: a CO₂ tank clears the requirement for required plants", () => {
+  const co2Tank = makeTank({ co2: true });
+  assert.deepEqual(plantIssues(makePlant({ co2: "required" }), co2Tank), []);
+  assert.deepEqual(plantIssues(makePlant({ co2: "optional" }), co2Tank), []);
+  assert.deepEqual(plantIssues(makePlant({ co2: "none" }), co2Tank), []);
 });
 
 test("plantWarnings: CO₂ requirement produces an added-CO₂ message", () => {
@@ -603,4 +610,22 @@ test("scorePlantForTank: undemanding plants outscore demanding ones in the same 
   assert.equal(easyFit.tier, "great");
   assert.equal(hardFit.tier, "great");
   assert.ok(easyFit.score > hardFit.score);
+});
+
+test("scorePlantForTank: a CO₂ tank stops penalizing the CO₂ axis", () => {
+  // Same plant differing only in CO₂ need: without tank CO₂ the no-CO₂ plant
+  // scores higher; with tank CO₂ the axis is flat so they tie there.
+  const none = makePlant({ co2: "none" });
+  const required = makePlant({ co2: "required" });
+
+  const dry = makeTank();
+  assert.ok(scorePlantForTank(none, dry).score > scorePlantForTank(required, dry).score);
+
+  const co2Tank = makeTank({ co2: true });
+  assert.equal(
+    scorePlantForTank(none, co2Tank).score,
+    scorePlantForTank(required, co2Tank).score
+  );
+  // A required plant is also a "great" fit in a CO₂ tank (no co2 problem).
+  assert.equal(scorePlantForTank(required, co2Tank).tier, "great");
 });

@@ -85,6 +85,7 @@ export type Tank = {
   tempC: number; // the tank's set temperature
   ph: number; // the tank's measured pH
   lightLevel: LightLevel; // checked against each plant's light need
+  co2?: boolean; // CO₂ injection; clears the "needs added CO₂" plant warning
 
   // the contents
   stock: StockEntry[]; // the fish currently in it, one entry per species

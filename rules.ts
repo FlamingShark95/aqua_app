@@ -200,10 +200,9 @@ export function plantIssues(plant: Plant, tank: Tank): PlantIssueCode[] {
     issues.push("temp");
   }
   if (tank.ph < plant.phMin || tank.ph > plant.phMax) issues.push("ph");
-  // The app doesn't model a CO₂ system, so a plant that *requires* injected CO₂
-  // is always flagged (a "none"/"optional" plant never is). If a Tank CO₂ field
-  // is added later, gate this on it.
-  if (plant.co2 === "required") issues.push("co2");
+  // A plant that *requires* injected CO₂ is flagged unless the tank supplies it
+  // (a "none"/"optional" plant never is). Tanks default to no CO₂.
+  if (plant.co2 === "required" && !tank.co2) issues.push("co2");
   return issues;
 }
 
@@ -389,7 +388,11 @@ export function scorePlantForTank(
   if (LIGHT_RANK[plant.light] < LIGHT_RANK[tank.lightLevel]) score += 10;
   else if (LIGHT_RANK[plant.light] === LIGHT_RANK[tank.lightLevel]) score += 5;
 
-  if (plant.co2 === "none") score += 10;
+  // CO₂ need only counts against a plant when the tank can't supply it. In a
+  // CO₂ tank every plant clears the bar, so the axis is flat and demanding
+  // plants are no longer pushed down the Best-fit list.
+  if (tank.co2) score += 10;
+  else if (plant.co2 === "none") score += 10;
   else if (plant.co2 === "optional") score += 5;
 
   if (plant.careLevel === "beginner") score += 8;

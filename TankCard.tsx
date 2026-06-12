@@ -193,6 +193,22 @@ export function TankCard({ tank }: { tank: Tank }) {
               );
             })}
           </View>
+          <View style={styles.lightRow}>
+            <Text style={styles.lightLabel}>CO₂</Text>
+            <Pressable
+              style={[styles.lightChip, tank.co2 && styles.lightChipActive]}
+              onPress={() => updateTank(tank.id, { co2: !tank.co2 })}
+            >
+              <Text
+                style={[
+                  styles.lightChipText,
+                  tank.co2 && styles.lightChipTextActive,
+                ]}
+              >
+                {tank.co2 ? "on" : "off"}
+              </Text>
+            </Pressable>
+          </View>
         </View>
       ) : (
         <Text style={styles.props}>
@@ -201,6 +217,7 @@ export function TankCard({ tank }: { tank: Tank }) {
           {lengthValue(tank.widthCm, system)} {lengthUnit(system)} ·{" "}
           {formatTemp(tank.tempC, system)} · pH {tank.ph} ·{" "}
           {tank.lightLevel} light
+          {tank.co2 ? " · CO₂" : ""}
         </Text>
       )}
 
