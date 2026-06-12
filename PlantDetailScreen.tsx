@@ -14,33 +14,10 @@ import { Counter } from "./Counter";
 import { FishImage } from "./FishImage";
 import { plantWarnings } from "./rules";
 import { Badge, COLORS } from "./fishDisplay";
+import { plantCareMap, lightMap, co2Map, growthMap } from "./plantDisplay";
 import { formatLength, formatTempRange } from "./units";
 
 const titleCase = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
-
-const LIGHT_BADGE: Record<Plant["light"], Badge> = {
-  low: { text: "Low light", color: COLORS.green },
-  medium: { text: "Medium light", color: COLORS.yellow },
-  high: { text: "High light", color: COLORS.orange },
-};
-
-const CO2_BADGE: Record<Plant["co2"], Badge> = {
-  none: { text: "No CO₂", color: COLORS.green },
-  optional: { text: "CO₂ optional", color: COLORS.yellow },
-  required: { text: "CO₂ required", color: COLORS.orange },
-};
-
-const GROWTH_BADGE: Record<Plant["growthRate"], Badge> = {
-  slow: { text: "Slow grower", color: COLORS.soft },
-  medium: { text: "Medium grower", color: COLORS.yellow },
-  fast: { text: "Fast grower", color: COLORS.green },
-};
-
-const CARE_BADGE: Record<Plant["careLevel"], Badge> = {
-  beginner: { text: "Easy", color: COLORS.green },
-  intermediate: { text: "Moderate", color: COLORS.yellow },
-  advanced: { text: "Advanced", color: COLORS.orange },
-};
 
 export default function PlantDetailScreen({
   plant,
@@ -55,10 +32,10 @@ export default function PlantDetailScreen({
   const slideWidth = useWindowDimensions().width - 40;
 
   const tags: Badge[] = [
-    CARE_BADGE[plant.careLevel],
-    LIGHT_BADGE[plant.light],
-    CO2_BADGE[plant.co2],
-    GROWTH_BADGE[plant.growthRate],
+    plantCareMap[plant.careLevel],
+    lightMap[plant.light],
+    co2Map[plant.co2],
+    growthMap[plant.growthRate],
   ];
 
   const slides =

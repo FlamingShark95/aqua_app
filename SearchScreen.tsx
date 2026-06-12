@@ -14,9 +14,12 @@ import { COLORS } from "./fishDisplay";
 import { useNav } from "./NavContext";
 import { FilterSheet } from "./FilterSheet";
 import {
+  CATEGORIES,
+  CategoryId,
   countActiveFilters,
   matchesFilters,
   SelectedFilters,
+  toggleFilter,
 } from "./fishFilters";
 import { FIT_TIER_LABELS, SORT_MODES, SortId } from "./fishSort";
 import { useUnits } from "./UnitContext";
@@ -360,10 +363,16 @@ export default function SearchScreen() {
     />
     <FilterSheet
       visible={showFilters}
+      categories={CATEGORIES}
       filters={filters}
-      onChange={setFilters}
+      activeCount={countActiveFilters(filters)}
+      onToggle={(cat, opt) =>
+        setFilters((prev) => toggleFilter(prev, cat as CategoryId, opt))
+      }
+      onClear={() => setFilters({})}
       onClose={() => setShowFilters(false)}
       resultCount={filteredFish.length}
+      resultNoun="fish"
       system={system}
     />
     </>

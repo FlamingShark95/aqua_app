@@ -189,7 +189,7 @@ export function netBioloadL(
 // string-formatter split as the fish environment checks.
 const LIGHT_RANK: Record<LightLevel, number> = { low: 0, medium: 1, high: 2 };
 
-export type PlantIssueCode = "light" | "temp" | "ph";
+export type PlantIssueCode = "light" | "temp" | "ph" | "co2";
 
 export function plantIssues(plant: Plant, tank: Tank): PlantIssueCode[] {
   const issues: PlantIssueCode[] = [];
@@ -200,6 +200,10 @@ export function plantIssues(plant: Plant, tank: Tank): PlantIssueCode[] {
     issues.push("temp");
   }
   if (tank.ph < plant.phMin || tank.ph > plant.phMax) issues.push("ph");
+  // The app doesn't model a CO₂ system, so a plant that *requires* injected CO₂
+  // is always flagged (a "none"/"optional" plant never is). If a Tank CO₂ field
+  // is added later, gate this on it.
+  if (plant.co2 === "required") issues.push("co2");
   return issues;
 }
 
@@ -220,6 +224,8 @@ export function plantWarnings(
         )} (tank is ${formatTemp(tank.tempC, system)})`;
       case "ph":
         return `${plant.commonName} prefers pH ${plant.phMin}–${plant.phMax} (tank is pH ${tank.ph})`;
+      case "co2":
+        return `${plant.commonName} needs added CO₂ to thrive`;
     }
   });
 }
@@ -359,6 +365,39 @@ export function scoreFishForTank(
   // Beginner-friendliness.
   if (fish.careLevel === "beginner") score += 6;
   else if (fish.careLevel === "intermediate") score += 3;
+
+  return { score, tier };
+}
+
+// How well a plant suits a tank, for the Plants tab's "Best fit" sort — the
+// plant-side mirror of scoreFishForTank. Tier comes from the same hard problems
+// the warnings list shows (light / temp / pH / CO₂): 0 → great, 1 → workable,
+// 2+ → poor. Score orders plants within a tier; bigger is better. Pure and
+// metric-only; `tank` is only read for its lighting and water values.
+export function scorePlantForTank(
+  plant: Plant,
+  tank: Tank
+): { score: number; tier: FitTier } {
+  const problems = plantIssues(plant, tank).length;
+  const tier: FitTier =
+    problems === 0 ? "great" : problems === 1 ? "workable" : "poor";
+
+  let score = 0;
+
+  // Undemanding plants are the safest picks, so they sort first within a tier:
+  // light it doesn't need, no CO₂ requirement, and easy care all add headroom.
+  if (LIGHT_RANK[plant.light] < LIGHT_RANK[tank.lightLevel]) score += 10;
+  else if (LIGHT_RANK[plant.light] === LIGHT_RANK[tank.lightLevel]) score += 5;
+
+  if (plant.co2 === "none") score += 10;
+  else if (plant.co2 === "optional") score += 5;
+
+  if (plant.careLevel === "beginner") score += 8;
+  else if (plant.careLevel === "intermediate") score += 4;
+
+  // Faster growers do more of the nutrient-export work that benefits a tank.
+  if (plant.growthRate === "fast") score += 6;
+  else if (plant.growthRate === "medium") score += 3;
 
   return { score, tier };
 }

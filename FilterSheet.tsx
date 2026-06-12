@@ -6,36 +6,45 @@ import {
   Text,
   View,
 } from "react-native";
-import {
-  CATEGORIES,
-  countActiveFilters,
-  SelectedFilters,
-  toggleFilter,
-} from "./fishFilters";
+import { FilterCategory } from "./fishFilters";
 import { COLORS } from "./fishDisplay";
 import { UnitSystem } from "./units";
 
 // Accent used for chips whose option has no badge color (size, pH, temp, etc.).
 const ACCENT = COLORS.accent;
 
-// Full-screen popup of stackable filter chips. Selections apply live (the
-// caller re-filters the list), so the footer button just closes the sheet.
-export function FilterSheet({
+// Selected option ids per category id. Shared by the fish (SelectedFilters) and
+// plant (SelectedPlantFilters) maps — both are Partial<Record<string, string[]>>.
+type Selected = Record<string, string[] | undefined>;
+
+// Full-screen popup of stackable filter chips, generic over the item type so the
+// Fish and Plant lists share one component. Selections apply live (the caller
+// re-filters the list), so the footer button just closes the sheet. The caller
+// passes its own categories, current selections, a toggle fn, and the count of
+// active chips + the result noun ("fish" / "plants").
+export function FilterSheet<T>({
   visible,
+  categories,
   filters,
-  onChange,
+  activeCount,
+  onToggle,
+  onClear,
   onClose,
   resultCount,
+  resultNoun,
   system,
 }: {
   visible: boolean;
-  filters: SelectedFilters;
-  onChange: (next: SelectedFilters) => void;
+  categories: FilterCategory<T>[];
+  filters: Selected;
+  activeCount: number;
+  onToggle: (categoryId: string, optionId: string) => void;
+  onClear: () => void;
   onClose: () => void;
   resultCount: number;
+  resultNoun: string;
   system: UnitSystem;
 }) {
-  const activeCount = countActiveFilters(filters);
 
   return (
     <Modal visible={visible} animationType="slide" onRequestClose={onClose}>
@@ -48,7 +57,7 @@ export function FilterSheet({
         </View>
 
         <ScrollView contentContainerStyle={styles.content}>
-          {CATEGORIES.map((cat) => {
+          {categories.map((cat) => {
             const selected = filters[cat.id] ?? [];
             return (
               <View key={cat.id} style={styles.group}>
@@ -60,9 +69,7 @@ export function FilterSheet({
                     return (
                       <Pressable
                         key={opt.id}
-                        onPress={() =>
-                          onChange(toggleFilter(filters, cat.id, opt.id))
-                        }
+                        onPress={() => onToggle(cat.id, opt.id)}
                         style={[
                           styles.chip,
                           isOn && { backgroundColor: c + "33", borderColor: c },
@@ -86,11 +93,7 @@ export function FilterSheet({
         </ScrollView>
 
         <View style={styles.footer}>
-          <Pressable
-            onPress={() => onChange({})}
-            hitSlop={8}
-            disabled={activeCount === 0}
-          >
+          <Pressable onPress={onClear} hitSlop={8} disabled={activeCount === 0}>
             <Text
               style={[styles.clear, activeCount === 0 && styles.clearDisabled]}
             >
@@ -98,7 +101,9 @@ export function FilterSheet({
             </Text>
           </Pressable>
           <Pressable style={styles.showButton} onPress={onClose}>
-            <Text style={styles.showButtonText}>Show {resultCount} fish</Text>
+            <Text style={styles.showButtonText}>
+              Show {resultCount} {resultNoun}
+            </Text>
           </Pressable>
         </View>
       </View>

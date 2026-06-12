@@ -24,6 +24,8 @@ const {
   tankPlantCreditL,
   netBioloadL,
   plantIssues,
+  plantWarnings,
+  scorePlantForTank,
   PLANT_CREDIT_CAP,
 } = require("./.test-dist/rules.js");
 
@@ -381,6 +383,23 @@ test("plantIssues: temp and pH ranges", () => {
   assert.deepEqual(plantIssues(makePlant({ phMin: 6 }), acidTank), ["ph"]);
 });
 
+test("plantIssues: CO₂-required plants are always flagged; none/optional never", () => {
+  const tank = makeTank();
+  assert.deepEqual(plantIssues(makePlant({ co2: "required" }), tank), ["co2"]);
+  assert.deepEqual(plantIssues(makePlant({ co2: "optional" }), tank), []);
+  assert.deepEqual(plantIssues(makePlant({ co2: "none" }), tank), []);
+});
+
+test("plantWarnings: CO₂ requirement produces an added-CO₂ message", () => {
+  const w = plantWarnings(
+    makePlant({ commonName: "Carpet", co2: "required" }),
+    makeTank(),
+    "metric"
+  );
+  assert.equal(w.length, 1);
+  assert.match(w[0], /added CO₂/);
+});
+
 test("checkTank: plant warnings and plant-adjusted bioload", () => {
   const fish = makeFish({ id: "tetra", adultSizeCm: 5, diet: "omnivore" });
   const demanding = makePlant({ id: "carpet", light: "high", heightCm: 60, growthRate: "fast" });
@@ -533,4 +552,55 @@ test("preview: count-independent — no group-size or bioload warnings", () => {
   // Volume warning fires (needs 40 L, tank is 10 L) but nothing about groups.
   assert.equal(warnings.length, 1);
   assert.match(warnings[0], /needs at least/);
+});
+
+// --- plantWarnings -----------------------------------------------------
+
+test("plantWarnings: no issues yields no warnings", () => {
+  assert.deepEqual(plantWarnings(makePlant(), makeTank(), "metric"), []);
+});
+
+test("plantWarnings: one message per issue, naming the plant", () => {
+  const lowTank = makeTank({ lightLevel: "low" });
+  const w = plantWarnings(
+    makePlant({ commonName: "Demanding stem", light: "high" }),
+    lowTank,
+    "metric"
+  );
+  assert.equal(w.length, 1);
+  assert.match(w[0], /Demanding stem/);
+  assert.match(w[0], /high light/);
+});
+
+test("plantWarnings: temp and pH messages localize the unit text", () => {
+  const coldTank = makeTank({ tempC: 15 });
+  const w = plantWarnings(makePlant({ tempMinC: 20 }), coldTank, "imperial");
+  assert.equal(w.length, 1);
+  assert.match(w[0], /°F/); // imperial system → Fahrenheit in the message
+  const acidTank = makeTank({ ph: 5 });
+  const ph = plantWarnings(makePlant({ phMin: 6 }), acidTank, "metric");
+  assert.match(ph[0], /pH/);
+});
+
+// --- scorePlantForTank -------------------------------------------------
+
+test("scorePlantForTank: tier comes from the number of suitability problems", () => {
+  const tank = makeTank({ lightLevel: "low", tempC: 15, ph: 5 });
+  // 0 problems → great
+  assert.equal(scorePlantForTank(makePlant({ light: "low", tempMinC: 10, phMin: 4 }), tank).tier, "great");
+  // 1 problem (light) → workable
+  assert.equal(scorePlantForTank(makePlant({ light: "high", tempMinC: 10, phMin: 4 }), tank).tier, "workable");
+  // 3 problems → poor
+  assert.equal(scorePlantForTank(makePlant({ light: "high", tempMinC: 20, phMin: 6 }), tank).tier, "poor");
+});
+
+test("scorePlantForTank: undemanding plants outscore demanding ones in the same tier", () => {
+  const tank = makeTank({ lightLevel: "high" });
+  const easy = makePlant({ light: "low", co2: "none", careLevel: "beginner", growthRate: "fast" });
+  const hard = makePlant({ light: "high", co2: "optional", careLevel: "advanced", growthRate: "slow" });
+  const easyFit = scorePlantForTank(easy, tank);
+  const hardFit = scorePlantForTank(hard, tank);
+  assert.equal(easyFit.tier, "great");
+  assert.equal(hardFit.tier, "great");
+  assert.ok(easyFit.score > hardFit.score);
 });

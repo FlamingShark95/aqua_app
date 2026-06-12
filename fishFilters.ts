@@ -30,18 +30,21 @@ export type CategoryId =
 // Selected option ids per category. A missing/empty entry means "not filtering".
 export type SelectedFilters = Partial<Record<CategoryId, string[]>>;
 
-export type FilterOption = {
+// The filter model is generic over the item being filtered (Fish here, Plant in
+// plantFilters.ts) so FilterSheet can render either. Only `matches` cares about
+// the item type; everything FilterSheet touches (id/title/label/color) does not.
+export type FilterOption<T> = {
   id: string;
   // Label depends on the unit system for numeric buckets; static otherwise.
   label: (system: UnitSystem) => string;
   color?: string;
-  matches: (fish: Fish) => boolean;
+  matches: (item: T) => boolean;
 };
 
-export type FilterCategory = {
-  id: CategoryId;
+export type FilterCategory<T, Id extends string = string> = {
+  id: Id;
   title: string;
-  options: FilterOption[];
+  options: FilterOption<T>[];
 };
 
 // A label that ignores the unit system.
@@ -54,15 +57,15 @@ const overlaps = (aMin: number, aMax: number, bMin: number, bMax: number) =>
 
 // Build chip options straight from a detail-screen badge map, so labels/colors
 // match the badges shown elsewhere.
-function fromBadgeMap<K extends string>(
+function fromBadgeMap<T, K extends string>(
   map: Record<K, { text: string; color: string }>,
-  get: (fish: Fish) => K
-): FilterOption[] {
+  get: (item: T) => K
+): FilterOption<T>[] {
   return (Object.keys(map) as K[]).map((key) => ({
     id: key,
     label: lit(map[key].text),
     color: map[key].color,
-    matches: (fish) => get(fish) === key,
+    matches: (item) => get(item) === key,
   }));
 }
 
@@ -71,7 +74,7 @@ const ORIGINS = Array.from(
   new Set(AVAILABLE_FISH.map((f) => f.origin))
 ).sort((a, b) => a.localeCompare(b));
 
-export const CATEGORIES: FilterCategory[] = [
+export const CATEGORIES: FilterCategory<Fish, CategoryId>[] = [
   {
     id: "temperament",
     title: "Temperament",
