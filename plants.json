@@ -1,6 +1,7 @@
 [
   {
     "id": "anubias-barteri",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/7/7b/Anubias_barteri_var_glabra.jpg"],
     "commonName": "Anubias barteri",
     "scientificName": "Anubias barteri",
     "type": "rhizome",
@@ -20,6 +21,7 @@
   },
   {
     "id": "anubias-nana",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/7/7b/Anubias_barteri_var_glabra.jpg"],
     "commonName": "Anubias nana",
     "scientificName": "Anubias barteri var. nana",
     "type": "rhizome",
@@ -39,6 +41,7 @@
   },
   {
     "id": "java-fern",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/8/89/Microsorum_pteropus.jpg"],
     "commonName": "Java fern",
     "scientificName": "Microsorum pteropus",
     "type": "rhizome",
@@ -58,6 +61,7 @@
   },
   {
     "id": "java-fern-windelov",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/8/89/Microsorum_pteropus.jpg"],
     "commonName": "Windelov Java fern",
     "scientificName": "Microsorum pteropus 'Windelov'",
     "type": "rhizome",
@@ -77,6 +81,7 @@
   },
   {
     "id": "amazon-sword",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/d/d0/Echinodorus_bleheri.jpg"],
     "commonName": "Amazon sword",
     "scientificName": "Echinodorus grisebachii",
     "type": "rosette",
@@ -96,6 +101,7 @@
   },
   {
     "id": "vallisneria",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/3/39/Vallisneria_spiralis.jpg"],
     "commonName": "Straight vallisneria",
     "scientificName": "Vallisneria spiralis",
     "type": "rosette",
@@ -115,6 +121,7 @@
   },
   {
     "id": "jungle-val",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Vallisneria_americana-schmid01.jpg/1280px-Vallisneria_americana-schmid01.jpg"],
     "commonName": "Jungle vallisneria",
     "scientificName": "Vallisneria americana",
     "type": "rosette",
@@ -134,6 +141,7 @@
   },
   {
     "id": "crypt-wendtii",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/6/64/Cryptocoryne_wendtii.JPG"],
     "commonName": "Cryptocoryne wendtii",
     "scientificName": "Cryptocoryne wendtii",
     "type": "rosette",
@@ -191,6 +199,7 @@
   },
   {
     "id": "java-moss",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Javamoos.jpg/1280px-Javamoos.jpg"],
     "commonName": "Java moss",
     "scientificName": "Taxiphyllum barbieri",
     "type": "moss",
@@ -210,6 +219,7 @@
   },
   {
     "id": "christmas-moss",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Christmas_moss_and_riccia_%2814441185564%29.jpg/1280px-Christmas_moss_and_riccia_%2814441185564%29.jpg"],
     "commonName": "Christmas moss",
     "scientificName": "Vesicularia montagnei",
     "type": "moss",
@@ -229,6 +239,7 @@
   },
   {
     "id": "duckweed",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Eendekroos_dicht_bijeen.JPG/1280px-Eendekroos_dicht_bijeen.JPG"],
     "commonName": "Duckweed",
     "scientificName": "Lemna minor",
     "type": "floating",
@@ -248,6 +259,7 @@
   },
   {
     "id": "amazon-frogbit",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Limnobium_laevigatum.JPG/1280px-Limnobium_laevigatum.JPG"],
     "commonName": "Amazon frogbit",
     "scientificName": "Limnobium laevigatum",
     "type": "floating",
@@ -267,6 +279,7 @@
   },
   {
     "id": "red-root-floater",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Phyllanthus_fluitans_2010-06-20_01.jpg/1280px-Phyllanthus_fluitans_2010-06-20_01.jpg"],
     "commonName": "Red root floater",
     "scientificName": "Phyllanthus fluitans",
     "type": "floating",
@@ -286,6 +299,7 @@
   },
   {
     "id": "salvinia",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Salvinia_natans_%28habitus%29_1.jpg/1280px-Salvinia_natans_%28habitus%29_1.jpg"],
     "commonName": "Salvinia",
     "scientificName": "Salvinia natans",
     "type": "floating",
@@ -305,6 +319,7 @@
   },
   {
     "id": "hornwort",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/0/05/Ceratophyllum_demersum.jpg"],
     "commonName": "Hornwort",
     "scientificName": "Ceratophyllum demersum",
     "type": "stem",
@@ -324,6 +339,7 @@
   },
   {
     "id": "water-wisteria",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/b/ba/Hygrophila_difformis.jpg"],
     "commonName": "Water wisteria",
     "scientificName": "Hygrophila difformis",
     "type": "stem",
@@ -362,6 +378,7 @@
   },
   {
     "id": "ludwigia-repens",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Ludwigia_repens.JPG/1280px-Ludwigia_repens.JPG"],
     "commonName": "Ludwigia repens",
     "scientificName": "Ludwigia repens",
     "type": "stem",
@@ -381,6 +398,7 @@
   },
   {
     "id": "bacopa-caroliniana",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Bacopa_caroliniana_BotGardBln07122011D.JPG/1280px-Bacopa_caroliniana_BotGardBln07122011D.JPG"],
     "commonName": "Bacopa caroliniana",
     "scientificName": "Bacopa caroliniana",
     "type": "stem",
@@ -400,6 +418,7 @@
   },
   {
     "id": "cabomba",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Cabomba_caroliniana_5447100.jpg/1280px-Cabomba_caroliniana_5447100.jpg"],
     "commonName": "Green cabomba",
     "scientificName": "Cabomba caroliniana",
     "type": "stem",
@@ -438,6 +457,7 @@
   },
   {
     "id": "dwarf-hairgrass",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/4/4f/Eleocharis_parvula_NRCS-1.jpg"],
     "commonName": "Dwarf hairgrass",
     "scientificName": "Eleocharis parvula",
     "type": "carpet",
@@ -476,6 +496,7 @@
   },
   {
     "id": "dwarf-sagittaria",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Sagittaria_subulata_kz01.jpg/1280px-Sagittaria_subulata_kz01.jpg"],
     "commonName": "Dwarf sagittaria",
     "scientificName": "Sagittaria subulata",
     "type": "carpet",
@@ -514,6 +535,7 @@
   },
   {
     "id": "bolbitis",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Kongo_Wasserfarn.jpg/1280px-Kongo_Wasserfarn.jpg"],
     "commonName": "African water fern",
     "scientificName": "Bolbitis heudelotii",
     "type": "rhizome",
@@ -533,6 +555,7 @@
   },
   {
     "id": "water-sprite",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Starr-130322-3780-Ceratopteris_thalictroides-habit-Hanalei_NWR-Kauai_%2825091406442%29.jpg/1280px-Starr-130322-3780-Ceratopteris_thalictroides-habit-Hanalei_NWR-Kauai_%2825091406442%29.jpg"],
     "commonName": "Water sprite",
     "scientificName": "Ceratopteris thalictroides",
     "type": "stem",
@@ -552,6 +575,7 @@
   },
   {
     "id": "moneywort",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Starr_010818-0007_Bacopa_monnieri.jpg/1280px-Starr_010818-0007_Bacopa_monnieri.jpg"],
     "commonName": "Moneywort",
     "scientificName": "Bacopa monnieri",
     "type": "stem",
@@ -571,6 +595,7 @@
   },
   {
     "id": "marimo-moss-ball",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/6/6e/Marimo_lake_akann.jpg"],
     "commonName": "Marimo moss ball",
     "scientificName": "Aegagropila linnaei",
     "type": "moss",
@@ -590,6 +615,7 @@
   },
   {
     "id": "banana-plant",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Nymphoides_aquatica.JPG/1280px-Nymphoides_aquatica.JPG"],
     "commonName": "Banana plant",
     "scientificName": "Nymphoides aquatica",
     "type": "bulb",
@@ -609,6 +635,7 @@
   },
   {
     "id": "tiger-lotus",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/f/f0/Nymphaea_lotus_1.jpg"],
     "commonName": "Tiger lotus",
     "scientificName": "Nymphaea lotus",
     "type": "bulb",
@@ -628,6 +655,7 @@
   },
   {
     "id": "anacharis",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/2/28/Egeria_densa_iceland.JPG"],
     "commonName": "Anacharis",
     "scientificName": "Egeria densa",
     "type": "stem",
@@ -647,6 +675,7 @@
   },
   {
     "id": "dwarf-water-lettuce",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/9/97/Pistia_stratiotes0.jpg"],
     "commonName": "Dwarf water lettuce",
     "scientificName": "Pistia stratiotes",
     "type": "floating",
@@ -666,6 +695,7 @@
   },
   {
     "id": "susswassertang",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/c/ce/Lomariopsis_gametophyte_in_water.jpg"],
     "commonName": "Süsswassertang",
     "scientificName": "Lomariopsis lineata",
     "type": "moss",
@@ -685,6 +715,7 @@
   },
   {
     "id": "hygrophila-polysperma",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/a/a8/Hygrophila_polysperma.JPG"],
     "commonName": "Dwarf hygro",
     "scientificName": "Hygrophila polysperma",
     "type": "stem",
@@ -704,6 +735,7 @@
   },
   {
     "id": "chain-sword",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/4/4f/Echinodorus_tenellus_BB-1913.jpg"],
     "commonName": "Pygmy chain sword",
     "scientificName": "Helanthium tenellum",
     "type": "carpet",
@@ -742,6 +774,7 @@
   },
   {
     "id": "limnophila-sessiliflora",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/5/53/Limnophila_sessiliflora.jpg"],
     "commonName": "Asian ambulia",
     "scientificName": "Limnophila sessiliflora",
     "type": "stem",
@@ -761,6 +794,7 @@
   },
   {
     "id": "dwarf-baby-tears",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Freshwater_aquariums_Sharjah.jpg/1280px-Freshwater_aquariums_Sharjah.jpg"],
     "commonName": "Dwarf baby tears",
     "scientificName": "Hemianthus callitrichoides 'Cuba'",
     "type": "carpet",
@@ -780,6 +814,7 @@
   },
   {
     "id": "glossostigma",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/8/89/Glossostigma_elatinoides_flower.jpg"],
     "commonName": "Glosso",
     "scientificName": "Glossostigma elatinoides",
     "type": "carpet",
@@ -818,6 +853,7 @@
   },
   {
     "id": "ar-mini",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/e/e8/Alternanthera_reineckii.jpg"],
     "commonName": "Alternanthera reineckii 'Mini'",
     "scientificName": "Alternanthera reineckii 'Mini'",
     "type": "stem",
@@ -837,6 +873,7 @@
   },
   {
     "id": "crypt-lutea",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Cryptocoryne_walkeri.jpg/1280px-Cryptocoryne_walkeri.jpg"],
     "commonName": "Cryptocoryne lutea",
     "scientificName": "Cryptocoryne walkeri var. lutea",
     "type": "rosette",
@@ -856,6 +893,7 @@
   },
   {
     "id": "crypt-spiralis",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Fig._06_Cryptocoryne_spiralis.jpg/1280px-Fig._06_Cryptocoryne_spiralis.jpg"],
     "commonName": "Cryptocoryne spiralis",
     "scientificName": "Cryptocoryne spiralis",
     "type": "rosette",
@@ -913,6 +951,7 @@
   },
   {
     "id": "crypt-petchii",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/f/fa/Bec_x_B92_383.jpg"],
     "commonName": "Cryptocoryne beckettii 'Petchii'",
     "scientificName": "Cryptocoryne beckettii 'Petchii'",
     "type": "rosette",
@@ -1008,6 +1047,7 @@
   },
   {
     "id": "helanthium-vesuvius",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/4/4f/Echinodorus_tenellus_BB-1913.jpg"],
     "commonName": "Helanthium 'Vesuvius'",
     "scientificName": "Helanthium bolivianum 'Vesuvius'",
     "type": "rosette",
@@ -1027,6 +1067,7 @@
   },
   {
     "id": "aponogeton-crispus",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/6/68/Aponogeton_crispus.jpg"],
     "commonName": "Aponogeton crispus",
     "scientificName": "Aponogeton crispus",
     "type": "bulb",
@@ -1046,6 +1087,7 @@
   },
   {
     "id": "aponogeton-ulvaceus",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/e/ee/Aponogeton_Ulvaceus.png"],
     "commonName": "Aponogeton ulvaceus",
     "scientificName": "Aponogeton ulvaceus",
     "type": "bulb",
@@ -1065,6 +1107,7 @@
   },
   {
     "id": "broadleaf-sagittaria",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Sagittaria_platyphylla.JPG/1280px-Sagittaria_platyphylla.JPG"],
     "commonName": "Broadleaf sagittaria",
     "scientificName": "Sagittaria platyphylla",
     "type": "rosette",
@@ -1160,6 +1203,7 @@
   },
   {
     "id": "ludwigia-super-red",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Starr_070515-7067_Ludwigia_palustris.jpg/1280px-Starr_070515-7067_Ludwigia_palustris.jpg"],
     "commonName": "Ludwigia 'Super Red'",
     "scientificName": "Ludwigia palustris 'Super Red'",
     "type": "stem",
@@ -1179,6 +1223,7 @@
   },
   {
     "id": "hygrophila-corymbosa",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/e/ee/Hygrophila_corymbosa_siamensis.JPG"],
     "commonName": "Temple plant",
     "scientificName": "Hygrophila corymbosa",
     "type": "stem",
@@ -1198,6 +1243,7 @@
   },
   {
     "id": "myriophyllum-mattogrossense",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/3/3b/Myriophyllum_matogrossense.jpg"],
     "commonName": "Green foxtail (Myriophyllum)",
     "scientificName": "Myriophyllum mattogrossense",
     "type": "stem",
@@ -1217,6 +1263,7 @@
   },
   {
     "id": "anubias-coffeefolia",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/7/7b/Anubias_barteri_var_glabra.jpg"],
     "commonName": "Anubias coffeefolia",
     "scientificName": "Anubias barteri var. coffeefolia",
     "type": "rhizome",
@@ -1236,6 +1283,7 @@
   },
   {
     "id": "anubias-nana-petite",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/7/7b/Anubias_barteri_var_glabra.jpg"],
     "commonName": "Anubias nana 'Petite'",
     "scientificName": "Anubias barteri var. nana 'Petite'",
     "type": "rhizome",
@@ -1255,6 +1303,7 @@
   },
   {
     "id": "anubias-congensis",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/7/7b/Anubias_barteri_var_glabra.jpg"],
     "commonName": "Anubias congensis",
     "scientificName": "Anubias barteri var. congensis",
     "type": "rhizome",
@@ -1312,6 +1361,7 @@
   },
   {
     "id": "flame-moss",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Taxiphyllum_wissgrillii_%28b%2C_144820-480959%29_8472.JPG/1280px-Taxiphyllum_wissgrillii_%28b%2C_144820-480959%29_8472.JPG"],
     "commonName": "Flame moss",
     "scientificName": "Taxiphyllum 'Flame'",
     "type": "moss",
@@ -1350,6 +1400,7 @@
   },
   {
     "id": "marsilea-hirsuta",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Marsilea_hirsuta_kz01.jpg/1280px-Marsilea_hirsuta_kz01.jpg"],
     "commonName": "Marsilea hirsuta",
     "scientificName": "Marsilea hirsuta",
     "type": "carpet",
@@ -1369,6 +1420,7 @@
   },
   {
     "id": "micro-sword",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Lilaeopsis_brasiliensis_flower_%283%29.jpg/1280px-Lilaeopsis_brasiliensis_flower_%283%29.jpg"],
     "commonName": "Micro sword",
     "scientificName": "Lilaeopsis brasiliensis",
     "type": "carpet",
@@ -1388,6 +1440,7 @@
   },
   {
     "id": "guppy-grass",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Najas_guadalupensis_-_Timothy_McNitt.jpg/1280px-Najas_guadalupensis_-_Timothy_McNitt.jpg"],
     "commonName": "Guppy grass",
     "scientificName": "Najas guadalupensis",
     "type": "stem",
@@ -1407,6 +1460,7 @@
   },
   {
     "id": "riccia",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/RicciaFluitans1.jpg/1280px-RicciaFluitans1.jpg"],
     "commonName": "Crystalwort (Riccia)",
     "scientificName": "Riccia fluitans",
     "type": "floating",
@@ -1426,6 +1480,7 @@
   },
   {
     "id": "hydrocotyle-japan",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/c/c7/Hydrocotyle_Tripartita_Japan.jpg"],
     "commonName": "Hydrocotyle 'Japan'",
     "scientificName": "Hydrocotyle tripartita 'Japan'",
     "type": "carpet",
@@ -1445,6 +1500,7 @@
   },
   {
     "id": "phoenix-moss",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/F.fontanus.jpg/1280px-F.fontanus.jpg"],
     "commonName": "Phoenix moss",
     "scientificName": "Fissidens fontanus",
     "type": "moss",
@@ -1483,6 +1539,7 @@
   },
   {
     "id": "ammania-gracilis",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/5/5e/Ammannia_gracilis.jpg"],
     "commonName": "Ammania gracilis",
     "scientificName": "Ammania gracilis",
     "type": "stem",
@@ -1502,6 +1559,7 @@
   },
   {
     "id": "limnophila-aromatica",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Limnophila_aromatica_09.JPG/1280px-Limnophila_aromatica_09.JPG"],
     "commonName": "Limnophila aromatica",
     "scientificName": "Limnophila aromatica",
     "type": "stem",
@@ -1559,6 +1617,7 @@
   },
   {
     "id": "lobelia-cardinalis-mini",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Lobelia_cardinalis_-_Cardinal_Flower.jpg/1280px-Lobelia_cardinalis_-_Cardinal_Flower.jpg"],
     "commonName": "Lobelia cardinalis 'Mini'",
     "scientificName": "Lobelia cardinalis 'Mini'",
     "type": "stem",
@@ -1597,6 +1656,7 @@
   },
   {
     "id": "cardamine-lyrata",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/7/7e/Cardamine_lyrata.jpg"],
     "commonName": "Japanese cress",
     "scientificName": "Cardamine lyrata",
     "type": "stem",
@@ -1616,6 +1676,7 @@
   },
   {
     "id": "azolla",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/8/8c/Water_Fern_Azolla_filiculoides_%286165580451%29.jpg"],
     "commonName": "Mosquito fern (Azolla)",
     "scientificName": "Azolla filiculoides",
     "type": "floating",
@@ -1635,6 +1696,7 @@
   },
   {
     "id": "crinum-calamistratum",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Crinum_calamistratum_kz03.jpg/1280px-Crinum_calamistratum_kz03.jpg"],
     "commonName": "Crinum calamistratum",
     "scientificName": "Crinum calamistratum",
     "type": "bulb",
@@ -1654,6 +1716,7 @@
   },
   {
     "id": "madagascar-lace",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/a/ad/Aponogeton_madagascariensis.jpg"],
     "commonName": "Madagascar lace plant",
     "scientificName": "Aponogeton madagascariensis",
     "type": "bulb",
@@ -1673,6 +1736,7 @@
   },
   {
     "id": "pogostemon-helferi",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/f/fb/Pogostemon3.jpg"],
     "commonName": "Downoi (Pogostemon helferi)",
     "scientificName": "Pogostemon helferi",
     "type": "carpet",
@@ -1730,6 +1794,7 @@
   },
   {
     "id": "java-fern-trident",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/8/89/Microsorum_pteropus.jpg"],
     "commonName": "Java fern 'Trident'",
     "scientificName": "Microsorum pteropus 'Trident'",
     "type": "rhizome",
@@ -1749,6 +1814,7 @@
   },
   {
     "id": "java-fern-narrow",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/8/89/Microsorum_pteropus.jpg"],
     "commonName": "Java fern 'Narrow Leaf'",
     "scientificName": "Microsorum pteropus 'Narrow'",
     "type": "rhizome",
@@ -1768,6 +1834,7 @@
   },
   {
     "id": "crypt-green-gecko",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/6/64/Cryptocoryne_wendtii.JPG"],
     "commonName": "Cryptocoryne 'Green Gecko'",
     "scientificName": "Cryptocoryne wendtii 'Green Gecko'",
     "type": "rosette",
@@ -1787,6 +1854,7 @@
   },
   {
     "id": "ludwigia-glandulosa",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/9/95/Ludwigia_glandulosa_%284830440340%29.jpg"],
     "commonName": "Ludwigia glandulosa",
     "scientificName": "Ludwigia glandulosa",
     "type": "stem",
@@ -1825,6 +1893,7 @@
   },
   {
     "id": "rotala-bonsai",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Rotala_indica_var_uliginosa_flower01.jpg/1280px-Rotala_indica_var_uliginosa_flower01.jpg"],
     "commonName": "Rotala 'Bonsai'",
     "scientificName": "Rotala indica 'Bonsai'",
     "type": "stem",
@@ -1863,6 +1932,7 @@
   },
   {
     "id": "ar-rosanervig",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/e/e8/Alternanthera_reineckii.jpg"],
     "commonName": "Alternanthera reineckii 'Rosanervig'",
     "scientificName": "Alternanthera reineckii 'Rosanervig'",
     "type": "stem",
@@ -1882,6 +1952,7 @@
   },
   {
     "id": "red-tiger-lotus",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Nymphaea_rubra_Water_lily_from_Karikalampakkam%2C_Pondy_IMG_4215_a.jpg/1280px-Nymphaea_rubra_Water_lily_from_Karikalampakkam%2C_Pondy_IMG_4215_a.jpg"],
     "commonName": "Red tiger lotus",
     "scientificName": "Nymphaea rubra",
     "type": "bulb",
@@ -1920,6 +1991,7 @@
   },
   {
     "id": "bacopa-compact",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Starr_010818-0007_Bacopa_monnieri.jpg/1280px-Starr_010818-0007_Bacopa_monnieri.jpg"],
     "commonName": "Bacopa monnieri 'Compact'",
     "scientificName": "Bacopa monnieri 'Compact'",
     "type": "stem",
@@ -1958,6 +2030,7 @@
   },
   {
     "id": "didiplis-diandra",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Aquatic_and_wetland_plants_of_southwestern_United_States_%28Page_1156%29_BHL3347620.jpg/1280px-Aquatic_and_wetland_plants_of_southwestern_United_States_%28Page_1156%29_BHL3347620.jpg"],
     "commonName": "Didiplis diandra",
     "scientificName": "Didiplis diandra",
     "type": "stem",
@@ -1977,6 +2050,7 @@
   },
   {
     "id": "stargrass",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/3/39/Heteranthera_limosa.jpg"],
     "commonName": "Stargrass",
     "scientificName": "Heteranthera zosterifolia",
     "type": "stem",
@@ -2015,6 +2089,7 @@
   },
   {
     "id": "mayaca-fluviatilis",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Mayaca_fluviatilis_261166088.jpg/1280px-Mayaca_fluviatilis_261166088.jpg"],
     "commonName": "Mayaca fluviatilis",
     "scientificName": "Mayaca fluviatilis",
     "type": "stem",
@@ -2034,6 +2109,7 @@
   },
   {
     "id": "ranunculus-inundatus",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Ranunculus_inundatus_habit2_%2817981491212%29.jpg/1280px-Ranunculus_inundatus_habit2_%2817981491212%29.jpg"],
     "commonName": "River buttercup",
     "scientificName": "Ranunculus inundatus",
     "type": "carpet",
@@ -2053,6 +2129,7 @@
   },
   {
     "id": "mermaid-weed",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/0/05/Proserpinaca_palustris_NRCS-1.jpg"],
     "commonName": "Mermaid weed",
     "scientificName": "Proserpinaca palustris",
     "type": "stem",
@@ -2072,6 +2149,7 @@
   },
   {
     "id": "utricularia-graminifolia",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/1/1f/Utricularia_graminifolia.jpg"],
     "commonName": "Utricularia graminifolia (UG)",
     "scientificName": "Utricularia graminifolia",
     "type": "carpet",
@@ -2091,6 +2169,7 @@
   },
   {
     "id": "tonina-fluviatilis",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Tonina_fluviatilis_Aublet_1775_pl_330.jpg/1280px-Tonina_fluviatilis_Aublet_1775_pl_330.jpg"],
     "commonName": "Tonina fluviatilis",
     "scientificName": "Tonina fluviatilis",
     "type": "stem",
@@ -2167,6 +2246,7 @@
   },
   {
     "id": "hottonia-palustris",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Illustration_Hottonia_palustris0.jpg/1280px-Illustration_Hottonia_palustris0.jpg"],
     "commonName": "Water violet",
     "scientificName": "Hottonia palustris",
     "type": "stem",
@@ -2338,6 +2418,7 @@
   },
   {
     "id": "crypt-albida-brown",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Cryptocoryne_albida_kz02.jpg/1280px-Cryptocoryne_albida_kz02.jpg"],
     "commonName": "Cryptocoryne albida 'Brown'",
     "scientificName": "Cryptocoryne albida",
     "type": "rosette",
@@ -2357,6 +2438,7 @@
   },
   {
     "id": "crypt-walkeri",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Cryptocoryne_walkeri.jpg/1280px-Cryptocoryne_walkeri.jpg"],
     "commonName": "Cryptocoryne walkeri",
     "scientificName": "Cryptocoryne walkeri",
     "type": "rosette",
@@ -2376,6 +2458,7 @@
   },
   {
     "id": "anubias-hastifolia",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Die_Pflanzenwelt_Afrikas%2C_insbesondere_seiner_tropischen_Gebiete_-_Grundzge_der_Pflanzenverbreitung_im_Afrika_und_die_Charakterpflanzen_Afrikas_%281910%29_%2820753564289%29.jpg/1280px-thumbnail.jpg"],
     "commonName": "Anubias hastifolia",
     "scientificName": "Anubias hastifolia",
     "type": "rhizome",
@@ -2471,6 +2554,7 @@
   },
   {
     "id": "ludwigia-cuba",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/f/fa/55056073.Ludwigiainclinata01.jpg"],
     "commonName": "Ludwigia 'Cuba'",
     "scientificName": "Ludwigia inclinata var. verticillata 'Cuba'",
     "type": "stem",
@@ -2509,6 +2593,7 @@
   },
   {
     "id": "water-wisteria-variegated",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/b/ba/Hygrophila_difformis.jpg"],
     "commonName": "Water wisteria 'Variegated'",
     "scientificName": "Hygrophila difformis 'Variegated'",
     "type": "stem",
@@ -2566,6 +2651,7 @@
   },
   {
     "id": "ammania-senegalensis",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Ammannia_senegalensis_001.JPG/1280px-Ammannia_senegalensis_001.JPG"],
     "commonName": "Copper leaf ammania",
     "scientificName": "Ammania senegalensis",
     "type": "stem",
@@ -2585,6 +2671,7 @@
   },
   {
     "id": "radican-sword",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Echinodorus_cordifolius.jpg/1280px-Echinodorus_cordifolius.jpg"],
     "commonName": "Radican sword",
     "scientificName": "Echinodorus cordifolius",
     "type": "rosette",
@@ -2642,6 +2729,7 @@
   },
   {
     "id": "barclaya-longifolia",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/a/ae/Barclaya_longifolia_in_Thailand.jpg"],
     "commonName": "Orchid lily (Barclaya)",
     "scientificName": "Barclaya longifolia",
     "type": "bulb",
@@ -2661,6 +2749,7 @@
   },
   {
     "id": "japanese-spatterdock",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Nuphar_subintegerrimum1.jpg/1280px-Nuphar_subintegerrimum1.jpg"],
     "commonName": "Japanese spatterdock",
     "scientificName": "Nuphar japonica",
     "type": "bulb",
@@ -2699,6 +2788,7 @@
   },
   {
     "id": "spiky-moss",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Taxiphyllum_wissgrillii_%28b%2C_144820-480959%29_8472.JPG/1280px-Taxiphyllum_wissgrillii_%28b%2C_144820-480959%29_8472.JPG"],
     "commonName": "Spiky moss",
     "scientificName": "Taxiphyllum sp. 'Spiky'",
     "type": "moss",
@@ -2737,6 +2827,7 @@
   },
   {
     "id": "mini-pellia",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/3/39/Riccardia_chamedryfolia.jpeg"],
     "commonName": "Mini pellia (coral moss)",
     "scientificName": "Riccardia chamedryfolia",
     "type": "moss",
@@ -2756,6 +2847,7 @@
   },
   {
     "id": "pellia-monosolenium",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Monosolenium_tenerum_kz01.jpg/1280px-Monosolenium_tenerum_kz01.jpg"],
     "commonName": "Pellia",
     "scientificName": "Monosolenium tenerum",
     "type": "moss",
@@ -2794,6 +2886,7 @@
   },
   {
     "id": "bolbitis-difformis",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Kongo_Wasserfarn.jpg/1280px-Kongo_Wasserfarn.jpg"],
     "commonName": "Bolbitis 'Difformis'",
     "scientificName": "Bolbitis heudelotii 'Difformis'",
     "type": "rhizome",
@@ -2813,6 +2906,7 @@
   },
   {
     "id": "water-spangles",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Starr_031108-3177_Salvinia_minima.jpg/1280px-Starr_031108-3177_Salvinia_minima.jpg"],
     "commonName": "Water spangles",
     "scientificName": "Salvinia minima",
     "type": "floating",
@@ -2832,6 +2926,7 @@
   },
   {
     "id": "american-frogbit",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Limnobium_spongia_347095143.jpg/1280px-Limnobium_spongia_347095143.jpg"],
     "commonName": "American frogbit",
     "scientificName": "Limnobium spongia",
     "type": "floating",
@@ -2851,6 +2946,7 @@
   },
   {
     "id": "eleocharis-acicularis",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Eleocharis_acicularis.jpeg/1280px-Eleocharis_acicularis.jpeg"],
     "commonName": "Dwarf hairgrass (acicularis)",
     "scientificName": "Eleocharis acicularis",
     "type": "carpet",
@@ -2870,6 +2966,7 @@
   },
   {
     "id": "marsilea-crenata",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Marsilea_crenataRHu1.JPG/1280px-Marsilea_crenataRHu1.JPG"],
     "commonName": "Dwarf water clover (crenata)",
     "scientificName": "Marsilea crenata",
     "type": "carpet",
@@ -2889,6 +2986,7 @@
   },
   {
     "id": "hydrocotyle-verticillata",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Starr_980601-1501_Hydrocotyle_verticillata.jpg/1280px-Starr_980601-1501_Hydrocotyle_verticillata.jpg"],
     "commonName": "Whorled pennywort",
     "scientificName": "Hydrocotyle verticillata",
     "type": "carpet",
@@ -2908,6 +3006,7 @@
   },
   {
     "id": "four-leaf-clover",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Marsilea_quadrifolia_plants.jpg/1280px-Marsilea_quadrifolia_plants.jpg"],
     "commonName": "Four-leaf clover (Marsilea quadrifolia)",
     "scientificName": "Marsilea quadrifolia",
     "type": "carpet",
@@ -2984,6 +3083,7 @@
   },
   {
     "id": "hygrophila-sunset",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/a/a8/Hygrophila_polysperma.JPG"],
     "commonName": "Sunset hygro",
     "scientificName": "Hygrophila polysperma 'Rosanervig'",
     "type": "stem",
@@ -3231,6 +3331,7 @@
   },
   {
     "id": "crypt-nevillii",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Cryptocoryne_x_Willisii.jpg/1280px-Cryptocoryne_x_Willisii.jpg"],
     "commonName": "Cryptocoryne nevillii",
     "scientificName": "Cryptocoryne x willisii 'Nevillii'",
     "type": "rosette",
@@ -3250,6 +3351,7 @@
   },
   {
     "id": "crypt-willisii",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Cryptocoryne_x_Willisii.jpg/1280px-Cryptocoryne_x_Willisii.jpg"],
     "commonName": "Cryptocoryne willisii",
     "scientificName": "Cryptocoryne x willisii",
     "type": "rosette",
@@ -3269,6 +3371,7 @@
   },
   {
     "id": "sword-marble-queen",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Echinodorus_cordifolius.jpg/1280px-Echinodorus_cordifolius.jpg"],
     "commonName": "Marble Queen sword",
     "scientificName": "Echinodorus cordifolius 'Marble Queen'",
     "type": "rosette",
@@ -3288,6 +3391,7 @@
   },
   {
     "id": "anubias-golden-nana",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/7/7b/Anubias_barteri_var_glabra.jpg"],
     "commonName": "Anubias nana 'Golden'",
     "scientificName": "Anubias barteri var. nana 'Golden'",
     "type": "rhizome",
@@ -3307,6 +3411,7 @@
   },
   {
     "id": "anubias-frazeri",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/8/8d/Anubias_barteri_var_nana_on_a_bogwood.jpg"],
     "commonName": "Anubias 'Frazeri'",
     "scientificName": "Anubias 'Frazeri'",
     "type": "rhizome",
@@ -3326,6 +3431,7 @@
   },
   {
     "id": "anubias-pinto",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/7/7b/Anubias_barteri_var_glabra.jpg"],
     "commonName": "Anubias 'Pinto'",
     "scientificName": "Anubias barteri var. nana 'Pinto'",
     "type": "rhizome",
@@ -3345,6 +3451,7 @@
   },
   {
     "id": "anubias-broad-leaf",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/7/7b/Anubias_barteri_var_glabra.jpg"],
     "commonName": "Anubias barteri 'Broad Leaf'",
     "scientificName": "Anubias barteri 'Broad Leaf'",
     "type": "rhizome",
@@ -3421,6 +3528,7 @@
   },
   {
     "id": "hygrophila-siamensis-53b",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/e/ee/Hygrophila_corymbosa_siamensis.JPG"],
     "commonName": "Hygrophila 'Siamensis 53B'",
     "scientificName": "Hygrophila corymbosa 'Siamensis 53B'",
     "type": "stem",
@@ -3459,6 +3567,7 @@
   },
   {
     "id": "taiwan-lily",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/c/c1/Nymphoides_hydrophylla.jpg"],
     "commonName": "Taiwan lily",
     "scientificName": "Nymphoides hydrophylla 'Taiwan'",
     "type": "bulb",
@@ -3516,6 +3625,7 @@
   },
   {
     "id": "crypt-wendtii-brown",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/6/64/Cryptocoryne_wendtii.JPG"],
     "commonName": "Cryptocoryne wendtii 'Brown'",
     "scientificName": "Cryptocoryne wendtii 'Brown'",
     "type": "rosette",
@@ -3535,6 +3645,7 @@
   },
   {
     "id": "crypt-wendtii-red",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/6/64/Cryptocoryne_wendtii.JPG"],
     "commonName": "Cryptocoryne wendtii 'Red'",
     "scientificName": "Cryptocoryne wendtii 'Red'",
     "type": "rosette",
@@ -3554,6 +3665,7 @@
   },
   {
     "id": "crypt-florida-sunset",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/6/64/Cryptocoryne_wendtii.JPG"],
     "commonName": "Cryptocoryne 'Florida Sunset'",
     "scientificName": "Cryptocoryne wendtii 'Florida Sunset'",
     "type": "rosette",
@@ -3706,6 +3818,7 @@
   },
   {
     "id": "sword-uruguayensis",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Echinodorus_uruguayensis_-_Copenhagen_Botanical_Garden_-_DSC07955.JPG/1280px-Echinodorus_uruguayensis_-_Copenhagen_Botanical_Garden_-_DSC07955.JPG"],
     "commonName": "Uruguay sword",
     "scientificName": "Echinodorus uruguayensis",
     "type": "rosette",
@@ -3744,6 +3857,7 @@
   },
   {
     "id": "sword-horizontalis",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Echinodorus_horizontalis.jpg/1280px-Echinodorus_horizontalis.jpg"],
     "commonName": "Horizontal sword",
     "scientificName": "Echinodorus horizontalis",
     "type": "rosette",
@@ -3782,6 +3896,7 @@
   },
   {
     "id": "anubias-coin-leaf",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/7/7b/Anubias_barteri_var_glabra.jpg"],
     "commonName": "Anubias 'Coin Leaf'",
     "scientificName": "Anubias barteri var. nana 'Coin Leaf'",
     "type": "rhizome",
@@ -3801,6 +3916,7 @@
   },
   {
     "id": "anubias-minima",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/7/7b/Anubias_barteri_var_glabra.jpg"],
     "commonName": "Anubias minima",
     "scientificName": "Anubias barteri var. minima",
     "type": "rhizome",
@@ -3820,6 +3936,7 @@
   },
   {
     "id": "anubias-afzelii",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Anubias_afzelii_-_Copenhagen_Botanical_Garden_-_DSC07960.JPG/1280px-Anubias_afzelii_-_Copenhagen_Botanical_Garden_-_DSC07960.JPG"],
     "commonName": "Anubias afzelii",
     "scientificName": "Anubias afzelii",
     "type": "rhizome",
@@ -3839,6 +3956,7 @@
   },
   {
     "id": "anubias-snow-white",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/7/7b/Anubias_barteri_var_glabra.jpg"],
     "commonName": "Anubias nana 'Snow White'",
     "scientificName": "Anubias barteri var. nana 'Snow White'",
     "type": "rhizome",
@@ -3858,6 +3976,7 @@
   },
   {
     "id": "anubias-lanceolata",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/7/7b/Anubias_barteri_var_glabra.jpg"],
     "commonName": "Anubias lanceolata",
     "scientificName": "Anubias barteri var. glabra",
     "type": "rhizome",
@@ -3877,6 +3996,7 @@
   },
   {
     "id": "java-fern-philippine",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/8/89/Microsorum_pteropus.jpg"],
     "commonName": "Java fern 'Philippine'",
     "scientificName": "Microsorum pteropus 'Philippine'",
     "type": "rhizome",
@@ -4048,6 +4168,7 @@
   },
   {
     "id": "ludwigia-pantanal",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/f/fa/55056073.Ludwigiainclinata01.jpg"],
     "commonName": "Ludwigia 'Pantanal'",
     "scientificName": "Ludwigia inclinata var. verticillata 'Pantanal'",
     "type": "stem",
@@ -4105,6 +4226,7 @@
   },
   {
     "id": "ludwigia-repens-rubin",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Ludwigia_repens.JPG/1280px-Ludwigia_repens.JPG"],
     "commonName": "Ludwigia repens 'Rubin'",
     "scientificName": "Ludwigia repens 'Rubin'",
     "type": "stem",
@@ -4162,6 +4284,7 @@
   },
   {
     "id": "cabomba-furcata",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Forked_Fanwort_%28Cabomba_furcata%29_flowers_%2827695860894%29.jpg/1280px-Forked_Fanwort_%28Cabomba_furcata%29_flowers_%2827695860894%29.jpg"],
     "commonName": "Red cabomba",
     "scientificName": "Cabomba furcata",
     "type": "stem",
@@ -4257,6 +4380,7 @@
   },
   {
     "id": "nymphaea-micrantha",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Nymphaea_micrantha_MS_6263.JPG/1280px-Nymphaea_micrantha_MS_6263.JPG"],
     "commonName": "Micrantha lily",
     "scientificName": "Nymphaea micrantha",
     "type": "bulb",
@@ -4276,6 +4400,7 @@
   },
   {
     "id": "lawn-pennywort",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Hydrocotyle_sibthorpioides.JPG/1280px-Hydrocotyle_sibthorpioides.JPG"],
     "commonName": "Lawn pennywort",
     "scientificName": "Hydrocotyle sibthorpioides",
     "type": "carpet",
@@ -4295,6 +4420,7 @@
   },
   {
     "id": "nymphaea-stellata-red",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/South_Vietnam%27s_Water_Lily.JPG/1280px-South_Vietnam%27s_Water_Lily.JPG"],
     "commonName": "Dwarf lily 'Red'",
     "scientificName": "Nymphaea nouchali var. caerulea",
     "type": "bulb",
@@ -4314,6 +4440,7 @@
   },
   {
     "id": "willow-moss",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/c/cd/Fontinalis_antipyretica2.jpg"],
     "commonName": "Willow moss",
     "scientificName": "Fontinalis antipyretica",
     "type": "moss",
@@ -4352,6 +4479,7 @@
   },
   {
     "id": "stringy-moss",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Leptodictium_riparium_colony.JPG/1280px-Leptodictium_riparium_colony.JPG"],
     "commonName": "Stringy moss",
     "scientificName": "Leptodictyum riparium",
     "type": "moss",
@@ -4390,6 +4518,7 @@
   },
   {
     "id": "water-hyacinth",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/c/c3/Eichhornia_crassipes_C.jpg"],
     "commonName": "Water hyacinth",
     "scientificName": "Eichhornia crassipes",
     "type": "floating",
@@ -4409,6 +4538,7 @@
   },
   {
     "id": "ricciocarpos-natans",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/RicciocarposNatans2.jpg/1280px-RicciocarposNatans2.jpg"],
     "commonName": "Fringed heartwort",
     "scientificName": "Ricciocarpos natans",
     "type": "floating",
@@ -4485,6 +4615,7 @@
   },
   {
     "id": "ludwigia-repens-dark-red",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Ludwigia_repens.JPG/1280px-Ludwigia_repens.JPG"],
     "commonName": "Ludwigia repens 'Dark Red'",
     "scientificName": "Ludwigia repens 'Dark Red'",
     "type": "stem",
@@ -4504,6 +4635,7 @@
   },
   {
     "id": "rotala-ramosior-florida",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Rotala_ramosior_NRCS-1.jpg/1280px-Rotala_ramosior_NRCS-1.jpg"],
     "commonName": "Rotala ramosior 'Florida'",
     "scientificName": "Rotala ramosior 'Florida'",
     "type": "stem",
@@ -4542,6 +4674,7 @@
   },
   {
     "id": "hygrophila-tiger",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/a/a8/Hygrophila_polysperma.JPG"],
     "commonName": "Hygrophila 'Tiger'",
     "scientificName": "Hygrophila polysperma 'Tiger'",
     "type": "stem",
@@ -4561,6 +4694,7 @@
   },
   {
     "id": "tiger-val",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/3/39/Vallisneria_spiralis.jpg"],
     "commonName": "Tiger vallisneria",
     "scientificName": "Vallisneria spiralis 'Tiger'",
     "type": "rosette",
@@ -4580,6 +4714,7 @@
   },
   {
     "id": "giant-val",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Vallisneria_americana-schmid01.jpg/1280px-Vallisneria_americana-schmid01.jpg"],
     "commonName": "Giant vallisneria",
     "scientificName": "Vallisneria americana var. gigantea",
     "type": "rosette",
@@ -4599,6 +4734,7 @@
   },
   {
     "id": "helanthium-quadricostatus",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/4/4f/Echinodorus_tenellus_BB-1913.jpg"],
     "commonName": "Helanthium 'Quadricostatus'",
     "scientificName": "Helanthium bolivianum 'Quadricostatus'",
     "type": "rosette",
@@ -4637,6 +4773,7 @@
   },
   {
     "id": "dwarf-hairgrass-mini",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Starr_081230-0543_Eleocharis_calva.jpg/1280px-Starr_081230-0543_Eleocharis_calva.jpg"],
     "commonName": "Dwarf hairgrass 'Mini'",
     "scientificName": "Eleocharis sp. 'Mini'",
     "type": "carpet",
@@ -4656,6 +4793,7 @@
   },
   {
     "id": "sagittaria-subulata-narrow",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Sagittaria_subulata_kz01.jpg/1280px-Sagittaria_subulata_kz01.jpg"],
     "commonName": "Narrow-leaf sagittaria",
     "scientificName": "Sagittaria subulata var. gracillima",
     "type": "rosette",
@@ -4675,6 +4813,7 @@
   },
   {
     "id": "rotala-indica",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Rotala_indica_var_uliginosa_flower01.jpg/1280px-Rotala_indica_var_uliginosa_flower01.jpg"],
     "commonName": "Rotala indica",
     "scientificName": "Rotala indica",
     "type": "stem",
@@ -4732,6 +4871,7 @@
   },
   {
     "id": "bolbitis-heteroclita",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Bolbitis_heteroclita_-_Botanischer_Garten_M%C3%BCnchen-Nymphenburg_-_DSC08166.JPG/1280px-Bolbitis_heteroclita_-_Botanischer_Garten_M%C3%BCnchen-Nymphenburg_-_DSC08166.JPG"],
     "commonName": "Mini Bolbitis",
     "scientificName": "Bolbitis heteroclita",
     "type": "rhizome",
@@ -4751,6 +4891,7 @@
   },
   {
     "id": "java-fern-narrow-mini",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/8/89/Microsorum_pteropus.jpg"],
     "commonName": "Java fern 'Narrow Mini'",
     "scientificName": "Microsorum pteropus 'Narrow Mini'",
     "type": "rhizome",
@@ -4903,6 +5044,7 @@
   },
   {
     "id": "crypt-pink-flamingo",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/6/64/Cryptocoryne_wendtii.JPG"],
     "commonName": "Cryptocoryne 'Pink Flamingo'",
     "scientificName": "Cryptocoryne wendtii 'Pink Flamingo'",
     "type": "rosette",
@@ -4922,6 +5064,7 @@
   },
   {
     "id": "crypt-tropica",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/6/64/Cryptocoryne_wendtii.JPG"],
     "commonName": "Cryptocoryne 'Tropica'",
     "scientificName": "Cryptocoryne wendtii 'Tropica'",
     "type": "rosette",
@@ -4941,6 +5084,7 @@
   },
   {
     "id": "ludwigia-inclinata-green",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/f/fa/55056073.Ludwigiainclinata01.jpg"],
     "commonName": "Ludwigia inclinata 'Green'",
     "scientificName": "Ludwigia inclinata 'Green'",
     "type": "stem",
@@ -4960,6 +5104,7 @@
   },
   {
     "id": "bacopa-colorata",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Bacopa_caroliniana_BotGardBln07122011D.JPG/1280px-Bacopa_caroliniana_BotGardBln07122011D.JPG"],
     "commonName": "Bacopa 'Colorata'",
     "scientificName": "Bacopa caroliniana 'Colorata'",
     "type": "stem",
@@ -4998,6 +5143,7 @@
   },
   {
     "id": "hydrocotyle-tripartita-mini",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/c/c7/Hydrocotyle_Tripartita_Japan.jpg"],
     "commonName": "Hydrocotyle tripartita 'Mini'",
     "scientificName": "Hydrocotyle tripartita 'Mini'",
     "type": "carpet",
@@ -5036,6 +5182,7 @@
   },
   {
     "id": "ludwigia-palustris-mini-super-red",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Starr_070515-7067_Ludwigia_palustris.jpg/1280px-Starr_070515-7067_Ludwigia_palustris.jpg"],
     "commonName": "Ludwigia 'Mini Super Red'",
     "scientificName": "Ludwigia palustris 'Mini Super Red'",
     "type": "stem",
@@ -5074,6 +5221,7 @@
   },
   {
     "id": "anubias-caladiifolia",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/7/7b/Anubias_barteri_var_glabra.jpg"],
     "commonName": "Anubias caladiifolia",
     "scientificName": "Anubias barteri var. caladiifolia",
     "type": "rhizome",
@@ -5093,6 +5241,7 @@
   },
   {
     "id": "anubias-heterophylla",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Anubias_heterophylla..JPG/1280px-Anubias_heterophylla..JPG"],
     "commonName": "Congo anubias",
     "scientificName": "Anubias heterophylla",
     "type": "rhizome",
@@ -5112,6 +5261,7 @@
   },
   {
     "id": "anubias-stardust",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/7/7b/Anubias_barteri_var_glabra.jpg"],
     "commonName": "Anubias 'Stardust'",
     "scientificName": "Anubias barteri var. nana 'Stardust'",
     "type": "rhizome",
@@ -5188,6 +5338,7 @@
   },
   {
     "id": "anubias-eyes",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/7/7b/Anubias_barteri_var_glabra.jpg"],
     "commonName": "Anubias 'Eyes'",
     "scientificName": "Anubias barteri var. nana 'Eyes'",
     "type": "rhizome",
@@ -5226,6 +5377,7 @@
   },
   {
     "id": "shoreweed",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/e/ee/Littorella_uniflora.jpeg"],
     "commonName": "Shoreweed",
     "scientificName": "Littorella uniflora",
     "type": "carpet",
@@ -5245,6 +5397,7 @@
   },
   {
     "id": "nz-micro-sword",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Lilaeopsis_novae-zelandiae_-_Arnim_Littek_-_461090326.jpeg/1280px-Lilaeopsis_novae-zelandiae_-_Arnim_Littek_-_461090326.jpeg"],
     "commonName": "New Zealand micro sword",
     "scientificName": "Lilaeopsis novae-zelandiae",
     "type": "carpet",
@@ -5283,6 +5436,7 @@
   },
   {
     "id": "salvinia-auriculata",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Salvinia_auriculata.jpg/1280px-Salvinia_auriculata.jpg"],
     "commonName": "Eared watermoss",
     "scientificName": "Salvinia auriculata",
     "type": "floating",
@@ -5321,6 +5475,7 @@
   },
   {
     "id": "hygrophila-guianensis",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/8/86/Hygrophila_costata_poster_Uruguay.jpg"],
     "commonName": "Hygrophila guianensis",
     "scientificName": "Hygrophila guianensis",
     "type": "stem",
@@ -5359,6 +5514,7 @@
   },
   {
     "id": "senegal-tea",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Gymnocoronis_spilanthoides_59381437.jpg/1280px-Gymnocoronis_spilanthoides_59381437.jpg"],
     "commonName": "Senegal tea plant",
     "scientificName": "Gymnocoronis spilanthoides",
     "type": "stem",
@@ -5435,6 +5591,7 @@
   },
   {
     "id": "golden-moneywort",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/9/9b/Lysimachia_nummularia0.jpg"],
     "commonName": "Golden moneywort",
     "scientificName": "Lysimachia nummularia 'Aurea'",
     "type": "stem",
@@ -5454,6 +5611,7 @@
   },
   {
     "id": "ammannia-gracilis",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/5/5e/Ammannia_gracilis.jpg"],
     "commonName": "Pink ammannia",
     "scientificName": "Ammannia gracilis",
     "type": "stem",
@@ -5492,6 +5650,7 @@
   },
   {
     "id": "samolus-valerandi",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/SamolusValerandi2.jpg/1280px-SamolusValerandi2.jpg"],
     "commonName": "Underwater rose",
     "scientificName": "Samolus valerandi",
     "type": "rosette",
@@ -5568,6 +5727,7 @@
   },
   {
     "id": "blyxa-aubertii",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Blyxa_aubertii_18393352.jpg/1280px-Blyxa_aubertii_18393352.jpg"],
     "commonName": "Blyxa aubertii",
     "scientificName": "Blyxa aubertii",
     "type": "rosette",
@@ -5587,6 +5747,7 @@
   },
   {
     "id": "crassula-helmsii",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Crassula_helmsii.jpg/1280px-Crassula_helmsii.jpg"],
     "commonName": "Swamp stonecrop",
     "scientificName": "Crassula helmsii",
     "type": "stem",
@@ -5606,6 +5767,7 @@
   },
   {
     "id": "lobelia-cardinalis",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Lobelia_cardinalis_-_Cardinal_Flower.jpg/1280px-Lobelia_cardinalis_-_Cardinal_Flower.jpg"],
     "commonName": "Cardinal plant",
     "scientificName": "Lobelia cardinalis",
     "type": "stem",
@@ -5644,6 +5806,7 @@
   },
   {
     "id": "echinodorus-tenellus",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/4/4f/Echinodorus_tenellus_BB-1913.jpg"],
     "commonName": "Pygmy chain sword (Echinodorus)",
     "scientificName": "Echinodorus tenellus",
     "type": "rosette",
@@ -5682,6 +5845,7 @@
   },
   {
     "id": "mosaic-plant",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Ludwigia_sedioides_%28Humb._%26_Bonpl.%29_H.Hara.jpg/1280px-Ludwigia_sedioides_%28Humb._%26_Bonpl.%29_H.Hara.jpg"],
     "commonName": "Mosaic plant",
     "scientificName": "Ludwigia sedoides",
     "type": "floating",

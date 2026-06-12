@@ -739,3 +739,177 @@ You must credit this : Citron / CC-BY-SA-3. | CC BY-SA 3.0 | [file page](https:
 | Fusco Cichlid (`fuscotaeniatus-cichlid`) | Charles Tate Regan | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Nimbochromis_fuscotaeniatus.jpg) |
 | Star Sapphire Cichlid (`star-sapphire-cichlid`) | mark6mauno | CC BY-SA 2.0 | [file page](https://commons.wikimedia.org/wiki/File:Placidochromis_phenochilus%2C_Shedd_Aquarium%2C_2013.jpg) |
 | T-Bar Dwarf Cichlid (`apistogrammoides-cichlid`) | Jomara Oliveira | CC BY 4.0 | [file page](https://commons.wikimedia.org/wiki/File:Examples-of-Apistogrammoides-pucallpaensis-A-Living-example-B-Living-example-in.jpg) |
+
+## Plant photos
+
+Plant photos follow the same sourcing and licensing rules as the fish photos
+above. Cultivars and trade forms of one species share the base species' photo.
+
+| Plant | Artist | License | Source |
+|---|---|---|---|
+| Anubias barteri (`anubias-barteri`) | en:User:Tsunamicarlos | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Anubias_barteri_var_glabra.jpg) |
+| Anubias nana (`anubias-nana`) | en:User:Tsunamicarlos | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Anubias_barteri_var_glabra.jpg) |
+| Java fern (`java-fern`) | Tsunamicarlos at English Wikipedia | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Microsorum_pteropus.jpg) |
+| Windelov Java fern (`java-fern-windelov`) | Tsunamicarlos at English Wikipedia | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Microsorum_pteropus.jpg) |
+| Amazon sword (`amazon-sword`) | Salvatore vitale | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Echinodorus_bleheri.jpg) |
+| Straight vallisneria (`vallisneria`) | Lara Gudmundsdottir | CC BY-SA 4.0 | [file page](https://commons.wikimedia.org/wiki/File:Vallisneria_spiralis.jpg) |
+| Jungle vallisneria (`jungle-val`) | Samuel A Schmid | CC BY 4.0 | [file page](https://commons.wikimedia.org/wiki/File:Vallisneria_americana-schmid01.jpg) |
+| Cryptocoryne wendtii (`crypt-wendtii`) | Haplochromis | CC BY 2.5 | [file page](https://commons.wikimedia.org/wiki/File:Cryptocoryne_wendtii.JPG) |
+| Java moss (`java-moss`) | unknown | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Javamoos.jpg) |
+| Christmas moss (`christmas-moss`) | Storm from Canada | CC BY-SA 2.0 | [file page](https://commons.wikimedia.org/wiki/File:Christmas_moss_and_riccia_(14441185564).jpg) |
+| Duckweed (`duckweed`) | unknown | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Eendekroos_dicht_bijeen.JPG) |
+| Amazon frogbit (`amazon-frogbit`) | Cardex | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Limnobium_laevigatum.JPG) |
+| Red root floater (`red-root-floater`) | Agnieszka Kwiecień, Nova | CC BY-SA 4.0 | [file page](https://commons.wikimedia.org/wiki/File:Phyllanthus_fluitans_2010-06-20_01.jpg) |
+| Salvinia (`salvinia`) | Le.Loup.Gris | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Salvinia_natans_(habitus)_1.jpg) |
+| Hornwort (`hornwort`) | Totodilefan | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Ceratophyllum_demersum.jpg) |
+| Water wisteria (`water-wisteria`) | en:User:Tsunamicarlos | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Hygrophila_difformis.jpg) |
+| Ludwigia repens (`ludwigia-repens`) | Show_ryu | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Ludwigia_repens.JPG) |
+| Bacopa caroliniana (`bacopa-caroliniana`) | User:BotBln | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Bacopa_caroliniana_BotGardBln07122011D.JPG) |
+| Green cabomba (`cabomba`) | Leslie J. Mehrhoff, University of Connecticut, Bugwood.org | CC BY 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Cabomba_caroliniana_5447100.jpg) |
+| Dwarf hairgrass (`dwarf-hairgrass`) | Robert H. Mohlenbrock | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Eleocharis_parvula_NRCS-1.jpg) |
+| Dwarf sagittaria (`dwarf-sagittaria`) | Krzysztof Ziarnek, Kenraiz | CC BY-SA 4.0 | [file page](https://commons.wikimedia.org/wiki/File:Sagittaria_subulata_kz01.jpg) |
+| African water fern (`bolbitis`) | Zaire at de.wikipedia | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Kongo_Wasserfarn.jpg) |
+| Water sprite (`water-sprite`) | Forest and Kim Starr | CC BY 3.0 us | [file page](https://commons.wikimedia.org/wiki/File:Starr-130322-3780-Ceratopteris_thalictroides-habit-Hanalei_NWR-Kauai_(25091406442).jpg) |
+| Moneywort (`moneywort`) | Forest &amp; Kim Starr | CC BY 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Starr_010818-0007_Bacopa_monnieri.jpg) |
+| Marimo moss ball (`marimo-moss-ball`) | コムケ at Japanese Wikipedia | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Marimo_lake_akann.jpg) |
+| Banana plant (`banana-plant`) | Show_ryu | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Nymphoides_aquatica.JPG) |
+| Tiger lotus (`tiger-lotus`) | unknown | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Nymphaea_lotus_1.jpg) |
+| Anacharis (`anacharis`) | Lara Gudmundsdottir | CC BY-SA 4.0 | [file page](https://commons.wikimedia.org/wiki/File:Egeria_densa_iceland.JPG) |
+| Dwarf water lettuce (`dwarf-water-lettuce`) | Kurt Stüber [1] | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Pistia_stratiotes0.jpg) |
+| Süsswassertang (`susswassertang`) | Rǫgn | CC BY-SA 4.0 | [file page](https://commons.wikimedia.org/wiki/File:Lomariopsis_gametophyte_in_water.jpg) |
+| Dwarf hygro (`hygrophila-polysperma`) | unknown | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Hygrophila_polysperma.JPG) |
+| Pygmy chain sword (`chain-sword`) | USDA-NRCS PLANTS Database / Britton, N.L., and A. Brown. 1913. An illustrated fl | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Echinodorus_tenellus_BB-1913.jpg) |
+| Asian ambulia (`limnophila-sessiliflora`) | kajuko | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Limnophila_sessiliflora.jpg) |
+| Dwarf baby tears (`dwarf-baby-tears`) | Ranjith-chemmad | CC BY-SA 4.0 | [file page](https://commons.wikimedia.org/wiki/File:Freshwater_aquariums_Sharjah.jpg) |
+| Glosso (`glossostigma`) | Murray Fagg | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Glossostigma_elatinoides_flower.jpg) |
+| Alternanthera reineckii 'Mini' (`ar-mini`) | Drhyperlaur (talk) (Uploads) | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Alternanthera_reineckii.jpg) |
+| Cryptocoryne lutea (`crypt-lutea`) | Hannob | CC0 | [file page](https://commons.wikimedia.org/wiki/File:Cryptocoryne_walkeri.jpg) |
+| Cryptocoryne spiralis (`crypt-spiralis`) | Ruppia2000 | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Fig._06_Cryptocoryne_spiralis.jpg) |
+| Cryptocoryne beckettii 'Petchii' (`crypt-petchii`) | Jan D. Bastmeijer | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Bec_x_B92_383.jpg) |
+| Helanthium 'Vesuvius' (`helanthium-vesuvius`) | USDA-NRCS PLANTS Database / Britton, N.L., and A. Brown. 1913. An illustrated fl | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Echinodorus_tenellus_BB-1913.jpg) |
+| Aponogeton crispus (`aponogeton-crispus`) | Drhyperlaur at English Wikipedia | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Aponogeton_crispus.jpg) |
+| Aponogeton ulvaceus (`aponogeton-ulvaceus`) | Creator:Wigoelbar | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Aponogeton_Ulvaceus.png) |
+| Broadleaf sagittaria (`broadleaf-sagittaria`) | Show_ryu | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Sagittaria_platyphylla.JPG) |
+| Ludwigia 'Super Red' (`ludwigia-super-red`) | Forest &amp; Kim Starr | CC BY 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Starr_070515-7067_Ludwigia_palustris.jpg) |
+| Temple plant (`hygrophila-corymbosa`) | unknown | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Hygrophila_corymbosa_siamensis.JPG) |
+| Green foxtail (Myriophyllum) (`myriophyllum-mattogrossense`) | TsunamiCarlos | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Myriophyllum_matogrossense.jpg) |
+| Anubias coffeefolia (`anubias-coffeefolia`) | en:User:Tsunamicarlos | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Anubias_barteri_var_glabra.jpg) |
+| Anubias nana 'Petite' (`anubias-nana-petite`) | en:User:Tsunamicarlos | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Anubias_barteri_var_glabra.jpg) |
+| Anubias congensis (`anubias-congensis`) | en:User:Tsunamicarlos | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Anubias_barteri_var_glabra.jpg) |
+| Flame moss (`flame-moss`) | HermannSchachner | CC0 | [file page](https://commons.wikimedia.org/wiki/File:Taxiphyllum_wissgrillii_(b%2C_144820-480959)_8472.JPG) |
+| Marsilea hirsuta (`marsilea-hirsuta`) | Krzysztof Ziarnek, Kenraiz | CC BY-SA 4.0 | [file page](https://commons.wikimedia.org/wiki/File:Marsilea_hirsuta_kz01.jpg) |
+| Micro sword (`micro-sword`) | Averater | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Lilaeopsis_brasiliensis_flower_(3).jpg) |
+| Guppy grass (`guppy-grass`) | Timothy McNitt
+
+https://www.inaturalist.org/people/frondsinhighplaces | CC BY 4.0 | [file page](https://commons.wikimedia.org/wiki/File:Najas_guadalupensis_-_Timothy_McNitt.jpg) |
+| Crystalwort (Riccia) (`riccia`) | unknown | CC BY 2.5 | [file page](https://commons.wikimedia.org/wiki/File:RicciaFluitans1.jpg) |
+| Hydrocotyle 'Japan' (`hydrocotyle-japan`) | Izabela1958 | CC BY-SA 4.0 | [file page](https://commons.wikimedia.org/wiki/File:Hydrocotyle_Tripartita_Japan.jpg) |
+| Phoenix moss (`phoenix-moss`) | Njmeyer03 | CC BY-SA 4.0 | [file page](https://commons.wikimedia.org/wiki/File:F.fontanus.jpg) |
+| Ammania gracilis (`ammania-gracilis`) | User:Pmerino | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Ammannia_gracilis.jpg) |
+| Limnophila aromatica (`limnophila-aromatica`) | Vinayaraj | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Limnophila_aromatica_09.JPG) |
+| Lobelia cardinalis 'Mini' (`lobelia-cardinalis-mini`) | Barnes, Dr. Thomas G. | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Lobelia_cardinalis_-_Cardinal_Flower.jpg) |
+| Japanese cress (`cardamine-lyrata`) | batra3x | CC BY 2.0 | [file page](https://commons.wikimedia.org/wiki/File:Cardamine_lyrata.jpg) |
+| Mosquito fern (Azolla) (`azolla`) | Len Worthington | CC BY-SA 2.0 | [file page](https://commons.wikimedia.org/wiki/File:Water_Fern_Azolla_filiculoides_(6165580451).jpg) |
+| Crinum calamistratum (`crinum-calamistratum`) | Krzysztof Ziarnek, Kenraiz | CC BY-SA 4.0 | [file page](https://commons.wikimedia.org/wiki/File:Crinum_calamistratum_kz03.jpg) |
+| Madagascar lace plant (`madagascar-lace`) | William Jackson Hooker | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Aponogeton_madagascariensis.jpg) |
+| Downoi (Pogostemon helferi) (`pogostemon-helferi`) | No machine-readable author provided. S.Tanaka~commonswiki assumed (based on copy | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Pogostemon3.jpg) |
+| Java fern 'Trident' (`java-fern-trident`) | Tsunamicarlos at English Wikipedia | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Microsorum_pteropus.jpg) |
+| Java fern 'Narrow Leaf' (`java-fern-narrow`) | Tsunamicarlos at English Wikipedia | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Microsorum_pteropus.jpg) |
+| Cryptocoryne 'Green Gecko' (`crypt-green-gecko`) | Haplochromis | CC BY 2.5 | [file page](https://commons.wikimedia.org/wiki/File:Cryptocoryne_wendtii.JPG) |
+| Ludwigia glandulosa (`ludwigia-glandulosa`) | Andreea Filip | CC BY-SA 2.0 | [file page](https://commons.wikimedia.org/wiki/File:Ludwigia_glandulosa_(4830440340).jpg) |
+| Rotala 'Bonsai' (`rotala-bonsai`) | Loasa | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Rotala_indica_var_uliginosa_flower01.jpg) |
+| Alternanthera reineckii 'Rosanervig' (`ar-rosanervig`) | Drhyperlaur (talk) (Uploads) | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Alternanthera_reineckii.jpg) |
+| Red tiger lotus (`red-tiger-lotus`) | PJeganathan | CC BY-SA 4.0 | [file page](https://commons.wikimedia.org/wiki/File:Nymphaea_rubra_Water_lily_from_Karikalampakkam%2C_Pondy_IMG_4215_a.jpg) |
+| Bacopa monnieri 'Compact' (`bacopa-compact`) | Forest &amp; Kim Starr | CC BY 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Starr_010818-0007_Bacopa_monnieri.jpg) |
+| Didiplis diandra (`didiplis-diandra`) | Correll, Donovan Stewart; Correll, Helen B. | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Aquatic_and_wetland_plants_of_southwestern_United_States_(Page_1156)_BHL3347620.jpg) |
+| Stargrass (`stargrass`) | Bolívar R. Garcete-Barrett | Attribution | [file page](https://commons.wikimedia.org/wiki/File:Heteranthera_limosa.jpg) |
+| Mayaca fluviatilis (`mayaca-fluviatilis`) | Alex Abair | CC BY 4.0 | [file page](https://commons.wikimedia.org/wiki/File:Mayaca_fluviatilis_261166088.jpg) |
+| River buttercup (`ranunculus-inundatus`) | Harry Rose from South West Rocks, Australia | CC BY 2.0 | [file page](https://commons.wikimedia.org/wiki/File:Ranunculus_inundatus_habit2_(17981491212).jpg) |
+| Mermaid weed (`mermaid-weed`) | Robert H. Mohlenbrock. USDA SCS. 1989. Midwest wetland flora: Field office illus | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Proserpinaca_palustris_NRCS-1.jpg) |
+| Utricularia graminifolia (UG) (`utricularia-graminifolia`) | fischermans | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Utricularia_graminifolia.jpg) |
+| Tonina fluviatilis (`tonina-fluviatilis`) | Jean-Baptiste-Christophe FUSÉE-AUBLET (1720-1778) | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Tonina_fluviatilis_Aublet_1775_pl_330.jpg) |
+| Water violet (`hottonia-palustris`) | unknown | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Illustration_Hottonia_palustris0.jpg) |
+| Cryptocoryne albida 'Brown' (`crypt-albida-brown`) | Krzysztof Ziarnek, Kenraiz | CC BY-SA 4.0 | [file page](https://commons.wikimedia.org/wiki/File:Cryptocoryne_albida_kz02.jpg) |
+| Cryptocoryne walkeri (`crypt-walkeri`) | Hannob | CC0 | [file page](https://commons.wikimedia.org/wiki/File:Cryptocoryne_walkeri.jpg) |
+| Anubias hastifolia (`anubias-hastifolia`) | Internet Archive Book Images | No restrictions | [file page](https://commons.wikimedia.org/wiki/File:Die_Pflanzenwelt_Afrikas%2C_insbesondere_seiner_tropischen_Gebiete_-_Grundzge_der_Pflanzenverbreitung_im_Afrika_und_die_Charakterpflanzen_Afrikas_(1910)_(20753564289).jpg) |
+| Ludwigia 'Cuba' (`ludwigia-cuba`) | User:Tsunamicarlos | Public domain | [file page](https://commons.wikimedia.org/wiki/File:55056073.Ludwigiainclinata01.jpg) |
+| Water wisteria 'Variegated' (`water-wisteria-variegated`) | en:User:Tsunamicarlos | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Hygrophila_difformis.jpg) |
+| Copper leaf ammania (`ammania-senegalensis`) | H. Zell | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Ammannia_senegalensis_001.JPG) |
+| Radican sword (`radican-sword`) | unknown | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Echinodorus_cordifolius.jpg) |
+| Orchid lily (Barclaya) (`barclaya-longifolia`) | Ito Y, Barfod A | CC BY 4.0 | [file page](https://commons.wikimedia.org/wiki/File:Barclaya_longifolia_in_Thailand.jpg) |
+| Japanese spatterdock (`japanese-spatterdock`) | KENPEI | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Nuphar_subintegerrimum1.jpg) |
+| Spiky moss (`spiky-moss`) | HermannSchachner | CC0 | [file page](https://commons.wikimedia.org/wiki/File:Taxiphyllum_wissgrillii_(b%2C_144820-480959)_8472.JPG) |
+| Mini pellia (coral moss) (`mini-pellia`) | Kristian Peters (Fabelfroh) | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Riccardia_chamedryfolia.jpeg) |
+| Pellia (`pellia-monosolenium`) | Krzysztof Ziarnek, Kenraiz | CC BY-SA 4.0 | [file page](https://commons.wikimedia.org/wiki/File:Monosolenium_tenerum_kz01.jpg) |
+| Bolbitis 'Difformis' (`bolbitis-difformis`) | Zaire at de.wikipedia | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Kongo_Wasserfarn.jpg) |
+| Water spangles (`water-spangles`) | Forest &amp; Kim Starr | CC BY 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Starr_031108-3177_Salvinia_minima.jpg) |
+| American frogbit (`american-frogbit`) | Alex Abair | CC BY 4.0 | [file page](https://commons.wikimedia.org/wiki/File:Limnobium_spongia_347095143.jpg) |
+| Dwarf hairgrass (acicularis) (`eleocharis-acicularis`) | Kristian Peters -- Fabelfroh 07:18, 1 July 2007 (UTC) | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Eleocharis_acicularis.jpeg) |
+| Dwarf water clover (crenata) (`marsilea-crenata`) | Meneerke bloem | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Marsilea_crenataRHu1.JPG) |
+| Whorled pennywort (`hydrocotyle-verticillata`) | Forest &amp; Kim Starr | CC BY 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Starr_980601-1501_Hydrocotyle_verticillata.jpg) |
+| Four-leaf clover (Marsilea quadrifolia) (`four-leaf-clover`) | Hardyplants | CC0 | [file page](https://commons.wikimedia.org/wiki/File:Marsilea_quadrifolia_plants.jpg) |
+| Sunset hygro (`hygrophila-sunset`) | unknown | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Hygrophila_polysperma.JPG) |
+| Cryptocoryne nevillii (`crypt-nevillii`) | Hannob | CC0 | [file page](https://commons.wikimedia.org/wiki/File:Cryptocoryne_x_Willisii.jpg) |
+| Cryptocoryne willisii (`crypt-willisii`) | Hannob | CC0 | [file page](https://commons.wikimedia.org/wiki/File:Cryptocoryne_x_Willisii.jpg) |
+| Marble Queen sword (`sword-marble-queen`) | unknown | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Echinodorus_cordifolius.jpg) |
+| Anubias nana 'Golden' (`anubias-golden-nana`) | en:User:Tsunamicarlos | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Anubias_barteri_var_glabra.jpg) |
+| Anubias 'Frazeri' (`anubias-frazeri`) | No machine-readable author provided. Soulkeeper assumed (based on copyright clai | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Anubias_barteri_var_nana_on_a_bogwood.jpg) |
+| Anubias 'Pinto' (`anubias-pinto`) | en:User:Tsunamicarlos | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Anubias_barteri_var_glabra.jpg) |
+| Anubias barteri 'Broad Leaf' (`anubias-broad-leaf`) | en:User:Tsunamicarlos | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Anubias_barteri_var_glabra.jpg) |
+| Hygrophila 'Siamensis 53B' (`hygrophila-siamensis-53b`) | unknown | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Hygrophila_corymbosa_siamensis.JPG) |
+| Taiwan lily (`taiwan-lily`) | self-made | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Nymphoides_hydrophylla.jpg) |
+| Cryptocoryne wendtii 'Brown' (`crypt-wendtii-brown`) | Haplochromis | CC BY 2.5 | [file page](https://commons.wikimedia.org/wiki/File:Cryptocoryne_wendtii.JPG) |
+| Cryptocoryne wendtii 'Red' (`crypt-wendtii-red`) | Haplochromis | CC BY 2.5 | [file page](https://commons.wikimedia.org/wiki/File:Cryptocoryne_wendtii.JPG) |
+| Cryptocoryne 'Florida Sunset' (`crypt-florida-sunset`) | Haplochromis | CC BY 2.5 | [file page](https://commons.wikimedia.org/wiki/File:Cryptocoryne_wendtii.JPG) |
+| Uruguay sword (`sword-uruguayensis`) | Daderot | CC0 | [file page](https://commons.wikimedia.org/wiki/File:Echinodorus_uruguayensis_-_Copenhagen_Botanical_Garden_-_DSC07955.JPG) |
+| Horizontal sword (`sword-horizontalis`) | The New York Botanical Garden | CC BY 4.0 | [file page](https://commons.wikimedia.org/wiki/File:Echinodorus_horizontalis.jpg) |
+| Anubias 'Coin Leaf' (`anubias-coin-leaf`) | en:User:Tsunamicarlos | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Anubias_barteri_var_glabra.jpg) |
+| Anubias minima (`anubias-minima`) | en:User:Tsunamicarlos | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Anubias_barteri_var_glabra.jpg) |
+| Anubias afzelii (`anubias-afzelii`) | Daderot | CC0 | [file page](https://commons.wikimedia.org/wiki/File:Anubias_afzelii_-_Copenhagen_Botanical_Garden_-_DSC07960.JPG) |
+| Anubias nana 'Snow White' (`anubias-snow-white`) | en:User:Tsunamicarlos | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Anubias_barteri_var_glabra.jpg) |
+| Anubias lanceolata (`anubias-lanceolata`) | en:User:Tsunamicarlos | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Anubias_barteri_var_glabra.jpg) |
+| Java fern 'Philippine' (`java-fern-philippine`) | Tsunamicarlos at English Wikipedia | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Microsorum_pteropus.jpg) |
+| Ludwigia 'Pantanal' (`ludwigia-pantanal`) | User:Tsunamicarlos | Public domain | [file page](https://commons.wikimedia.org/wiki/File:55056073.Ludwigiainclinata01.jpg) |
+| Ludwigia repens 'Rubin' (`ludwigia-repens-rubin`) | Show_ryu | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Ludwigia_repens.JPG) |
+| Red cabomba (`cabomba-furcata`) | Bernard DUPONT from FRANCE | CC BY-SA 2.0 | [file page](https://commons.wikimedia.org/wiki/File:Forked_Fanwort_(Cabomba_furcata)_flowers_(27695860894).jpg) |
+| Micrantha lily (`nymphaea-micrantha`) | Marco Schmidt | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Nymphaea_micrantha_MS_6263.JPG) |
+| Lawn pennywort (`lawn-pennywort`) | Prenn | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Hydrocotyle_sibthorpioides.JPG) |
+| Dwarf lily 'Red' (`nymphaea-stellata-red`) | Nguyễn Tấn Phát | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:South_Vietnam's_Water_Lily.JPG) |
+| Willow moss (`willow-moss`) | Kurt Stüber [1] | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Fontinalis_antipyretica2.jpg) |
+| Stringy moss (`stringy-moss`) | Show_ryu | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Leptodictium_riparium_colony.JPG) |
+| Water hyacinth (`water-hyacinth`) | Wouter Hagens | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Eichhornia_crassipes_C.jpg) |
+| Fringed heartwort (`ricciocarpos-natans`) | Christian Fischer | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:RicciocarposNatans2.jpg) |
+| Ludwigia repens 'Dark Red' (`ludwigia-repens-dark-red`) | Show_ryu | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Ludwigia_repens.JPG) |
+| Rotala ramosior 'Florida' (`rotala-ramosior-florida`) | Robert H. Mohlenbrock | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Rotala_ramosior_NRCS-1.jpg) |
+| Hygrophila 'Tiger' (`hygrophila-tiger`) | unknown | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Hygrophila_polysperma.JPG) |
+| Tiger vallisneria (`tiger-val`) | Lara Gudmundsdottir | CC BY-SA 4.0 | [file page](https://commons.wikimedia.org/wiki/File:Vallisneria_spiralis.jpg) |
+| Giant vallisneria (`giant-val`) | Samuel A Schmid | CC BY 4.0 | [file page](https://commons.wikimedia.org/wiki/File:Vallisneria_americana-schmid01.jpg) |
+| Helanthium 'Quadricostatus' (`helanthium-quadricostatus`) | USDA-NRCS PLANTS Database / Britton, N.L., and A. Brown. 1913. An illustrated fl | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Echinodorus_tenellus_BB-1913.jpg) |
+| Dwarf hairgrass 'Mini' (`dwarf-hairgrass-mini`) | Forest &amp; Kim Starr | CC BY 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Starr_081230-0543_Eleocharis_calva.jpg) |
+| Narrow-leaf sagittaria (`sagittaria-subulata-narrow`) | Krzysztof Ziarnek, Kenraiz | CC BY-SA 4.0 | [file page](https://commons.wikimedia.org/wiki/File:Sagittaria_subulata_kz01.jpg) |
+| Rotala indica (`rotala-indica`) | Loasa | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Rotala_indica_var_uliginosa_flower01.jpg) |
+| Mini Bolbitis (`bolbitis-heteroclita`) | Daderot | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Bolbitis_heteroclita_-_Botanischer_Garten_M%C3%BCnchen-Nymphenburg_-_DSC08166.JPG) |
+| Java fern 'Narrow Mini' (`java-fern-narrow-mini`) | Tsunamicarlos at English Wikipedia | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Microsorum_pteropus.jpg) |
+| Cryptocoryne 'Pink Flamingo' (`crypt-pink-flamingo`) | Haplochromis | CC BY 2.5 | [file page](https://commons.wikimedia.org/wiki/File:Cryptocoryne_wendtii.JPG) |
+| Cryptocoryne 'Tropica' (`crypt-tropica`) | Haplochromis | CC BY 2.5 | [file page](https://commons.wikimedia.org/wiki/File:Cryptocoryne_wendtii.JPG) |
+| Ludwigia inclinata 'Green' (`ludwigia-inclinata-green`) | User:Tsunamicarlos | Public domain | [file page](https://commons.wikimedia.org/wiki/File:55056073.Ludwigiainclinata01.jpg) |
+| Bacopa 'Colorata' (`bacopa-colorata`) | User:BotBln | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Bacopa_caroliniana_BotGardBln07122011D.JPG) |
+| Hydrocotyle tripartita 'Mini' (`hydrocotyle-tripartita-mini`) | Izabela1958 | CC BY-SA 4.0 | [file page](https://commons.wikimedia.org/wiki/File:Hydrocotyle_Tripartita_Japan.jpg) |
+| Ludwigia 'Mini Super Red' (`ludwigia-palustris-mini-super-red`) | Forest &amp; Kim Starr | CC BY 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Starr_070515-7067_Ludwigia_palustris.jpg) |
+| Anubias caladiifolia (`anubias-caladiifolia`) | en:User:Tsunamicarlos | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Anubias_barteri_var_glabra.jpg) |
+| Congo anubias (`anubias-heterophylla`) | No machine-readable author provided. S.Tanaka~commonswiki assumed (based on copy | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Anubias_heterophylla..JPG) |
+| Anubias 'Stardust' (`anubias-stardust`) | en:User:Tsunamicarlos | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Anubias_barteri_var_glabra.jpg) |
+| Anubias 'Eyes' (`anubias-eyes`) | en:User:Tsunamicarlos | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Anubias_barteri_var_glabra.jpg) |
+| Shoreweed (`shoreweed`) | Kristian Peters -- Fabelfroh 13:06, 10 October 2006 (UTC) | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Littorella_uniflora.jpeg) |
+| New Zealand micro sword (`nz-micro-sword`) | Arnim Littek | CC BY 4.0 | [file page](https://commons.wikimedia.org/wiki/File:Lilaeopsis_novae-zelandiae_-_Arnim_Littek_-_461090326.jpeg) |
+| Eared watermoss (`salvinia-auriculata`) | Mateus Hidalgo | CC BY-SA 2.5 br | [file page](https://commons.wikimedia.org/wiki/File:Salvinia_auriculata.jpg) |
+| Hygrophila guianensis (`hygrophila-guianensis`) | Andrés González | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Hygrophila_costata_poster_Uruguay.jpg) |
+| Senegal tea plant (`senegal-tea`) | Cheng-Tao Lin | CC BY 4.0 | [file page](https://commons.wikimedia.org/wiki/File:Gymnocoronis_spilanthoides_59381437.jpg) |
+| Golden moneywort (`golden-moneywort`) | Kurt Stüber [1] | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Lysimachia_nummularia0.jpg) |
+| Pink ammannia (`ammannia-gracilis`) | User:Pmerino | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:Ammannia_gracilis.jpg) |
+| Underwater rose (`samolus-valerandi`) | Christian Fischer | CC BY-SA 3.0 | [file page](https://commons.wikimedia.org/wiki/File:SamolusValerandi2.jpg) |
+| Blyxa aubertii (`blyxa-aubertii`) | coenobita | CC BY 4.0 | [file page](https://commons.wikimedia.org/wiki/File:Blyxa_aubertii_18393352.jpg) |
+| Swamp stonecrop (`crassula-helmsii`) | ashley BALSAM baz | CC BY 2.0 | [file page](https://commons.wikimedia.org/wiki/File:Crassula_helmsii.jpg) |
+| Cardinal plant (`lobelia-cardinalis`) | Barnes, Dr. Thomas G. | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Lobelia_cardinalis_-_Cardinal_Flower.jpg) |
+| Pygmy chain sword (Echinodorus) (`echinodorus-tenellus`) | USDA-NRCS PLANTS Database / Britton, N.L., and A. Brown. 1913. An illustrated fl | Public domain | [file page](https://commons.wikimedia.org/wiki/File:Echinodorus_tenellus_BB-1913.jpg) |
+| Mosaic plant (`mosaic-plant`) | A A Prasannakumari | CC BY-SA 4.0 | [file page](https://commons.wikimedia.org/wiki/File:Ludwigia_sedioides_(Humb._%26_Bonpl.)_H.Hara.jpg) |
