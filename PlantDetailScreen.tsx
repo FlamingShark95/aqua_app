@@ -8,6 +8,7 @@ import {
   View,
 } from "react-native";
 import { Plant } from "./plantData";
+import { PLANT_IMAGE_CREDITS, PLANT_THUMBS } from "./plantImages.generated";
 import { useTanks } from "./TankContext";
 import { useUnits } from "./UnitContext";
 import { Counter } from "./Counter";
@@ -38,8 +39,13 @@ export default function PlantDetailScreen({
     growthMap[plant.growthRate],
   ];
 
+  // Bundled thumb (if any) underlays each slide: remote hi-res appears
+  // instantly as the offline thumbnail and upgrades in place (same pattern
+  // as FishDetailScreen).
   const slides =
     plant.images && plant.images.length > 0 ? plant.images : [null];
+  const thumb = PLANT_THUMBS[plant.id];
+  const credit = PLANT_IMAGE_CREDITS[plant.id];
 
   const facts: { label: string; value: string }[] = [
     { label: "Height", value: formatLength(plant.heightCm, system) },
@@ -71,7 +77,8 @@ export default function PlantDetailScreen({
           {slides.map((picture, i) => (
             <FishImage
               key={i}
-              source={picture}
+              source={picture ?? thumb}
+              fallback={picture ? thumb : undefined}
               icon="🌿"
               iconSize={80}
               style={[styles.slide, { width: slideWidth, height: slideWidth }]}
@@ -89,6 +96,11 @@ export default function PlantDetailScreen({
           </View>
         )}
       </View>
+      {credit && (
+        <Text style={styles.photoCredit}>
+          Photo: {credit.artist} · {credit.license} · Wikimedia Commons
+        </Text>
+      )}
 
       <Text style={styles.commonName}>{plant.commonName}</Text>
       <Text style={styles.scientificName}>{plant.scientificName}</Text>
@@ -226,6 +238,12 @@ const styles = StyleSheet.create({
   },
   dotActive: {
     backgroundColor: "white",
+  },
+  photoCredit: {
+    color: COLORS.muted,
+    fontSize: 11,
+    marginTop: 4,
+    marginBottom: 2,
   },
   commonName: {
     color: "white",
