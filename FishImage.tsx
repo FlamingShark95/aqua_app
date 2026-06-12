@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {
   Image,
   ImageSourcePropType,
@@ -16,26 +17,54 @@ import { COLORS } from "./fishDisplay";
 // rather than cropping them. The caller's style sets the frame's size and
 // corner radius. Accepts a bundled image (require(...)), a remote URL string,
 // or nothing (placeholder fish icon, sized via iconSize).
+//
+// `fallback` makes loading hybrid: a bundled image rendered underneath the
+// main source, so a remote main appears instantly as the offline thumb and
+// upgrades in place when the network delivers — and if the remote fails
+// (offline), the fallback simply stays.
 export function FishImage({
   source,
+  fallback,
   style,
   iconSize = 24,
   icon = "🐟",
 }: {
   source?: FishPicture | null;
+  fallback?: FishPicture | null;
   style?: StyleProp<ViewStyle>;
   iconSize?: number;
   icon?: string; // placeholder glyph; plants pass "🌿"
 }) {
-  const resolved: ImageSourcePropType | undefined =
-    typeof source === "string" ? { uri: source } : source ?? undefined;
+  const [mainFailed, setMainFailed] = useState(false);
+  // List rows recycle this component with new props; forget old failures.
+  useEffect(() => setMainFailed(false), [source]);
+
+  const resolve = (
+    pic?: FishPicture | null
+  ): ImageSourcePropType | undefined =>
+    typeof pic === "string" ? { uri: pic } : pic ?? undefined;
+
+  const main = resolve(source);
+  const under = resolve(fallback);
+  const showMain = main !== undefined && !mainFailed;
 
   return (
     <View style={[styles.frame, style]}>
-      {resolved ? (
-        <Image source={resolved} style={styles.image} resizeMode="contain" />
-      ) : (
+      {!showMain && !under && (
         <Text style={[styles.icon, { fontSize: iconSize }]}>{icon}</Text>
+      )}
+      {under && (
+        <Image source={under} style={styles.image} resizeMode="contain" />
+      )}
+      {showMain && (
+        <Image
+          source={main}
+          // Overlay the fallback exactly when one is shown; otherwise this is
+          // the only child and fills the frame normally.
+          style={under ? [styles.image, StyleSheet.absoluteFill] : styles.image}
+          resizeMode="contain"
+          onError={() => setMainFailed(true)}
+        />
       )}
     </View>
   );

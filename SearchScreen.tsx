@@ -8,6 +8,7 @@ import {
   View,
 } from "react-native";
 import { AVAILABLE_FISH, Fish, FISH_BY_ID, Tank } from "./fishData";
+import { FISH_THUMBS } from "./fishImages.generated";
 import { Counter } from "./Counter";
 import { FishImage } from "./FishImage";
 import { COLORS } from "./fishDisplay";
@@ -49,7 +50,11 @@ const FishRow = memo(function FishRow({
 }) {
   return (
     <Pressable style={styles.row} onPress={() => onOpen(fish)}>
-      <FishImage source={fish.images?.[0]} style={styles.thumb} />
+      {/* Bundled thumb first: instant and offline; remote only as a fallback. */}
+      <FishImage
+        source={FISH_THUMBS[fish.id] ?? fish.images?.[0]}
+        style={styles.thumb}
+      />
       <View style={styles.rowText}>
         <Text style={styles.fishName}>{fish.commonName}</Text>
         <Text style={styles.fishSci}>{fish.scientificName}</Text>

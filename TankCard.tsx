@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 import { FISH_BY_ID, LightLevel, Tank } from "./fishData";
+import { FISH_THUMBS } from "./fishImages.generated";
 import { PLANTS_BY_ID } from "./plantData";
 import { useTanks } from "./TankContext";
 import { useUnits } from "./UnitContext";
@@ -255,7 +256,7 @@ export function TankCard({ tank }: { tank: Tank }) {
                 onPress={() => openFish(g.fish)}
               >
                 <FishImage
-                  source={g.fish.images?.[0]}
+                  source={FISH_THUMBS[g.fish.id] ?? g.fish.images?.[0]}
                   style={styles.stockThumb}
                 />
                 <View style={styles.stockInfo}>

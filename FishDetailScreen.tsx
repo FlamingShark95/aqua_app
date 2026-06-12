@@ -8,6 +8,7 @@ import {
   View,
 } from "react-native";
 import { Fish, FISH_BY_ID } from "./fishData";
+import { FISH_IMAGE_CREDITS, FISH_THUMBS } from "./fishImages.generated";
 import { useTanks } from "./TankContext";
 import { useUnits } from "./UnitContext";
 import { Counter } from "./Counter";
@@ -47,7 +48,11 @@ export default function FishDetailScreen({
   ];
 
   // Gallery: real photos if present, otherwise a single placeholder frame.
+  // The bundled thumb (if any) underlays each slide, so remote hi-res images
+  // appear instantly as the offline thumbnail and upgrade in place.
   const slides = fish.images && fish.images.length > 0 ? fish.images : [null];
+  const thumb = FISH_THUMBS[fish.id];
+  const credit = FISH_IMAGE_CREDITS[fish.id];
 
   // Quick facts — only the rows we actually have a value for (no "?" clutter).
   const facts: { label: string; value: string }[] = [
@@ -103,7 +108,8 @@ export default function FishDetailScreen({
           {slides.map((picture, i) => (
             <FishImage
               key={i}
-              source={picture}
+              source={picture ?? thumb}
+              fallback={picture ? thumb : undefined}
               iconSize={80}
               style={[styles.slide, { width: slideWidth, height: slideWidth }]}
             />
@@ -120,6 +126,11 @@ export default function FishDetailScreen({
           </View>
         )}
       </View>
+      {credit && (
+        <Text style={styles.photoCredit}>
+          Photo: {credit.artist} · {credit.license} · Wikimedia Commons
+        </Text>
+      )}
 
       <Text style={styles.commonName}>{fish.commonName}</Text>
       <Text style={styles.scientificName}>{fish.scientificName}</Text>
@@ -272,6 +283,12 @@ const styles = StyleSheet.create({
   },
   dotActive: {
     backgroundColor: "white",
+  },
+  photoCredit: {
+    color: COLORS.muted,
+    fontSize: 11,
+    marginTop: 4,
+    marginBottom: 2,
   },
   commonName: {
     color: "white",
