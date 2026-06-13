@@ -163,6 +163,13 @@ export default function SearchScreen() {
   }, [query, filters, fitsOnly, issuesById]);
   const activeCount = countActiveFilters(filters);
 
+  // "Surprise me": open a random fish from the current result set (or the whole
+  // catalog if the search/filters match nothing), for browsing inspiration.
+  const openRandomFish = () => {
+    const pool = filteredFish.length > 0 ? filteredFish : AVAILABLE_FISH;
+    openFish(pool[Math.floor(Math.random() * pool.length)]);
+  };
+
   // Best-fit scores for the whole catalog, only while fit-sorting.
   const fitScores = useMemo(() => {
     if (effectiveSortId !== "fit" || !activeTank) return null;
@@ -247,6 +254,13 @@ export default function SearchScreen() {
           onChangeText={setQuery}
           autoCorrect={false}
         />
+        <Pressable
+          style={styles.diceButton}
+          onPress={openRandomFish}
+          accessibilityLabel="Open a random fish"
+        >
+          <Text style={styles.diceButtonText}>🎲</Text>
+        </Pressable>
         <Pressable
           style={styles.filterButton}
           onPress={() => setShowFilters(true)}
@@ -450,6 +464,15 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 14,
     borderRadius: 10,
+  },
+  diceButton: {
+    backgroundColor: COLORS.surface,
+    borderRadius: 10,
+    paddingHorizontal: 14,
+    justifyContent: "center",
+  },
+  diceButtonText: {
+    fontSize: 18,
   },
   filterButton: {
     backgroundColor: COLORS.surface,

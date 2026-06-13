@@ -148,6 +148,13 @@ export default function PlantsScreen() {
     );
   }, [query, filters, suitsOnly, issuesById]);
 
+  // "Surprise me": open a random plant from the current result set (or the
+  // whole catalog if nothing matches), for browsing inspiration.
+  const openRandomPlant = () => {
+    const pool = filtered.length > 0 ? filtered : AVAILABLE_PLANTS;
+    openPlant(pool[Math.floor(Math.random() * pool.length)]);
+  };
+
   // Best-fit scores for the whole catalog, only while fit-sorting.
   const fitScores = useMemo(() => {
     if (effectiveSortId !== "fit" || !activeTank) return null;
@@ -231,6 +238,13 @@ export default function PlantsScreen() {
       />
 
       <View style={styles.controlsRow}>
+        <Pressable
+          style={styles.diceButton}
+          onPress={openRandomPlant}
+          accessibilityLabel="Open a random plant"
+        >
+          <Text style={styles.diceButtonText}>🎲</Text>
+        </Pressable>
         <Pressable
           style={styles.filterButton}
           onPress={() => setShowFilters(true)}
@@ -435,6 +449,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     gap: 8,
     marginBottom: 8,
+  },
+  diceButton: {
+    backgroundColor: COLORS.surface,
+    borderRadius: 10,
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+    justifyContent: "center",
+  },
+  diceButtonText: {
+    fontSize: 18,
   },
   filterButton: {
     backgroundColor: COLORS.surface,
