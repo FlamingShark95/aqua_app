@@ -28,12 +28,18 @@ export function FishImage({
   style,
   iconSize = 24,
   icon = "🐟",
+  fit = "cover",
 }: {
   source?: FishPicture | null;
   fallback?: FishPicture | null;
   style?: StyleProp<ViewStyle>;
   iconSize?: number;
   icon?: string; // placeholder glyph; plants pass "🌿"
+  // "cover" (default) crops to fill the frame — right for square thumbnails so
+  // landscape photos don't letterbox. "contain" shows the whole image — used by
+  // the detail gallery, whose box is shaped to the photo (3:2) so there's
+  // little dead space anyway.
+  fit?: "cover" | "contain";
 }) {
   const [mainFailed, setMainFailed] = useState(false);
   // List rows recycle this component with new props; forget old failures.
@@ -54,7 +60,7 @@ export function FishImage({
         <Text style={[styles.icon, { fontSize: iconSize }]}>{icon}</Text>
       )}
       {under && (
-        <Image source={under} style={styles.image} resizeMode="contain" />
+        <Image source={under} style={styles.image} resizeMode={fit} />
       )}
       {showMain && (
         <Image
@@ -62,7 +68,7 @@ export function FishImage({
           // Overlay the fallback exactly when one is shown; otherwise this is
           // the only child and fills the frame normally.
           style={under ? [styles.image, StyleSheet.absoluteFill] : styles.image}
-          resizeMode="contain"
+          resizeMode={fit}
           onError={() => setMainFailed(true)}
         />
       )}

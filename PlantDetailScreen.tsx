@@ -31,6 +31,8 @@ export default function PlantDetailScreen({
   const { tanks, addPlantToTank, removePlantFromTank } = useTanks();
   const [page, setPage] = useState(0);
   const slideWidth = useWindowDimensions().width - 40;
+  // 3:2 landscape gallery (height = ⅔ width); width drives horizontal paging.
+  const slideHeight = Math.round((slideWidth * 2) / 3);
 
   const tags: Badge[] = [
     plantCareMap[plant.careLevel],
@@ -67,7 +69,7 @@ export default function PlantDetailScreen({
         <Text style={styles.backChevron}>‹</Text>
       </Pressable>
 
-      <View style={[styles.gallery, { height: slideWidth }]}>
+      <View style={[styles.gallery, { height: slideHeight }]}>
         <ScrollView
           horizontal
           pagingEnabled
@@ -85,7 +87,8 @@ export default function PlantDetailScreen({
               fallback={i === 0 && picture ? thumb : undefined}
               icon="🌿"
               iconSize={80}
-              style={[styles.slide, { width: slideWidth, height: slideWidth }]}
+              fit="contain"
+              style={[styles.slide, { width: slideWidth, height: slideHeight }]}
             />
           ))}
         </ScrollView>

@@ -36,9 +36,12 @@ export default function FishDetailScreen({
   const { system } = useUnits();
   const { tanks, addFishToTank, removeFishFromTank } = useTanks();
   const [page, setPage] = useState(0);
-  // Gallery slides are square, screen width minus the content padding. Comes
-  // from the hook (not a module constant) so rotation re-sizes the gallery.
+  // Slide width = screen width minus content padding (drives horizontal paging).
+  // From the hook (not a module constant) so rotation re-sizes the gallery.
   const slideWidth = useWindowDimensions().width - 40;
+  // A 3:2 landscape gallery (height = ⅔ width) matches how fish photos are
+  // framed, so the whole image shows with little letterbox.
+  const slideHeight = Math.round((slideWidth * 2) / 3);
 
   const tags: Badge[] = [
     careBadge(fish),
@@ -99,7 +102,7 @@ export default function FishDetailScreen({
         <Text style={styles.backChevron}>‹</Text>
       </Pressable>
 
-      <View style={[styles.gallery, { height: slideWidth }]}>
+      <View style={[styles.gallery, { height: slideHeight }]}>
         <ScrollView
           horizontal
           pagingEnabled
@@ -117,7 +120,8 @@ export default function FishDetailScreen({
               // flash the wrong picture while they load.
               fallback={i === 0 && picture ? thumb : undefined}
               iconSize={80}
-              style={[styles.slide, { width: slideWidth, height: slideWidth }]}
+              fit="contain"
+              style={[styles.slide, { width: slideWidth, height: slideHeight }]}
             />
           ))}
         </ScrollView>
