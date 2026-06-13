@@ -8,13 +8,17 @@ import * as Notifications from "expo-notifications";
 export type FeedReminder = {
   enabled: boolean;
   times: string[]; // "HH:MM", 24h, at most MAX_FEED_TIMES entries
+  days: number[]; // weekdays to fire on; 1–7 (1 = Sunday), matching expo
 };
 
 const STORAGE_KEY = "aqua_app.feedReminder";
 export const MAX_FEED_TIMES = 3;
+// expo-notifications weekday convention: 1 = Sunday … 7 = Saturday.
+export const ALL_DAYS = [1, 2, 3, 4, 5, 6, 7];
 export const DEFAULT_REMINDER: FeedReminder = {
   enabled: false,
   times: ["08:00"],
+  days: ALL_DAYS,
 };
 
 export const notificationsSupported = Platform.OS !== "web";
@@ -47,9 +51,14 @@ export async function loadFeedReminder(): Promise<FeedReminder> {
   try {
     const raw = await AsyncStorage.getItem(STORAGE_KEY);
     if (raw) {
-      const saved = JSON.parse(raw) as FeedReminder;
+      const saved = JSON.parse(raw) as Partial<FeedReminder>;
       if (typeof saved.enabled === "boolean" && Array.isArray(saved.times)) {
-        return saved;
+        // Saves from before per-day scheduling have no `days` → every day.
+        const days =
+          Array.isArray(saved.days) && saved.days.length > 0
+            ? saved.days.filter((d) => d >= 1 && d <= 7)
+            : ALL_DAYS;
+        return { enabled: saved.enabled, times: saved.times, days };
       }
     }
   } catch {
@@ -75,7 +84,8 @@ export async function applyFeedReminder(
   if (!notificationsSupported) return false;
 
   await Notifications.cancelAllScheduledNotificationsAsync();
-  if (!reminder.enabled || reminder.times.length === 0) return true;
+  if (!reminder.enabled || reminder.times.length === 0 || reminder.days.length === 0)
+    return true;
 
   const permission = await Notifications.requestPermissionsAsync();
   if (!permission.granted) return false;
@@ -87,21 +97,43 @@ export async function applyFeedReminder(
     });
   }
 
+  const channelId = Platform.OS === "android" ? "feeding" : undefined;
+  // All seven days → one efficient DAILY trigger per time. A subset → a WEEKLY
+  // trigger per (day, time). At most 3 times × 7 days = 21 pending, well under
+  // the iOS 64-notification limit.
+  const everyDay = reminder.days.length >= 7;
+  const content = {
+    title: "Feed the fish 🐟",
+    body: "Time for a feeding round.",
+  };
+
   for (const time of reminder.times) {
     const parsed = parseTime(time);
     if (!parsed) continue;
-    await Notifications.scheduleNotificationAsync({
-      content: {
-        title: "Feed the fish 🐟",
-        body: "Time for the daily feeding round.",
-      },
-      trigger: {
-        type: Notifications.SchedulableTriggerInputTypes.DAILY,
-        hour: parsed.hour,
-        minute: parsed.minute,
-        channelId: Platform.OS === "android" ? "feeding" : undefined,
-      },
-    });
+    if (everyDay) {
+      await Notifications.scheduleNotificationAsync({
+        content,
+        trigger: {
+          type: Notifications.SchedulableTriggerInputTypes.DAILY,
+          hour: parsed.hour,
+          minute: parsed.minute,
+          channelId,
+        },
+      });
+    } else {
+      for (const weekday of reminder.days) {
+        await Notifications.scheduleNotificationAsync({
+          content,
+          trigger: {
+            type: Notifications.SchedulableTriggerInputTypes.WEEKLY,
+            weekday,
+            hour: parsed.hour,
+            minute: parsed.minute,
+            channelId,
+          },
+        });
+      }
+    }
   }
   return true;
 }

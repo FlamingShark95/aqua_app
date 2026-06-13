@@ -23,6 +23,18 @@ import {
 
 const PRESET_TIMES = ["07:00", "12:00", "18:00"];
 
+// expo weekday numbers (1 = Sunday … 7 = Saturday) with short labels, in week
+// order for display.
+const DAYS: { n: number; label: string }[] = [
+  { n: 1, label: "Su" },
+  { n: 2, label: "Mo" },
+  { n: 3, label: "Tu" },
+  { n: 4, label: "We" },
+  { n: 5, label: "Th" },
+  { n: 6, label: "Fr" },
+  { n: 7, label: "Sa" },
+];
+
 export default function SettingsScreen() {
   const { system, setSystem } = useUnits();
 
@@ -71,6 +83,19 @@ export default function SettingsScreen() {
     setReminder((r) => ({ ...r, times: r.times.filter((t) => t !== value) }));
   };
 
+  // Toggle a weekday on/off, but never leave zero days selected (an enabled
+  // reminder with no days would silently never fire).
+  const toggleDay = (n: number) => {
+    setReminder((r) => {
+      const has = r.days.includes(n);
+      if (has && r.days.length === 1) return r;
+      const days = has
+        ? r.days.filter((d) => d !== n)
+        : [...r.days, n].sort((a, b) => a - b);
+      return { ...r, days };
+    });
+  };
+
   return (
     <ScrollView style={styles.screen} contentContainerStyle={styles.content}>
       <Text style={styles.title}>Settings</Text>
@@ -101,7 +126,7 @@ export default function SettingsScreen() {
       <Text style={styles.sectionTitle}>Feeding reminder</Text>
       <View style={styles.card}>
         <View style={styles.switchRow}>
-          <Text style={styles.switchLabel}>Daily feeding reminder</Text>
+          <Text style={styles.switchLabel}>Feeding reminder</Text>
           <Switch
             value={reminder.enabled}
             onValueChange={(enabled) =>
@@ -114,6 +139,30 @@ export default function SettingsScreen() {
 
         {reminder.enabled && (
           <>
+            <Text style={styles.fieldLabel}>
+              Repeat on{" "}
+              {reminder.days.length === 7 ? "(every day)" : `(${reminder.days.length} days)`}
+            </Text>
+            <View style={styles.chipRow}>
+              {DAYS.map((day) => {
+                const on = reminder.days.includes(day.n);
+                return (
+                  <Pressable
+                    key={day.n}
+                    style={[styles.dayChip, on && styles.dayChipActive]}
+                    onPress={() => toggleDay(day.n)}
+                    accessibilityLabel={day.label}
+                  >
+                    <Text
+                      style={[styles.dayChipText, on && styles.dayChipTextActive]}
+                    >
+                      {day.label}
+                    </Text>
+                  </Pressable>
+                );
+              })}
+            </View>
+
             <Text style={styles.fieldLabel}>
               Feeding times ({reminder.times.length}/{MAX_FEED_TIMES})
             </Text>
@@ -264,6 +313,26 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     gap: 8,
+  },
+  dayChip: {
+    width: 40,
+    paddingVertical: 8,
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: COLORS.chipBorder,
+    alignItems: "center",
+  },
+  dayChipActive: {
+    backgroundColor: COLORS.accent,
+    borderColor: COLORS.accent,
+  },
+  dayChipText: {
+    color: COLORS.muted,
+    fontSize: 14,
+    fontWeight: "600",
+  },
+  dayChipTextActive: {
+    color: "white",
   },
   timeChip: {
     paddingVertical: 6,
