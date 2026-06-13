@@ -359,6 +359,7 @@
   },
   {
     "id": "rotala-rotundifolia",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/33791619/large.jpeg"],
     "commonName": "Rotala rotundifolia",
     "scientificName": "Rotala rotundifolia",
     "type": "stem",
@@ -834,6 +835,7 @@
   },
   {
     "id": "rotala-macrandra",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/156654378/large.jpg"],
     "commonName": "Rotala macrandra",
     "scientificName": "Rotala macrandra",
     "type": "stem",
@@ -932,6 +934,7 @@
   },
   {
     "id": "crypt-usteriana",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/255933719/large.jpeg"],
     "commonName": "Cryptocoryne usteriana",
     "scientificName": "Cryptocoryne usteriana",
     "type": "rosette",
@@ -990,6 +993,7 @@
   },
   {
     "id": "sword-red-flame",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/432851572/large.jpeg"],
     "commonName": "Red Flame sword",
     "scientificName": "Echinodorus 'Red Flame'",
     "type": "rosette",
@@ -1009,6 +1013,7 @@
   },
   {
     "id": "sword-ozelot",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/432851572/large.jpeg"],
     "commonName": "Ozelot sword",
     "scientificName": "Echinodorus 'Ozelot'",
     "type": "rosette",
@@ -1028,6 +1033,7 @@
   },
   {
     "id": "sword-red-rubin",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/432851572/large.jpeg"],
     "commonName": "Red Rubin sword",
     "scientificName": "Echinodorus 'Rubin'",
     "type": "rosette",
@@ -1127,6 +1133,7 @@
   },
   {
     "id": "pogostemon-stellatus-octopus",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/56578924/large.jpeg"],
     "commonName": "Pogostemon stellatus 'Octopus'",
     "scientificName": "Pogostemon stellatus 'Octopus'",
     "type": "stem",
@@ -1165,6 +1172,7 @@
   },
   {
     "id": "rotala-wallichii",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/80875129/large.jpg"],
     "commonName": "Rotala wallichii",
     "scientificName": "Rotala wallichii",
     "type": "stem",
@@ -1184,6 +1192,7 @@
   },
   {
     "id": "rotala-hra",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/33791619/large.jpeg"],
     "commonName": "Rotala 'H'ra'",
     "scientificName": "Rotala rotundifolia 'H'ra'",
     "type": "stem",
@@ -1520,6 +1529,7 @@
   },
   {
     "id": "hygrophila-pinnatifida",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/486322104/large.jpg"],
     "commonName": "Hygrophila pinnatifida",
     "scientificName": "Hygrophila pinnatifida",
     "type": "stem",
@@ -1579,6 +1589,7 @@
   },
   {
     "id": "rotala-macrandra-mini-butterfly",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/156654378/large.jpg"],
     "commonName": "Rotala macrandra 'Mini Butterfly'",
     "scientificName": "Rotala macrandra 'Mini Butterfly'",
     "type": "stem",
@@ -1598,6 +1609,7 @@
   },
   {
     "id": "bacopa-salzmannii-purple",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/109123065/large.jpeg"],
     "commonName": "Bacopa salzmannii 'Purple'",
     "scientificName": "Bacopa salzmannii 'Purple'",
     "type": "stem",
@@ -1637,6 +1649,7 @@
   },
   {
     "id": "rotala-colorata",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/33791619/large.jpeg"],
     "commonName": "Rotala 'Colorata'",
     "scientificName": "Rotala rotundifolia 'Colorata'",
     "type": "stem",
@@ -1756,6 +1769,7 @@
   },
   {
     "id": "giant-hairgrass",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/373344665/large.jpg"],
     "commonName": "Giant hairgrass",
     "scientificName": "Eleocharis montevidensis",
     "type": "rosette",
@@ -1874,6 +1888,7 @@
   },
   {
     "id": "rotala-vietnam",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/67284236/large.jpeg"],
     "commonName": "Rotala 'Vietnam H'ra'",
     "scientificName": "Rotala sp. 'Vietnam'",
     "type": "stem",
@@ -1913,6 +1928,7 @@
   },
   {
     "id": "brazilian-pennywort",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/189389672/large.jpeg"],
     "commonName": "Brazilian pennywort",
     "scientificName": "Hydrocotyle leucocephala",
     "type": "stem",
@@ -2011,6 +2027,7 @@
   },
   {
     "id": "blyxa-japonica",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/212748589/large.jpg"],
     "commonName": "Blyxa japonica",
     "scientificName": "Blyxa japonica",
     "type": "rosette",
@@ -2070,6 +2087,7 @@
   },
   {
     "id": "eriocaulon-cinereum",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/89647820/large.jpg"],
     "commonName": "Eriocaulon cinereum",
     "scientificName": "Eriocaulon cinereum",
     "type": "rosette",
@@ -2227,6 +2245,7 @@
   },
   {
     "id": "rotala-macrandra-green",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/156654378/large.jpg"],
     "commonName": "Rotala macrandra 'Green'",
     "scientificName": "Rotala macrandra 'Green'",
     "type": "stem",
@@ -2266,6 +2285,7 @@
   },
   {
     "id": "persicaria-sao-paulo",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/31165463/large.jpg"],
     "commonName": "Persicaria sp. 'Sao Paulo'",
     "scientificName": "Persicaria sp. 'Sao Paulo'",
     "type": "stem",
@@ -2285,6 +2305,7 @@
   },
   {
     "id": "persicaria-kawagoeanum",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/31165463/large.jpg"],
     "commonName": "Persicaria sp. 'Kawagoeanum'",
     "scientificName": "Persicaria sp. 'Kawagoeanum'",
     "type": "stem",
@@ -2304,6 +2325,7 @@
   },
   {
     "id": "lindernia-rotundifolia",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/61459922/large.jpg"],
     "commonName": "Roundleaf lindernia",
     "scientificName": "Lindernia rotundifolia",
     "type": "stem",
@@ -2342,6 +2364,7 @@
   },
   {
     "id": "rotala-nanjenshan",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/67284236/large.jpeg"],
     "commonName": "Rotala 'Nanjenshan'",
     "scientificName": "Rotala sp. 'Nanjenshan'",
     "type": "stem",
@@ -2380,6 +2403,7 @@
   },
   {
     "id": "murdannia-keisak",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/217119090/large.jpg"],
     "commonName": "Murdannia keisak",
     "scientificName": "Murdannia keisak",
     "type": "stem",
@@ -2399,6 +2423,7 @@
   },
   {
     "id": "crypt-pontederiifolia",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/160805579/large.jpeg"],
     "commonName": "Cryptocoryne pontederiifolia",
     "scientificName": "Cryptocoryne pontederiifolia",
     "type": "rosette",
@@ -2535,6 +2560,7 @@
   },
   {
     "id": "ludwigia-arcuata",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/186041435/large.jpg"],
     "commonName": "Needle-leaf ludwigia",
     "scientificName": "Ludwigia arcuata",
     "type": "stem",
@@ -2574,6 +2600,7 @@
   },
   {
     "id": "rotala-mexicana-goias",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/67112470/large.jpeg"],
     "commonName": "Rotala mexicana 'Goias'",
     "scientificName": "Rotala mexicana 'Goias'",
     "type": "carpet",
@@ -2613,6 +2640,7 @@
   },
   {
     "id": "ludwigia-ovalis",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/419234903/large.jpeg"],
     "commonName": "Oval ludwigia",
     "scientificName": "Ludwigia ovalis",
     "type": "stem",
@@ -2632,6 +2660,7 @@
   },
   {
     "id": "rotala-blood-red",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/33791619/large.jpeg"],
     "commonName": "Rotala 'Blood Red'",
     "scientificName": "Rotala rotundifolia 'Blood Red'",
     "type": "stem",
@@ -2691,6 +2720,7 @@
   },
   {
     "id": "sword-reni",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/432851572/large.jpeg"],
     "commonName": "Echinodorus 'Reni'",
     "scientificName": "Echinodorus 'Reni'",
     "type": "rosette",
@@ -2769,6 +2799,7 @@
   },
   {
     "id": "vallisneria-nana",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/411325556/large.jpeg"],
     "commonName": "Dwarf vallisneria",
     "scientificName": "Vallisneria nana",
     "type": "rosette",
@@ -2808,6 +2839,7 @@
   },
   {
     "id": "taiwan-moss",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/472757488/large.jpg"],
     "commonName": "Taiwan moss",
     "scientificName": "Taxiphyllum alternans",
     "type": "moss",
@@ -3045,6 +3077,7 @@
   },
   {
     "id": "gratiola-viscidula",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/298751260/large.jpg"],
     "commonName": "Gratiola viscidula",
     "scientificName": "Gratiola viscidula",
     "type": "stem",
@@ -3064,6 +3097,7 @@
   },
   {
     "id": "rorippa-aquatica",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/74608602/large.jpeg"],
     "commonName": "Water cabbage (Rorippa)",
     "scientificName": "Rorippa aquatica",
     "type": "stem",
@@ -3103,6 +3137,7 @@
   },
   {
     "id": "hydrotriche-hottoniiflora",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/29024820/large.jpg"],
     "commonName": "Hydrotriche",
     "scientificName": "Hydrotriche hottoniiflora",
     "type": "stem",
@@ -3122,6 +3157,7 @@
   },
   {
     "id": "willow-hygro",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/333556066/large.jpeg"],
     "commonName": "Willow hygro",
     "scientificName": "Hygrophila angustifolia",
     "type": "stem",
@@ -3141,6 +3177,7 @@
   },
   {
     "id": "rotala-pearl",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/67284236/large.jpeg"],
     "commonName": "Rotala 'Pearl'",
     "scientificName": "Rotala sp. 'Pearl'",
     "type": "stem",
@@ -3160,6 +3197,7 @@
   },
   {
     "id": "ludwigia-sphaerocarpa",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/619752592/large.jpg"],
     "commonName": "Ludwigia sphaerocarpa",
     "scientificName": "Ludwigia sphaerocarpa",
     "type": "stem",
@@ -3198,6 +3236,7 @@
   },
   {
     "id": "bacopa-myriophylloides",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/80878105/large.jpg"],
     "commonName": "Needle-leaf bacopa",
     "scientificName": "Bacopa myriophylloides",
     "type": "stem",
@@ -3217,6 +3256,7 @@
   },
   {
     "id": "pogostemon-quadrifolius",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/47600909/large.jpeg"],
     "commonName": "Pogostemon quadrifolius",
     "scientificName": "Pogostemon quadrifolius",
     "type": "stem",
@@ -3236,6 +3276,7 @@
   },
   {
     "id": "ludwigia-brevipes",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/657793285/large.jpg"],
     "commonName": "Ludwigia brevipes",
     "scientificName": "Ludwigia brevipes",
     "type": "stem",
@@ -3255,6 +3296,7 @@
   },
   {
     "id": "rotala-ceylon",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/33791619/large.jpeg"],
     "commonName": "Rotala 'Ceylon'",
     "scientificName": "Rotala rotundifolia 'Ceylon'",
     "type": "stem",
@@ -3293,6 +3335,7 @@
   },
   {
     "id": "crypt-pink-panther",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/154144150/large.jpg"],
     "commonName": "Cryptocoryne 'Pink Panther'",
     "scientificName": "Cryptocoryne cordata 'Rosanervig'",
     "type": "rosette",
@@ -3548,6 +3591,7 @@
   },
   {
     "id": "micranthemum-umbrosum",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/48410738/large.jpeg"],
     "commonName": "Giant baby tears",
     "scientificName": "Micranthemum umbrosum",
     "type": "stem",
@@ -3606,6 +3650,7 @@
   },
   {
     "id": "lindernia-india",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/57288783/large.jpeg"],
     "commonName": "Lindernia sp. 'India'",
     "scientificName": "Lindernia sp. 'India'",
     "type": "stem",
@@ -3723,6 +3768,7 @@
   },
   {
     "id": "crypt-retrospiralis",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/55285529/large.jpeg"],
     "commonName": "Cryptocoryne retrospiralis",
     "scientificName": "Cryptocoryne retrospiralis",
     "type": "rosette",
@@ -3742,6 +3788,7 @@
   },
   {
     "id": "crypt-affinis",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/251922262/large.jpg"],
     "commonName": "Cryptocoryne affinis",
     "scientificName": "Cryptocoryne affinis",
     "type": "rosette",
@@ -3761,6 +3808,7 @@
   },
   {
     "id": "sword-kleiner-bar",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/432851572/large.jpeg"],
     "commonName": "Kleiner Bar sword",
     "scientificName": "Echinodorus 'Kleiner Bar'",
     "type": "rosette",
@@ -3780,6 +3828,7 @@
   },
   {
     "id": "sword-aflame",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/432851572/large.jpeg"],
     "commonName": "Echinodorus 'Aflame'",
     "scientificName": "Echinodorus 'Aflame'",
     "type": "rosette",
@@ -3799,6 +3848,7 @@
   },
   {
     "id": "sword-rose",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/432851572/large.jpeg"],
     "commonName": "Echinodorus 'Rose'",
     "scientificName": "Echinodorus 'Rose'",
     "type": "rosette",
@@ -3877,6 +3927,7 @@
   },
   {
     "id": "sword-fantastic-color",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/432851572/large.jpeg"],
     "commonName": "Echinodorus 'Fantastic Color'",
     "scientificName": "Echinodorus 'Fantastic Color'",
     "type": "rosette",
@@ -4188,6 +4239,7 @@
   },
   {
     "id": "pogostemon-stellatus-broad",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/56578924/large.jpeg"],
     "commonName": "Pogostemon stellatus 'Broad Leaf'",
     "scientificName": "Pogostemon stellatus 'Broad Leaf'",
     "type": "stem",
@@ -4207,6 +4259,7 @@
   },
   {
     "id": "hygrophila-chai",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/182207509/large.jpg"],
     "commonName": "Hygrophila 'Chai'",
     "scientificName": "Hygrophila sp. 'Chai'",
     "type": "stem",
@@ -4246,6 +4299,7 @@
   },
   {
     "id": "hygrophila-balsamica",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/190586331/large.jpeg"],
     "commonName": "Hygrophila balsamica",
     "scientificName": "Hygrophila balsamica",
     "type": "stem",
@@ -4265,6 +4319,7 @@
   },
   {
     "id": "rotala-yao-yai",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/67284236/large.jpeg"],
     "commonName": "Rotala 'Yao Yai'",
     "scientificName": "Rotala sp. 'Yao Yai'",
     "type": "stem",
@@ -4304,6 +4359,7 @@
   },
   {
     "id": "lagenandra-meeboldii-red",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/104909854/large.jpeg"],
     "commonName": "Lagenandra meeboldii 'Red'",
     "scientificName": "Lagenandra meeboldii 'Red'",
     "type": "rosette",
@@ -4323,6 +4379,7 @@
   },
   {
     "id": "lagenandra-ovata",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/459224882/large.jpg"],
     "commonName": "Lagenandra ovata",
     "scientificName": "Lagenandra ovata",
     "type": "rosette",
@@ -4499,6 +4556,7 @@
   },
   {
     "id": "giant-duckweed",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/8810628/large.jpeg"],
     "commonName": "Giant duckweed",
     "scientificName": "Spirodela polyrhiza",
     "type": "floating",
@@ -4558,6 +4616,7 @@
   },
   {
     "id": "rotala-macrandra-variegated",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/156654378/large.jpg"],
     "commonName": "Rotala macrandra 'Variegated'",
     "scientificName": "Rotala macrandra 'Variegated'",
     "type": "stem",
@@ -4655,6 +4714,7 @@
   },
   {
     "id": "pogostemon-stellatus-narrow",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/56578924/large.jpeg"],
     "commonName": "Pogostemon stellatus 'Narrow Leaf'",
     "scientificName": "Pogostemon stellatus 'Narrow Leaf'",
     "type": "stem",
@@ -4833,6 +4893,7 @@
   },
   {
     "id": "rotala-fujian",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/33791619/large.jpeg"],
     "commonName": "Rotala 'Fujian'",
     "scientificName": "Rotala rotundifolia 'Fujian'",
     "type": "stem",
@@ -4852,6 +4913,7 @@
   },
   {
     "id": "rotala-mini-type2",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/33791619/large.jpeg"],
     "commonName": "Rotala 'Mini Type 2'",
     "scientificName": "Rotala rotundifolia 'Mini'",
     "type": "stem",
@@ -4911,6 +4973,7 @@
   },
   {
     "id": "broadleaf-water-sprite",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/256596114/large.jpeg"],
     "commonName": "Broad-leaf water sprite",
     "scientificName": "Ceratopteris cornuta",
     "type": "stem",
@@ -4930,6 +4993,7 @@
   },
   {
     "id": "rotala-rotundifolia-orange-juice",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/33791619/large.jpeg"],
     "commonName": "Rotala 'Orange Juice'",
     "scientificName": "Rotala rotundifolia 'Orange Juice'",
     "type": "stem",
@@ -4949,6 +5013,7 @@
   },
   {
     "id": "crypt-cordata",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/154144150/large.jpg"],
     "commonName": "Cryptocoryne cordata",
     "scientificName": "Cryptocoryne cordata",
     "type": "rosette",
@@ -4968,6 +5033,7 @@
   },
   {
     "id": "crypt-ciliata",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/253198173/large.jpeg"],
     "commonName": "Cryptocoryne ciliata",
     "scientificName": "Cryptocoryne ciliata",
     "type": "rosette",
@@ -5124,6 +5190,7 @@
   },
   {
     "id": "bacopa-lanigera",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/228333899/large.jpg"],
     "commonName": "Bacopa lanigera",
     "scientificName": "Bacopa lanigera",
     "type": "stem",
@@ -5163,6 +5230,7 @@
   },
   {
     "id": "rotala-macrandra-japan-red",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/156654378/large.jpg"],
     "commonName": "Rotala macrandra 'Japan Red'",
     "scientificName": "Rotala macrandra 'Japan Red'",
     "type": "stem",
@@ -5202,6 +5270,7 @@
   },
   {
     "id": "rotala-rotundifolia-red",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/33791619/large.jpeg"],
     "commonName": "Rotala rotundifolia 'Red'",
     "scientificName": "Rotala rotundifolia 'Red'",
     "type": "stem",
@@ -5358,6 +5427,7 @@
   },
   {
     "id": "umbrella-hairgrass",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/231967234/large.jpg"],
     "commonName": "Umbrella hairgrass",
     "scientificName": "Eleocharis vivipara",
     "type": "rosette",
@@ -5417,6 +5487,7 @@
   },
   {
     "id": "glossostigma-diandrum",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/345896117/large.jpeg"],
     "commonName": "Glosso 'Diandrum'",
     "scientificName": "Glossostigma diandrum",
     "type": "carpet",
@@ -5495,6 +5566,7 @@
   },
   {
     "id": "hygrophila-costata",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/609267965/large.jpg"],
     "commonName": "Hygrophila costata",
     "scientificName": "Hygrophila costata",
     "type": "stem",
@@ -5534,6 +5606,7 @@
   },
   {
     "id": "ludwigia-helminthorrhiza",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/336558069/large.jpeg"],
     "commonName": "Floating ludwigia",
     "scientificName": "Ludwigia helminthorrhiza",
     "type": "floating",
@@ -5553,6 +5626,7 @@
   },
   {
     "id": "limnophila-indica",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/92949534/large.jpeg"],
     "commonName": "Limnophila indica",
     "scientificName": "Limnophila indica",
     "type": "stem",
@@ -5572,6 +5646,7 @@
   },
   {
     "id": "bacopa-crenata",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/469105840/large.jpeg"],
     "commonName": "African bacopa",
     "scientificName": "Bacopa crenata",
     "type": "stem",
@@ -5631,6 +5706,7 @@
   },
   {
     "id": "cuphea-anagalloidea",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/345855513/large.jpeg"],
     "commonName": "Cuphea anagalloidea",
     "scientificName": "Cuphea anagalloidea",
     "type": "stem",
@@ -5787,6 +5863,7 @@
   },
   {
     "id": "lindernia-variegated",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/62910290/large.jpeg"],
     "commonName": "Variegated lindernia",
     "scientificName": "Lindernia parviflora 'Variegated'",
     "type": "stem",
@@ -5826,6 +5903,7 @@
   },
   {
     "id": "limnophila-rugosa",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/95537820/large.jpeg"],
     "commonName": "Limnophila rugosa",
     "scientificName": "Limnophila rugosa",
     "type": "stem",

@@ -45,7 +45,9 @@ export default function PlantDetailScreen({
   const slides =
     plant.images && plant.images.length > 0 ? plant.images : [null];
   const thumb = PLANT_THUMBS[plant.id];
-  const credit = PLANT_IMAGE_CREDITS[plant.id];
+  // One credit per slide; the line under the gallery follows the swipe.
+  const credits = PLANT_IMAGE_CREDITS[plant.id];
+  const credit = credits?.[page] ?? credits?.[0];
 
   const facts: { label: string; value: string }[] = [
     { label: "Height", value: formatLength(plant.heightCm, system) },
@@ -78,7 +80,9 @@ export default function PlantDetailScreen({
             <FishImage
               key={i}
               source={picture ?? thumb}
-              fallback={picture ? thumb : undefined}
+              // Thumb underlay only on the first slide — extra slides are
+              // different photos and a mismatched underlay would flash.
+              fallback={i === 0 && picture ? thumb : undefined}
               icon="🌿"
               iconSize={80}
               style={[styles.slide, { width: slideWidth, height: slideWidth }]}
@@ -98,7 +102,7 @@ export default function PlantDetailScreen({
       </View>
       {credit && (
         <Text style={styles.photoCredit}>
-          Photo: {credit.artist} · {credit.license} · Wikimedia Commons
+          Photo: {credit.artist} · {credit.license} · {credit.source}
         </Text>
       )}
 

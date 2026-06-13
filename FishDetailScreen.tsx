@@ -52,7 +52,10 @@ export default function FishDetailScreen({
   // appear instantly as the offline thumbnail and upgrade in place.
   const slides = fish.images && fish.images.length > 0 ? fish.images : [null];
   const thumb = FISH_THUMBS[fish.id];
-  const credit = FISH_IMAGE_CREDITS[fish.id];
+  // One credit per slide (extra gallery photos have their own photographers);
+  // the line under the gallery follows the swipe.
+  const credits = FISH_IMAGE_CREDITS[fish.id];
+  const credit = credits?.[page] ?? credits?.[0];
 
   // Quick facts — only the rows we actually have a value for (no "?" clutter).
   const facts: { label: string; value: string }[] = [
@@ -109,7 +112,10 @@ export default function FishDetailScreen({
             <FishImage
               key={i}
               source={picture ?? thumb}
-              fallback={picture ? thumb : undefined}
+              // Thumb underlay only on the first slide — it's the same photo.
+              // Extra slides are different photos; a mismatched underlay would
+              // flash the wrong picture while they load.
+              fallback={i === 0 && picture ? thumb : undefined}
               iconSize={80}
               style={[styles.slide, { width: slideWidth, height: slideWidth }]}
             />
@@ -128,7 +134,7 @@ export default function FishDetailScreen({
       </View>
       {credit && (
         <Text style={styles.photoCredit}>
-          Photo: {credit.artist} · {credit.license} · Wikimedia Commons
+          Photo: {credit.artist} · {credit.license} · {credit.source}
         </Text>
       )}
 
