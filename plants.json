@@ -21,7 +21,7 @@
   },
   {
     "id": "anubias-nana",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/7/7b/Anubias_barteri_var_glabra.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/1476325/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/28728837/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/28729029/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/28728906/large.jpg"],
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/8/8d/Anubias_barteri_var_nana_on_a_bogwood.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/1476325/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/28728837/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/28729029/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/28728906/large.jpg"],
     "commonName": "Anubias nana",
     "scientificName": "Anubias barteri var. nana",
     "type": "rhizome",
@@ -61,7 +61,6 @@
   },
   {
     "id": "java-fern-windelov",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/8/89/Microsorum_pteropus.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Java_fern_%28microsorum_pteropus%29_in_natural_habitat_in_West_Peninsular_Malaysia.jpg/1280px-Java_fern_%28microsorum_pteropus%29_in_natural_habitat_in_West_Peninsular_Malaysia.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Java_Fern_%28Microsorum_pteropus%29_growing_in_the_wild..jpg/1280px-Java_Fern_%28Microsorum_pteropus%29_growing_in_the_wild..jpg"],
     "commonName": "Windelov Java fern",
     "scientificName": "Microsorum pteropus 'Windelov'",
     "type": "rhizome",
@@ -161,6 +160,7 @@
   },
   {
     "id": "crypt-parva",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/345422420/original.jpeg"],
     "commonName": "Cryptocoryne parva",
     "scientificName": "Cryptocoryne parva",
     "type": "rosette",
@@ -180,6 +180,7 @@
   },
   {
     "id": "crypt-balansae",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Cryptocoryne_crispatula_kz01.jpg/1280px-Cryptocoryne_crispatula_kz01.jpg"],
     "commonName": "Cryptocoryne balansae",
     "scientificName": "Cryptocoryne crispatula var. balansae",
     "type": "rosette",
@@ -359,7 +360,6 @@
   },
   {
     "id": "rotala-rotundifolia",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/33791619/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/33791610/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/5622261/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/22989946/large.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Rotala_rotundifolia.jpg/1280px-Rotala_rotundifolia.jpg"],
     "commonName": "Rotala rotundifolia",
     "scientificName": "Rotala rotundifolia",
     "type": "stem",
@@ -835,7 +835,7 @@
   },
   {
     "id": "rotala-macrandra",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/156654378/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/156654385/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/156654391/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/156654395/large.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Rotala_macrandra_%288583650062%29.jpg/1280px-Rotala_macrandra_%288583650062%29.jpg"],
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Rotala_macrandra_%288583650062%29.jpg/1280px-Rotala_macrandra_%288583650062%29.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/156654385/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/156654391/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/156654395/large.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Rotala_macrandra_%288583650062%29.jpg/1280px-Rotala_macrandra_%288583650062%29.jpg"],
     "commonName": "Rotala macrandra",
     "scientificName": "Rotala macrandra",
     "type": "stem",
@@ -855,7 +855,6 @@
   },
   {
     "id": "ar-mini",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/e/e8/Alternanthera_reineckii.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Alternanthera_reineckii_%27Liliacina%27_kz01.jpg/1280px-Alternanthera_reineckii_%27Liliacina%27_kz01.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Alternanthera_reineckii_%27Liliacina%27_kz02.jpg/1280px-Alternanthera_reineckii_%27Liliacina%27_kz02.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Alternanthera_reineckii_%27Liliacina%27_kz03.jpg/1280px-Alternanthera_reineckii_%27Liliacina%27_kz03.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Alternanthera_reineckii_%281%29.JPG_-_Photo_by_V_C_Balakrishnan.jpg/1280px-Alternanthera_reineckii_%281%29.JPG_-_Photo_by_V_C_Balakrishnan.jpg"],
     "commonName": "Alternanthera reineckii 'Mini'",
     "scientificName": "Alternanthera reineckii 'Mini'",
     "type": "stem",
@@ -875,7 +874,6 @@
   },
   {
     "id": "crypt-lutea",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Cryptocoryne_walkeri.jpg/1280px-Cryptocoryne_walkeri.jpg"],
     "commonName": "Cryptocoryne lutea",
     "scientificName": "Cryptocoryne walkeri var. lutea",
     "type": "rosette",
@@ -974,6 +972,7 @@
   },
   {
     "id": "crypt-undulata-red",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/323632101/original.jpg"],
     "commonName": "Cryptocoryne undulata 'Red'",
     "scientificName": "Cryptocoryne undulata",
     "type": "rosette",
@@ -993,7 +992,6 @@
   },
   {
     "id": "sword-red-flame",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/432851572/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/246585436/large.jpg","https://upload.wikimedia.org/wikipedia/commons/9/91/Echinodorus_isthmicus2.jpg","https://upload.wikimedia.org/wikipedia/commons/d/d0/Echinodorus_bleheri.jpg","https://upload.wikimedia.org/wikipedia/commons/8/87/Echinodorus_grandiflorus_poster_Uruguay.jpg"],
     "commonName": "Red Flame sword",
     "scientificName": "Echinodorus 'Red Flame'",
     "type": "rosette",
@@ -1013,7 +1011,7 @@
   },
   {
     "id": "sword-ozelot",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/432851572/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/246585436/large.jpg","https://upload.wikimedia.org/wikipedia/commons/9/91/Echinodorus_isthmicus2.jpg","https://upload.wikimedia.org/wikipedia/commons/d/d0/Echinodorus_bleheri.jpg","https://upload.wikimedia.org/wikipedia/commons/8/87/Echinodorus_grandiflorus_poster_Uruguay.jpg"],
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/8/86/Echinodorus_ozelot.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/246585436/large.jpg","https://upload.wikimedia.org/wikipedia/commons/9/91/Echinodorus_isthmicus2.jpg","https://upload.wikimedia.org/wikipedia/commons/d/d0/Echinodorus_bleheri.jpg","https://upload.wikimedia.org/wikipedia/commons/8/87/Echinodorus_grandiflorus_poster_Uruguay.jpg"],
     "commonName": "Ozelot sword",
     "scientificName": "Echinodorus 'Ozelot'",
     "type": "rosette",
@@ -1033,7 +1031,6 @@
   },
   {
     "id": "sword-red-rubin",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/432851572/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/246585436/large.jpg","https://upload.wikimedia.org/wikipedia/commons/9/91/Echinodorus_isthmicus2.jpg","https://upload.wikimedia.org/wikipedia/commons/d/d0/Echinodorus_bleheri.jpg","https://upload.wikimedia.org/wikipedia/commons/8/87/Echinodorus_grandiflorus_poster_Uruguay.jpg"],
     "commonName": "Red Rubin sword",
     "scientificName": "Echinodorus 'Rubin'",
     "type": "rosette",
@@ -1053,7 +1050,6 @@
   },
   {
     "id": "helanthium-vesuvius",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/4/4f/Echinodorus_tenellus_BB-1913.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/110689722/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/29088408/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/29088409/large.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Helanthium_bolivianum_kz01.jpg/1280px-Helanthium_bolivianum_kz01.jpg"],
     "commonName": "Helanthium 'Vesuvius'",
     "scientificName": "Helanthium bolivianum 'Vesuvius'",
     "type": "rosette",
@@ -1073,7 +1069,6 @@
   },
   {
     "id": "aponogeton-crispus",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/6/68/Aponogeton_crispus.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/104633590/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/104633885/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/106008819/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/104633576/large.jpeg"],
     "commonName": "Aponogeton crispus",
     "scientificName": "Aponogeton crispus",
     "type": "bulb",
@@ -1133,7 +1128,6 @@
   },
   {
     "id": "pogostemon-stellatus-octopus",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/56578924/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/56578915/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/56578941/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/131066301/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/15132100/large.jpeg"],
     "commonName": "Pogostemon stellatus 'Octopus'",
     "scientificName": "Pogostemon stellatus 'Octopus'",
     "type": "stem",
@@ -1192,7 +1186,6 @@
   },
   {
     "id": "rotala-hra",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/33791619/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/33791610/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/5622261/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/22989946/large.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Rotala_rotundifolia.jpg/1280px-Rotala_rotundifolia.jpg"],
     "commonName": "Rotala 'H'ra'",
     "scientificName": "Rotala rotundifolia 'H'ra'",
     "type": "stem",
@@ -1212,7 +1205,6 @@
   },
   {
     "id": "ludwigia-super-red",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Starr_070515-7067_Ludwigia_palustris.jpg/1280px-Starr_070515-7067_Ludwigia_palustris.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/183996735/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/196044131/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/183996716/large.jpeg","https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Starr_070515-7066_Ludwigia_palustris.jpg/1280px-Starr_070515-7066_Ludwigia_palustris.jpg"],
     "commonName": "Ludwigia 'Super Red'",
     "scientificName": "Ludwigia palustris 'Super Red'",
     "type": "stem",
@@ -1272,7 +1264,7 @@
   },
   {
     "id": "anubias-coffeefolia",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/7/7b/Anubias_barteri_var_glabra.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/1476325/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/28728837/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/28729029/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/28728906/large.jpg"],
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Anubias_barteri_%27Coffeefolia%27_kz01.jpg/1280px-Anubias_barteri_%27Coffeefolia%27_kz01.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/1476325/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/28728837/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/28729029/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/28728906/large.jpg"],
     "commonName": "Anubias coffeefolia",
     "scientificName": "Anubias barteri var. coffeefolia",
     "type": "rhizome",
@@ -1292,7 +1284,6 @@
   },
   {
     "id": "anubias-nana-petite",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/7/7b/Anubias_barteri_var_glabra.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/1476325/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/28728837/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/28729029/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/28728906/large.jpg"],
     "commonName": "Anubias nana 'Petite'",
     "scientificName": "Anubias barteri var. nana 'Petite'",
     "type": "rhizome",
@@ -1312,7 +1303,6 @@
   },
   {
     "id": "anubias-congensis",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/7/7b/Anubias_barteri_var_glabra.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/1476325/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/28728837/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/28729029/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/28728906/large.jpg"],
     "commonName": "Anubias congensis",
     "scientificName": "Anubias barteri var. congensis",
     "type": "rhizome",
@@ -1370,7 +1360,6 @@
   },
   {
     "id": "flame-moss",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Taxiphyllum_wissgrillii_%28b%2C_144820-480959%29_8472.JPG/1280px-Taxiphyllum_wissgrillii_%28b%2C_144820-480959%29_8472.JPG","https://inaturalist-open-data.s3.amazonaws.com/photos/105342092/large.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Taxiphyllum_wissgrillii_%28a%2C_143106-475446%29_2006.JPG/1280px-Taxiphyllum_wissgrillii_%28a%2C_143106-475446%29_2006.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Taxiphyllum_wissgrillii_%28a%2C_143106-475446%29_2037.JPG/1280px-Taxiphyllum_wissgrillii_%28a%2C_143106-475446%29_2037.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Taxiphyllum_wissgrillii_%28a%2C_143106-475446%29_2038.JPG/1280px-Taxiphyllum_wissgrillii_%28a%2C_143106-475446%29_2038.JPG"],
     "commonName": "Flame moss",
     "scientificName": "Taxiphyllum 'Flame'",
     "type": "moss",
@@ -1390,6 +1379,7 @@
   },
   {
     "id": "weeping-moss",
+    "images": ["https://live.staticflickr.com/7322/8730164762_7c9d7dd9f7_b.jpg"],
     "commonName": "Weeping moss",
     "scientificName": "Vesicularia ferriei",
     "type": "moss",
@@ -1549,7 +1539,6 @@
   },
   {
     "id": "ammania-gracilis",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/5/5e/Ammannia_gracilis.jpg"],
     "commonName": "Ammania gracilis",
     "scientificName": "Ammania gracilis",
     "type": "stem",
@@ -1589,7 +1578,6 @@
   },
   {
     "id": "rotala-macrandra-mini-butterfly",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/156654378/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/156654385/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/156654391/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/156654395/large.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Rotala_macrandra_%288583650062%29.jpg/1280px-Rotala_macrandra_%288583650062%29.jpg"],
     "commonName": "Rotala macrandra 'Mini Butterfly'",
     "scientificName": "Rotala macrandra 'Mini Butterfly'",
     "type": "stem",
@@ -1629,7 +1617,6 @@
   },
   {
     "id": "lobelia-cardinalis-mini",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Lobelia_cardinalis_-_Cardinal_Flower.jpg/1280px-Lobelia_cardinalis_-_Cardinal_Flower.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/346977164/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/346977587/large.jpg","https://upload.wikimedia.org/wikipedia/commons/d/dd/Lobelia_cardinalis-4%2C_by_Mary_Vaux_Walcott.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Cardinal_flower_%28Lobelia_cardinalis%29.jpg/1280px-Cardinal_flower_%28Lobelia_cardinalis%29.jpg"],
     "commonName": "Lobelia cardinalis 'Mini'",
     "scientificName": "Lobelia cardinalis 'Mini'",
     "type": "stem",
@@ -1649,7 +1636,6 @@
   },
   {
     "id": "rotala-colorata",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/33791619/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/33791610/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/5622261/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/22989946/large.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Rotala_rotundifolia.jpg/1280px-Rotala_rotundifolia.jpg"],
     "commonName": "Rotala 'Colorata'",
     "scientificName": "Rotala rotundifolia 'Colorata'",
     "type": "stem",
@@ -1709,7 +1695,7 @@
   },
   {
     "id": "crinum-calamistratum",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Crinum_calamistratum_kz03.jpg/1280px-Crinum_calamistratum_kz03.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Crinum_calamistratum_-_Victoriahuset%2C_Bergianska_tr%C3%A4dg%C3%A5rden_-_Stockholm%2C_Sweden_-_DSC00286.JPG/1280px-Crinum_calamistratum_-_Victoriahuset%2C_Bergianska_tr%C3%A4dg%C3%A5rden_-_Stockholm%2C_Sweden_-_DSC00286.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Crinum_calamistratum_kz02.jpg/1280px-Crinum_calamistratum_kz02.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Crinum_calamistratum_kz01.jpg/1280px-Crinum_calamistratum_kz01.jpg"],
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Crinum_calamistratum_-_Victoriahuset%2C_Bergianska_tr%C3%A4dg%C3%A5rden_-_Stockholm%2C_Sweden_-_DSC00286.JPG/1280px-Crinum_calamistratum_-_Victoriahuset%2C_Bergianska_tr%C3%A4dg%C3%A5rden_-_Stockholm%2C_Sweden_-_DSC00286.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Crinum_calamistratum_-_Victoriahuset%2C_Bergianska_tr%C3%A4dg%C3%A5rden_-_Stockholm%2C_Sweden_-_DSC00286.JPG/1280px-Crinum_calamistratum_-_Victoriahuset%2C_Bergianska_tr%C3%A4dg%C3%A5rden_-_Stockholm%2C_Sweden_-_DSC00286.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Crinum_calamistratum_kz02.jpg/1280px-Crinum_calamistratum_kz02.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Crinum_calamistratum_kz01.jpg/1280px-Crinum_calamistratum_kz01.jpg"],
     "commonName": "Crinum calamistratum",
     "scientificName": "Crinum calamistratum",
     "type": "bulb",
@@ -1808,7 +1794,6 @@
   },
   {
     "id": "java-fern-trident",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/8/89/Microsorum_pteropus.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Java_fern_%28microsorum_pteropus%29_in_natural_habitat_in_West_Peninsular_Malaysia.jpg/1280px-Java_fern_%28microsorum_pteropus%29_in_natural_habitat_in_West_Peninsular_Malaysia.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Java_Fern_%28Microsorum_pteropus%29_growing_in_the_wild..jpg/1280px-Java_Fern_%28Microsorum_pteropus%29_growing_in_the_wild..jpg"],
     "commonName": "Java fern 'Trident'",
     "scientificName": "Microsorum pteropus 'Trident'",
     "type": "rhizome",
@@ -1828,7 +1813,6 @@
   },
   {
     "id": "java-fern-narrow",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/8/89/Microsorum_pteropus.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Java_fern_%28microsorum_pteropus%29_in_natural_habitat_in_West_Peninsular_Malaysia.jpg/1280px-Java_fern_%28microsorum_pteropus%29_in_natural_habitat_in_West_Peninsular_Malaysia.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Java_Fern_%28Microsorum_pteropus%29_growing_in_the_wild..jpg/1280px-Java_Fern_%28Microsorum_pteropus%29_growing_in_the_wild..jpg"],
     "commonName": "Java fern 'Narrow Leaf'",
     "scientificName": "Microsorum pteropus 'Narrow'",
     "type": "rhizome",
@@ -1848,7 +1832,6 @@
   },
   {
     "id": "crypt-green-gecko",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/6/64/Cryptocoryne_wendtii.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/-Cryptocoryne_wendtii-_from_Tropica_farm.JPG/1280px--Cryptocoryne_wendtii-_from_Tropica_farm.JPG","https://upload.wikimedia.org/wikipedia/commons/5/5a/Cryptocoryne_wendtii_Green.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Cryptocoryne_wendtii_74_Sunbury_St_Geebung_IMGP2501.jpg/1280px-Cryptocoryne_wendtii_74_Sunbury_St_Geebung_IMGP2501.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Cryptocoryne_wendtii_74_Sunbury_St_Geebung_P1010526.jpg/1280px-Cryptocoryne_wendtii_74_Sunbury_St_Geebung_P1010526.jpg"],
     "commonName": "Cryptocoryne 'Green Gecko'",
     "scientificName": "Cryptocoryne wendtii 'Green Gecko'",
     "type": "rosette",
@@ -1888,7 +1871,6 @@
   },
   {
     "id": "rotala-vietnam",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/67284236/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/67046973/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/102398515/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/108423354/large.jpeg","https://upload.wikimedia.org/wikipedia/commons/7/7a/Rotala_densiflora_%28Jalmukhi%29_in_Narshapur_forest%2C_AP_W_IMG_0943.jpg"],
     "commonName": "Rotala 'Vietnam H'ra'",
     "scientificName": "Rotala sp. 'Vietnam'",
     "type": "stem",
@@ -1908,7 +1890,6 @@
   },
   {
     "id": "rotala-bonsai",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Rotala_indica_var_uliginosa_flower01.jpg/1280px-Rotala_indica_var_uliginosa_flower01.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/85822221/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/111276829/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/111276827/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/85822447/large.jpeg"],
     "commonName": "Rotala 'Bonsai'",
     "scientificName": "Rotala indica 'Bonsai'",
     "type": "stem",
@@ -1948,7 +1929,6 @@
   },
   {
     "id": "ar-rosanervig",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/e/e8/Alternanthera_reineckii.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Alternanthera_reineckii_%27Liliacina%27_kz01.jpg/1280px-Alternanthera_reineckii_%27Liliacina%27_kz01.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Alternanthera_reineckii_%27Liliacina%27_kz02.jpg/1280px-Alternanthera_reineckii_%27Liliacina%27_kz02.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Alternanthera_reineckii_%27Liliacina%27_kz03.jpg/1280px-Alternanthera_reineckii_%27Liliacina%27_kz03.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Alternanthera_reineckii_%281%29.JPG_-_Photo_by_V_C_Balakrishnan.jpg/1280px-Alternanthera_reineckii_%281%29.JPG_-_Photo_by_V_C_Balakrishnan.jpg"],
     "commonName": "Alternanthera reineckii 'Rosanervig'",
     "scientificName": "Alternanthera reineckii 'Rosanervig'",
     "type": "stem",
@@ -2007,7 +1987,6 @@
   },
   {
     "id": "bacopa-compact",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Starr_010818-0007_Bacopa_monnieri.jpg/1280px-Starr_010818-0007_Bacopa_monnieri.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/72595208/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/592597810/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/592597821/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/322164830/large.jpeg"],
     "commonName": "Bacopa monnieri 'Compact'",
     "scientificName": "Bacopa monnieri 'Compact'",
     "type": "stem",
@@ -2245,7 +2224,6 @@
   },
   {
     "id": "rotala-macrandra-green",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/156654378/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/156654385/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/156654391/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/156654395/large.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Rotala_macrandra_%288583650062%29.jpg/1280px-Rotala_macrandra_%288583650062%29.jpg"],
     "commonName": "Rotala macrandra 'Green'",
     "scientificName": "Rotala macrandra 'Green'",
     "type": "stem",
@@ -2285,7 +2263,6 @@
   },
   {
     "id": "persicaria-sao-paulo",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/31165463/large.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Persicaria_minor_W.jpg/1280px-Persicaria_minor_W.jpg","https://upload.wikimedia.org/wikipedia/commons/b/b9/Persicaria_minor_ENBLA01.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Persicaria_capitata_AF_crop.jpg/1280px-Persicaria_capitata_AF_crop.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Persicaria_maculosa.jpg/1280px-Persicaria_maculosa.jpg"],
     "commonName": "Persicaria sp. 'Sao Paulo'",
     "scientificName": "Persicaria sp. 'Sao Paulo'",
     "type": "stem",
@@ -2305,7 +2282,6 @@
   },
   {
     "id": "persicaria-kawagoeanum",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/31165463/large.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Persicaria_minor_W.jpg/1280px-Persicaria_minor_W.jpg","https://upload.wikimedia.org/wikipedia/commons/b/b9/Persicaria_minor_ENBLA01.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Persicaria_capitata_AF_crop.jpg/1280px-Persicaria_capitata_AF_crop.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Persicaria_maculosa.jpg/1280px-Persicaria_maculosa.jpg"],
     "commonName": "Persicaria sp. 'Kawagoeanum'",
     "scientificName": "Persicaria sp. 'Kawagoeanum'",
     "type": "stem",
@@ -2364,7 +2340,6 @@
   },
   {
     "id": "rotala-nanjenshan",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/67284236/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/67046973/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/102398515/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/108423354/large.jpeg","https://upload.wikimedia.org/wikipedia/commons/7/7a/Rotala_densiflora_%28Jalmukhi%29_in_Narshapur_forest%2C_AP_W_IMG_0943.jpg"],
     "commonName": "Rotala 'Nanjenshan'",
     "scientificName": "Rotala sp. 'Nanjenshan'",
     "type": "stem",
@@ -2503,6 +2478,7 @@
   },
   {
     "id": "anubias-gracilis",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Anubias_gracilis_x_A._barteri_var._glabra_kz01.jpg/1280px-Anubias_gracilis_x_A._barteri_var._glabra_kz01.jpg"],
     "commonName": "Anubias gracilis",
     "scientificName": "Anubias gracilis",
     "type": "rhizome",
@@ -2580,7 +2556,6 @@
   },
   {
     "id": "ludwigia-cuba",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/f/fa/55056073.Ludwigiainclinata01.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/29035008/large.jpg","https://upload.wikimedia.org/wikipedia/commons/b/bd/11049-Ludwigia_inclinata-Ventuari.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Ludwigia_inclinata_var._verticillata_%27Pantanal%27.jpg/1280px-Ludwigia_inclinata_var._verticillata_%27Pantanal%27.jpg"],
     "commonName": "Ludwigia 'Cuba'",
     "scientificName": "Ludwigia inclinata var. verticillata 'Cuba'",
     "type": "stem",
@@ -2620,7 +2595,6 @@
   },
   {
     "id": "water-wisteria-variegated",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/b/ba/Hygrophila_difformis.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/168504530/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/257725709/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/96364741/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/317090636/large.jpeg"],
     "commonName": "Water wisteria 'Variegated'",
     "scientificName": "Hygrophila difformis 'Variegated'",
     "type": "stem",
@@ -2660,7 +2634,6 @@
   },
   {
     "id": "rotala-blood-red",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/33791619/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/33791610/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/5622261/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/22989946/large.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Rotala_rotundifolia.jpg/1280px-Rotala_rotundifolia.jpg"],
     "commonName": "Rotala 'Blood Red'",
     "scientificName": "Rotala rotundifolia 'Blood Red'",
     "type": "stem",
@@ -2700,7 +2673,6 @@
   },
   {
     "id": "radican-sword",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Echinodorus_cordifolius.jpg/1280px-Echinodorus_cordifolius.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Echinodorus_cordifolius_01.JPG/1280px-Echinodorus_cordifolius_01.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Echinodorus_cordifolius_2017-05-31_2496b.jpg/1280px-Echinodorus_cordifolius_2017-05-31_2496b.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Echinodorus_cordifolius_2017-05-31_2496.jpg/1280px-Echinodorus_cordifolius_2017-05-31_2496.jpg","https://upload.wikimedia.org/wikipedia/commons/f/f4/Echinodorus_cordifolius_Marble_Queen_1zz.jpg"],
     "commonName": "Radican sword",
     "scientificName": "Echinodorus cordifolius",
     "type": "rosette",
@@ -2720,7 +2692,6 @@
   },
   {
     "id": "sword-reni",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/432851572/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/246585436/large.jpg","https://upload.wikimedia.org/wikipedia/commons/9/91/Echinodorus_isthmicus2.jpg","https://upload.wikimedia.org/wikipedia/commons/d/d0/Echinodorus_bleheri.jpg","https://upload.wikimedia.org/wikipedia/commons/8/87/Echinodorus_grandiflorus_poster_Uruguay.jpg"],
     "commonName": "Echinodorus 'Reni'",
     "scientificName": "Echinodorus 'Reni'",
     "type": "rosette",
@@ -2819,7 +2790,6 @@
   },
   {
     "id": "spiky-moss",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Taxiphyllum_wissgrillii_%28b%2C_144820-480959%29_8472.JPG/1280px-Taxiphyllum_wissgrillii_%28b%2C_144820-480959%29_8472.JPG","https://inaturalist-open-data.s3.amazonaws.com/photos/105342092/large.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Taxiphyllum_wissgrillii_%28a%2C_143106-475446%29_2006.JPG/1280px-Taxiphyllum_wissgrillii_%28a%2C_143106-475446%29_2006.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Taxiphyllum_wissgrillii_%28a%2C_143106-475446%29_2037.JPG/1280px-Taxiphyllum_wissgrillii_%28a%2C_143106-475446%29_2037.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Taxiphyllum_wissgrillii_%28a%2C_143106-475446%29_2038.JPG/1280px-Taxiphyllum_wissgrillii_%28a%2C_143106-475446%29_2038.JPG"],
     "commonName": "Spiky moss",
     "scientificName": "Taxiphyllum sp. 'Spiky'",
     "type": "moss",
@@ -2918,7 +2888,6 @@
   },
   {
     "id": "bolbitis-difformis",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Kongo_Wasserfarn.jpg/1280px-Kongo_Wasserfarn.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/80872138/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/80872140/large.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Bolbitis_heudelotii_kz01.jpg/1280px-Bolbitis_heudelotii_kz01.jpg","https://upload.wikimedia.org/wikipedia/commons/7/7b/Bolbitis_heudelotii.jpeg"],
     "commonName": "Bolbitis 'Difformis'",
     "scientificName": "Bolbitis heudelotii 'Difformis'",
     "type": "rhizome",
@@ -3117,7 +3086,6 @@
   },
   {
     "id": "hygrophila-sunset",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/a/a8/Hygrophila_polysperma.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Hygrophila_polysperma2.JPG/1280px-Hygrophila_polysperma2.JPG","https://upload.wikimedia.org/wikipedia/commons/c/cb/Hygrophila_polysperma3.JPG","https://upload.wikimedia.org/wikipedia/commons/4/41/Hygrophila_polysperma_Rosa_Blattadern.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Hygrophila_polysperma_%27Rosanervig%27.jpg/1280px-Hygrophila_polysperma_%27Rosanervig%27.jpg"],
     "commonName": "Sunset hygro",
     "scientificName": "Hygrophila polysperma 'Rosanervig'",
     "type": "stem",
@@ -3177,7 +3145,6 @@
   },
   {
     "id": "rotala-pearl",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/67284236/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/67046973/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/102398515/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/108423354/large.jpeg","https://upload.wikimedia.org/wikipedia/commons/7/7a/Rotala_densiflora_%28Jalmukhi%29_in_Narshapur_forest%2C_AP_W_IMG_0943.jpg"],
     "commonName": "Rotala 'Pearl'",
     "scientificName": "Rotala sp. 'Pearl'",
     "type": "stem",
@@ -3296,7 +3263,6 @@
   },
   {
     "id": "rotala-ceylon",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/33791619/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/33791610/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/5622261/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/22989946/large.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Rotala_rotundifolia.jpg/1280px-Rotala_rotundifolia.jpg"],
     "commonName": "Rotala 'Ceylon'",
     "scientificName": "Rotala rotundifolia 'Ceylon'",
     "type": "stem",
@@ -3335,7 +3301,6 @@
   },
   {
     "id": "crypt-pink-panther",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/154144150/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/86224965/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/254978733/large.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Cryptocoryne_cordata_kz01.jpg/1280px-Cryptocoryne_cordata_kz01.jpg"],
     "commonName": "Cryptocoryne 'Pink Panther'",
     "scientificName": "Cryptocoryne cordata 'Rosanervig'",
     "type": "rosette",
@@ -3374,7 +3339,6 @@
   },
   {
     "id": "crypt-nevillii",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Cryptocoryne_x_Willisii.jpg/1280px-Cryptocoryne_x_Willisii.jpg"],
     "commonName": "Cryptocoryne nevillii",
     "scientificName": "Cryptocoryne x willisii 'Nevillii'",
     "type": "rosette",
@@ -3414,7 +3378,7 @@
   },
   {
     "id": "sword-marble-queen",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Echinodorus_cordifolius.jpg/1280px-Echinodorus_cordifolius.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Echinodorus_cordifolius_01.JPG/1280px-Echinodorus_cordifolius_01.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Echinodorus_cordifolius_2017-05-31_2496b.jpg/1280px-Echinodorus_cordifolius_2017-05-31_2496b.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Echinodorus_cordifolius_2017-05-31_2496.jpg/1280px-Echinodorus_cordifolius_2017-05-31_2496.jpg","https://upload.wikimedia.org/wikipedia/commons/f/f4/Echinodorus_cordifolius_Marble_Queen_1zz.jpg"],
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/f/f4/Echinodorus_cordifolius_Marble_Queen_1zz.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Echinodorus_cordifolius_01.JPG/1280px-Echinodorus_cordifolius_01.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Echinodorus_cordifolius_2017-05-31_2496b.jpg/1280px-Echinodorus_cordifolius_2017-05-31_2496b.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Echinodorus_cordifolius_2017-05-31_2496.jpg/1280px-Echinodorus_cordifolius_2017-05-31_2496.jpg","https://upload.wikimedia.org/wikipedia/commons/f/f4/Echinodorus_cordifolius_Marble_Queen_1zz.jpg"],
     "commonName": "Marble Queen sword",
     "scientificName": "Echinodorus cordifolius 'Marble Queen'",
     "type": "rosette",
@@ -3434,7 +3398,6 @@
   },
   {
     "id": "anubias-golden-nana",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/7/7b/Anubias_barteri_var_glabra.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/1476325/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/28728837/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/28729029/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/28728906/large.jpg"],
     "commonName": "Anubias nana 'Golden'",
     "scientificName": "Anubias barteri var. nana 'Golden'",
     "type": "rhizome",
@@ -3474,7 +3437,6 @@
   },
   {
     "id": "anubias-pinto",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/7/7b/Anubias_barteri_var_glabra.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/1476325/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/28728837/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/28729029/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/28728906/large.jpg"],
     "commonName": "Anubias 'Pinto'",
     "scientificName": "Anubias barteri var. nana 'Pinto'",
     "type": "rhizome",
@@ -3494,7 +3456,6 @@
   },
   {
     "id": "anubias-broad-leaf",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/7/7b/Anubias_barteri_var_glabra.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/1476325/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/28728837/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/28729029/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/28728906/large.jpg"],
     "commonName": "Anubias barteri 'Broad Leaf'",
     "scientificName": "Anubias barteri 'Broad Leaf'",
     "type": "rhizome",
@@ -3571,7 +3532,6 @@
   },
   {
     "id": "hygrophila-siamensis-53b",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/e/ee/Hygrophila_corymbosa_siamensis.JPG","https://inaturalist-open-data.s3.amazonaws.com/photos/188571037/large.jpeg","https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Hygrophila_corymbosa.JPG/1280px-Hygrophila_corymbosa.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Hygrophila_corymbosa_kz01.jpg/1280px-Hygrophila_corymbosa_kz01.jpg"],
     "commonName": "Hygrophila 'Siamensis 53B'",
     "scientificName": "Hygrophila corymbosa 'Siamensis 53B'",
     "type": "stem",
@@ -3670,7 +3630,6 @@
   },
   {
     "id": "crypt-wendtii-brown",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/6/64/Cryptocoryne_wendtii.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/-Cryptocoryne_wendtii-_from_Tropica_farm.JPG/1280px--Cryptocoryne_wendtii-_from_Tropica_farm.JPG","https://upload.wikimedia.org/wikipedia/commons/5/5a/Cryptocoryne_wendtii_Green.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Cryptocoryne_wendtii_74_Sunbury_St_Geebung_IMGP2501.jpg/1280px-Cryptocoryne_wendtii_74_Sunbury_St_Geebung_IMGP2501.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Cryptocoryne_wendtii_74_Sunbury_St_Geebung_P1010526.jpg/1280px-Cryptocoryne_wendtii_74_Sunbury_St_Geebung_P1010526.jpg"],
     "commonName": "Cryptocoryne wendtii 'Brown'",
     "scientificName": "Cryptocoryne wendtii 'Brown'",
     "type": "rosette",
@@ -3690,7 +3649,7 @@
   },
   {
     "id": "crypt-wendtii-red",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/6/64/Cryptocoryne_wendtii.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/-Cryptocoryne_wendtii-_from_Tropica_farm.JPG/1280px--Cryptocoryne_wendtii-_from_Tropica_farm.JPG","https://upload.wikimedia.org/wikipedia/commons/5/5a/Cryptocoryne_wendtii_Green.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Cryptocoryne_wendtii_74_Sunbury_St_Geebung_IMGP2501.jpg/1280px-Cryptocoryne_wendtii_74_Sunbury_St_Geebung_IMGP2501.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Cryptocoryne_wendtii_74_Sunbury_St_Geebung_P1010526.jpg/1280px-Cryptocoryne_wendtii_74_Sunbury_St_Geebung_P1010526.jpg"],
+    "images": ["https://live.staticflickr.com/8018/7703985106_b9b8a763a6_b.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/-Cryptocoryne_wendtii-_from_Tropica_farm.JPG/1280px--Cryptocoryne_wendtii-_from_Tropica_farm.JPG","https://upload.wikimedia.org/wikipedia/commons/5/5a/Cryptocoryne_wendtii_Green.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Cryptocoryne_wendtii_74_Sunbury_St_Geebung_IMGP2501.jpg/1280px-Cryptocoryne_wendtii_74_Sunbury_St_Geebung_IMGP2501.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Cryptocoryne_wendtii_74_Sunbury_St_Geebung_P1010526.jpg/1280px-Cryptocoryne_wendtii_74_Sunbury_St_Geebung_P1010526.jpg"],
     "commonName": "Cryptocoryne wendtii 'Red'",
     "scientificName": "Cryptocoryne wendtii 'Red'",
     "type": "rosette",
@@ -3710,7 +3669,6 @@
   },
   {
     "id": "crypt-florida-sunset",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/6/64/Cryptocoryne_wendtii.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/-Cryptocoryne_wendtii-_from_Tropica_farm.JPG/1280px--Cryptocoryne_wendtii-_from_Tropica_farm.JPG","https://upload.wikimedia.org/wikipedia/commons/5/5a/Cryptocoryne_wendtii_Green.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Cryptocoryne_wendtii_74_Sunbury_St_Geebung_IMGP2501.jpg/1280px-Cryptocoryne_wendtii_74_Sunbury_St_Geebung_IMGP2501.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Cryptocoryne_wendtii_74_Sunbury_St_Geebung_P1010526.jpg/1280px-Cryptocoryne_wendtii_74_Sunbury_St_Geebung_P1010526.jpg"],
     "commonName": "Cryptocoryne 'Florida Sunset'",
     "scientificName": "Cryptocoryne wendtii 'Florida Sunset'",
     "type": "rosette",
@@ -3768,7 +3726,7 @@
   },
   {
     "id": "crypt-retrospiralis",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/55285529/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/42157260/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/42157327/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/42157311/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/42157285/large.jpg"],
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/55285524/original.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/42157260/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/42157327/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/42157311/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/42157285/large.jpg"],
     "commonName": "Cryptocoryne retrospiralis",
     "scientificName": "Cryptocoryne retrospiralis",
     "type": "rosette",
@@ -3808,7 +3766,6 @@
   },
   {
     "id": "sword-kleiner-bar",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/432851572/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/246585436/large.jpg","https://upload.wikimedia.org/wikipedia/commons/9/91/Echinodorus_isthmicus2.jpg","https://upload.wikimedia.org/wikipedia/commons/d/d0/Echinodorus_bleheri.jpg","https://upload.wikimedia.org/wikipedia/commons/8/87/Echinodorus_grandiflorus_poster_Uruguay.jpg"],
     "commonName": "Kleiner Bar sword",
     "scientificName": "Echinodorus 'Kleiner Bar'",
     "type": "rosette",
@@ -3828,7 +3785,7 @@
   },
   {
     "id": "sword-aflame",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/432851572/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/246585436/large.jpg","https://upload.wikimedia.org/wikipedia/commons/9/91/Echinodorus_isthmicus2.jpg","https://upload.wikimedia.org/wikipedia/commons/d/d0/Echinodorus_bleheri.jpg","https://upload.wikimedia.org/wikipedia/commons/8/87/Echinodorus_grandiflorus_poster_Uruguay.jpg"],
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/9/97/Echinodorus_aflame_greenleaf.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/246585436/large.jpg","https://upload.wikimedia.org/wikipedia/commons/9/91/Echinodorus_isthmicus2.jpg","https://upload.wikimedia.org/wikipedia/commons/d/d0/Echinodorus_bleheri.jpg","https://upload.wikimedia.org/wikipedia/commons/8/87/Echinodorus_grandiflorus_poster_Uruguay.jpg"],
     "commonName": "Echinodorus 'Aflame'",
     "scientificName": "Echinodorus 'Aflame'",
     "type": "rosette",
@@ -3848,7 +3805,6 @@
   },
   {
     "id": "sword-rose",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/432851572/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/246585436/large.jpg","https://upload.wikimedia.org/wikipedia/commons/9/91/Echinodorus_isthmicus2.jpg","https://upload.wikimedia.org/wikipedia/commons/d/d0/Echinodorus_bleheri.jpg","https://upload.wikimedia.org/wikipedia/commons/8/87/Echinodorus_grandiflorus_poster_Uruguay.jpg"],
     "commonName": "Echinodorus 'Rose'",
     "scientificName": "Echinodorus 'Rose'",
     "type": "rosette",
@@ -3927,7 +3883,6 @@
   },
   {
     "id": "sword-fantastic-color",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/432851572/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/246585436/large.jpg","https://upload.wikimedia.org/wikipedia/commons/9/91/Echinodorus_isthmicus2.jpg","https://upload.wikimedia.org/wikipedia/commons/d/d0/Echinodorus_bleheri.jpg","https://upload.wikimedia.org/wikipedia/commons/8/87/Echinodorus_grandiflorus_poster_Uruguay.jpg"],
     "commonName": "Echinodorus 'Fantastic Color'",
     "scientificName": "Echinodorus 'Fantastic Color'",
     "type": "rosette",
@@ -3947,7 +3902,6 @@
   },
   {
     "id": "anubias-coin-leaf",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/7/7b/Anubias_barteri_var_glabra.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/1476325/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/28728837/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/28729029/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/28728906/large.jpg"],
     "commonName": "Anubias 'Coin Leaf'",
     "scientificName": "Anubias barteri var. nana 'Coin Leaf'",
     "type": "rhizome",
@@ -3967,7 +3921,6 @@
   },
   {
     "id": "anubias-minima",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/7/7b/Anubias_barteri_var_glabra.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/1476325/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/28728837/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/28729029/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/28728906/large.jpg"],
     "commonName": "Anubias minima",
     "scientificName": "Anubias barteri var. minima",
     "type": "rhizome",
@@ -4007,7 +3960,6 @@
   },
   {
     "id": "anubias-snow-white",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/7/7b/Anubias_barteri_var_glabra.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/1476325/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/28728837/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/28729029/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/28728906/large.jpg"],
     "commonName": "Anubias nana 'Snow White'",
     "scientificName": "Anubias barteri var. nana 'Snow White'",
     "type": "rhizome",
@@ -4047,7 +3999,6 @@
   },
   {
     "id": "java-fern-philippine",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/8/89/Microsorum_pteropus.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Java_fern_%28microsorum_pteropus%29_in_natural_habitat_in_West_Peninsular_Malaysia.jpg/1280px-Java_fern_%28microsorum_pteropus%29_in_natural_habitat_in_West_Peninsular_Malaysia.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Java_Fern_%28Microsorum_pteropus%29_growing_in_the_wild..jpg/1280px-Java_Fern_%28Microsorum_pteropus%29_growing_in_the_wild..jpg"],
     "commonName": "Java fern 'Philippine'",
     "scientificName": "Microsorum pteropus 'Philippine'",
     "type": "rhizome",
@@ -4219,7 +4170,7 @@
   },
   {
     "id": "ludwigia-pantanal",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/f/fa/55056073.Ludwigiainclinata01.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/29035008/large.jpg","https://upload.wikimedia.org/wikipedia/commons/b/bd/11049-Ludwigia_inclinata-Ventuari.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Ludwigia_inclinata_var._verticillata_%27Pantanal%27.jpg/1280px-Ludwigia_inclinata_var._verticillata_%27Pantanal%27.jpg"],
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Ludwigia_inclinata_var._verticillata_%27Pantanal%27.jpg/1280px-Ludwigia_inclinata_var._verticillata_%27Pantanal%27.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/29035008/large.jpg","https://upload.wikimedia.org/wikipedia/commons/b/bd/11049-Ludwigia_inclinata-Ventuari.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Ludwigia_inclinata_var._verticillata_%27Pantanal%27.jpg/1280px-Ludwigia_inclinata_var._verticillata_%27Pantanal%27.jpg"],
     "commonName": "Ludwigia 'Pantanal'",
     "scientificName": "Ludwigia inclinata var. verticillata 'Pantanal'",
     "type": "stem",
@@ -4239,7 +4190,6 @@
   },
   {
     "id": "pogostemon-stellatus-broad",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/56578924/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/56578915/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/56578941/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/131066301/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/15132100/large.jpeg"],
     "commonName": "Pogostemon stellatus 'Broad Leaf'",
     "scientificName": "Pogostemon stellatus 'Broad Leaf'",
     "type": "stem",
@@ -4259,7 +4209,6 @@
   },
   {
     "id": "hygrophila-chai",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/182207509/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/182207513/large.png","https://inaturalist-open-data.s3.amazonaws.com/photos/171964085/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/2759922/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/3045869/large.jpg"],
     "commonName": "Hygrophila 'Chai'",
     "scientificName": "Hygrophila sp. 'Chai'",
     "type": "stem",
@@ -4279,7 +4228,6 @@
   },
   {
     "id": "ludwigia-repens-rubin",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Ludwigia_repens.JPG/1280px-Ludwigia_repens.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Ludwigia_repens_with_a_water_root_-_20091016.jpg/1280px-Ludwigia_repens_with_a_water_root_-_20091016.jpg","https://upload.wikimedia.org/wikipedia/commons/9/9e/Ludwigia_repens_2zz.jpg","https://upload.wikimedia.org/wikipedia/commons/c/cf/Ludwigia_repens_3zz.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Ludwigia_repens_-_Flickr_-_Kevin_Thiele.jpg/1280px-Ludwigia_repens_-_Flickr_-_Kevin_Thiele.jpg"],
     "commonName": "Ludwigia repens 'Rubin'",
     "scientificName": "Ludwigia repens 'Rubin'",
     "type": "stem",
@@ -4319,7 +4267,6 @@
   },
   {
     "id": "rotala-yao-yai",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/67284236/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/67046973/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/102398515/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/108423354/large.jpeg","https://upload.wikimedia.org/wikipedia/commons/7/7a/Rotala_densiflora_%28Jalmukhi%29_in_Narshapur_forest%2C_AP_W_IMG_0943.jpg"],
     "commonName": "Rotala 'Yao Yai'",
     "scientificName": "Rotala sp. 'Yao Yai'",
     "type": "stem",
@@ -4418,6 +4365,7 @@
   },
   {
     "id": "egeria-najas",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Egeria_najas_Planchon.jpg/1280px-Egeria_najas_Planchon.jpg"],
     "commonName": "Najas (Egeria najas)",
     "scientificName": "Egeria najas",
     "type": "stem",
@@ -4616,7 +4564,6 @@
   },
   {
     "id": "rotala-macrandra-variegated",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/156654378/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/156654385/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/156654391/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/156654395/large.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Rotala_macrandra_%288583650062%29.jpg/1280px-Rotala_macrandra_%288583650062%29.jpg"],
     "commonName": "Rotala macrandra 'Variegated'",
     "scientificName": "Rotala macrandra 'Variegated'",
     "type": "stem",
@@ -4674,7 +4621,6 @@
   },
   {
     "id": "ludwigia-repens-dark-red",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Ludwigia_repens.JPG/1280px-Ludwigia_repens.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Ludwigia_repens_with_a_water_root_-_20091016.jpg/1280px-Ludwigia_repens_with_a_water_root_-_20091016.jpg","https://upload.wikimedia.org/wikipedia/commons/9/9e/Ludwigia_repens_2zz.jpg","https://upload.wikimedia.org/wikipedia/commons/c/cf/Ludwigia_repens_3zz.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Ludwigia_repens_-_Flickr_-_Kevin_Thiele.jpg/1280px-Ludwigia_repens_-_Flickr_-_Kevin_Thiele.jpg"],
     "commonName": "Ludwigia repens 'Dark Red'",
     "scientificName": "Ludwigia repens 'Dark Red'",
     "type": "stem",
@@ -4714,7 +4660,6 @@
   },
   {
     "id": "pogostemon-stellatus-narrow",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/56578924/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/56578915/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/56578941/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/131066301/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/15132100/large.jpeg"],
     "commonName": "Pogostemon stellatus 'Narrow Leaf'",
     "scientificName": "Pogostemon stellatus 'Narrow Leaf'",
     "type": "stem",
@@ -4734,7 +4679,6 @@
   },
   {
     "id": "hygrophila-tiger",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/a/a8/Hygrophila_polysperma.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Hygrophila_polysperma2.JPG/1280px-Hygrophila_polysperma2.JPG","https://upload.wikimedia.org/wikipedia/commons/c/cb/Hygrophila_polysperma3.JPG","https://upload.wikimedia.org/wikipedia/commons/4/41/Hygrophila_polysperma_Rosa_Blattadern.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Hygrophila_polysperma_%27Rosanervig%27.jpg/1280px-Hygrophila_polysperma_%27Rosanervig%27.jpg"],
     "commonName": "Hygrophila 'Tiger'",
     "scientificName": "Hygrophila polysperma 'Tiger'",
     "type": "stem",
@@ -4754,7 +4698,6 @@
   },
   {
     "id": "tiger-val",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/3/39/Vallisneria_spiralis.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/150790004/large.jpg","https://upload.wikimedia.org/wikipedia/commons/9/95/Vallisneria_spiralis_Erasmus_Darwin_1789.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/PSM_V19_D172_Vallisneria_spiralis.jpg/1280px-PSM_V19_D172_Vallisneria_spiralis.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/PSM_V68_D255_Vallisneria_spiralis_7_weeks_growth_in_lake_soil.png/1280px-PSM_V68_D255_Vallisneria_spiralis_7_weeks_growth_in_lake_soil.png"],
     "commonName": "Tiger vallisneria",
     "scientificName": "Vallisneria spiralis 'Tiger'",
     "type": "rosette",
@@ -4774,7 +4717,6 @@
   },
   {
     "id": "giant-val",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Vallisneria_americana-schmid01.jpg/1280px-Vallisneria_americana-schmid01.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/419017835/large.jpeg","https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Vallisneria_americana_%28USDA%29.jpg/1280px-Vallisneria_americana_%28USDA%29.jpg","https://upload.wikimedia.org/wikipedia/commons/a/aa/Vallisneria_americana_NY-dist-map.png","https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Vallisneria_americana_in_Bay_Springs_Branch_2016.JPG/1280px-Vallisneria_americana_in_Bay_Springs_Branch_2016.JPG"],
     "commonName": "Giant vallisneria",
     "scientificName": "Vallisneria americana var. gigantea",
     "type": "rosette",
@@ -4794,7 +4736,6 @@
   },
   {
     "id": "helanthium-quadricostatus",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/4/4f/Echinodorus_tenellus_BB-1913.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/110689722/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/29088408/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/29088409/large.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Helanthium_bolivianum_kz01.jpg/1280px-Helanthium_bolivianum_kz01.jpg"],
     "commonName": "Helanthium 'Quadricostatus'",
     "scientificName": "Helanthium bolivianum 'Quadricostatus'",
     "type": "rosette",
@@ -4853,7 +4794,6 @@
   },
   {
     "id": "sagittaria-subulata-narrow",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Sagittaria_subulata_kz01.jpg/1280px-Sagittaria_subulata_kz01.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Sagittaria_subulata_drawing.png/1280px-Sagittaria_subulata_drawing.png","https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Sagittaria_subulata_-_Copenhagen_Botanical_Garden_-_DSC07957.JPG/1280px-Sagittaria_subulata_-_Copenhagen_Botanical_Garden_-_DSC07957.JPG","https://upload.wikimedia.org/wikipedia/commons/b/b3/Sagittaria_subulata_NY-dist-map.png","https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Sagittaria_subulata_-_Botanischer_Garten_-_Heidelberg%2C_Germany_-_DSC01290.jpg/1280px-Sagittaria_subulata_-_Botanischer_Garten_-_Heidelberg%2C_Germany_-_DSC01290.jpg"],
     "commonName": "Narrow-leaf sagittaria",
     "scientificName": "Sagittaria subulata var. gracillima",
     "type": "rosette",
@@ -4893,7 +4833,6 @@
   },
   {
     "id": "rotala-fujian",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/33791619/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/33791610/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/5622261/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/22989946/large.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Rotala_rotundifolia.jpg/1280px-Rotala_rotundifolia.jpg"],
     "commonName": "Rotala 'Fujian'",
     "scientificName": "Rotala rotundifolia 'Fujian'",
     "type": "stem",
@@ -4913,7 +4852,6 @@
   },
   {
     "id": "rotala-mini-type2",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/33791619/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/33791610/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/5622261/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/22989946/large.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Rotala_rotundifolia.jpg/1280px-Rotala_rotundifolia.jpg"],
     "commonName": "Rotala 'Mini Type 2'",
     "scientificName": "Rotala rotundifolia 'Mini'",
     "type": "stem",
@@ -4953,7 +4891,6 @@
   },
   {
     "id": "java-fern-narrow-mini",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/8/89/Microsorum_pteropus.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Java_fern_%28microsorum_pteropus%29_in_natural_habitat_in_West_Peninsular_Malaysia.jpg/1280px-Java_fern_%28microsorum_pteropus%29_in_natural_habitat_in_West_Peninsular_Malaysia.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Java_Fern_%28Microsorum_pteropus%29_growing_in_the_wild..jpg/1280px-Java_Fern_%28Microsorum_pteropus%29_growing_in_the_wild..jpg"],
     "commonName": "Java fern 'Narrow Mini'",
     "scientificName": "Microsorum pteropus 'Narrow Mini'",
     "type": "rhizome",
@@ -4993,7 +4930,6 @@
   },
   {
     "id": "rotala-rotundifolia-orange-juice",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/33791619/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/33791610/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/5622261/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/22989946/large.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Rotala_rotundifolia.jpg/1280px-Rotala_rotundifolia.jpg"],
     "commonName": "Rotala 'Orange Juice'",
     "scientificName": "Rotala rotundifolia 'Orange Juice'",
     "type": "stem",
@@ -5013,7 +4949,7 @@
   },
   {
     "id": "crypt-cordata",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/154144150/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/86224965/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/254978733/large.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Cryptocoryne_cordata_kz01.jpg/1280px-Cryptocoryne_cordata_kz01.jpg"],
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Cryptocoryne_cordata_kz01.jpg/1280px-Cryptocoryne_cordata_kz01.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/86224965/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/254978733/large.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Cryptocoryne_cordata_kz01.jpg/1280px-Cryptocoryne_cordata_kz01.jpg"],
     "commonName": "Cryptocoryne cordata",
     "scientificName": "Cryptocoryne cordata",
     "type": "rosette",
@@ -5110,7 +5046,6 @@
   },
   {
     "id": "crypt-pink-flamingo",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/6/64/Cryptocoryne_wendtii.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/-Cryptocoryne_wendtii-_from_Tropica_farm.JPG/1280px--Cryptocoryne_wendtii-_from_Tropica_farm.JPG","https://upload.wikimedia.org/wikipedia/commons/5/5a/Cryptocoryne_wendtii_Green.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Cryptocoryne_wendtii_74_Sunbury_St_Geebung_IMGP2501.jpg/1280px-Cryptocoryne_wendtii_74_Sunbury_St_Geebung_IMGP2501.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Cryptocoryne_wendtii_74_Sunbury_St_Geebung_P1010526.jpg/1280px-Cryptocoryne_wendtii_74_Sunbury_St_Geebung_P1010526.jpg"],
     "commonName": "Cryptocoryne 'Pink Flamingo'",
     "scientificName": "Cryptocoryne wendtii 'Pink Flamingo'",
     "type": "rosette",
@@ -5130,7 +5065,7 @@
   },
   {
     "id": "crypt-tropica",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/6/64/Cryptocoryne_wendtii.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/-Cryptocoryne_wendtii-_from_Tropica_farm.JPG/1280px--Cryptocoryne_wendtii-_from_Tropica_farm.JPG","https://upload.wikimedia.org/wikipedia/commons/5/5a/Cryptocoryne_wendtii_Green.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Cryptocoryne_wendtii_74_Sunbury_St_Geebung_IMGP2501.jpg/1280px-Cryptocoryne_wendtii_74_Sunbury_St_Geebung_IMGP2501.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Cryptocoryne_wendtii_74_Sunbury_St_Geebung_P1010526.jpg/1280px-Cryptocoryne_wendtii_74_Sunbury_St_Geebung_P1010526.jpg"],
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/-Cryptocoryne_wendtii-_from_Tropica_farm.JPG/1280px--Cryptocoryne_wendtii-_from_Tropica_farm.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/-Cryptocoryne_wendtii-_from_Tropica_farm.JPG/1280px--Cryptocoryne_wendtii-_from_Tropica_farm.JPG","https://upload.wikimedia.org/wikipedia/commons/5/5a/Cryptocoryne_wendtii_Green.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Cryptocoryne_wendtii_74_Sunbury_St_Geebung_IMGP2501.jpg/1280px-Cryptocoryne_wendtii_74_Sunbury_St_Geebung_IMGP2501.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Cryptocoryne_wendtii_74_Sunbury_St_Geebung_P1010526.jpg/1280px-Cryptocoryne_wendtii_74_Sunbury_St_Geebung_P1010526.jpg"],
     "commonName": "Cryptocoryne 'Tropica'",
     "scientificName": "Cryptocoryne wendtii 'Tropica'",
     "type": "rosette",
@@ -5150,7 +5085,6 @@
   },
   {
     "id": "ludwigia-inclinata-green",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/f/fa/55056073.Ludwigiainclinata01.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/29035008/large.jpg","https://upload.wikimedia.org/wikipedia/commons/b/bd/11049-Ludwigia_inclinata-Ventuari.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Ludwigia_inclinata_var._verticillata_%27Pantanal%27.jpg/1280px-Ludwigia_inclinata_var._verticillata_%27Pantanal%27.jpg"],
     "commonName": "Ludwigia inclinata 'Green'",
     "scientificName": "Ludwigia inclinata 'Green'",
     "type": "stem",
@@ -5170,7 +5104,6 @@
   },
   {
     "id": "bacopa-colorata",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Bacopa_caroliniana_BotGardBln07122011D.JPG/1280px-Bacopa_caroliniana_BotGardBln07122011D.JPG","https://inaturalist-open-data.s3.amazonaws.com/photos/222092915/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/222093041/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/148645417/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/561093259/large.jpg"],
     "commonName": "Bacopa 'Colorata'",
     "scientificName": "Bacopa caroliniana 'Colorata'",
     "type": "stem",
@@ -5210,7 +5143,6 @@
   },
   {
     "id": "hydrocotyle-tripartita-mini",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/c/c7/Hydrocotyle_Tripartita_Japan.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/26418765/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/110174183/large.jpeg","https://upload.wikimedia.org/wikipedia/commons/0/0f/Hydrocotyle_tripartita.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Hydrocotyle_tripartita_habit1_%289005151481%29.jpg/1280px-Hydrocotyle_tripartita_habit1_%289005151481%29.jpg"],
     "commonName": "Hydrocotyle tripartita 'Mini'",
     "scientificName": "Hydrocotyle tripartita 'Mini'",
     "type": "carpet",
@@ -5230,7 +5162,6 @@
   },
   {
     "id": "rotala-macrandra-japan-red",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/156654378/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/156654385/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/156654391/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/156654395/large.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Rotala_macrandra_%288583650062%29.jpg/1280px-Rotala_macrandra_%288583650062%29.jpg"],
     "commonName": "Rotala macrandra 'Japan Red'",
     "scientificName": "Rotala macrandra 'Japan Red'",
     "type": "stem",
@@ -5250,7 +5181,6 @@
   },
   {
     "id": "ludwigia-palustris-mini-super-red",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Starr_070515-7067_Ludwigia_palustris.jpg/1280px-Starr_070515-7067_Ludwigia_palustris.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/183996735/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/196044131/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/183996716/large.jpeg","https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Starr_070515-7066_Ludwigia_palustris.jpg/1280px-Starr_070515-7066_Ludwigia_palustris.jpg"],
     "commonName": "Ludwigia 'Mini Super Red'",
     "scientificName": "Ludwigia palustris 'Mini Super Red'",
     "type": "stem",
@@ -5270,7 +5200,6 @@
   },
   {
     "id": "rotala-rotundifolia-red",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/33791619/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/33791610/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/5622261/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/22989946/large.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Rotala_rotundifolia.jpg/1280px-Rotala_rotundifolia.jpg"],
     "commonName": "Rotala rotundifolia 'Red'",
     "scientificName": "Rotala rotundifolia 'Red'",
     "type": "stem",
@@ -5290,7 +5219,7 @@
   },
   {
     "id": "anubias-caladiifolia",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/7/7b/Anubias_barteri_var_glabra.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/1476325/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/28728837/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/28729029/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/28728906/large.jpg"],
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Anubias_barteri_var_caladiifolia_kz01.jpg/1280px-Anubias_barteri_var_caladiifolia_kz01.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/1476325/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/28728837/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/28729029/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/28728906/large.jpg"],
     "commonName": "Anubias caladiifolia",
     "scientificName": "Anubias barteri var. caladiifolia",
     "type": "rhizome",
@@ -5330,7 +5259,6 @@
   },
   {
     "id": "anubias-stardust",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/7/7b/Anubias_barteri_var_glabra.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/1476325/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/28728837/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/28729029/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/28728906/large.jpg"],
     "commonName": "Anubias 'Stardust'",
     "scientificName": "Anubias barteri var. nana 'Stardust'",
     "type": "rhizome",
@@ -5407,7 +5335,6 @@
   },
   {
     "id": "anubias-eyes",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/7/7b/Anubias_barteri_var_glabra.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/1476325/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/28728837/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/28729029/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/28728906/large.jpg"],
     "commonName": "Anubias 'Eyes'",
     "scientificName": "Anubias barteri var. nana 'Eyes'",
     "type": "rhizome",
@@ -5546,7 +5473,6 @@
   },
   {
     "id": "hygrophila-guianensis",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/8/86/Hygrophila_costata_poster_Uruguay.jpg","https://upload.wikimedia.org/wikipedia/commons/6/6e/Hygrophila_guianensis-_Soriano%2C_Palmar%2C_Pajonal_al_margen_del_R%C3%ADo_Negro_2.jpg","https://upload.wikimedia.org/wikipedia/commons/5/54/Hygrophila_guianensis-_Soriano%2C_Palmar%2C_Pajonal_al_margen_del_R%C3%ADo_Negro_4.jpg","https://upload.wikimedia.org/wikipedia/commons/c/c7/Hygrophila_guianensis-_Soriano%2C_Palmar%2C_Pajonal_al_margen_del_R%C3%ADo_Negro.JPG","https://upload.wikimedia.org/wikipedia/commons/f/f5/Hygrophila_guianensis_poster_Uruguay.jpg"],
     "commonName": "Hygrophila guianensis",
     "scientificName": "Hygrophila guianensis",
     "type": "stem",
@@ -5566,7 +5492,6 @@
   },
   {
     "id": "hygrophila-costata",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/609267965/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/110399154/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/180229181/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/178488022/large.jpeg","https://upload.wikimedia.org/wikipedia/commons/8/86/Hygrophila_costata_poster_Uruguay.jpg"],
     "commonName": "Hygrophila costata",
     "scientificName": "Hygrophila costata",
     "type": "stem",
@@ -5765,6 +5690,7 @@
   },
   {
     "id": "hydrothrix-gardneri",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Hydrothrix_gardneri.jpg/1280px-Hydrothrix_gardneri.jpg"],
     "commonName": "Hydrothrix",
     "scientificName": "Hydrothrix gardneri",
     "type": "stem",
@@ -5883,7 +5809,6 @@
   },
   {
     "id": "echinodorus-tenellus",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/4/4f/Echinodorus_tenellus_BB-1913.jpg","https://upload.wikimedia.org/wikipedia/commons/f/f9/Echinodorus_tenellus_Bl%C3%BCtendiagramm.png","https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Neocaridina_heteropoda%2C_Danio_margaritatus%2C_Echinodorus_tenellus.jpg/1280px-Neocaridina_heteropoda%2C_Danio_margaritatus%2C_Echinodorus_tenellus.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Neocaridina_heteropoda%2C_Echinodorus_tenellus_b.jpg/1280px-Neocaridina_heteropoda%2C_Echinodorus_tenellus_b.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Neocaridina_heteropoda%2C_Echinodorus_tenellus.jpg/1280px-Neocaridina_heteropoda%2C_Echinodorus_tenellus.jpg"],
     "commonName": "Pygmy chain sword (Echinodorus)",
     "scientificName": "Echinodorus tenellus",
     "type": "rosette",

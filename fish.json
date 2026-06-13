@@ -517,6 +517,7 @@
   },
   {
     "id": "queen-arabesque-pleco",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Hypancistrus_zebra4305.jpg/1280px-Hypancistrus_zebra4305.jpg"],
     "waterType": "freshwater",
     "tankRegion": "bottom",
     "lifeExpectancyYears": 10,
@@ -1484,6 +1485,7 @@
   },
   {
     "id": "bristlenose-pleco",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Ancistrus_sp._%28aka%29.jpg/1280px-Ancistrus_sp._%28aka%29.jpg"],
     "waterType": "freshwater",
     "tankRegion": "bottom",
     "lifeExpectancyYears": 7,
@@ -1515,6 +1517,7 @@
   },
   {
     "id": "otocinclus",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/a/ad/Otocinclus_cocama.jpg"],
     "waterType": "freshwater",
     "tankRegion": "bottom",
     "lifeExpectancyYears": 5,
@@ -1709,7 +1712,7 @@
   },
   {
     "id": "endlicheri-bichir",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Polypterus_endlicheri_Map.jpg/1280px-Polypterus_endlicheri_Map.jpg","https://upload.wikimedia.org/wikipedia/commons/f/f0/Polypterus_endlicherii.jpg","https://upload.wikimedia.org/wikipedia/commons/a/a7/Polypterus_endlicheri_endlicheri.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Polypterus_endlicheri_congicus_-_Royal_Museum_for_Central_Africa_-_DSC06864.JPG/1280px-Polypterus_endlicheri_congicus_-_Royal_Museum_for_Central_Africa_-_DSC06864.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/%E8%99%8E%E6%96%91%E6%81%90%E9%BE%8D_Polypterus_endlicheri_-_panoramio.jpg/1280px-%E8%99%8E%E6%96%91%E6%81%90%E9%BE%8D_Polypterus_endlicheri_-_panoramio.jpg"],
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/f/f0/Polypterus_endlicherii.jpg","https://upload.wikimedia.org/wikipedia/commons/f/f0/Polypterus_endlicherii.jpg","https://upload.wikimedia.org/wikipedia/commons/a/a7/Polypterus_endlicheri_endlicheri.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Polypterus_endlicheri_congicus_-_Royal_Museum_for_Central_Africa_-_DSC06864.JPG/1280px-Polypterus_endlicheri_congicus_-_Royal_Museum_for_Central_Africa_-_DSC06864.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/%E8%99%8E%E6%96%91%E6%81%90%E9%BE%8D_Polypterus_endlicheri_-_panoramio.jpg/1280px-%E8%99%8E%E6%96%91%E6%81%90%E9%BE%8D_Polypterus_endlicheri_-_panoramio.jpg"],
     "waterType": "freshwater",
     "tankRegion": "bottom",
     "lifeExpectancyYears": 10,
@@ -1773,7 +1776,7 @@
   },
   {
     "id": "polli-bichir",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Polypterus_polli_Map.jpg/1280px-Polypterus_polli_Map.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Polypterus_palmas_polli-Mus%C3%A9e_royal_de_l%27Afrique_centrale.jpg/1280px-Polypterus_palmas_polli-Mus%C3%A9e_royal_de_l%27Afrique_centrale.jpg"],
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/53146355/large.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Polypterus_palmas_polli-Mus%C3%A9e_royal_de_l%27Afrique_centrale.jpg/1280px-Polypterus_palmas_polli-Mus%C3%A9e_royal_de_l%27Afrique_centrale.jpg"],
     "waterType": "freshwater",
     "tankRegion": "bottom",
     "lifeExpectancyYears": 10,
@@ -1869,7 +1872,6 @@
   },
   {
     "id": "retropinnis-bichir",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Polypterus_retropinnis_map.jpg/1280px-Polypterus_retropinnis_map.jpg"],
     "waterType": "freshwater",
     "tankRegion": "bottom",
     "lifeExpectancyYears": 8,
@@ -1901,7 +1903,6 @@
   },
   {
     "id": "ansorgii-bichir",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/e/ef/Polypterus_ansorgii.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Polypterus_ansorgii_Map.jpg/1280px-Polypterus_ansorgii_Map.jpg"],
     "waterType": "freshwater",
     "tankRegion": "bottom",
     "lifeExpectancyYears": 10,
@@ -1933,7 +1934,7 @@
   },
   {
     "id": "nile-bichir",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/e/e8/Nile_bichir.png","https://inaturalist-open-data.s3.amazonaws.com/photos/386039518/large.jpeg","https://upload.wikimedia.org/wikipedia/commons/e/e3/Bichir_Polypterus_senegalus.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Polypterus_bichir.jpg/1280px-Polypterus_bichir.jpg","https://upload.wikimedia.org/wikipedia/commons/8/86/FMIB_51696_Shoulder-girdle_of_Polypterus_bichir_Specimen_from_the_White_Nile.jpeg"],
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/e/e3/Bichir_Polypterus_senegalus.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/386039518/large.jpeg","https://upload.wikimedia.org/wikipedia/commons/e/e3/Bichir_Polypterus_senegalus.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Polypterus_bichir.jpg/1280px-Polypterus_bichir.jpg","https://upload.wikimedia.org/wikipedia/commons/8/86/FMIB_51696_Shoulder-girdle_of_Polypterus_bichir_Specimen_from_the_White_Nile.jpeg"],
     "waterType": "freshwater",
     "tankRegion": "bottom",
     "lifeExpectancyYears": 10,
@@ -8201,6 +8202,7 @@
   },
   {
     "id": "sunshine-pleco",
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/359882167/original.jpeg"],
     "commonName": "Sunshine pleco",
     "scientificName": "Scobinancistrus aureatus",
     "adultSizeCm": 30,
@@ -8582,6 +8584,7 @@
   },
   {
     "id": "weitzmani-cory",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Callichthyidae_Corydoras_weitzmani_1.jpg/1280px-Callichthyidae_Corydoras_weitzmani_1.jpg"],
     "commonName": "Two-saddle cory",
     "scientificName": "Corydoras weitzmani",
     "adultSizeCm": 6,
@@ -9198,6 +9201,7 @@
   },
   {
     "id": "socolofs-tetra",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Hyphessobrycon_socolofi.jpg/1280px-Hyphessobrycon_socolofi.jpg"],
     "commonName": "Socolof's tetra",
     "scientificName": "Hyphessobrycon socolofi",
     "adultSizeCm": 5.5,
@@ -9258,6 +9262,7 @@
   },
   {
     "id": "loreto-tetra",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/d/d8/Hyphessobrycon_loretoensis_illustration.png"],
     "commonName": "Loreto tetra",
     "scientificName": "Hyphessobrycon loretoensis",
     "adultSizeCm": 2.7,
@@ -9347,6 +9352,7 @@
   },
   {
     "id": "red-base-tetra",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Hemigrammus_stictus.jpg/1280px-Hemigrammus_stictus.jpg"],
     "commonName": "Red-base tetra",
     "scientificName": "Hemigrammus stictus",
     "adultSizeCm": 6.0,
@@ -10336,7 +10342,6 @@
   },
   {
     "id": "pygmy-hatchetfish",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/75493294/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/139859829/large.jpg","https://upload.wikimedia.org/wikipedia/commons/4/44/Carnegiella_myersi.jpg"],
     "commonName": "Pygmy hatchetfish",
     "scientificName": "Carnegiella myersi",
     "adultSizeCm": 2.5,
@@ -10969,7 +10974,6 @@
   },
   {
     "id": "wimple-piranha",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/1/1f/Catoprion_mento.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/53592630/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/111209152/large.jpg","https://upload.wikimedia.org/wikipedia/commons/7/7b/Catoprion_mento1.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Catoprion_mento_%28juvenile%29.jpeg/1280px-Catoprion_mento_%28juvenile%29.jpeg"],
     "commonName": "Wimple piranha",
     "scientificName": "Catoprion mento",
     "adultSizeCm": 15.0,
@@ -11145,7 +11149,6 @@
   },
   {
     "id": "spotted-piranha",
-    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/227333825/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/59924296/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/9246527/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/9246530/large.jpeg","https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Serrasalmus_maculatus.png/1280px-Serrasalmus_maculatus.png"],
     "commonName": "Spotted piranha",
     "scientificName": "Serrasalmus maculatus",
     "adultSizeCm": 21.0,
@@ -12073,7 +12076,7 @@
   },
   {
     "id": "greater-scissortail-rasbora",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Rasbora_caudimaculata.jpg/1280px-Rasbora_caudimaculata.jpg"],
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/663437037/large.jpg"],
     "commonName": "Greater scissortail rasbora",
     "scientificName": "Rasbora caudimaculata",
     "adultSizeCm": 15.0,
@@ -13112,6 +13115,7 @@
   },
   {
     "id": "napo-cory",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Corydoras_napoensis.jpg/1280px-Corydoras_napoensis.jpg"],
     "commonName": "Napo cory",
     "scientificName": "Corydoras napoensis",
     "adultSizeCm": 5,
@@ -13261,6 +13265,7 @@
   },
   {
     "id": "pulcher-cory",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/2/24/Corydoras_pulcher.jpg"],
     "commonName": "Pulcher cory",
     "scientificName": "Corydoras pulcher",
     "adultSizeCm": 6,
@@ -13640,6 +13645,7 @@
   },
   {
     "id": "delphax-cory",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/a/ae/Corydoras_delphax.jpg"],
     "commonName": "Delphax cory",
     "scientificName": "Corydoras delphax",
     "adultSizeCm": 6,
@@ -13664,6 +13670,7 @@
   },
   {
     "id": "dwarf-aspidoras",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/c/cd/Aspidoras_pauciradiatus_3_DSC_0908.jpg"],
     "commonName": "Dwarf aspidoras",
     "scientificName": "Aspidoras pauciradiatus",
     "adultSizeCm": 3.5,
@@ -14260,7 +14267,7 @@
   },
   {
     "id": "starlight-bristlenose-pleco",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ancistrus_dolichopterus_Kner%2C_1854_type.jpg/1280px-Ancistrus_dolichopterus_Kner%2C_1854_type.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Ancistrus_dolichopterus_%28Wroclaw_zoo%29.JPG/1280px-Ancistrus_dolichopterus_%28Wroclaw_zoo%29.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Antennenwels_auf_einer_Kokusnussschale_Ancistrus_dolichopterus_P1010134.JPG/1280px-Antennenwels_auf_einer_Kokusnussschale_Ancistrus_dolichopterus_P1010134.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Antennenwels_auf_einer_Kokosnussschale_Ancistrus_dolichopterus_P1010134-1.jpg/1280px-Antennenwels_auf_einer_Kokosnussschale_Ancistrus_dolichopterus_P1010134-1.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Ancistrus_sp._--_NOT_dolichopterus_--_male.jpg/1280px-Ancistrus_sp._--_NOT_dolichopterus_--_male.jpg"],
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Ancistrus_dolichopterus_%28Wroclaw_zoo%29.JPG/1280px-Ancistrus_dolichopterus_%28Wroclaw_zoo%29.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Ancistrus_dolichopterus_%28Wroclaw_zoo%29.JPG/1280px-Ancistrus_dolichopterus_%28Wroclaw_zoo%29.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Antennenwels_auf_einer_Kokusnussschale_Ancistrus_dolichopterus_P1010134.JPG/1280px-Antennenwels_auf_einer_Kokusnussschale_Ancistrus_dolichopterus_P1010134.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Antennenwels_auf_einer_Kokosnussschale_Ancistrus_dolichopterus_P1010134-1.jpg/1280px-Antennenwels_auf_einer_Kokosnussschale_Ancistrus_dolichopterus_P1010134-1.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Ancistrus_sp._--_NOT_dolichopterus_--_male.jpg/1280px-Ancistrus_sp._--_NOT_dolichopterus_--_male.jpg"],
     "commonName": "Starlight bristlenose pleco",
     "scientificName": "Ancistrus dolichopterus",
     "adultSizeCm": 20,
@@ -15980,6 +15987,7 @@
   },
   {
     "id": "neon-goby",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Stiphodon_ornatus.jpg/1280px-Stiphodon_ornatus.jpg"],
     "commonName": "Neon goby",
     "scientificName": "Stiphodon ornatus",
     "adultSizeCm": 8,
@@ -16257,6 +16265,7 @@
   },
   {
     "id": "ogoue-killifish",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Aphyosemion_ogoense.png/1280px-Aphyosemion_ogoense.png"],
     "commonName": "Ogowe killifish",
     "scientificName": "Aphyosemion ogoense",
     "adultSizeCm": 5,
@@ -16587,6 +16596,7 @@
   },
   {
     "id": "red-chinned-panchax",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/1/14/Epiplatys_dageti.jpg"],
     "commonName": "Red-chinned panchax",
     "scientificName": "Epiplatys dageti",
     "adultSizeCm": 6,
@@ -16611,6 +16621,7 @@
   },
   {
     "id": "six-barred-panchax",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Epiplatys_sexfasciatus_togolensis.jpg/1280px-Epiplatys_sexfasciatus_togolensis.jpg"],
     "commonName": "Six-barred panchax",
     "scientificName": "Epiplatys sexfasciatus",
     "adultSizeCm": 12,
@@ -16740,6 +16751,7 @@
   },
   {
     "id": "large-lampeye",
+    "images": ["https://data.nhm.ac.uk/media/306e874c-0cd6-43a7-b42f-f78a9a988742"],
     "commonName": "Large lampeye",
     "scientificName": "Procatopus nototaenia",
     "adultSizeCm": 6.0,
@@ -17823,6 +17835,7 @@
   },
   {
     "id": "celebes-halfbeak",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Nomorhamphus_liemi_liemi_%28Worclaw_zoo%29-1.JPG/1280px-Nomorhamphus_liemi_liemi_%28Worclaw_zoo%29-1.JPG"],
     "commonName": "Celebes halfbeak",
     "scientificName": "Nomorhamphus liemi",
     "adultSizeCm": 9,
@@ -18424,7 +18437,6 @@
   },
   {
     "id": "spiketail-paradisefish",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/9/9d/Pseudosphromenus_cupanus_Day.png","https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Pseudosphromenus_cupanus_209937000.jpg/1280px-Pseudosphromenus_cupanus_209937000.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Pseudosphromenus_cupanus_map.jpg/1280px-Pseudosphromenus_cupanus_map.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Pseudosphromenus_cupanus_Map.jpg/1280px-Pseudosphromenus_cupanus_Map.jpg","https://upload.wikimedia.org/wikipedia/commons/2/29/Pseudosphromenus_cupanus_32279977.jpg"],
     "commonName": "Spiketail paradisefish",
     "scientificName": "Pseudosphromenus cupanus",
     "adultSizeCm": 7,
@@ -18662,6 +18674,7 @@
   },
   {
     "id": "brunei-beauty-betta",
+    "images": ["https://data.nhm.ac.uk/media/3884dbb0-77f9-4587-b203-0e9594d18a96"],
     "commonName": "Brunei beauty",
     "scientificName": "Betta macrostoma",
     "adultSizeCm": 10,
@@ -19388,6 +19401,7 @@
   },
   {
     "id": "blue-eyed-cichlid",
+    "images": ["https://live.staticflickr.com/65535/49573645636_4fe34106bc_b.jpg"],
     "commonName": "Blue-eyed cichlid",
     "scientificName": "Cryptoheros spilurus",
     "adultSizeCm": 12,
@@ -20117,7 +20131,7 @@
   },
   {
     "id": "altifrons-eartheater",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Geophagus_altifrons_%28Manaos%2C_Brazil%2C_15_November_1865%29.jpg/1280px-Geophagus_altifrons_%28Manaos%2C_Brazil%2C_15_November_1865%29.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/169568077/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/196915077/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/196915082/large.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Geophagus_altifrons_3.jpg/1280px-Geophagus_altifrons_3.jpg"],
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/169568077/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/169568077/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/196915077/large.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/196915082/large.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Geophagus_altifrons_3.jpg/1280px-Geophagus_altifrons_3.jpg"],
     "commonName": "Altifrons eartheater",
     "scientificName": "Geophagus altifrons",
     "adultSizeCm": 22,
@@ -20301,6 +20315,7 @@
   },
   {
     "id": "three-spot-eartheater",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Satanoperca_daemon_205600127.jpg/1280px-Satanoperca_daemon_205600127.jpg"],
     "commonName": "Three-spot eartheater",
     "scientificName": "Satanoperca daemon",
     "adultSizeCm": 26,
@@ -20538,6 +20553,7 @@
   },
   {
     "id": "sphenozona-cichlid",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/7/77/Guianacara_sphenozona_%286260217551%29.jpg"],
     "commonName": "Sphenozona cichlid",
     "scientificName": "Guianacara sphenozona",
     "adultSizeCm": 13,
@@ -20589,7 +20605,7 @@
   },
   {
     "id": "coeruleopunctatus-acara",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Andinoacara_coeruleopunctatus_302144953.jpg/1280px-Andinoacara_coeruleopunctatus_302144953.jpg","https://inaturalist-open-data.s3.amazonaws.com/photos/177067102/large.jpeg","https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Andinoacara_coeruleopunctatus_206733047.jpg/1280px-Andinoacara_coeruleopunctatus_206733047.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Andinoacara_coeruleopunctatus_245166536.jpg/1280px-Andinoacara_coeruleopunctatus_245166536.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Andinoacara_coeruleopunctatus_252994417.jpg/1280px-Andinoacara_coeruleopunctatus_252994417.jpg"],
+    "images": ["https://inaturalist-open-data.s3.amazonaws.com/photos/177067102/large.jpeg","https://inaturalist-open-data.s3.amazonaws.com/photos/177067102/large.jpeg","https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Andinoacara_coeruleopunctatus_206733047.jpg/1280px-Andinoacara_coeruleopunctatus_206733047.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Andinoacara_coeruleopunctatus_245166536.jpg/1280px-Andinoacara_coeruleopunctatus_245166536.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Andinoacara_coeruleopunctatus_252994417.jpg/1280px-Andinoacara_coeruleopunctatus_252994417.jpg"],
     "commonName": "Blue-spotted acara",
     "scientificName": "Andinoacara coeruleopunctatus",
     "adultSizeCm": 20,
@@ -20640,6 +20656,7 @@
   },
   {
     "id": "diadema-acara",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/2/2a/Aequidens_Diadema_pair.jpg"],
     "commonName": "Royal acara",
     "scientificName": "Aequidens diadema",
     "adultSizeCm": 15,
@@ -20899,7 +20916,6 @@
   },
   {
     "id": "ringtail-pike-cichlid",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/5/5b/PSM_V68_D531_Crenicichla_saxatilis_of_the_chiclidae.png","https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Crenicichla_saxatilis_%28Tajapuru%2C_Brazil%2C_21_August_1865%29.jpg/1280px-Crenicichla_saxatilis_%28Tajapuru%2C_Brazil%2C_21_August_1865%29.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Crenicichla_saxatilis_%28Teffe%2C_Brazil%2C_10_October_1865%29.jpg/1280px-Crenicichla_saxatilis_%28Teffe%2C_Brazil%2C_10_October_1865%29.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Crenicichla_saxatilis_%28Teffe%2C_Brazil%2C_17_October_1865%29.jpg/1280px-Crenicichla_saxatilis_%28Teffe%2C_Brazil%2C_17_October_1865%29.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Crenicichla_saxatilis_%28Lake_January%2C_Brazil%2C_16_November_1865%29.jpg/1280px-Crenicichla_saxatilis_%28Lake_January%2C_Brazil%2C_16_November_1865%29.jpg"],
     "commonName": "Ringtail pike cichlid",
     "scientificName": "Crenicichla saxatilis",
     "adultSizeCm": 22,
@@ -21445,6 +21461,7 @@
   },
   {
     "id": "hoignei-apisto",
+    "images": ["https://images.phylopic.org/images/786b8f85-7ce3-4f92-b04a-ab3fe9a2d8e4/source.svg"],
     "commonName": "Hoignei apisto",
     "scientificName": "Apistogramma hoignei",
     "adultSizeCm": 7,
@@ -23568,6 +23585,7 @@
   },
   {
     "id": "ocellated-kribensis",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Pelvicachromis_subocellatus_Moulondo_female.jpg/1280px-Pelvicachromis_subocellatus_Moulondo_female.jpg"],
     "commonName": "Ocellated kribensis",
     "scientificName": "Pelvicachromis subocellatus",
     "adultSizeCm": 8,
@@ -24149,6 +24167,7 @@
   },
   {
     "id": "turgidus-puffer",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Pao_turgidus.png/1280px-Pao_turgidus.png"],
     "commonName": "Target Puffer",
     "scientificName": "Pao turgidus",
     "adultSizeCm": 18,
@@ -24260,7 +24279,6 @@
   },
   {
     "id": "striped-redeye-puffer",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Carinotetraodon_salivator_map.jpg/1280px-Carinotetraodon_salivator_map.jpg"],
     "commonName": "Striped Red-Eye Puffer",
     "scientificName": "Carinotetraodon salivator",
     "adultSizeCm": 5,
@@ -25759,7 +25777,6 @@
   },
   {
     "id": "firecracker-cichlid",
-    "images": ["https://upload.wikimedia.org/wikipedia/commons/3/35/Telmatochromis_temporalis.jpg"],
     "commonName": "Firecracker Cichlid",
     "scientificName": "Telmatochromis temporalis",
     "adultSizeCm": 10,
@@ -26404,6 +26421,7 @@
   },
   {
     "id": "steindachner-apisto",
+    "images": ["https://upload.wikimedia.org/wikipedia/commons/4/4d/Apistogramma_steindachneri_Armbruster.jpg"],
     "commonName": "Steindachner's Dwarf Cichlid",
     "scientificName": "Apistogramma steindachneri",
     "adultSizeCm": 7,
