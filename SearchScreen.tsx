@@ -14,6 +14,7 @@ import { FishImage } from "./FishImage";
 import { COLORS } from "./fishDisplay";
 import { useNav } from "./NavContext";
 import { FilterSheet } from "./FilterSheet";
+import { EmptyResults } from "./EmptyResults";
 import {
   CATEGORIES,
   CategoryId,
@@ -364,7 +365,25 @@ export default function SearchScreen() {
       stickySectionHeadersEnabled={false}
       keyboardShouldPersistTaps="handled"
       ListHeaderComponent={header}
-      ListEmptyComponent={<Text style={styles.noResults}>No fish found</Text>}
+      ListEmptyComponent={
+        <EmptyResults
+          icon="🔍"
+          message={
+            query.trim()
+              ? `No fish match “${query.trim()}”`
+              : "No fish match these filters"
+          }
+          onClear={
+            query.trim() || activeCount > 0 || fitsOnly
+              ? () => {
+                  setQuery("");
+                  setFilters({});
+                  setFitsOnly(false);
+                }
+              : undefined
+          }
+        />
+      }
       renderSectionHeader={({ section }) => (
         <Text style={styles.sectionHeader}>{section.key}</Text>
       )}
@@ -527,12 +546,6 @@ const styles = StyleSheet.create({
   },
   sortChipTextActive: {
     color: "white",
-  },
-  noResults: {
-    color: COLORS.placeholder,
-    fontSize: 15,
-    fontStyle: "italic",
-    paddingVertical: 12,
   },
   sectionHeader: {
     color: COLORS.accent,

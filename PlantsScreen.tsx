@@ -14,6 +14,7 @@ import { Counter } from "./Counter";
 import { FishImage } from "./FishImage";
 import { COLORS } from "./fishDisplay";
 import { FilterSheet } from "./FilterSheet";
+import { EmptyResults } from "./EmptyResults";
 import {
   countActivePlantFilters,
   matchesPlantFilters,
@@ -344,7 +345,23 @@ export default function PlantsScreen() {
         keyboardShouldPersistTaps="handled"
         ListHeaderComponent={header}
         ListEmptyComponent={
-          <Text style={styles.noResults}>No plants found</Text>
+          <EmptyResults
+            icon="🔍"
+            message={
+              query.trim()
+                ? `No plants match “${query.trim()}”`
+                : "No plants match these filters"
+            }
+            onClear={
+              query.trim() || activeFilterCount > 0 || suitsOnly
+                ? () => {
+                    setQuery("");
+                    setFilters({});
+                    setSuitsOnly(false);
+                  }
+                : undefined
+            }
+          />
         }
         renderSectionHeader={({ section }) => (
           <Text style={styles.sectionHeader}>{section.key}</Text>
@@ -503,12 +520,6 @@ const styles = StyleSheet.create({
   },
   sortChipTextActive: {
     color: "white",
-  },
-  noResults: {
-    color: COLORS.placeholder,
-    fontSize: 15,
-    fontStyle: "italic",
-    paddingVertical: 12,
   },
   sectionHeader: {
     color: COLORS.accent,
