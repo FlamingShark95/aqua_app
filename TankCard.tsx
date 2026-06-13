@@ -15,6 +15,7 @@ import {
 } from "./rules";
 import { Counter } from "./Counter";
 import { FishImage } from "./FishImage";
+import { TankShareCard } from "./TankShareCard";
 import { COLORS } from "./fishDisplay";
 import { useNav } from "./NavContext";
 import {
@@ -74,6 +75,7 @@ export function TankCard({ tank }: { tank: Tank }) {
   const meterColor = pct > 100 ? COLORS.red : pct > 85 ? COLORS.yellow : COLORS.green;
 
   const [editing, setEditing] = useState(false);
+  const [sharing, setSharing] = useState(false);
   // Edit fields are strings in the active unit system.
   const [name, setName] = useState(tank.name);
   const [volume, setVolume] = useState("");
@@ -324,10 +326,17 @@ export function TankCard({ tank }: { tank: Tank }) {
         <Pressable onPress={() => suggestFishForTank(tank.id)} hitSlop={8}>
           <Text style={styles.suggestText}>Suggest fish</Text>
         </Pressable>
+        <Pressable onPress={() => setSharing(true)} hitSlop={8}>
+          <Text style={styles.shareText}>Share</Text>
+        </Pressable>
         <Pressable onPress={() => deleteTank(tank.id)} hitSlop={8}>
           <Text style={styles.deleteText}>Delete tank</Text>
         </Pressable>
       </View>
+
+      {sharing && (
+        <TankShareCard tank={tank} onClose={() => setSharing(false)} />
+      )}
     </Pressable>
   );
 }
@@ -498,6 +507,11 @@ const styles = StyleSheet.create({
   },
   suggestText: {
     color: COLORS.accent,
+    fontSize: 13,
+    fontWeight: "bold",
+  },
+  shareText: {
+    color: COLORS.link,
     fontSize: 13,
     fontWeight: "bold",
   },
