@@ -45,6 +45,24 @@ export function canEat(predator: Fish, prey: Fish): boolean {
   );
 }
 
+// Suckermouth/algae-grazing herbivores that are plant-SAFE — kept in planted
+// tanks precisely because they clean algae without shredding plants. Excluded
+// from the plant-eater warning so it stays trustworthy (an oto flagged as a
+// plant-eater is just wrong). Matched on common+scientific name since the
+// catalog has no family field.
+const ALGAE_GRAZER =
+  /pleco|otocinclus|\boto\b|loricaria|farlowella|whiptail|bristlenose|ancistrus|hillstream|butterfly loach|borneo loach|siamese algae|twig catfish/i;
+
+// Will this fish damage live plants? The catalog only records `diet`, so the
+// defensible signal is a dedicated herbivore that ISN'T an algae-grazer —
+// those graze vegetation and shred or uproot soft plants. Omnivores are not
+// flagged: most community fish are omnivores and live fine in planted tanks,
+// so flagging them would be noise. Advisory only.
+export function eatsPlants(fish: Fish): boolean {
+  if (fish.diet !== "herbivore") return false;
+  return !ALGAE_GRAZER.test(`${fish.commonName} ${fish.scientificName}`);
+}
+
 // One fish vs a tank's environment: water volume, floor footprint,
 // temperature and pH. Count-independent — true no matter how many are kept.
 // Comparisons stay in canonical metric. This is the single source of truth
@@ -270,6 +288,18 @@ export function checkTank(
   // Each plant vs the tank's light and water.
   for (const { plant } of plantGroups) {
     warnings.push(...plantWarnings(plant, tank, system));
+  }
+
+  // Herbivores in a planted tank: one warning per plant-eating species (not
+  // per plant), since the concern is the fish, not which plant.
+  if (plantGroups.length > 0) {
+    for (const { fish } of groups) {
+      if (eatsPlants(fish)) {
+        warnings.push(
+          `${fish.commonName} is a herbivore and may eat or uproot your plants`
+        );
+      }
+    }
   }
 
   // Bioload: effective litres used (less the plant credit) vs available.

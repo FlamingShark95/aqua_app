@@ -11,6 +11,7 @@ const require = createRequire(import.meta.url);
 const {
   PREDATION_RATIO,
   canEat,
+  eatsPlants,
   resolveStock,
   environmentIssues,
   fishEnvironmentWarnings,
@@ -433,6 +434,62 @@ test("checkTank: plant warnings and plant-adjusted bioload", () => {
   const warnings = checkTank(planted, "metric", catalog, plantCatalog);
   assert.equal(warnings.filter((w) => /overstocked/.test(w)).length, 0);
   assert.equal(warnings.filter((w) => /needs high light/.test(w)).length, 1);
+});
+
+test("eatsPlants: herbivores yes, omnivores/carnivores no", () => {
+  assert.equal(eatsPlants(makeFish({ commonName: "Silver dollar", diet: "herbivore" })), true);
+  assert.equal(eatsPlants(makeFish({ diet: "omnivore" })), false);
+  assert.equal(eatsPlants(makeFish({ diet: "carnivore" })), false);
+});
+
+test("eatsPlants: suckermouth algae-grazers are plant-safe, not flagged", () => {
+  // These are herbivores but kept *in* planted tanks to clean algae.
+  assert.equal(eatsPlants(makeFish({ commonName: "Bristlenose pleco", diet: "herbivore" })), false);
+  assert.equal(eatsPlants(makeFish({ commonName: "Otocinclus", diet: "herbivore" })), false);
+  assert.equal(
+    eatsPlants(makeFish({ commonName: "Siamese algae eater", scientificName: "Crossocheilus oblongus", diet: "herbivore" })),
+    false
+  );
+});
+
+test("checkTank: herbivore in a planted tank warns; omnivore and bare tank do not", () => {
+  const grazer = makeFish({ id: "silverdollar", commonName: "Silver dollar", diet: "herbivore" });
+  const community = makeFish({ id: "tetra", commonName: "Tetra", diet: "omnivore" });
+  const plant = makePlant({ id: "val" });
+  const catalog = catalogOf(grazer, community);
+  const plantCatalog = plantCatalogOf(plant);
+
+  // Herbivore + plants → exactly one plant-eating warning, naming the fish.
+  const planted = makeTank({
+    stock: [{ speciesId: "silverdollar", count: 1 }],
+    plants: [{ plantId: "val", count: 2 }],
+  });
+  const w = checkTank(planted, "metric", catalog, plantCatalog).filter((m) =>
+    /eat or uproot/.test(m)
+  );
+  assert.equal(w.length, 1);
+  assert.match(w[0], /herbivore/);
+
+  // Same herbivore, no plants → no plant-eating warning.
+  const bare = makeTank({ stock: [{ speciesId: "silverdollar", count: 1 }] });
+  assert.equal(
+    checkTank(bare, "metric", catalog, plantCatalogOf()).filter((m) =>
+      /eat or uproot/.test(m)
+    ).length,
+    0
+  );
+
+  // Omnivore + plants → no plant-eating warning.
+  const omni = makeTank({
+    stock: [{ speciesId: "tetra", count: 1 }],
+    plants: [{ plantId: "val", count: 2 }],
+  });
+  assert.equal(
+    checkTank(omni, "metric", catalog, plantCatalog).filter((m) =>
+      /eat or uproot/.test(m)
+    ).length,
+    0
+  );
 });
 
 test("score: region complement applies only when the tank has stock", () => {
